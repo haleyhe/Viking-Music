@@ -89,6 +89,8 @@ def processAlbumsForArtist(id):
     for album in albumResult['items']:
         print('\tProcessing Album ' + album['id'] + '...')
         result = {}
+        # get additional info with API call
+        album = spotify.album(album['id'])
         
         # basic info
         result['name'] = album['name']
@@ -96,7 +98,9 @@ def processAlbumsForArtist(id):
         result['artists'] = []
         for artist in album['artists']:
             result['artists'].append(artist['id'])
-        
+        result['release_date'] = album['release_date']
+        result['copyrights'] = album['copyrights'][0]['text']
+
         # images
         result['image_url'] = album['images'][0]['url']
         result['image_filepath'] = ALBUMS_IMAGES_FILEPATH + result['id'] + '.jpg'
