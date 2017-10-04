@@ -1,2 +1,5 @@
 .*
 !/.gitignore
+/BasicSpringProject/build/
+/BasicSpringProject/dist/
+/BasicSpringProject/nbproject/private/
