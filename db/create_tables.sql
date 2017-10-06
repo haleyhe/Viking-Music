@@ -63,11 +63,11 @@ CREATE TABLE IF NOT EXISTS concerts (
 CREATE TABLE IF NOT EXISTS concert_venues (
     venue_id VARCHAR(32),
     name VARCHAR(32),
-    address VARCHAR(256),
-    zip VARCHAR(10),
+    address_id VARCHAR(32),
     PRIMARY KEY (venue_id)
 );
 
+m
 CREATE TABLE IF NOT EXISTS concert_artists (
     concert_id VARCHAR(32),
     artist_id VARCHAR(32),
@@ -104,6 +104,14 @@ CREATE TABLE IF NOT EXISTS user_albums_saved (
     PRIMARY KEY (user_id, album_id)
 );
 
+CREATE TABLE IF NOT EXISTS user_songs_played (
+    user_id VARCHAR(32),
+    song_id VARCHAR(32),
+    date_played DATETIME,
+
+    PRIMARY KEY (user_id, song_id, date_played)
+);
+
 CREATE TABLE IF NOT EXISTS playlists (
     playlist_id VARCHAR(32),
     creator_id VARCHAR(32),
@@ -128,3 +136,43 @@ CREATE TABLE IF NOT EXISTS user_playlist_follows (
     playlist_id VARCHAR(32),
     PRIMARY KEY (user_id, playlist_id)
 );
+
+
+### PAYMENTS ###
+
+CREATE TABLE IF NOT EXISTS payments (
+    card_number VARCHAR(32),
+    name VARCHAR(64),
+    cvv VARCHAR(4),
+    expiration_date DATE,
+    company_id VARCHAR(32),
+    address_id VARCHAR(32),
+    phone_number VARCHAR(32),
+
+    PRIMARY KEY (card_number)
+);
+
+CREATE TABLE IF NOT EXISTS card_companies (
+    company_id VARCHAR(32),
+    company_name VARCHAR(32),
+
+    PRIMARY KEY (company_id)
+);
+
+CREATE TABLE IF NOT EXISTS address (
+    address_id VARCHAR(32),
+    street VARCHAR(32),
+    city VARCHAR(32),
+    state VARCHAR(2),
+    zip VARCHAR(10),
+
+    PRIMARY KEY (address_id)
+);
+
+CREATE TABLE IF NOT EXISTS user_payments (
+    user_id VARCHAR(32),
+    payment_id VARCHAR(32),
+
+    PRIMARY KEY (user_id, payment_id)
+);
+
