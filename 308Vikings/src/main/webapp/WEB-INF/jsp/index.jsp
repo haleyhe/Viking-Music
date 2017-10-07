@@ -10,5 +10,6 @@
 
     <body>
         <p>Hello World!</p>
+        <p>Did I get a database connection? ${result}</p>
     </body>
 </html>
