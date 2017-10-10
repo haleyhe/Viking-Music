@@ -82,6 +82,7 @@ CREATE TABLE IF NOT EXISTS users (
     zip VARCHAR(10),
     birth_date DATE,
     premium TINYINT,
+    admin TINYINT
 
     PRIMARY KEY (user_id)
 );
@@ -176,3 +177,40 @@ CREATE TABLE IF NOT EXISTS user_payments (
     PRIMARY KEY (user_id, payment_id)
 );
 
+### FOR REVENUE SUMMARIES ###
+
+CREATE TABLE IF NOT EXISTS revenue_summary_users (
+    payment_id VARCHAR(32),
+    payment_amount DECIMAL(10, 2),
+    date_paid DATE
+);
+
+CREATE TABLE IF NOT EXISTS revenue_summary_ads (
+    ad_id VARCHAR(32),
+    num_monthly_views INT,
+    payment_amount DECIMAL(10, 2),
+    date_paid DATE
+)
+
+CREATE TABLE IF NOT EXISTS revenue_summary_songs (
+    song_id VARCHAR(32),
+    num_monthly_plays INT,
+    payment_amount DECIMAL(10, 2),
+    date_paid DATE
+);
+
+### DB ACCESS TABLES ###
+
+CREATE TABLE IF NOT EXISTS db_users (
+    db_user_id VARCHAR(32),
+    hashed_password VARCHAR(256),
+    email_address VARCHAR(64),
+    request VARCHAR(512),
+    artist_id VARCHAR(32),
+    permission_artist TINYINT,
+    permission_album TINYINT,
+    permission_concert TINYINT,
+    approved TINYINT,
+
+    PRIMARY KEY (db_user_id)
+);
