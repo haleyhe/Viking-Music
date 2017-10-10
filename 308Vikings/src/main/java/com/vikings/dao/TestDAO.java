@@ -3,6 +3,7 @@ package com.vikings.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.vikings.dao.mapper.TestMapper;
+import com.vikings.domain.TestDomainObj;
 
 /**
  * Test DAO for database access.
@@ -20,6 +21,10 @@ public class TestDAO {
      */
     public boolean dbAliveTest() {
         return testMapper.dbAliveTest();
+    }
+    
+    public TestDomainObj getObj(String id)  {
+        return testMapper.getObj(id);
     }
     
 }

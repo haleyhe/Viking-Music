@@ -1,10 +1,12 @@
 package com.vikings.controller;
 
 import com.vikings.dao.TestDAO;
+import com.vikings.domain.TestDomainObj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Test controller
@@ -26,6 +28,13 @@ public class TestController {
         if (result)
             model.addAttribute("result", "Yes!");
         return "index";
+    }
+    
+    @GetMapping("/test/getObject/{id}")
+    public String testGetObject(@PathVariable String id, Model model) {
+        TestDomainObj result = testDAO.getObj(id);
+        model.addAttribute("result", result);
+        return "getObject";
     }
     
 }

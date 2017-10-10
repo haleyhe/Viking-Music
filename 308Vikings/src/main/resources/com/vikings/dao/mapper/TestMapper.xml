@@ -2,8 +2,22 @@
 <mapper namespace="com.vikings.dao.mapper.TestMapper">
     <cache />
     
+    <resultMap id="testDomainObjMap" type="TestDomainObj">
+        <id property="id" column="id" />
+        <result property="name" column="name"/>
+    </resultMap>
+    
     <select id="dbAliveTest" resultType="boolean">
         SELECT 1
+    </select>
+    
+    <select id="getObj" parameterType="String" resultType="TestDomainObj">
+        SELECT
+            test.id as "id",
+            test.name as "name"
+        FROM test
+        WHERE
+            test.id = #{id}
     </select>
     
 </mapper>
