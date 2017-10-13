@@ -67,7 +67,6 @@ CREATE TABLE IF NOT EXISTS concert_venues (
     PRIMARY KEY (venue_id)
 );
 
-m
 CREATE TABLE IF NOT EXISTS concert_artists (
     concert_id VARCHAR(32),
     artist_id VARCHAR(32),
@@ -82,7 +81,8 @@ CREATE TABLE IF NOT EXISTS users (
     zip VARCHAR(10),
     birth_date DATE,
     premium TINYINT,
-    admin TINYINT
+    admin TINYINT,
+    facebook_id VARCHAR(256),
 
     PRIMARY KEY (user_id)
 );
@@ -129,6 +129,7 @@ CREATE TABLE IF NOT EXISTS playlist_songs (
     playlist_id VARCHAR(32),
     song_id VARCHAR(32),
     track_number INT,
+    time_added DATE,
     PRIMARY KEY (playlist_id, track_number)
 );
 
@@ -143,21 +144,15 @@ CREATE TABLE IF NOT EXISTS user_playlist_follows (
 
 CREATE TABLE IF NOT EXISTS payments (
     card_number VARCHAR(32),
-    name VARCHAR(64),
+    first_name VARCHAR(64),
+    last_name VARCHAR(64),
     cvv VARCHAR(4),
     expiration_date DATE,
-    company_id VARCHAR(32),
+    company VARCHAR(64),
     address_id VARCHAR(32),
     phone_number VARCHAR(32),
 
     PRIMARY KEY (card_number)
-);
-
-CREATE TABLE IF NOT EXISTS card_companies (
-    company_id VARCHAR(32),
-    company_name VARCHAR(32),
-
-    PRIMARY KEY (company_id)
 );
 
 CREATE TABLE IF NOT EXISTS address (
@@ -190,7 +185,7 @@ CREATE TABLE IF NOT EXISTS revenue_summary_ads (
     num_monthly_views INT,
     payment_amount DECIMAL(10, 2),
     date_paid DATE
-)
+);
 
 CREATE TABLE IF NOT EXISTS revenue_summary_songs (
     song_id VARCHAR(32),
@@ -213,4 +208,11 @@ CREATE TABLE IF NOT EXISTS db_users (
     approved TINYINT,
 
     PRIMARY KEY (db_user_id)
+);
+
+### DEBUG ###
+
+CREATE TABLE IF NOT EXISTS  test (
+	id VARCHAR(256),
+    name VARCHAR(256)
 );
