@@ -1,3 +1,8 @@
 # Contains URIs for all Artists we wish to collect data for.
 # You can get the URI from the Spotify Artist Page.
 spotify:artist:3jOstUTkEu2JkjvRdBA5Gu
+spotify:artist:4OOlG5eBXSkSAAEeKjJb5Y
+spotify:artist:3kzwYV3OCB010YfXMF0Avt
+spotify:artist:2cCUtGK9sDU2EoElnk0GNB
+spotify:artist:5gspAQIAH8nJUrMYgXjCJ2
+spotify:artist:4wLIbcoqmqI4WZHDiBxeCB
