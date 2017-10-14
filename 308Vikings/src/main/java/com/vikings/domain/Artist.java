@@ -6,6 +6,7 @@ import java.util.List;
 public class Artist implements Serializable {
     String id;
     String name;
+    String bio;
     int followerCount;
     int playCount;
     List<String> genres;
@@ -32,6 +33,14 @@ public class Artist implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getBio() {
+        return bio;
+    }
+    
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 
     public int getFollowerCount() {

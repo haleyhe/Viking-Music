@@ -19,16 +19,16 @@ import requests
 from bs4 import BeautifulSoup
 
 # Filepath constants
-ARTISTS_FILEPATH = './data/artists/'
+ARTISTS_FILEPATH = './'
 ARTISTS_IMAGES_FILEPATH = ARTISTS_FILEPATH + 'images/'
 ARTISTS_JSON_FILEPATH = ARTISTS_FILEPATH + 'artists.json'
-ALBUMS_FILEPATH = './data/albums/'
+ALBUMS_FILEPATH = './'
 ALBUMS_IMAGES_FILEPATH = ALBUMS_FILEPATH + 'images/'
 ALBUMS_JSON_FILEPATH = ALBUMS_FILEPATH + 'albums.json'
-SONGS_FILEPATH = './data/songs/'
+SONGS_FILEPATH = './'
 SONGS_MP3_FILEPATH = SONGS_FILEPATH + 'mp3/'
 SONGS_JSON_FILEPATH = SONGS_FILEPATH + 'songs.json'
-GENRES_FILEPATH = './data/genres/'
+GENRES_FILEPATH = './'
 GENRES_JSON_FILEPATH = GENRES_FILEPATH + 'genres.json'
 
 # Spotify API authentication credentials -- replace with your own
@@ -53,7 +53,7 @@ ALBUMS_PER_ARTIST = 4
 # other settings
 DOWNLOAD_IMAGES = True
 DOWNLOAD_SONGS = False
-DOWNLOAD_LYRICS = False
+DOWNLOAD_LYRICS = True
 
 # Banned album words (so we only get one version of full albums)
 bannedWords = ['Deluxe', 'Expanded', 'Special', 'Edition', 'EP', 'Ep', 'Single', 'Live', 'Tour', 'Remastered', 'Spotify', 'Sessions']

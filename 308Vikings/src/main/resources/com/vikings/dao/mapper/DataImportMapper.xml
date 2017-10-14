@@ -1,0 +1,92 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.DataImportMapper">
+    <cache />
+    
+    <insert id="createArtist" parameterType="com.vikings.domain.Artist">
+        INSERT IGNORE INTO artists (
+            artist_id,
+            name,
+            bio
+        ) VALUES (
+            #{id},
+            #{name},
+            #{bio}
+        );
+    </insert>
+    
+    <insert id="createArtistGenres" parameterType="com.vikings.domain.Artist">
+        INSERT IGNORE INTO artist_genres (
+            artist_id,
+            genre
+        ) VALUES
+            <foreach item="genre" collection="genres" separator=",">
+                (#{id}, #{genre})
+            </foreach>
+        ;
+    </insert>
+    
+    <insert id="createAlbum" parameterType="com.vikings.domain.Album">
+        INSERT IGNORE INTO albums (
+            album_id,
+            name,
+            release_date
+        ) VALUES (
+            #{id},
+            #{name},
+            #{releaseDate}
+        );
+    </insert>
+    
+    <insert id="createAlbumArtists" parameterType="com.vikings.domain.Album">
+        INSERT IGNORE INTO album_artists (
+            artist_id,
+            album_id
+        ) VALUES
+            <foreach item="artist" collection="artists" separator=",">
+                (#{id}, #{artist.id})
+            </foreach>
+        ;
+    </insert>
+    
+    <insert id="createSong" parameterType="com.vikings.domain.Song">
+        INSERT IGNORE INTO songs (
+            song_id,
+            name,
+            duration,
+            explicit,
+            disc_number,
+            track_number,
+            lyrics
+        ) VALUES (
+            #{id},
+            #{name},
+            #{duration},
+            #{explicit},
+            #{discNumber},
+            #{trackNumber},
+            #{lyrics}
+        );
+    </insert>
+    
+    <insert id="createSongArtists" parameterType="com.vikings.domain.Song">
+        INSERT IGNORE INTO song_artists (
+            song_id,
+            artist_id
+        ) VALUES
+            <foreach item="artist" collection="artists" separator=",">
+                (#{id}, #{artist.id})
+            </foreach>
+        ;
+    </insert>
+    
+    <insert id="createSongAlbum" parameterType="com.vikings.domain.Song">
+        INSERT IGNORE INTO album_songs (
+            song_id,
+            album_id
+        ) VALUES (
+            #{id},
+            #{album.id}
+        );
+    </insert>
+    
+</mapper>

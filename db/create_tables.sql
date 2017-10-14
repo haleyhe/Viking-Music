@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS artists (
     artist_id VARCHAR(40),
     name VARCHAR(64),
     bio TEXT,
-    num_followers INT,
+    num_followers INT DEFAULT 0,
     PRIMARY KEY (artist_id)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS songs (
     disc_number INT,
     track_number INT,
     lyrics TEXT,
-    num_plays INT,
+    num_plays INT DEFAULT 0,
 
     PRIMARY KEY (song_id)
 );
