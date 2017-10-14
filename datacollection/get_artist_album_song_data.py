@@ -50,12 +50,19 @@ GENIUS_ACCESS_TOKEN = '5dEY76JPQ2Zker-heyhaPmS3wrEFWuEG5ouofdLL65WTK1ShB0O2vaTwQ
 # limit number of albums per artist
 ALBUMS_PER_ARTIST = 4
 
+# other settings
+DOWNLOAD_IMAGES = True
+DOWNLOAD_SONGS = False
+DOWNLOAD_LYRICS = False
+
 # Banned album words (so we only get one version of full albums)
 bannedWords = ['Deluxe', 'Expanded', 'Special', 'Edition', 'EP', 'Ep', 'Single', 'Live', 'Tour', 'Remastered', 'Spotify', 'Sessions']
 
 # Data structures for results
+foundArtistIds = []
 artists = {}
 artists['artists'] = []
+foundAlbumIds = []
 albums = {}
 albums['albums'] = []
 songs = {}
@@ -140,6 +147,9 @@ def getBio(artistName):
 
 # obtains info for Artist with the given Spotify ID
 def processArtist(id):
+    if id in foundArtistIds:
+        return
+    foundArtistIds.append(id)
     artist = spotify.artist(id)
     result = {}
 
@@ -157,7 +167,8 @@ def processArtist(id):
     result['image_url'] = artist['images'][0]['url']
     # save the Artist image locally
     result['image_filepath'] = ARTISTS_IMAGES_FILEPATH + id + '.jpg'
-    downloadFile(result['image_filepath'], result['image_url'])
+    if DOWNLOAD_IMAGES:
+        downloadFile(result['image_filepath'], result['image_url'])
     
     artists['artists'].append(result)
     return
@@ -170,8 +181,13 @@ def processAlbumsForArtist(id):
         if count == ALBUMS_PER_ARTIST:
             continue
         
+        # skip duplicates
+        if album['id'] in foundAlbumIds:
+            continue
+        
         print('\tProcessing Album ' + album['id'] + '...')
         result = {}
+        foundAlbumIds.append(album['id'])
         # get additional info with API call
         album = spotify.album(album['id'])
         
@@ -187,13 +203,17 @@ def processAlbumsForArtist(id):
         result['artists'] = []
         for artist in album['artists']:
             result['artists'].append(artist['id'])
+            if str(artist['id']) not in foundArtistIds:
+                print('\t\tRecursively searching for artist ' + artist['id'] + ' (' + artist['name'] + ')')
+                processArtist(artist['id'])
         result['release_date'] = album['release_date']
         result['copyrights'] = album['copyrights'][0]['text']
 
         # images
         result['image_url'] = album['images'][0]['url']
         result['image_filepath'] = ALBUMS_IMAGES_FILEPATH + result['id'] + '.jpg'
-        downloadFile(result['image_filepath'], result['image_url'])
+        if DOWNLOAD_IMAGES:
+            downloadFile(result['image_filepath'], result['image_url'])
         
         # Get songs for album
         processSongsForAlbum(result['id'])
@@ -225,10 +245,12 @@ def processSongsForAlbum(id):
         # song preview
         result['preview_url'] = track['preview_url']
         result['preview_filepath'] = SONGS_MP3_FILEPATH + result['id'] + '.mp3'
-        downloadFile(result['preview_filepath'], result['preview_url'])
+        if DOWNLOAD_SONGS:
+            downloadFile(result['preview_filepath'], result['preview_url'])
         
         # song lyrics
-        result['lyrics'] = getLyrics(main_artist, result['name'])
+        if DOWNLOAD_LYRICS:
+            result['lyrics'] = getLyrics(main_artist, result['name'])
         
         songs['songs'].append(result)
 
