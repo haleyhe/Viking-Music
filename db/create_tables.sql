@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS artist_genres (
 CREATE TABLE IF NOT EXISTS songs (
     song_id VARCHAR(40),
     name VARCHAR(256),
-    album_id VARCHAR(40),
     duration INT,
     explicit TINYINT,
     disc_number INT,
@@ -62,8 +61,9 @@ CREATE TABLE IF NOT EXISTS concerts (
 
 CREATE TABLE IF NOT EXISTS concert_venues (
     venue_id VARCHAR(40),
-    name VARCHAR(32),
-    address_id VARCHAR(40),
+    name VARCHAR(256),
+    street VARCHAR(40),
+    zip VARCHAR(10),
     PRIMARY KEY (venue_id)
 );
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (user_id)
 );
 
-CREATE TABLE IF NOT EXISTS user_artist_follows (
+CREATE TABLE IF NOT EXISTS user_artists_followed (
     user_id VARCHAR(40),
     artist_id VARCHAR(40),
     PRIMARY KEY (user_id, artist_id)
@@ -129,11 +129,11 @@ CREATE TABLE IF NOT EXISTS playlist_songs (
     playlist_id VARCHAR(40),
     song_id VARCHAR(40),
     track_number INT,
-    time_added DATE,
+    date_added DATE,
     PRIMARY KEY (playlist_id, track_number)
 );
 
-CREATE TABLE IF NOT EXISTS user_playlist_follows (
+CREATE TABLE IF NOT EXISTS user_playlists_followed (
     user_id VARCHAR(40),
     playlist_id VARCHAR(40),
     PRIMARY KEY (user_id, playlist_id)
@@ -148,50 +148,53 @@ CREATE TABLE IF NOT EXISTS payments (
     last_name VARCHAR(64),
     cvv VARCHAR(4),
     expiration_date DATE,
-    company VARCHAR(64),
-    address_id VARCHAR(40),
+    company VARCHAR(32),
+    street VARCHAR(40),
+    zip VARCHAR(10),
     phone_number VARCHAR(32),
 
     PRIMARY KEY (card_number)
 );
 
 CREATE TABLE IF NOT EXISTS address (
-    address_id VARCHAR(40),
     street VARCHAR(32),
     city VARCHAR(32),
     state VARCHAR(2),
     zip VARCHAR(10),
 
-    PRIMARY KEY (address_id)
+    PRIMARY KEY (street, zip)
 );
 
 CREATE TABLE IF NOT EXISTS user_payments (
     user_id VARCHAR(40),
-    payment_id VARCHAR(40),
+    card_number VARCHAR(32),
 
-    PRIMARY KEY (user_id, payment_id)
+    PRIMARY KEY (user_id, card_number)
 );
 
 ### FOR REVENUE SUMMARIES ###
 
 CREATE TABLE IF NOT EXISTS revenue_summary_users (
-    payment_id VARCHAR(40),
+    card_number VARCHAR(32),
     payment_amount DECIMAL(10, 2),
-    date_paid DATE
+    date_paid DATE,
+    PRIMARY KEY (card_number, date_paid)
 );
 
 CREATE TABLE IF NOT EXISTS revenue_summary_ads (
     ad_id VARCHAR(40),
     num_monthly_views INT,
     payment_amount DECIMAL(10, 2),
-    date_paid DATE
+    date_paid DATE,
+    PRIMARY KEY (ad_id, date_paid)
 );
 
 CREATE TABLE IF NOT EXISTS revenue_summary_songs (
     song_id VARCHAR(40),
     num_monthly_plays INT,
     payment_amount DECIMAL(10, 2),
-    date_paid DATE
+    date_paid DATE,
+    PRIMARY KEY (song_id, date_paid)
 );
 
 ### DB ACCESS TABLES ###
