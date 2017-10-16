@@ -3,8 +3,8 @@
     <cache />
     
     <insert id="createArtist" parameterType="com.vikings.domain.Artist">
-        INSERT IGNORE INTO artists (
-            artist_id,
+        INSERT IGNORE INTO Artists (
+            artistId,
             name,
             bio
         ) VALUES (
@@ -15,8 +15,8 @@
     </insert>
     
     <insert id="createArtistGenres" parameterType="com.vikings.domain.Artist">
-        INSERT IGNORE INTO artist_genres (
-            artist_id,
+        INSERT IGNORE INTO ArtistGenres (
+            artistId,
             genre
         ) VALUES
             <foreach item="genre" collection="genres" separator=",">
@@ -26,10 +26,10 @@
     </insert>
     
     <insert id="createAlbum" parameterType="com.vikings.domain.Album">
-        INSERT IGNORE INTO albums (
-            album_id,
+        INSERT IGNORE INTO Albums (
+            albumId,
             name,
-            release_date
+            releaseDate
         ) VALUES (
             #{id},
             #{name},
@@ -38,9 +38,9 @@
     </insert>
     
     <insert id="createAlbumArtists" parameterType="com.vikings.domain.Album">
-        INSERT IGNORE INTO album_artists (
-            artist_id,
-            album_id
+        INSERT IGNORE INTO AlbumArtists (
+            artistId,
+            albumId
         ) VALUES
             <foreach item="artist" collection="artists" separator=",">
                 (#{id}, #{artist.id})
@@ -49,13 +49,13 @@
     </insert>
     
     <insert id="createSong" parameterType="com.vikings.domain.Song">
-        INSERT IGNORE INTO songs (
-            song_id,
+        INSERT IGNORE INTO Songs (
+            songId,
             name,
             duration,
             explicit,
-            disc_number,
-            track_number,
+            discNumber,
+            trackNumber,
             lyrics
         ) VALUES (
             #{id},
@@ -69,9 +69,9 @@
     </insert>
     
     <insert id="createSongArtists" parameterType="com.vikings.domain.Song">
-        INSERT IGNORE INTO song_artists (
-            song_id,
-            artist_id
+        INSERT IGNORE INTO SongArtists (
+            songId,
+            artistId
         ) VALUES
             <foreach item="artist" collection="artists" separator=",">
                 (#{id}, #{artist.id})
@@ -80,9 +80,9 @@
     </insert>
     
     <insert id="createSongAlbum" parameterType="com.vikings.domain.Song">
-        INSERT IGNORE INTO album_songs (
-            song_id,
-            album_id
+        INSERT IGNORE INTO AlbumSongs (
+            songId,
+            albumId
         ) VALUES (
             #{id},
             #{album.id}

@@ -1,162 +1,162 @@
-CREATE TABLE IF NOT EXISTS artists (
-    artist_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS Artists (
+    artistId VARCHAR(40),
     name VARCHAR(64),
     bio TEXT,
-    num_followers INT DEFAULT 0,
-    PRIMARY KEY (artist_id)
+    numFollowers INT DEFAULT 0,
+    PRIMARY KEY (artistId)
 );
 
-CREATE TABLE IF NOT EXISTS artist_genres (
-    artist_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS ArtistGenres (
+    artistId VARCHAR(40),
     genre VARCHAR(32),
-    PRIMARY KEY (artist_id, genre)
+    PRIMARY KEY (artistId, genre)
 );
 
-CREATE TABLE IF NOT EXISTS songs (
-    song_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS Songs (
+    songId VARCHAR(40),
     name VARCHAR(256),
     duration INT,
     explicit TINYINT,
-    disc_number INT,
-    track_number INT,
+    discNumber INT,
+    trackNumber INT,
     lyrics TEXT,
-    num_plays INT DEFAULT 0,
+    numPlays INT DEFAULT 0,
 
-    PRIMARY KEY (song_id)
+    PRIMARY KEY (songId)
 );
 
-CREATE TABLE IF NOT EXISTS song_artists (
-    song_id VARCHAR(40),
-    artist_id VARCHAR(40),
-    PRIMARY KEY (song_id, artist_id)
+CREATE TABLE IF NOT EXISTS SongArtists (
+    songId VARCHAR(40),
+    artistId VARCHAR(40),
+    PRIMARY KEY (songId, artistId)
 );
 
-CREATE TABLE IF NOT EXISTS albums (
-    album_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS Albums (
+    albumId VARCHAR(40),
     name VARCHAR(256),
-    release_date DATE,
-    PRIMARY KEY (album_id)
+    releaseDate DATE,
+    PRIMARY KEY (albumId)
 );
 
-CREATE TABLE IF NOT EXISTS album_artists (
-    album_id VARCHAR(40),
-    artist_id VARCHAR(40),
-    PRIMARY KEY (album_id, artist_id)
+CREATE TABLE IF NOT EXISTS AlbumArtists (
+    albumId VARCHAR(40),
+    artistId VARCHAR(40),
+    PRIMARY KEY (albumId, artistId)
 );
 
-CREATE TABLE IF NOT EXISTS album_songs (
-    album_id VARCHAR(40),
-    song_id VARCHAR(40),
-    PRIMARY KEY (album_id, song_id)
+CREATE TABLE IF NOT EXISTS AlbumSongs (
+    albumId VARCHAR(40),
+    songId VARCHAR(40),
+    PRIMARY KEY (albumId, songId)
 );
 
-CREATE TABLE IF NOT EXISTS concerts (
-    concert_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS Concerts (
+    concertId VARCHAR(40),
     name VARCHAR(256),
-    concert_date DATETIME,
-    venue_id VARCHAR(40),
-    ticketing_url VARCHAR(256),
-    PRIMARY KEY (concert_id)
+    concertDate DATETIME,
+    venueId VARCHAR(40),
+    ticketingUrl VARCHAR(256),
+    PRIMARY KEY (concertId)
 );
 
-CREATE TABLE IF NOT EXISTS concert_venues (
-    venue_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS ConcertVenues (
+    venueId VARCHAR(40),
     name VARCHAR(256),
     street VARCHAR(40),
     zip VARCHAR(10),
-    PRIMARY KEY (venue_id)
+    PRIMARY KEY (venueId)
 );
 
-CREATE TABLE IF NOT EXISTS concert_artists (
-    concert_id VARCHAR(40),
-    artist_id VARCHAR(40),
-    PRIMARY KEY (concert_id, artist_id)
+CREATE TABLE IF NOT EXISTS ConcertArtists (
+    concertId VARCHAR(40),
+    artistId VARCHAR(40),
+    PRIMARY KEY (concertId, artistId)
 );
 
-CREATE TABLE IF NOT EXISTS users (
-    user_id VARCHAR(40),
+CREATE TABLE IF NOT EXISTS Users (
+    userId VARCHAR(40),
     username VARCHAR(32),
-    hashed_password VARCHAR(256),
-    email_address VARCHAR(64),
+    hashedPassword VARCHAR(256),
+    emailAddress VARCHAR(64),
     zip VARCHAR(10),
-    birth_date DATE,
+    birthDate DATE,
     premium TINYINT,
     admin TINYINT,
-    facebook_id VARCHAR(256),
+    facebookId VARCHAR(256),
 
-    PRIMARY KEY (user_id)
+    PRIMARY KEY (userId)
 );
 
-CREATE TABLE IF NOT EXISTS user_artists_followed (
-    user_id VARCHAR(40),
-    artist_id VARCHAR(40),
-    PRIMARY KEY (user_id, artist_id)
+CREATE TABLE IF NOT EXISTS UserArtistsFollowed (
+    userId VARCHAR(40),
+    artistId VARCHAR(40),
+    PRIMARY KEY (userId, artistId)
 );
 
-CREATE TABLE IF NOT EXISTS user_songs_saved (
-    user_id VARCHAR(40),
-    song_id VARCHAR(40),
-    PRIMARY KEY(user_id, song_id)
+CREATE TABLE IF NOT EXISTS UserSongsSaved (
+    userId VARCHAR(40),
+    songId VARCHAR(40),
+    PRIMARY KEY(userId, songId)
 );
 
-CREATE TABLE IF NOT EXISTS user_albums_saved (
-    user_id VARCHAR(40),
-    album_id VARCHAR(40),
-    PRIMARY KEY (user_id, album_id)
+CREATE TABLE IF NOT EXISTS UserAlbumsSaved (
+    userId VARCHAR(40),
+    albumId VARCHAR(40),
+    PRIMARY KEY (userId, albumId)
 );
 
-CREATE TABLE IF NOT EXISTS user_songs_played (
-    user_id VARCHAR(40),
-    song_id VARCHAR(40),
-    date_played DATETIME,
+CREATE TABLE IF NOT EXISTS UserSongsPlayed (
+    userId VARCHAR(40),
+    songId VARCHAR(40),
+    datePlayed DATETIME,
 
-    PRIMARY KEY (user_id, song_id, date_played)
+    PRIMARY KEY (userId, songId, datePlayed)
 );
 
-CREATE TABLE IF NOT EXISTS playlists (
-    playlist_id VARCHAR(40),
-    creator_id VARCHAR(40),
-    date_created DATE,
+CREATE TABLE IF NOT EXISTS Playlists (
+    playlistId VARCHAR(40),
+    creatorId VARCHAR(40),
+    dateCreated DATE,
     name VARCHAR(256),
     description VARCHAR(512),
-    is_public TINYINT,
-    num_followers INT,
+    isPublic TINYINT,
+    numFollowers INT,
     
-    PRIMARY KEY (playlist_id)
+    PRIMARY KEY (playlistId)
 );
 
-CREATE TABLE IF NOT EXISTS playlist_songs (
-    playlist_id VARCHAR(40),
-    song_id VARCHAR(40),
-    track_number INT,
-    date_added DATE,
-    PRIMARY KEY (playlist_id, track_number)
+CREATE TABLE IF NOT EXISTS PlaylistSongs (
+    playlistId VARCHAR(40),
+    songId VARCHAR(40),
+    trackNumber INT,
+    dateAdded DATE,
+    PRIMARY KEY (playlistId, trackNumber)
 );
 
-CREATE TABLE IF NOT EXISTS user_playlists_followed (
-    user_id VARCHAR(40),
-    playlist_id VARCHAR(40),
-    PRIMARY KEY (user_id, playlist_id)
+CREATE TABLE IF NOT EXISTS UserPlaylistsFollowed (
+    userId VARCHAR(40),
+    playlistId VARCHAR(40),
+    PRIMARY KEY (userId, playlistId)
 );
 
 
 ### PAYMENTS ###
 
-CREATE TABLE IF NOT EXISTS payments (
-    card_number VARCHAR(32),
-    first_name VARCHAR(64),
-    last_name VARCHAR(64),
+CREATE TABLE IF NOT EXISTS Payments (
+    cardNumber VARCHAR(32),
+    firstName VARCHAR(64),
+    lastName VARCHAR(64),
     cvv VARCHAR(4),
-    expiration_date DATE,
+    expirationDate DATE,
     company VARCHAR(32),
     street VARCHAR(40),
     zip VARCHAR(10),
-    phone_number VARCHAR(32),
+    phoneNumber VARCHAR(32),
 
-    PRIMARY KEY (card_number)
+    PRIMARY KEY (cardNumber)
 );
 
-CREATE TABLE IF NOT EXISTS address (
+CREATE TABLE IF NOT EXISTS Addresses (
     street VARCHAR(32),
     city VARCHAR(32),
     state VARCHAR(2),
@@ -165,57 +165,57 @@ CREATE TABLE IF NOT EXISTS address (
     PRIMARY KEY (street, zip)
 );
 
-CREATE TABLE IF NOT EXISTS user_payments (
-    user_id VARCHAR(40),
-    card_number VARCHAR(32),
+CREATE TABLE IF NOT EXISTS UserPayments (
+    userId VARCHAR(40),
+    cardNumber VARCHAR(32),
 
-    PRIMARY KEY (user_id, card_number)
+    PRIMARY KEY (userId, cardNumber)
 );
 
 ### FOR REVENUE SUMMARIES ###
 
-CREATE TABLE IF NOT EXISTS revenue_summary_users (
-    card_number VARCHAR(32),
-    payment_amount DECIMAL(10, 2),
-    date_paid DATE,
-    PRIMARY KEY (card_number, date_paid)
+CREATE TABLE IF NOT EXISTS RevenueSummaryUsers (
+    cardNumber VARCHAR(32),
+    paymentAmount DECIMAL(10, 2),
+    datePaid DATE,
+    PRIMARY KEY (cardNumber, datePaid)
 );
 
-CREATE TABLE IF NOT EXISTS revenue_summary_ads (
-    ad_id VARCHAR(40),
-    num_monthly_views INT,
-    payment_amount DECIMAL(10, 2),
-    date_paid DATE,
-    PRIMARY KEY (ad_id, date_paid)
+CREATE TABLE IF NOT EXISTS RevenueSummaryAds (
+    adId VARCHAR(40),
+    numMonthlyViews INT,
+    paymentAmount DECIMAL(10, 2),
+    datePaid DATE,
+    PRIMARY KEY (adId, datePaid)
 );
 
-CREATE TABLE IF NOT EXISTS revenue_summary_songs (
-    song_id VARCHAR(40),
-    num_monthly_plays INT,
-    payment_amount DECIMAL(10, 2),
-    date_paid DATE,
-    PRIMARY KEY (song_id, date_paid)
+CREATE TABLE IF NOT EXISTS RevenueSummarySongs (
+    songId VARCHAR(40),
+    numMonthlyPlays INT,
+    paymentAmount DECIMAL(10, 2),
+    datePaid DATE,
+    PRIMARY KEY (songId, datePaid)
 );
 
 ### DB ACCESS TABLES ###
 
-CREATE TABLE IF NOT EXISTS db_users (
-    db_user_id VARCHAR(40),
-    hashed_password VARCHAR(256),
-    email_address VARCHAR(64),
+CREATE TABLE IF NOT EXISTS DBUsers (
+    dbUserId VARCHAR(40),
+    hashedPassword VARCHAR(256),
+    emailAddress VARCHAR(64),
     request VARCHAR(512),
-    artist_id VARCHAR(40),
-    permission_artist TINYINT,
-    permission_album TINYINT,
-    permission_concert TINYINT,
+    artistId VARCHAR(40),
+    permissionArtist TINYINT,
+    permissionAlbum TINYINT,
+    permissionConcert TINYINT,
     approved TINYINT,
 
-    PRIMARY KEY (db_user_id)
+    PRIMARY KEY (dbUserId)
 );
 
 ### DEBUG ###
 
-CREATE TABLE IF NOT EXISTS  test (
+CREATE TABLE IF NOT EXISTS  Test (
 	id VARCHAR(256),
     name VARCHAR(256)
 );
