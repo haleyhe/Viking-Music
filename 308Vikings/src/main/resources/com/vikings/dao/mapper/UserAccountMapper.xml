@@ -1,0 +1,51 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.UserAccountMapper">
+    <cache />
+    
+    <resultMap id="userMap" type="com.vikings.domain.User">
+        <id property="id" column="id" />
+        <result property="username" column="username"/>
+        <result property="email" column="email"/>
+        <result property="zip" column="zip"/>
+        <result property="dateOfBirth" column="birth"/>
+        <result property="premium" column="premium"/>
+        <result property="admin" column="admin"/>
+        <result property="facebookId" column="facebook"/>
+    </resultMap>
+    
+    <insert id="registerUser" parameterType="com.vikings.domain.User">
+        INSERT IGNORE INTO Users (
+            userId,
+            username,
+            hashedPassword,
+            emailAddress,
+            zip,
+            birthDate
+        ) VALUES (
+            #{id},
+            #{username},
+            #{password},
+            #{email},
+            #{zip},
+            #{dateOfBirth}
+        );
+    </insert>
+    
+    <select id="processLogin" parameterType="com.vikings.domain.User" resultType="com.vikings.domain.User">
+        SELECT
+            u.userId as "id",
+            u.username as "username",
+            u.emailAddress as "email",
+            u.zip as "zip",
+            u.birthDate as "birth",
+            u.premium as "premium",
+            u.admin as "admin",
+            u.facebookId as "facebook"
+        FROM
+            Users u
+        WHERE
+            u.username = #{username} AND
+            u.hashedPassword = #{password}
+    </select>
+    
+</mapper>

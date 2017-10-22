@@ -11,5 +11,7 @@
     <body>
         <p>Hello World!</p>
         <p>Did I get a database connection? ${result}</p>
+        <p><b><a href="<%=request.getContextPath() %>/signup">Sign Up</a></b></p>
+        <p><b><a href="<%=request.getContextPath() %>/signin">Sign In</a></b></p>
     </body>
 </html>
