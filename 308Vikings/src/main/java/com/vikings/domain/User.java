@@ -13,12 +13,10 @@ public class User implements Serializable {
     String email;
     Date dateOfBirth;
     String zip;
-    // @TODO
-    // Payment payment;
+    Payment payment;
     boolean premium;
     boolean admin;
-    // @TODO
-    // UserMusic userMusic;
+    UserMusic userMusic;
     String facebookId;
     
     public User() {
@@ -105,6 +103,22 @@ public class User implements Serializable {
 
     public void setFacebookId(String facebookId) {
         this.facebookId = facebookId;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public UserMusic getUserMusic() {
+        return userMusic;
+    }
+
+    public void setUserMusic(UserMusic userMusic) {
+        this.userMusic = userMusic;
     }
     
 }

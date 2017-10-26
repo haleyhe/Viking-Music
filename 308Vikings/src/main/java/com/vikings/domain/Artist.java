@@ -2,17 +2,21 @@ package com.vikings.domain;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
+/**
+ * Represents an artist in the Spotify system.
+ */
 public class Artist implements Serializable {
     String id;
     String name;
+    Set<Name> relatedNames;
     String bio;
     int followerCount;
     int playCount;
     List<String> genres;
     
     public Artist() {
-        this.id = java.util.UUID.randomUUID().toString();
     }
     
     public Artist(String id) {
@@ -33,6 +37,14 @@ public class Artist implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public Set<Name> getRelatedNames() {
+        return relatedNames;
+    }
+    
+    public void setRelatedNames(Set<Name> relatedNames) {
+        this.relatedNames = relatedNames;
     }
     
     public String getBio() {

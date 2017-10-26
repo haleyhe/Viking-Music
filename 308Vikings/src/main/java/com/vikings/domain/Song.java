@@ -3,6 +3,9 @@ package com.vikings.domain;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Represents a song in the Spotify system.
+ */
 public class Song implements Serializable {
     String id;
     String name;
@@ -16,7 +19,6 @@ public class Song implements Serializable {
     int numPlays;
     
     public Song() {
-        this.id = java.util.UUID.randomUUID().toString();
     }
     
     public Song(String id) {
@@ -101,6 +103,10 @@ public class Song implements Serializable {
 
     public void setNumPlays(int numPlays) {
         this.numPlays = numPlays;
+    }
+    
+    public void incrementNumPlays() {
+        this.numPlays += 1;
     }
     
 }
