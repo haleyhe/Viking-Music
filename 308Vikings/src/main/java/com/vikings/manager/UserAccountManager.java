@@ -18,6 +18,17 @@ public class UserAccountManager {
     UserAccountDAO userAccountDAO;
     
     /**
+     * Checks if the given user exists.
+     * @param user
+     *  User with valid username and email.
+     * @return 
+     *  true if exists, false if no one with that username or email.
+     */
+    public boolean userExists(User user) {
+        return userAccountDAO.userExists(user);
+    }
+    
+    /**
      * Registers the given User (assuming new user
      * info has been validated).
      * @param user 

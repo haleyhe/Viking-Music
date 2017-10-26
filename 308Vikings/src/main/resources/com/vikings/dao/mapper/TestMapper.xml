@@ -1,9 +1,0 @@
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.vikings.dao.mapper.TestMapper">
-    <cache />
-    
-    <select id="dbAliveTest" resultType="boolean">
-        SELECT 1
-    </select>
-    
-</mapper>

@@ -16,14 +16,29 @@ public class UserAccountDAO {
     UserAccountMapper userAccountMapper;
     
     /**
+     * Checks if the given user exists.
+     * @param user
+     *  User with valid username and email.
+     * @return 
+     *  true if exists, false if no one with that username or email.
+     */
+    public boolean userExists(User user) {
+        return userAccountMapper.userExists(user);
+    }
+    
+    /**
      * Registers the given User.
+     * @param user
+     *  The validated User to register.
      */
     public void registerUser(User user) {
         userAccountMapper.registerUser(user);
     }
     
     /**
-     * Checks if this User exists.
+     * Checks if this User exists and returns the User.
+     * @param user
+     *  User containing the desired username and password.
      * @return
      *  Full User object if found, null otherwise.
      */

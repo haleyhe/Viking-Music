@@ -9,6 +9,8 @@ import com.vikings.domain.User;
  */
 public interface UserAccountMapper {
     
+    public boolean userExists(User user);
+    
     public void registerUser(User user);
     
     public User processLogin(User user);

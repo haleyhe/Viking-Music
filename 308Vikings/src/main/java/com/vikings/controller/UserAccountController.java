@@ -5,9 +5,8 @@ import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,33 +24,30 @@ public class UserAccountController {
     @Autowired
     UserAccountManager userAccountManager;
     
-    // Returns the View for the signup page.
-    @GetMapping("/signup")
-    public String getSignupPage(Model model) {
-        // We have to add an empty User object to the
-        // model so that the signup page can populate
-        // its fields with signup informaiton.
-        User newUser = new User();
-        model.addAttribute("newUser", newUser);
-        return "signup";
+    // Returns the View for the startup page.
+    @GetMapping("/")
+    public String getStartupPage() {
+        return "startup";
     }
     
-    // Returns the View for the sign-in page.
-    @GetMapping("/signin")
-    public String getSigninPage() {
-        return "signin";
-    }
-    
-    // Attempts to register the given User.
+    /**
+     * Validates and registers the given User.
+     * @param newUser
+     *  The new User.
+     * @return 
+     *  True if success, false if error (user exists).
+     */
     @RequestMapping(method=RequestMethod.POST, value="/registerUser")
-    public String registerUser(@ModelAttribute("newUser") User newUser) {
-        // @TODO
-        // No validation yet.
+    public @ResponseBody boolean registerUser(@RequestBody User newUser) {
+        // check if the user exists
+        boolean exists = userAccountManager.userExists(newUser);
         
-        userAccountManager.registerUser(newUser);
-        
-        // redirect to the signin page
-        return getSigninPage();
+        if (!exists) {
+            userAccountManager.registerUser(newUser);
+            return true;  
+        } else {
+            return false;
+        }
     }
     
     // Attempts to log in with the desired name and password,

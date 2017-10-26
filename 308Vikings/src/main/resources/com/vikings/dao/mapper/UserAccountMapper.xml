@@ -7,11 +7,21 @@
         <result property="username" column="username"/>
         <result property="email" column="email"/>
         <result property="zip" column="zip"/>
-        <result property="dateOfBirth" column="birth"/>
+        <result property="dateOfBirth" column="birth" javaType="java.util.Date" jdbcType="DATE"/>
         <result property="premium" column="premium"/>
         <result property="admin" column="admin"/>
         <result property="facebookId" column="facebook"/>
     </resultMap>
+    
+    <select id="userExists" parameterType="com.vikings.domain.User" resultType="boolean">
+        SELECT
+            CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+        FROM
+            Users u
+        WHERE
+            u.username = #{username} OR
+            u.emailAddress = #{email}
+    </select>
     
     <insert id="registerUser" parameterType="com.vikings.domain.User">
         INSERT IGNORE INTO Users (
