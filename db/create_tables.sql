@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS UserSongsPlayed (
     userId VARCHAR(40),
     songId VARCHAR(40),
     datePlayed DATETIME,
+    clickedPlay TINYINT,
 
     PRIMARY KEY (userId, songId, datePlayed)
 );
