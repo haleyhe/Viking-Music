@@ -37,7 +37,7 @@ public class UserAccountController {
      * @return 
      *  True if success, false if error (user exists).
      */
-    @RequestMapping(method=RequestMethod.POST, value="/registerUser")
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/registerUser")
     public @ResponseBody boolean registerUser(@RequestBody User newUser) {
         // check if the user exists
         boolean exists = userAccountManager.userExists(newUser);
@@ -50,9 +50,17 @@ public class UserAccountController {
         }
     }
     
-    // Attempts to log in with the desired name and password,
-    // adding to HttpSession if success.
-    @RequestMapping(method=RequestMethod.GET, value="/processLogin")
+    /**
+     * Attempts to log in with the given username and password, adding
+     * to HttpSession if success.
+     * @param username
+     *  Username of desired User.
+     * @param password
+     *  Password of desired User.
+     * @return 
+     *  true if User found and added to session, false if not found.
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/UserAccount/processLogin")
     public @ResponseBody boolean processLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
         User loginUser = new User();
         loginUser.setUsername(username);
@@ -78,7 +86,7 @@ public class UserAccountController {
      * @return 
      *  User information, or null if not found.
      */
-    @RequestMapping(method=RequestMethod.GET, value="/getSessionUser")
+    @RequestMapping(method=RequestMethod.GET, value="/UserAccount/getSessionUser")
     public @ResponseBody User getSessionUser() {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);

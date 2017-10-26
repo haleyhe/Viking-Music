@@ -100,7 +100,7 @@
                 $.ajax({
                     type : "POST",
                     contentType : "application/json",
-                    url : "${home}registerUser",
+                    url : "${home}UserAccount/registerUser",
                     data : JSON.stringify(newUser),
                     dataType : 'json',
                     timeout : 100000,
@@ -127,7 +127,7 @@
                 $.ajax({
                     type : "GET",
                     contentType : "application/json",
-                    url : "${home}processLogin",
+                    url : "${home}UserAccount/processLogin",
                     data : { username: username, password: password },
                     dataType : 'json',
                     timeout : 100000,
@@ -179,7 +179,7 @@
                 $.ajax({
                     type : "GET",
                     contentType : "application/json",
-                    url : "${home}getSessionUser",
+                    url : "${home}UserAccount/getSessionUser",
                     data : {},
                     dataType : 'json',
                     timeout : 100000,
