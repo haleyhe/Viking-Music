@@ -1,5 +1,6 @@
 package com.vikings.config;
 
+import java.util.TimeZone;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class AppInitializer implements WebApplicationInitializer {
     
+    @Override
     public void onStartup(ServletContext container) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(AppConfig.class);
@@ -19,5 +21,7 @@ public class AppInitializer implements WebApplicationInitializer {
         servlet.setLoadOnStartup(1);
         servlet.addMapping("/");
         servlet.addMapping("*.htm");
+        
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
 }
