@@ -6,6 +6,14 @@ CREATE TABLE IF NOT EXISTS Artists (
     PRIMARY KEY (artistId)
 );
 
+CREATE TABLE IF NOT EXISTS ArtistNames (
+	artistId VARCHAR(40),
+    firstName VARCHAR(64),
+    lastName VARCHAR(64),
+    
+    PRIMARY KEY (artistId, firstName, lastName)
+);
+
 CREATE TABLE IF NOT EXISTS ArtistGenres (
     artistId VARCHAR(40),
     genre VARCHAR(32),
