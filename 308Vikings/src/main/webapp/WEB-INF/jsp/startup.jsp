@@ -103,6 +103,7 @@
                     url : "${home}UserAccount/registerUser",
                     data : JSON.stringify(newUser),
                     dataType : 'json',
+                    async : true,
                     timeout : 100000,
                     success : function(data) {
                         console.log("SUCCESS: ", data);
@@ -130,6 +131,7 @@
                     url : "${home}UserAccount/processLogin",
                     data : { username: username, password: password },
                     dataType : 'json',
+                    async : true,
                     timeout : 100000,
                     success : function(data) {
                         console.log("SUCCESS: ", data);
@@ -182,6 +184,7 @@
                     url : "${home}UserAccount/getSessionUser",
                     data : {},
                     dataType : 'json',
+                    async : true,
                     timeout : 100000,
                     success : function(data) {
                        console.log("SUCCESS: ", data);
