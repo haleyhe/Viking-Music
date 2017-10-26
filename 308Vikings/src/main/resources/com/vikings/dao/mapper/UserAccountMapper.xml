@@ -41,7 +41,7 @@
         );
     </insert>
     
-    <select id="processLogin" parameterType="com.vikings.domain.User" resultType="com.vikings.domain.User">
+    <select id="processLogin" parameterType="com.vikings.domain.User" resultMap="userMap">
         SELECT
             u.userId as "id",
             u.username as "username",
