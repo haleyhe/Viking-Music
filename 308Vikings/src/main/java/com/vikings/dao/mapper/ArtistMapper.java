@@ -1,6 +1,7 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.Artist;
+import java.util.List;
 
 /**
  * Mapper class for ArtistDAO.
@@ -10,6 +11,8 @@ import com.vikings.domain.Artist;
 public interface ArtistMapper {
     
     public Artist getArtist(String id);
+    
+    public List<Artist> getArtistsForSong(String id);
     
 }
 

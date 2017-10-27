@@ -16,8 +16,8 @@
             <result column="genre"/>
         </collection>
     </resultMap>
-    
-    <select id="getArtist" parameterType="String" resultMap="artistMap">
+
+    <sql id="selectArtist">
         SELECT
             a.artistId as 'artistid',
             a.name as 'name',
@@ -32,7 +32,7 @@
                 SongArtists sa
             WHERE
                 s.songId = sa.songId AND
-                sa.artistId = #{id})
+                sa.artistId = a.artistId)
             as 'playcount',
             ag.genre as 'genre'
         FROM
@@ -45,8 +45,25 @@
             ArtistGenres ag
         ON
             ag.artistId = a.artistId
+    </sql>
+    
+    <select id="getArtist" parameterType="String" resultMap="artistMap">
+        <include refid="selectArtist" />
         WHERE
             a.artistId = #{id}
+    </select>
+
+    <select id="getArtistsForSong" parameterType="String" resultMap="artistMap">
+        <include refid="selectArtist" />
+        WHERE
+            a.artistId IN (
+                SELECT
+                    sa.artistId
+                FROM
+                    SongArtists sa
+                WHERE
+                    sa.songId = #{id}
+            )
     </select>
     
 </mapper>
