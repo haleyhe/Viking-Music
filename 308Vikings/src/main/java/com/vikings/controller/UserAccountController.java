@@ -1,6 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.User;
+import com.vikings.domain.requests.LoginRequest;
 import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -53,18 +53,16 @@ public class UserAccountController {
     /**
      * Attempts to log in with the given username and password, adding
      * to HttpSession if success.
-     * @param username
-     *  Username of desired User.
-     * @param password
-     *  Password of desired User.
+     * @param loginRequest
+     *  LoginRequest object containing the username and password.
      * @return 
      *  true if User found and added to session, false if not found.
      */
-    @RequestMapping(method=RequestMethod.GET, value="/UserAccount/processLogin")
-    public @ResponseBody boolean processLogin(@RequestParam("username") String username, @RequestParam("password") String password) {
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/processLogin")
+    public @ResponseBody boolean processLogin(@RequestBody LoginRequest loginRequest) {
         User loginUser = new User();
-        loginUser.setUsername(username);
-        loginUser.setPassword(password);
+        loginUser.setUsername(loginRequest.getUsername());
+        loginUser.setPassword(loginRequest.getPassword());
         
         // see if we get a User
         User user = userAccountManager.processLogin(loginUser);

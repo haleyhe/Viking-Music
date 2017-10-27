@@ -122,14 +122,15 @@
         
             function login() {
                 console.log("Calling login Ajax function...");
-                var username = $("#login-username").val();
-                var password = $("#login-password").val();
+                var loginRequest = {};
+                loginRequest["username"] = $("#login-username").val();
+                loginRequest["password"] = $("#login-password").val();
 
                 $.ajax({
-                    type : "GET",
+                    type : "POST",
                     contentType : "application/json",
                     url : "${home}UserAccount/processLogin",
-                    data : { username: username, password: password },
+                    data : JSON.stringify(loginRequest),
                     dataType : 'json',
                     async : true,
                     timeout : 100000,
