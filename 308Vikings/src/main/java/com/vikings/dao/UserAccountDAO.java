@@ -46,4 +46,9 @@ public class UserAccountDAO {
         return userAccountMapper.processLogin(user);
     }
     
+    //@TODO
+    public void updateUser(User user) {
+        //@TODO
+    }
+    
 }
