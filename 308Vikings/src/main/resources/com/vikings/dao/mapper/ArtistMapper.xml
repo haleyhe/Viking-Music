@@ -1,0 +1,52 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.ArtistMapper">
+    <cache />
+
+    <resultMap id="artistMap" type="com.vikings.domain.Artist">
+        <id property="id" column="artistid" />
+        <result property="name" column="name"/>
+        <result property="bio" column="bio"/>
+        <result property="followerCount" column="followercount"/>
+        <result property="playCount" column="playcount"/>
+        <collection property="relatedNames" ofType="com.vikings.domain.Name">
+            <id property="firstName" column="firstname"/>
+            <id property="lastName" column="lastname"/>
+        </collection>
+        <collection property="genres" ofType="java.lang.String">
+            <result column="genre"/>
+        </collection>
+    </resultMap>
+    
+    <select id="getArtist" parameterType="String" resultMap="artistMap">
+        SELECT
+            a.artistId as 'artistid',
+            a.name as 'name',
+            an.firstName as 'firstname',
+            an.lastName as 'lastname',
+            a.bio as 'bio',
+            a.numFollowers as 'followercount',
+            (SELECT
+                SUM(s.numPlays)
+            FROM
+                Songs s,
+                SongArtists sa
+            WHERE
+                s.songId = sa.songId AND
+                sa.artistId = #{id})
+            as 'playcount',
+            ag.genre as 'genre'
+        FROM
+            Artists a
+        LEFT JOIN
+            ArtistNames an
+        ON
+            an.artistId = a.artistId
+        LEFT JOIN
+            ArtistGenres ag
+        ON
+            ag.artistId = a.artistId
+        WHERE
+            a.artistId = #{id}
+    </select>
+    
+</mapper>
