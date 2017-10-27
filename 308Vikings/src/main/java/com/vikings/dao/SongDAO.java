@@ -1,6 +1,8 @@
 package com.vikings.dao;
 
+import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Song;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,10 +11,18 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SongDAO {
     
-    //@TODO
+    @Autowired
+    SongMapper songMapper;
+    
+    /**
+     * Gets information for a single Song.
+     * @param id
+     *  The Song ID.
+     * @return 
+     *  The detailed Song object.
+     */
     public Song getSong(String id) {
-        //@TODO
-        return null;
+        return songMapper.getSong(id);
     }
     
 }

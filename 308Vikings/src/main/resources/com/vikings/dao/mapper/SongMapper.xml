@@ -1,0 +1,32 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.SongMapper">
+    <cache />
+    
+    <resultMap id="songMap" type="com.vikings.domain.Song">
+        <id property="id" column="songid" />
+        <result property="name" column="name"/>
+        <result property="lyrics" column="lyrics"/>
+        <result property="duration" column="duration"/>
+        <result property="explicit" column="explicit"/>
+        <result property="discNumber" column="discnumber"/>
+        <result property="trackNumber" column="tracknumber"/>
+        <result property="numPlays" column="numplays"/>
+    </resultMap>
+    
+    <select id="getSong" parameterType="String" resultMap="songMap">
+        SELECT
+            s.songId as "songid",
+            s.name as "name",
+            s.duration as "duration",
+            s.explicit as "explicit",
+            s.discNumber as "discnumber",
+            s.trackNumber as "tracknumber",
+            s.lyrics as "lyrics",
+            s.numPlays as "numplays"
+        FROM
+            Songs s
+        WHERE
+            s.songId = #{id}
+    </select>
+    
+</mapper>
