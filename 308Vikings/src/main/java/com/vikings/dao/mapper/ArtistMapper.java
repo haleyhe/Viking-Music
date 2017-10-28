@@ -12,7 +12,5 @@ public interface ArtistMapper {
     
     public Artist getArtist(String id);
     
-    public List<Artist> getArtistsForSong(String id);
-    
 }
 

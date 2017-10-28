@@ -52,18 +52,5 @@
         WHERE
             a.artistId = #{id}
     </select>
-
-    <select id="getArtistsForSong" parameterType="String" resultMap="artistMap">
-        <include refid="selectArtist" />
-        WHERE
-            a.artistId IN (
-                SELECT
-                    sa.artistId
-                FROM
-                    SongArtists sa
-                WHERE
-                    sa.songId = #{id}
-            )
-    </select>
     
 </mapper>
