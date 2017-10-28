@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.AlbumMapper">
+    <cache />
+
+    <resultMap id="albumMap" type="com.vikings.domain.Album">
+        <id property="id" column="album_id" />
+        <result property="name" column="album_name"/>
+        <result property="releaseDate" column="album_release_date"/>
+        <result property="followerCount" column="followercount"/>
+        <result property="playCount" column="playcount"/>
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
+        </collection>
+    </resultMap>
+    
+    <select id="getAlbum" parameterType="String" resultMap="albumMap">
+        SELECT
+            al.albumId as 'album_id',
+            al.name as 'album_name',
+            al.releaseDate as 'album_release_date',
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
+        FROM
+            Albums al,
+            AlbumArtists aa,
+            Artists ar
+        WHERE
+            al.albumId = #{id}
+            AND
+            aa.albumId = al.albumId
+            AND
+            aa.artistId = ar.artistId;
+    </select>
+    
+</mapper>

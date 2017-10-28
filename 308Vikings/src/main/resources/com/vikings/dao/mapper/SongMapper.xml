@@ -40,5 +40,32 @@
             AND
             a.artistId = sa.artistId
     </select>
+
+    <select id="getSongsForAlbum" parameterType="String" resultMap="songMap">
+        SELECT
+            s.songId as 'songid',
+            s.name as 'name',
+            s.duration as 'duration',
+            s.explicit as 'explicit',
+            s.discNumber as 'discnumber',
+            s.trackNumber as 'tracknumber',
+            s.lyrics as 'lyrics',
+            s.numPlays as 'numplays',
+            a.artistId as 'artistid',
+            a.name as 'artistname'
+        FROM
+            Songs s,
+            AlbumSongs als,
+            SongArtists sa,
+            Artists a
+        WHERE
+            als.albumId = #{id}
+            AND
+            als.songId = s.songId
+            AND
+            sa.songId = s.songId
+            AND
+            sa.artistId = a.artistId
+    </select>
     
 </mapper>

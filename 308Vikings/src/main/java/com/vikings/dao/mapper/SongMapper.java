@@ -1,6 +1,7 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.Song;
+import java.util.List;
 
 /**
  * Mapper class for SongDAO.
@@ -10,6 +11,8 @@ import com.vikings.domain.Song;
 public interface SongMapper {
     
     public Song getSong(String id);
+    
+    public List<Song> getSongsForAlbum(String id);
     
 }
 

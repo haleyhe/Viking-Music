@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Represents a song in the Spotify system.
  */
-public class Song implements Serializable {
+public class Song implements Serializable, Comparable<Song> {
     String id;
     String name;
     AlbumIdentifier album;
@@ -109,6 +109,15 @@ public class Song implements Serializable {
     
     public void incrementNumPlays() {
         this.numPlays += 1;
+    }
+
+    @Override
+    public int compareTo(Song s) {
+        int result = Integer.compare(this.discNumber, s.getDiscNumber());
+        if (result != 0)
+            return result;
+        else
+            return Integer.compare(this.trackNumber, s.getTrackNumber()); 
     }
     
 }

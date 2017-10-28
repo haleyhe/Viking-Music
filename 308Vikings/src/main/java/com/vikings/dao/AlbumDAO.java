@@ -1,10 +1,12 @@
 package com.vikings.dao;
 
+import com.vikings.dao.mapper.AlbumMapper;
+import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Album;
-import com.vikings.domain.Artist;
 import com.vikings.domain.Song;
-import com.vikings.domain.User;
-import java.util.Date;
+import java.util.Collections;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,10 +15,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class AlbumDAO {
     
-    //@TODO
+    @Autowired
+    AlbumMapper albumMapper;
+    
+    @Autowired
+    SongMapper songMapper;
+    
+    /**
+     * Gets information for a single Album.
+     * @param id
+     *  The ID of the desired Album.
+     * @return 
+     *  The detailed Album object.
+     */
     public Album getAlbum(String id) {
-        //@TODO
-        return null;
+        Album album = albumMapper.getAlbum(id);
+        List<Song> songs = songMapper.getSongsForAlbum(id);
+        Collections.sort(songs);
+        album.setSongs(songs);
+        return album;
     }
     
 }
