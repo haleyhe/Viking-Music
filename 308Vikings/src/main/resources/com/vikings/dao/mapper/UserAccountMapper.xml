@@ -58,4 +58,33 @@
             u.hashedPassword = #{password}
     </select>
     
+    <update id="updateUser" parameterType="com.vikings.domain.User">
+        UPDATE
+            Users u
+        SET
+            <if test="username != null">
+                u.username = #{username},
+            </if>
+            <if test="password != null">
+                u.hashedPassword = #{password},
+            </if>
+            <if test="email != null">
+                u.emailAddress = #{email},
+            </if>
+            <if test="zip != null">
+                u.zip = #{zip},
+            </if>
+            <if test="dateOfBirth != null">
+                u.birthDate = #{dateOfBirth},
+            </if>
+            <if test="facebookId != null">
+                u.facebookId = #{facebookId},
+            </if>
+            u.premium = #{premium},
+            u.admin = #{admin} 
+        WHERE
+            u.userId = #{id}
+        
+    </update>
+    
 </mapper>

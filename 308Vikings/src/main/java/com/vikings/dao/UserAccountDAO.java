@@ -46,9 +46,14 @@ public class UserAccountDAO {
         return userAccountMapper.processLogin(user);
     }
     
-    //@TODO
+    /**
+     * Updates the basic information of the User with the given ID.
+     * !!! Make sure the password is hashed before updating !!!
+     * @param user 
+     *  User with the desired ID and desired new attributes.
+     */
     public void updateUser(User user) {
-        //@TODO
+        userAccountMapper.updateUser(user);
     }
     
 }

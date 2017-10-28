@@ -15,5 +15,7 @@ public interface UserAccountMapper {
     
     public User processLogin(User user);
     
+    public void updateUser(User user);
+    
 }
 
