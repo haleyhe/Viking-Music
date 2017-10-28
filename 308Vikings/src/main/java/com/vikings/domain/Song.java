@@ -1,5 +1,7 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.AlbumIdentifier;
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,8 +11,8 @@ import java.util.List;
 public class Song implements Serializable {
     String id;
     String name;
-    Album album;
-    List<Artist> artists;
+    AlbumIdentifier album;
+    List<ArtistIdentifier> artists;
     String lyrics;
     int duration;
     boolean explicit;
@@ -41,19 +43,19 @@ public class Song implements Serializable {
         this.name = name;
     }
 
-    public Album getAlbum() {
+    public AlbumIdentifier getAlbum() {
         return album;
     }
 
-    public void setAlbum(Album album) {
+    public void setAlbum(AlbumIdentifier album) {
         this.album = album;
     }
 
-    public List<Artist> getArtists() {
+    public List<ArtistIdentifier> getArtists() {
         return artists;
     }
 
-    public void setArtists(List<Artist> artists) {
+    public void setArtists(List<ArtistIdentifier> artists) {
         this.artists = artists;
     }
 

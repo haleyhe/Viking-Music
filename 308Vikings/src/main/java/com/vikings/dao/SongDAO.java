@@ -28,10 +28,7 @@ public class SongDAO {
      *  The detailed Song object.
      */
     public Song getSong(String id) {
-        Song result = songMapper.getSong(id);
-        List<Artist> artists = artistMapper.getArtistsForSong(id);
-        result.setArtists(artists);
-        return result;
+        return songMapper.getSong(id);
     }
     
 }

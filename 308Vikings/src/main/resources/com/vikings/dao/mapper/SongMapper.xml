@@ -11,22 +11,34 @@
         <result property="discNumber" column="discnumber"/>
         <result property="trackNumber" column="tracknumber"/>
         <result property="numPlays" column="numplays"/>
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="artistid"/>
+            <result property="name" column="artistname"/>
+        </collection>
     </resultMap>
     
     <select id="getSong" parameterType="String" resultMap="songMap">
         SELECT
-            s.songId as "songid",
-            s.name as "name",
-            s.duration as "duration",
-            s.explicit as "explicit",
-            s.discNumber as "discnumber",
-            s.trackNumber as "tracknumber",
-            s.lyrics as "lyrics",
-            s.numPlays as "numplays"
+            s.songId as 'songid',
+            s.name as 'name',
+            s.duration as 'duration',
+            s.explicit as 'explicit',
+            s.discNumber as 'discnumber',
+            s.trackNumber as 'tracknumber',
+            s.lyrics as 'lyrics',
+            s.numPlays as 'numplays',
+            a.artistId as 'artistid',
+            a.name as 'artistname'
         FROM
-            Songs s
+            Songs s,
+            SongArtists sa,
+            Artists a
         WHERE
             s.songId = #{id}
+            AND
+            sa.songId = s.songId
+            AND
+            a.artistId = sa.artistId
     </select>
     
 </mapper>

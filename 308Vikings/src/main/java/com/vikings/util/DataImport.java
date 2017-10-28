@@ -6,6 +6,8 @@ import com.vikings.dao.mapper.DataImportMapper;
 import com.vikings.domain.Album;
 import com.vikings.domain.Artist;
 import com.vikings.domain.Song;
+import com.vikings.domain.identifier.AlbumIdentifier;
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -81,10 +83,12 @@ public class DataImport {
                 Album resultAlbum = new Album();
                 resultAlbum.setId(album.get("id").asText());
                 resultAlbum.setName(album.get("name").asText());
-                List<Artist> artists = new ArrayList<Artist>();
+                List<ArtistIdentifier> artists = new ArrayList<ArtistIdentifier>();
                 for (JsonNode artist : album.get("artists")) {
                     // build a dummy artist object with the correct id
-                    artists.add(new Artist(artist.asText()));
+                    ArtistIdentifier artistIdentifier = new ArtistIdentifier();
+                    artistIdentifier.setId(artist.asText());
+                    artists.add(artistIdentifier);
                 }
                 resultAlbum.setArtists(artists);
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -119,14 +123,18 @@ public class DataImport {
                 resultSong.setDiscNumber(song.get("disc_number").asInt());
                 resultSong.setTrackNumber(song.get("track_number").asInt());
                 resultSong.setLyrics(song.get("lyrics").asText());
-                List<Artist> artists = new ArrayList<Artist>();
+                List<ArtistIdentifier> artists = new ArrayList<ArtistIdentifier>();
                 for (JsonNode artist : song.get("artists")) {
                     // build a dummy artist object with the correct id
-                    artists.add(new Artist(artist.asText()));
+                    ArtistIdentifier artistIdentifier = new ArtistIdentifier();
+                    artistIdentifier.setId(artist.asText());
+                    artists.add(artistIdentifier);
                 }
                 resultSong.setArtists(artists);
                 // build a dummy album object with the correct id
-                resultSong.setAlbum(new Album(song.get("album").asText()));
+                AlbumIdentifier albumIdentifier = new AlbumIdentifier();
+                albumIdentifier.setId(song.get("album").asText());
+                resultSong.setAlbum(albumIdentifier);
                 
                 // song object complete, send to DB
                 dataImportMapper.createSong(resultSong);
