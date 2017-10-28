@@ -100,7 +100,7 @@ def getLyricsUrl(artistName, songName):
     try:
         querystring = "http://api.genius.com/search?q=" + urllib2.quote(artistName + ' ' + songName) + "&page=1"
         request = urllib2.Request(querystring)
-        request.add_header("Authorization", "Bearer " + GENIUS_ACCESS_TOKEN)   
+        request.add_header("Authorization", "Bearer " + GENIUS_ACCESS_TOKEN)
         request.add_header("User-Agent", "curl/7.9.8 (i686-pc-linux-gnu) libcurl 7.9.8 (OpenSSL 0.9.6b) (ipv6 enabled)")
         response = urllib2.urlopen(request, timeout=4) #timeout set to 4 seconds; automatically retries if times out
         raw = response.read()

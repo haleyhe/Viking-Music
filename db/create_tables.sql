@@ -95,6 +95,15 @@ CREATE TABLE IF NOT EXISTS Users (
     PRIMARY KEY (userId)
 );
 
+CREATE TABLE IF NOT EXISTS ForgotPasswordRequests (
+    requestId VARCHAR(40),
+    userId VARCHAR(40),
+    expirationDate DATETIME,
+    processed TINYINT,
+    
+    PRIMARY KEY (requestId)
+);
+
 CREATE TABLE IF NOT EXISTS UserArtistsFollowed (
     userId VARCHAR(40),
     artistId VARCHAR(40),
