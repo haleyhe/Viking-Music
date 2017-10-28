@@ -39,8 +39,8 @@
     
     <insert id="createAlbumArtists" parameterType="com.vikings.domain.Album">
         INSERT IGNORE INTO AlbumArtists (
-            artistId,
-            albumId
+            albumId,
+            artistId
         ) VALUES
             <foreach item="artist" collection="artists" separator=",">
                 (#{id}, #{artist.id})
