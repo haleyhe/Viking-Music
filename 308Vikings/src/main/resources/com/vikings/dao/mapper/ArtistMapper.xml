@@ -3,28 +3,32 @@
     <cache />
 
     <resultMap id="artistMap" type="com.vikings.domain.Artist">
-        <id property="id" column="artistid" />
-        <result property="name" column="name"/>
-        <result property="bio" column="bio"/>
-        <result property="followerCount" column="followercount"/>
-        <result property="playCount" column="playcount"/>
+        <id property="id" column="artist_id" />
+        <result property="name" column="artist_name"/>
+        <result property="bio" column="artist_bio"/>
+        <result property="followerCount" column="artist_followercount"/>
+        <result property="playCount" column="artist_playcount"/>
         <collection property="relatedNames" ofType="com.vikings.domain.Name">
-            <id property="firstName" column="firstname"/>
-            <id property="lastName" column="lastname"/>
+            <id property="firstName" column="artist_firstname"/>
+            <id property="lastName" column="artist_lastname"/>
         </collection>
         <collection property="genres" ofType="java.lang.String">
-            <result column="genre"/>
+            <result column="artist_genre"/>
+        </collection>
+        <collection property="albums" ofType="com.vikings.domain.identifier.AlbumIdentifier">
+            <id property="id" column="album_id"/>
+            <result property="name" column="album_name"/>
         </collection>
     </resultMap>
-
-    <sql id="selectArtist">
+    
+    <select id="getArtist" parameterType="String" resultMap="artistMap">
         SELECT
-            a.artistId as 'artistid',
-            a.name as 'name',
-            an.firstName as 'firstname',
-            an.lastName as 'lastname',
-            a.bio as 'bio',
-            a.numFollowers as 'followercount',
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            an.firstName as 'artist_firstname',
+            an.lastName as 'artist_lastname',
+            a.bio as 'artist_bio',
+            a.numFollowers as 'artist_followercount',
             (SELECT
                 SUM(s.numPlays)
             FROM
@@ -33,8 +37,10 @@
             WHERE
                 s.songId = sa.songId AND
                 sa.artistId = a.artistId)
-            as 'playcount',
-            ag.genre as 'genre'
+            as 'artist_playcount',
+            ag.genre as 'artist_genre',
+            al.albumId as 'album_id',
+            al.name as 'album_name'
         FROM
             Artists a
         LEFT JOIN
@@ -45,10 +51,14 @@
             ArtistGenres ag
         ON
             ag.artistId = a.artistId
-    </sql>
-    
-    <select id="getArtist" parameterType="String" resultMap="artistMap">
-        <include refid="selectArtist" />
+        INNER JOIN
+            AlbumArtists aa
+        ON
+            aa.artistId = a.artistId
+        INNER JOIN
+            Albums al
+        ON
+            aa.albumId = al.albumId
         WHERE
             a.artistId = #{id}
     </select>

@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.AlbumIdentifier;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,7 @@ public class Artist implements Serializable {
     int followerCount;
     int playCount;
     List<String> genres;
+    List<AlbumIdentifier> albums;
     
     public Artist() {
     }
@@ -77,6 +79,14 @@ public class Artist implements Serializable {
 
     public void setGenres(List<String> genres) {
         this.genres = genres;
+    }
+    
+    public List<AlbumIdentifier> getAlbums() {
+        return albums;
+    }
+    
+    public void setAlbums(List<AlbumIdentifier> albums) {
+        this.albums = albums;
     }
     
 }
