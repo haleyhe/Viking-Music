@@ -1,0 +1,120 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.UserMusicMapper">
+    <cache />
+    
+    <resultMap id="songMap" type="com.vikings.domain.Song">
+        <id property="id" column="songid" />
+        <result property="name" column="name"/>
+        <result property="lyrics" column="lyrics"/>
+        <result property="duration" column="duration"/>
+        <result property="explicit" column="explicit"/>
+        <result property="discNumber" column="discnumber"/>
+        <result property="trackNumber" column="tracknumber"/>
+        <result property="numPlays" column="numplays"/>
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="artistid"/>
+            <result property="name" column="artistname"/>
+        </collection>
+    </resultMap>
+    
+    <select id="getSong" parameterType="String" resultMap="songMap">
+        SELECT
+            s.songId as 'songid',
+            s.name as 'name',
+            s.duration as 'duration',
+            s.explicit as 'explicit',
+            s.discNumber as 'discnumber',
+            s.trackNumber as 'tracknumber',
+            s.lyrics as 'lyrics',
+            s.numPlays as 'numplays',
+            a.artistId as 'artistid',
+            a.name as 'artistname'
+        FROM
+            Songs s,
+            SongArtists sa,
+            Artists a
+        WHERE
+            s.songId = #{id}
+            AND
+            sa.songId = s.songId
+            AND
+            a.artistId = sa.artistId
+    </select>
+
+    <insert id="markSongAsPlayedForUser" parameterType="Map">
+        INSERT IGNORE INTO
+            UserSongsPlayed (
+                userId,
+                songId,
+                datePlayed,
+                clickedPlay
+            )
+        VALUES (
+            #{userId},
+            #{songId},
+            #{datePlayed},
+            #{clicked}
+        )
+    </insert>
+
+    <insert id="saveSong" parameterType="Map">
+        INSERT IGNORE INTO
+            UserSongsSaved (
+                userId,
+                songId
+            )
+        VALUES (
+            #{userId},
+            #{songId}
+        )
+    </insert>
+
+    <delete id="unsaveSong" parameterType="Map">
+        DELETE FROM
+            UserSongsSaved
+        WHERE
+            userId = #{userId} AND
+            songId = #{songId}
+    </delete>
+
+    <insert id="saveAlbum" parameterType="Map">
+        INSERT IGNORE INTO
+            UserAlbumsSaved (
+                userId,
+                albumId
+            )
+        VALUES (
+            #{userId},
+            #{albumId}
+        )
+    </insert>
+
+    <delete id="unsaveAlbum" parameterType="Map">
+        DELETE FROM
+            UserAlbumsSaved
+        WHERE
+            userId = #{userId} AND
+            albumId = #{albumId}
+    </delete>
+
+    <insert id="followArtist" parameterType="Map">
+        INSERT IGNORE INTO
+            UserArtistsFollowed (
+                userId,
+                artistId
+            )
+        VALUES (
+            #{userId},
+            #{artistId}
+        )
+    </insert>
+
+    <delete id="unfollowArtist" parameterType="Map">
+        DELETE FROM
+            UserArtistsFollowed
+        WHERE
+            userId = #{userId} AND
+            artistId = #{artistId}
+    </delete>
+    
+</mapper>
