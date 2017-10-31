@@ -3,14 +3,14 @@
     <cache />
     
     <resultMap id="userMap" type="com.vikings.domain.User">
-        <id property="id" column="id" />
-        <result property="username" column="username"/>
-        <result property="email" column="email"/>
-        <result property="zip" column="zip"/>
-        <result property="dateOfBirth" column="birth" javaType="java.util.Date" jdbcType="DATE"/>
-        <result property="premium" column="premium"/>
-        <result property="admin" column="admin"/>
-        <result property="facebookId" column="facebook"/>
+        <id property="id" column="user_id" />
+        <result property="username" column="user_username"/>
+        <result property="email" column="user_email"/>
+        <result property="zip" column="user_zip"/>
+        <result property="dateOfBirth" column="user_birth" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="premium" column="user_premium"/>
+        <result property="admin" column="user_admin"/>
+        <result property="facebookId" column="user_facebook"/>
     </resultMap>
     
     <select id="userExists" parameterType="com.vikings.domain.User" resultType="boolean">
@@ -43,14 +43,14 @@
     
     <select id="processLogin" parameterType="com.vikings.domain.User" resultMap="userMap">
         SELECT
-            u.userId as "id",
-            u.username as "username",
-            u.emailAddress as "email",
-            u.zip as "zip",
-            u.birthDate as "birth",
-            u.premium as "premium",
-            u.admin as "admin",
-            u.facebookId as "facebook"
+            u.userId as 'user_id',
+            u.username as 'user_username',
+            u.emailAddress as 'user_email',
+            u.zip as 'user_zip',
+            u.birthDate as 'user_birth',
+            u.premium as 'user_premium',
+            u.admin as 'user_admin',
+            u.facebookId as 'user_facebook'
         FROM
             Users u
         WHERE

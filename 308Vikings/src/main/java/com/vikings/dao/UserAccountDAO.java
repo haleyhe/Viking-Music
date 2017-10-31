@@ -1,7 +1,11 @@
 package com.vikings.dao;
 
 import com.vikings.dao.mapper.UserAccountMapper;
+import com.vikings.dao.mapper.UserMusicMapper;
 import com.vikings.domain.User;
+import com.vikings.domain.UserMusic;
+import com.vikings.domain.identifier.SongIdentifier;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +18,9 @@ public class UserAccountDAO {
     
     @Autowired
     UserAccountMapper userAccountMapper;
+    
+    @Autowired
+    UserMusicMapper userMusicMapper;
     
     /**
      * Checks if the given user exists.
@@ -43,7 +50,18 @@ public class UserAccountDAO {
      *  Full User object if found, null otherwise.
      */
     public User processLogin(User user) {
-        return userAccountMapper.processLogin(user);
+        User foundUser = userAccountMapper.processLogin(user);
+        if (foundUser != null) {
+            // construct the UserMusic
+            UserMusic userMusic = new UserMusic();
+            userMusic.setSavedSongs(userMusicMapper.getSavedSongs(foundUser.getId()));
+            userMusic.setSavedAlbums(userMusicMapper.getSavedAlbums(foundUser.getId()));
+            userMusic.setFollowedArtists(userMusicMapper.getFollowedArtists(foundUser.getId()));
+            userMusic.setHistory(userMusicMapper.getHistory(foundUser.getId()));
+            userMusic.setRecentlyPlayed(userMusicMapper.getRecentlyPlayed(foundUser.getId()));
+            foundUser.setUserMusic(userMusic);
+        }
+        return foundUser;
     }
     
     /**

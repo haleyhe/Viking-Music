@@ -1,5 +1,8 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.AlbumIdentifier;
+import com.vikings.domain.identifier.ArtistIdentifier;
+import com.vikings.domain.identifier.SongIdentifier;
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,38 +10,38 @@ import java.util.List;
  * Represents a User's music library and preferences.
  */
 public class UserMusic implements Serializable {
-    List<Song> savedSongs;
-    List<Album> savedAlbums;
-    List<Artist> followedArtists;
+    List<SongIdentifier> savedSongs;
+    List<AlbumIdentifier> savedAlbums;
+    List<ArtistIdentifier> followedArtists;
     List<Playlist> followedPlaylists;
-    List<Song> history;
-    List<Song> recentlyPlayed;
+    List<SongIdentifier> history;
+    List<SongIdentifier> recentlyPlayed;
     
     public UserMusic() {
         
     }
 
-    public List<Song> getSavedSongs() {
+    public List<SongIdentifier> getSavedSongs() {
         return savedSongs;
     }
 
-    public void setSavedSongs(List<Song> savedSongs) {
+    public void setSavedSongs(List<SongIdentifier> savedSongs) {
         this.savedSongs = savedSongs;
     }
 
-    public List<Album> getSavedAlbums() {
+    public List<AlbumIdentifier> getSavedAlbums() {
         return savedAlbums;
     }
 
-    public void setSavedAlbums(List<Album> savedAlbums) {
+    public void setSavedAlbums(List<AlbumIdentifier> savedAlbums) {
         this.savedAlbums = savedAlbums;
     }
 
-    public List<Artist> getFollowedArtists() {
+    public List<ArtistIdentifier> getFollowedArtists() {
         return followedArtists;
     }
 
-    public void setFollowedArtists(List<Artist> followedArtists) {
+    public void setFollowedArtists(List<ArtistIdentifier> followedArtists) {
         this.followedArtists = followedArtists;
     }
 
@@ -50,19 +53,19 @@ public class UserMusic implements Serializable {
         this.followedPlaylists = followedPlaylists;
     }
 
-    public List<Song> getHistory() {
+    public List<SongIdentifier> getHistory() {
         return history;
     }
 
-    public void setHistory(List<Song> history) {
+    public void setHistory(List<SongIdentifier> history) {
         this.history = history;
     }
 
-    public List<Song> getRecentlyPlayed() {
+    public List<SongIdentifier> getRecentlyPlayed() {
         return recentlyPlayed;
     }
 
-    public void setRecentlyPlayed(List<Song> recentlyPlayed) {
+    public void setRecentlyPlayed(List<SongIdentifier> recentlyPlayed) {
         this.recentlyPlayed = recentlyPlayed;
     }
     

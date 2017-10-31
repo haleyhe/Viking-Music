@@ -16,6 +16,21 @@
             <result property="name" column="artistname"/>
         </collection>
     </resultMap>
+
+    <resultMap id="songIdentifierMap" type="com.vikings.domain.identifier.SongIdentifier">
+        <id property="id" column="song_id"/>
+        <result property="name" column="song_name"/>
+    </resultMap>
+
+    <resultMap id="albumIdentifierMap" type="com.vikings.domain.identifier.AlbumIdentifier">
+        <id property="id" column="album_id"/>
+        <result property="name" column="album_name"/>
+    </resultMap>
+
+    <resultMap id="artistIdentifierMap" type="com.vikings.domain.identifier.ArtistIdentifier">
+        <id property="id" column="artist_id"/>
+        <result property="name" column="artist_name"/>
+    </resultMap>
     
     <select id="getSong" parameterType="String" resultMap="songMap">
         SELECT
@@ -116,5 +131,76 @@
             userId = #{userId} AND
             artistId = #{artistId}
     </delete>
+
+    <select id="getSavedSongs" parameterType="String" resultMap="songIdentifierMap">
+        SELECT
+            s.songId as 'song_id',
+            s.name as 'song_name'
+        FROM
+            UserSongsSaved uss
+        LEFT JOIN
+            Songs s
+        ON
+            s.songId = uss.songId
+        WHERE
+            uss.userId = #{id}
+    </select>
+
+    <select id="getSavedAlbums" parameterType="String" resultMap="albumIdentifierMap">
+        SELECT
+            a.albumId as 'album_id',
+            a.name as 'album_name'
+        FROM
+            UserAlbumsSaved uas
+        LEFT JOIN
+            Albums a
+        ON
+            a.albumId = uas.albumId
+        WHERE
+            uas.userId = #{id}
+    </select>
+
+    <select id="getFollowedArtists" parameterType="String" resultMap="artistIdentifierMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name'
+        FROM
+            UserArtistsFollowed uaf
+        LEFT JOIN
+            Artists a
+        ON
+            a.artistId = uaf.artistId
+        WHERE
+            uaf.userId = #{id}
+    </select>
+
+    <select id="getHistory" parameterType="String" resultMap="songIdentifierMap">
+        SELECT
+            s.songId as 'song_id',
+            s.name as 'song_name'
+        FROM
+            UserSongsPlayed usp
+        LEFT JOIN
+            Songs s
+        ON
+            s.songId = usp.songId
+        WHERE
+            usp.userId = #{id}
+    </select>
+
+    <select id="getRecentlyPlayed" parameterType="String" resultMap="songIdentifierMap">
+        SELECT
+            s.songId as 'song_id',
+            s.name as 'song_name'
+        FROM
+            UserSongsPlayed usp
+        LEFT JOIN
+            Songs s
+        ON
+            s.songId = usp.songId
+        WHERE
+            usp.userId = #{id} AND
+            usp.clickedPlay = 1
+    </select>
     
 </mapper>
