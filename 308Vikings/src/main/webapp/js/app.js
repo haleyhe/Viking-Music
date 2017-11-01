@@ -114,16 +114,6 @@ $('.user-dropdown-menu').click(
 		$('.user-dropdown-menu').css("display", "none");
 });
 
-
-$('.registerbtn').click(function(){
-	$('.signup').css("display","block");
-});
-
-$('.login, .signupbtn').click(function(){
-	$('.appPage').css("display", "block");
-	$('.startUpPage').css("display", "none");
-});
-
 play = $('#play');
 pause = $('#pause');
 mute = $('#mute');
