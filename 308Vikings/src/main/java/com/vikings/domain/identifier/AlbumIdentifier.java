@@ -1,6 +1,7 @@
 package com.vikings.domain.identifier;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Represents a handle to an Album.
@@ -8,6 +9,7 @@ import java.io.Serializable;
 public class AlbumIdentifier implements Serializable {
     String id;
     String name;
+    List<ArtistIdentifier> artists;
 
     public String getId() {
         return id;
@@ -23,6 +25,14 @@ public class AlbumIdentifier implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<ArtistIdentifier> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(List<ArtistIdentifier> artists) {
+        this.artists = artists;
     }
     
 }

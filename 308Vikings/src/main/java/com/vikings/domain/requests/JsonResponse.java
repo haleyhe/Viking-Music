@@ -6,6 +6,19 @@ package com.vikings.domain.requests;
 public class JsonResponse {
     private boolean success;
     private String error;
+    
+    public JsonResponse() {
+        
+    }
+    
+    public JsonResponse(boolean success) {
+        this.success = success;
+    }
+    
+    public JsonResponse(boolean success, String error) {
+        this.success = success;
+        this.error = error;
+    }
 
     public boolean isSuccess() {
         return success;

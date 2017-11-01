@@ -1,6 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.User;
+import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
 import com.vikings.manager.UserMusicManager;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -30,9 +32,11 @@ public class UserMusicController {
      *      - the songIdentifier,
      *      - boolean true if the user clicked "Play" to initialize the song,
      *      - false if song began playing automatically.
+     * @return 
+     *  JsonResponse indicating success or error.
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserMusic/markSongAsPlayedForUser")
-    public void markSongAsPlayedForUser(@RequestBody MarkSongAsPlayedForUserRequest request) {
+    public @ResponseBody JsonResponse markSongAsPlayedForUser(@RequestBody MarkSongAsPlayedForUserRequest request) {
         // get the user from HTTPSession
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
@@ -44,9 +48,14 @@ public class UserMusicController {
                 user.getUserMusic().getRecentlyPlayed().add(request.getSongIdentifier());
             
             user.getUserMusic().getHistory().add(request.getSongIdentifier());
+            
+            userMusicManager.markSongAsPlayedForUser(user.getId(), request.getSongIdentifier().getId(), request.isClicked());
+            
+            return new JsonResponse(true);
+        } else {
+            return new JsonResponse(false, "User session expired.");
         }
-        
-        userMusicManager.markSongAsPlayedForUser(request.getUserId(), request.getSongIdentifier().getId(), request.isClicked());
+          
     }
 
 }
