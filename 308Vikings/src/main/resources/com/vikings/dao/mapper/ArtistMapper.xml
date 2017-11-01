@@ -28,7 +28,13 @@
             an.firstName as 'artist_firstname',
             an.lastName as 'artist_lastname',
             a.bio as 'artist_bio',
-            a.numFollowers as 'artist_followercount',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserArtistsFollowed uaf
+            WHERE
+                uaf.artistId = a.artistId)
+            as 'artist_followercount',
             (SELECT
                 SUM(s.numPlays)
             FROM
