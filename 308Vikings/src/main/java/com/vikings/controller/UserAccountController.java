@@ -1,6 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.User;
+import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.LoginRequest;
 import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
@@ -38,16 +39,19 @@ public class UserAccountController {
      *  True if success, false if error (user exists).
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/registerUser")
-    public @ResponseBody boolean registerUser(@RequestBody User newUser) {
+    public @ResponseBody JsonResponse registerUser(@RequestBody User newUser) {
         // check if the user exists
         boolean exists = userAccountManager.userExists(newUser);
         
+        JsonResponse json = new JsonResponse();
         if (!exists) {
             userAccountManager.registerUser(newUser);
-            return true;  
+            json.setSuccess(true);  
         } else {
-            return false;
+            json.setSuccess(false);
+            json.setError("Username already taken.");
         }
+        return json;
     }
     
     /**
@@ -59,7 +63,7 @@ public class UserAccountController {
      *  true if User found and added to session, false if not found.
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/processLogin")
-    public @ResponseBody boolean processLogin(@RequestBody LoginRequest loginRequest) {
+    public @ResponseBody JsonResponse processLogin(@RequestBody LoginRequest loginRequest) {
         User loginUser = new User();
         loginUser.setUsername(loginRequest.getUsername());
         loginUser.setPassword(loginRequest.getPassword());
@@ -67,16 +71,18 @@ public class UserAccountController {
         // see if we get a User
         User user = userAccountManager.processLogin(loginUser);
         
+        JsonResponse json = new JsonResponse();
         if (user != null) {
             // add user to the session
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpSession session = attr.getRequest().getSession(true);
             session.setAttribute("user", user);
-            
-            return true;
+            json.setSuccess(true);
         } else {
-            return false;
+            json.setSuccess(false);
+            json.setError("Invalid username and password combination.");
         }
+        return json;
     }
     
     /**
@@ -99,12 +105,14 @@ public class UserAccountController {
      * @return User information, or null if not found.
      */
     @RequestMapping(method = RequestMethod.GET, value = "/UserAccount/logout")
-    public @ResponseBody
-    boolean logout() {
+    public @ResponseBody JsonResponse logout() {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
         session.removeAttribute("user");
-        return true;
+        
+        JsonResponse json = new JsonResponse();
+        json.setSuccess(true);
+        return json;
     }
     
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/updateUserProfile")
