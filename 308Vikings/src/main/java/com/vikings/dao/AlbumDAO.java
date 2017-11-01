@@ -4,6 +4,7 @@ import com.vikings.dao.mapper.AlbumMapper;
 import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Album;
 import com.vikings.domain.Song;
+import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,15 @@ public class AlbumDAO {
         Collections.sort(songs);
         album.setSongs(songs);
         return album;
+    }
+    
+    /**
+     * Returns the 25 most recent albums on the service, by release date.
+     * @return 
+     *  List of AlbumIdentifiers for recent Albums.
+     */
+    public List<AlbumIdentifier> getRecentAlbums() {
+        return albumMapper.getRecentAlbums();
     }
     
 }

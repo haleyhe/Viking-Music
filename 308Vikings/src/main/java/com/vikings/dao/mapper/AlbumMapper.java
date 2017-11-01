@@ -1,6 +1,8 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.Album;
+import com.vikings.domain.identifier.AlbumIdentifier;
+import java.util.List;
 
 /**
  * Mapper class for AlbumDAO.
@@ -10,6 +12,8 @@ import com.vikings.domain.Album;
 public interface AlbumMapper {
     
     public Album getAlbum(String id);
+    
+    public List<AlbumIdentifier> getRecentAlbums();
     
 }
 

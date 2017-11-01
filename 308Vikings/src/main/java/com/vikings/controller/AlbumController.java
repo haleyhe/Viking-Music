@@ -1,7 +1,9 @@
 package com.vikings.controller;
 
 import com.vikings.domain.Album;
+import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.manager.AlbumManager;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +31,17 @@ public class AlbumController {
     public @ResponseBody Album getAlbum(@RequestParam("id") String id) {
         return albumManager.getAlbum(id);
     }
+    
+    /**
+     * Returns the 25 most recent albums on the service, by release date.
+     * @return 
+     *  List of AlbumIdentifiers for recent Albums.
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/Album/getRecentAlbums")
+    public @ResponseBody List<AlbumIdentifier> getRecentAlbums() {
+        return albumManager.getRecentAlbums();
+    }
+    
+    
 
 }
