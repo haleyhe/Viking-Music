@@ -28,6 +28,10 @@ public interface UserMusicMapper {
     
     public void unfollowArtist(@Param("userId") String userId, @Param("artistId") String artistId);
     
+    public void followPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId);
+    
+    public void unfollowPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId);
+    
     public List<SongIdentifier> getSavedSongs(String userId);
     
     public List<AlbumIdentifier> getSavedAlbums(String userId);

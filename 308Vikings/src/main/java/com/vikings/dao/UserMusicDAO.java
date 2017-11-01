@@ -96,4 +96,26 @@ public class UserMusicDAO {
         userMusicMapper.unfollowArtist(userId, artistId);
     }
     
+    /**
+     * Marks the given Playlist as followed for the given User.
+     * @param userId
+     *  ID of the User.
+     * @param playlistId 
+     *  ID of the Playlist.
+     */
+    public void followPlaylist(String userId, String playlistId) {
+        userMusicMapper.followPlaylist(userId, playlistId);
+    }
+    
+    /**
+     * Marks the given Playlist as unfollowed for the given User.
+     * @param userId
+     *  ID of the User.
+     * @param playlistId 
+     *  ID of the Playlist.
+     */
+    public void unfollowPlaylist(String userId, String playlistId) {
+        userMusicMapper.unfollowPlaylist(userId, playlistId);
+    }
+    
 }

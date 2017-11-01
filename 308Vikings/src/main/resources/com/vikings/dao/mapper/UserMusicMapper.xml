@@ -132,6 +132,26 @@
             artistId = #{artistId}
     </delete>
 
+    <insert id="followPlaylist" parameterType="Map">
+        INSERT IGNORE INTO
+            UserPlaylistsFollowed (
+                userId,
+                playlistId
+            )
+        VALUES (
+            #{userId},
+            #{playlistId}
+        )
+    </insert>
+
+    <delete id="unfollowPlaylist" parameterType="Map">
+        DELETE FROM
+            UserPlaylistsFollowed
+        WHERE
+            userId = #{userId} AND
+            playlistId = #{playlistId}
+    </delete>
+
     <select id="getSavedSongs" parameterType="String" resultMap="songIdentifierMap">
         SELECT
             s.songId as 'song_id',
