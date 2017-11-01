@@ -3,69 +3,94 @@
     <cache />
     
     <resultMap id="songMap" type="com.vikings.domain.Song">
-        <id property="id" column="songid" />
-        <result property="name" column="name"/>
-        <result property="lyrics" column="lyrics"/>
-        <result property="duration" column="duration"/>
-        <result property="explicit" column="explicit"/>
-        <result property="discNumber" column="discnumber"/>
-        <result property="trackNumber" column="tracknumber"/>
-        <result property="numPlays" column="numplays"/>
+        <id property="id" column="song_id" />
+        <result property="name" column="song_name"/>
+        <result property="lyrics" column="song_lyrics"/>
+        <result property="duration" column="song_duration"/>
+        <result property="explicit" column="song_explicit"/>
+        <result property="discNumber" column="song_discnumber"/>
+        <result property="trackNumber" column="song_tracknumber"/>
+        <result property="numPlays" column="song_numplays"/>
+        <association property="album" javaType="com.vikings.domain.identifier.AlbumIdentifier">
+            <id property="id" column="album_id"/>
+            <result property="name" column="album_name"/>
+        </association>
         <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
-            <id property="id" column="artistid"/>
-            <result property="name" column="artistname"/>
+            <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
         </collection>
     </resultMap>
     
     <select id="getSong" parameterType="String" resultMap="songMap">
         SELECT
-            s.songId as 'songid',
-            s.name as 'name',
-            s.duration as 'duration',
-            s.explicit as 'explicit',
-            s.discNumber as 'discnumber',
-            s.trackNumber as 'tracknumber',
-            s.lyrics as 'lyrics',
-            s.numPlays as 'numplays',
-            a.artistId as 'artistid',
-            a.name as 'artistname'
+            s.songId as 'song_id',
+            s.name as 'song_name',
+            s.duration as 'song_duration',
+            s.explicit as 'song_explicit',
+            s.discNumber as 'song_discnumber',
+            s.trackNumber as 'song_tracknumber',
+            s.lyrics as 'song_lyrics',
+            s.numPlays as 'song_numplays',
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            al.albumId as 'album_id',
+            al.name as 'album_name'
         FROM
-            Songs s,
-            SongArtists sa,
+            Songs s
+        LEFT JOIN
+            AlbumSongs als
+        ON
+            als.songId = s.songId
+        LEFT JOIN
+            SongArtists sa
+        ON
+            sa.songId = s.songId
+        LEFT JOIN
             Artists a
+        ON
+            a.artistId = sa.artistId
+        LEFT JOIN
+            Albums al
+        ON
+            al.albumId = als.albumId
         WHERE
             s.songId = #{id}
-            AND
-            sa.songId = s.songId
-            AND
-            a.artistId = sa.artistId
     </select>
 
     <select id="getSongsForAlbum" parameterType="String" resultMap="songMap">
         SELECT
-            s.songId as 'songid',
-            s.name as 'name',
-            s.duration as 'duration',
-            s.explicit as 'explicit',
-            s.discNumber as 'discnumber',
-            s.trackNumber as 'tracknumber',
-            s.lyrics as 'lyrics',
-            s.numPlays as 'numplays',
-            a.artistId as 'artistid',
-            a.name as 'artistname'
+            s.songId as 'song_id',
+            s.name as 'song_name',
+            s.duration as 'song_duration',
+            s.explicit as 'song_explicit',
+            s.discNumber as 'song_discnumber',
+            s.trackNumber as 'song_tracknumber',
+            s.lyrics as 'song_lyrics',
+            s.numPlays as 'song_numplays',
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            al.albumId as 'album_id',
+            al.name as 'album_name'
         FROM
-            Songs s,
-            AlbumSongs als,
-            SongArtists sa,
+            AlbumSongs als
+        LEFT JOIN
+            Songs s
+        ON
+            als.songId = s.songId
+        LEFT JOIN
+            SongArtists sa
+        ON
+            sa.songId = s.songId
+        LEFT JOIN
             Artists a
+        ON
+            a.artistId = sa.artistId
+        LEFT JOIN
+            Albums al
+        ON
+            al.albumId = als.albumId
         WHERE
             als.albumId = #{id}
-            AND
-            als.songId = s.songId
-            AND
-            sa.songId = s.songId
-            AND
-            sa.artistId = a.artistId
     </select>
     
 </mapper>
