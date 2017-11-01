@@ -2,6 +2,7 @@ package com.vikings.manager;
 
 import com.vikings.dao.UserAccountDAO;
 import com.vikings.domain.User;
+import com.vikings.util.InputChecker;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,5 +80,35 @@ public class UserAccountManager {
             return password;
         }
     }
+    
+    /**
+     * Updates a user's profile based on their input
+     * @param updatedUser object containing all of the fields that will be updated, everything not null will be updated
+     * @return true if the new values are valid and the update successfully goes through. False otherwise
+     */
+    public boolean updateUserProfile(User updatedUser) {
+        if (!hasValidUserParameters(updatedUser)) {
+            return false;
+        } else {
+            userAccountDAO.updateUser(updatedUser);
+            return true;
+        }
+    }
+    
+    /**
+     * Helper method to validate the user info that the user entered
+     * @param user object containing all of the fields that will be updated, everything not null will be updated
+     * @return True if all of the checks are passed. False otherwise
+     */
+    private boolean hasValidUserParameters (User user) {    
+        if (user.getEmail()!= null && !InputChecker.isValidEmail(user.getEmail())) {
+            return false;
+        }
+        if (user.getZip()!= null && !InputChecker.isValidZip(user.getZip())) {
+            return false;
+        }
+        return true;
+    }
+    
     
 }

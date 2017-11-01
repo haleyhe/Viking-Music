@@ -128,7 +128,7 @@ hr.style15 {
   transform: rotate(90deg);
   margin-top: 0;
   color: black;
-  font-family: 'Julius Sans'
+  font-family: 'Julius Sans';
   padding: 100%;
 }
 
@@ -344,7 +344,7 @@ div.menutabs li.current{
   -webkit-align-items: center;
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
-  margin-bottom: 100px;\
+  margin-bottom: 100px;
   list-style: none;
 }
 .profileinfo li{

@@ -92,5 +92,23 @@ public class UserAccountController {
         
         return user;
     }
-
+       
+    /**
+     * Logs the user out and redirect them to the startup page
+     *
+     * @return User information, or null if not found.
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/UserAccount/logout")
+    public @ResponseBody
+    boolean logout() {
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        session.removeAttribute("user");
+        return true;
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/updateUserProfile")
+    public @ResponseBody boolean updateUserProfile(@RequestBody User updatedUser) {
+        return (userAccountManager.updateUserProfile(updatedUser));
+    }
 }
