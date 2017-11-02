@@ -1,5 +1,5 @@
    jQuery(document).ready(function ($) {
-    $(".signupbtn").submit(function (event) {
+    $("#signup-form").submit(function (event) {
         // Prevent the form from submitting via the browser.
         event.preventDefault();
         signup();
@@ -34,6 +34,7 @@ function signup() {
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
+            
             displaySignupMessage(data);
         },
         error: function (e) {
@@ -80,6 +81,7 @@ function login() {
 }
 
 function displaySignupMessage(data) {
+
     document.getElementById("feedback").style.display = "inline";
     if (data) {
         $('#feedback').html("<h4>Signup Successful</h4>");
@@ -95,10 +97,12 @@ function display(data) {
 }
 
 function displayLoginMessage(data) {
-    document.getElementById("feedback").style.display = "inline";
+    document.getElementById("signin-form").style.display = "none";
+    
     if (data) {
-        $('#feedback').html("<h4>Login Successful</h4>");
+        document.getElementById("appPage").style.display = "block";
     } else {
+        document.getElementById("feedback").style.display = "inline";
         $('#feedback').html("<h4>Login Failed</h4>");
     }
 }

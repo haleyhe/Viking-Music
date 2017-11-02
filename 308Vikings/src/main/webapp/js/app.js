@@ -114,11 +114,15 @@ $('.user-dropdown-menu').click(
 		$('.user-dropdown-menu').css("display", "none");
 });
 
+$('.registerbtn').click(function(){
+	$('.signup').css("display","block");
+});
+
 play = $('#play');
 pause = $('#pause');
 mute = $('#mute');
 muted = $('#muted');
-song = new Audio('download/AlanWalker-Fade.mp3');
+song = new Audio('308Vikings/download/AlanWalker-Fade.mp3');
 duration = song.duration;
 
 play.on('click', function(e) {
