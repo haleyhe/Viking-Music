@@ -9,6 +9,12 @@
         event.preventDefault();
         login();
     });
+    
+    $("#signout-form").submit(function (event) {
+        // Prevent the form from submitting via the browser.
+        event.preventDefault();
+        logout();
+    });
 });
 
 function signup() {
@@ -64,7 +70,34 @@ function login() {
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            displayLoginMessage(data);
+            //displayLoginMessage(data);
+            window.location.replace("/308Vikings/");
+        },
+        error: function (e) {
+            console.log("ERROR: ", e);
+            display(e);
+        },
+        done: function (e) {
+            console.log("DONE");
+        }
+    });
+
+}
+
+function logout() {
+    console.log("Calling logout Ajax function...");
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/308Vikings/UserAccount/logout",
+        data: "",
+        dataType: 'json',
+        async: true,
+        timeout: 100000,
+        success: function (data) {
+            console.log("SUCCESS: ", data);
+            window.location.replace("/308Vikings/");
         },
         error: function (e) {
             console.log("ERROR: ", e);
