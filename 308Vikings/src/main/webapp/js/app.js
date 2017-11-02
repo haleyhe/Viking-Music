@@ -118,19 +118,6 @@ $('.registerbtn').click(function(){
 	$('.signup').css("display","block");
 });
 
-song = new Audio('308Vikings/download/AlanWalker-Fade.mp3');
-duration = song.duration;
-
-$(document).on('click', '#play', function(e) {
-		e.preventDefault();
-		song.play();
-                $('#play').replaceWith('<img class="playerimg" id="pause" src="308Vikings/css/pause.png"></img>');
-}); 
-$(document).on('click','#pause', function(e) {
-		e.preventDefault();
-		song.pause();
-                $('#pause').replaceWith('<img class="playerimg" id="play" src="308Vikings/css/play-button.png"></img>');
-});		
 }
 
 $(document).ready(main);

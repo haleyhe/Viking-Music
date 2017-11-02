@@ -1,4 +1,4 @@
-   jQuery(document).ready(function ($) {
+ jQuery(document).ready(function ($) {
     $("#signup-form").submit(function (event) {
         // Prevent the form from submitting via the browser.
         event.preventDefault();
