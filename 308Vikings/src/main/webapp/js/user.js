@@ -65,9 +65,6 @@ function login() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             displayLoginMessage(data);
-            if (data) {
-                getUserInfoFromSession();
-            }
         },
         error: function (e) {
             console.log("ERROR: ", e);
@@ -81,11 +78,13 @@ function login() {
 }
 
 function displaySignupMessage(data) {
-
+    document.getElementById("signin-form").style.display = "none";
     document.getElementById("feedback").style.display = "inline";
-    if (data) {
+    if (data.success) {
+        
         $('#feedback').html("<h4>Signup Successful</h4>");
-    } else {
+    } else 
+    {
         $('#feedback').html("<h4>Signup Failed. Username or Email taken.</h4>");
     }
 }
@@ -99,7 +98,7 @@ function display(data) {
 function displayLoginMessage(data) {
     document.getElementById("signin-form").style.display = "none";
     
-    if (data) {
+    if (data.success) {
         document.getElementById("appPage").style.display = "block";
     } else {
         document.getElementById("feedback").style.display = "inline";
