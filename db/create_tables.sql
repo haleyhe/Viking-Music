@@ -107,18 +107,21 @@ CREATE TABLE IF NOT EXISTS ForgotPasswordRequests (
 CREATE TABLE IF NOT EXISTS UserArtistsFollowed (
     userId VARCHAR(40),
     artistId VARCHAR(40),
+    dateFollowed DATETIME,
     PRIMARY KEY (userId, artistId)
 );
 
 CREATE TABLE IF NOT EXISTS UserSongsSaved (
     userId VARCHAR(40),
     songId VARCHAR(40),
+    dateSaved DATETIME,
     PRIMARY KEY(userId, songId)
 );
 
 CREATE TABLE IF NOT EXISTS UserAlbumsSaved (
     userId VARCHAR(40),
     albumId VARCHAR(40),
+    dateSaved DATETIME,
     PRIMARY KEY (userId, albumId)
 );
 
@@ -134,7 +137,7 @@ CREATE TABLE IF NOT EXISTS UserSongsPlayed (
 CREATE TABLE IF NOT EXISTS Playlists (
     playlistId VARCHAR(40),
     creatorId VARCHAR(40),
-    dateCreated DATE,
+    dateCreated DATETIME,
     name VARCHAR(256),
     description VARCHAR(512),
     isPublic TINYINT,
@@ -147,13 +150,14 @@ CREATE TABLE IF NOT EXISTS PlaylistSongs (
     playlistId VARCHAR(40),
     songId VARCHAR(40),
     trackNumber INT,
-    dateAdded DATE,
+    dateAdded DATETIME,
     PRIMARY KEY (playlistId, trackNumber)
 );
 
 CREATE TABLE IF NOT EXISTS UserPlaylistsFollowed (
     userId VARCHAR(40),
     playlistId VARCHAR(40),
+    dateFollowed DATETIME,
     PRIMARY KEY (userId, playlistId)
 );
 
