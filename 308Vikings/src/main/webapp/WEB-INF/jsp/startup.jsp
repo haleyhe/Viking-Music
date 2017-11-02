@@ -34,7 +34,7 @@
            </div>
            </form>
 
-        <div class=signup>
+        <div id=signup>
             <div class=modal-content>
             <div class=startUptitle>VIKING</div>
             <hr class="style15" style="width:70%">
@@ -49,7 +49,7 @@
         </div>
       </div>
     </div>
-      
+           <div id="feedback"></div>
     </body>
     <script>
        window.onload = function () {

@@ -111,7 +111,7 @@ function logout() {
 }
 
 function displaySignupMessage(data) {
-    document.getElementById("signin-form").style.display = "none";
+    document.getElementById("signup").style.display = "none";
     document.getElementById("feedback").style.display = "inline";
     if (data.success) {
         

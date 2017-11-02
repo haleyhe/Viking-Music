@@ -115,7 +115,7 @@ $('.user-dropdown-menu').click(
 });
 
 $('.registerbtn').click(function(){
-	$('.signup').css("display","block");
+	$('#signup').css("display","block");
 });
 
 }

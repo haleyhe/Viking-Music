@@ -71,7 +71,7 @@ hr.style15 {
   background-color: #3b5998;
 }
 
-.signup{
+#signup{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 997; /* Sit on top */
@@ -93,18 +93,18 @@ hr.style15 {
   overflow: scroll;
 }
 
-.signup div{
+#signup div{
   margin-bottom: 10px;
 }
 
 
-.signup input{
+#signup input{
   height: 30px;
   width: 80%;
   font-size: 1em;
 }
 
-.signup button{
+#signup button{
   font-family: 'Raleway', sans-serif;
   height: 50px;
   width: 80%;
