@@ -91,12 +91,12 @@
                 <!--Bottom Player Navigation Bar  -->
                 <div class=player-bar>
                   <div class=player>
-                    <img class=playerimg id=shuffle src="308Vikings/css/shuffle.png"></img>
-                    <img class=playerimg id=back src="308Vikings/css/back.png"></img>
-                    <img class=playerimg id=play src="308Vikings/css/play-button.png"></img>
-                    <img class=playerimg id=next src="308Vikings/css/next.png"></img>
-                    <img class=playerimg id=repeat src="308Vikings/css/repeat.png"></img>
-                    <input type="range" id="seek" value="0" max=""/>
+                    <img class="playerimg" id = "shuffle" src="308Vikings/css/shuffle.png"></img>
+                    <img class="playerimg" id = "back" src="308Vikings/css/back.png"></img>
+                    <img class="playerimg" id = "play" src="308Vikings/css/play-button.png"></img>
+                    <img class="playerimg" id = "next" src="308Vikings/css/next.png"></img>
+                    <img class="playerimg" id = "repeat" src="308Vikings/css/repeat.png"></img>
+                    <input type="range" class="seek" value="0" max=""/>
                   </div>
                 </div>
 
