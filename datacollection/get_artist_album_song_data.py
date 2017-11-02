@@ -281,6 +281,7 @@ with open('artistUris.txt') as f:
         # skip empty lines or comments
         if line[0] == '#' or len(line) == 0:
             continue
+        line = line.split('\t')[0]
         line = line.split(':')[2]
         # Process the Artist
         print('Processing Artist ' + line + '...')

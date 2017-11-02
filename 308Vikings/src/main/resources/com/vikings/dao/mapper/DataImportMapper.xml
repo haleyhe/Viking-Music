@@ -88,5 +88,57 @@
             #{album.id}
         );
     </insert>
+
+    <insert id="createAddress" parameterType="com.vikings.domain.Address">
+        INSERT IGNORE INTO Addresses (
+            street,
+            city,
+            state,
+            zip
+        ) VALUES (
+            #{street},
+            #{city},
+            #{state},
+            #{zip}
+        )
+    </insert>
+
+    <insert id="createVenue" parameterType="com.vikings.domain.Venue">
+        INSERT IGNORE INTO ConcertVenues (
+            venueId,
+            name,
+            street,
+            zip
+        ) VALUES (
+            #{id},
+            #{name},
+            #{address.street},
+            #{address.zip}
+        )
+    </insert>
+
+    <insert id="createConcert" parameterType="com.vikings.domain.Concert">
+        INSERT IGNORE INTO Concerts (
+            concertId,
+            concertDate,
+            venueId,
+            ticketingUrl
+        ) VALUES (
+            #{id},
+            #{date},
+            #{venue.id},
+            #{ticketingUrl}
+        )
+    </insert>
+
+    <insert id="createConcertArtists" parameterType="com.vikings.domain.Concert">
+        INSERT IGNORE INTO ConcertArtists (
+            concertId,
+            artistId
+        ) VALUES
+            <foreach item="artist" collection="artists" separator=",">
+                (#{id}, #{artist.id})
+            </foreach>
+    </insert>
     
 </mapper>

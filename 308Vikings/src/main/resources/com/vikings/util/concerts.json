@@ -1,0 +1,312 @@
+{
+    "concerts": [
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2017-12-09", 
+            "songkickUrl": "https://www.songkick.com/concerts/31641939-weezer-at-oracle-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24211864", 
+            "venue": {
+                "city": "Oakland", 
+                "name": "Oracle Arena", 
+                "state": "CA", 
+                "street": "7000 Coliseum Way", 
+                "zip": "94621"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-09", 
+            "songkickUrl": "https://www.songkick.com/concerts/30392224-courtney-barnett-at-ryman-auditorium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23551134", 
+            "venue": {
+                "city": "Nashville", 
+                "name": "Ryman Auditorium", 
+                "state": "TN", 
+                "street": "116 5th Avenue North", 
+                "zip": "37219"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-07", 
+            "songkickUrl": "https://www.songkick.com/concerts/30574474-courtney-barnett-at-anthem", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23653404", 
+            "venue": {
+                "city": "Washington", 
+                "name": "The Anthem", 
+                "state": "DC", 
+                "street": "1100 Maine Ave SW", 
+                "zip": "20024"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-11-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958674-national-at-paramount-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385399", 
+            "venue": {
+                "city": "Seattle", 
+                "name": "Paramount Theatre", 
+                "state": "WA", 
+                "street": "901 Pine Street", 
+                "zip": "98101"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-11", 
+            "songkickUrl": "https://www.songkick.com/concerts/30392239-courtney-barnett-at-austin-city-limits-live-at-the-moody-theater", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23553669", 
+            "venue": {
+                "city": "Austin", 
+                "name": "Austin City Limits Live at The Moody Theater", 
+                "state": "TX", 
+                "street": "310 W. Willie Nelson Blvd.", 
+                "zip": "78701"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/30391309-courtney-barnett-at-beacon-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23551109", 
+            "venue": {
+                "city": "New York", 
+                "name": "Beacon Theatre", 
+                "state": "NY", 
+                "street": "2124 Broadway", 
+                "zip": "10023"
+            }
+        }, 
+        {
+            "artists": [
+                "3kzwYV3OCB010YfXMF0Avt"
+            ], 
+            "date": "2017-11-04", 
+            "songkickUrl": "https://www.songkick.com/concerts/30213279-alvvays-at-magic-stick", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23541519", 
+            "venue": {
+                "city": "Detroit", 
+                "name": "Magic Stick", 
+                "state": "MI", 
+                "street": "4120 Woodward Ave.", 
+                "zip": "48202"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-05", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958799-national-at-anthem", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23844709", 
+            "venue": {
+                "city": "Washington", 
+                "name": "The Anthem", 
+                "state": "DC", 
+                "street": "1100 Maine Ave SW", 
+                "zip": "20024"
+            }
+        }, 
+        {
+            "artists": [
+                "3kzwYV3OCB010YfXMF0Avt"
+            ], 
+            "date": "2017-11-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/30213269-alvvays-at-thalia-hall", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23541494", 
+            "venue": {
+                "city": "Chicago", 
+                "name": "Thalia Hall", 
+                "state": "IL", 
+                "street": "1807 S Allport St", 
+                "zip": "60608"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-13", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958854-national-at-civic-opera-house", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385439", 
+            "venue": {
+                "city": "Chicago", 
+                "name": "Civic Opera House", 
+                "state": "IL", 
+                "street": "20 North Wacker Drive", 
+                "zip": "60606"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-10", 
+            "songkickUrl": "https://www.songkick.com/concerts/30392229-courtney-barnett-at-mcfarlin-memorial-auditorium-southern-methodist-university", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23551979", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "McFarlin Memorial Auditorium, Southern Methodist University", 
+                "state": "TX", 
+                "street": "6405 Boaz Ln., Ste. 101", 
+                "zip": "75275"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-04", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958694-national-at-verizon-hall-kimmel-center-for-the-performing-arts", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23393169", 
+            "venue": {
+                "city": "Philadelphia", 
+                "name": "Verizon Hall, Kimmel Center for the Performing Arts", 
+                "state": "PA", 
+                "street": "300 S. Broad St.", 
+                "zip": "19102"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-04", 
+            "songkickUrl": "https://www.songkick.com/concerts/30392209-courtney-barnett-at-orpheum-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23551124", 
+            "venue": {
+                "city": "Boston", 
+                "name": "Orpheum Theatre", 
+                "state": "MA", 
+                "street": "1 Hamilton Place", 
+                "zip": "02108"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/30392199-courtney-barnett-at-tower-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23551114", 
+            "venue": {
+                "city": "Upper Darby", 
+                "name": "Tower Theatre", 
+                "state": "PA", 
+                "street": "69th & Ludlow Street", 
+                "zip": "19082"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2017-12-08", 
+            "songkickUrl": "https://www.songkick.com/concerts/31641894-welshly-arms-at-oracle-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24211794", 
+            "venue": {
+                "city": "Oakland", 
+                "name": "Oracle Arena", 
+                "state": "CA", 
+                "street": "7000 Coliseum Way", 
+                "zip": "94621"
+            }
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "date": "2017-11-06", 
+            "songkickUrl": "https://www.songkick.com/concerts/30574464-courtney-barnett-at-loews-jersey-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23653399", 
+            "venue": {
+                "city": "Jersey City", 
+                "name": "Loew's Jersey Theatre", 
+                "state": "NJ", 
+                "street": "54 Journal Square", 
+                "zip": "07306"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-11-27", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958654-national-at-arlene-schnitzer-concert-hall", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385389", 
+            "venue": {
+                "city": "Portland", 
+                "name": "Arlene Schnitzer Concert Hall", 
+                "state": "OR", 
+                "street": "1037 SW Broadway", 
+                "zip": "97205"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-12", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958849-national-at-civic-opera-house", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385434", 
+            "venue": {
+                "city": "Chicago", 
+                "name": "Civic Opera House", 
+                "state": "IL", 
+                "street": "20 North Wacker Drive", 
+                "zip": "60606"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2017-12-09", 
+            "songkickUrl": "https://www.songkick.com/festivals/6351-kroq-almost-acoustic-christmas/id/31636179-kroq-almost-acoustic-christmas-2017", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24211824", 
+            "venue": {
+                "city": "Inglewood", 
+                "name": "The Forum", 
+                "state": "CA", 
+                "street": "3900 W. Manchester Blvd.", 
+                "zip": "90305"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-11-28", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958664-national-at-paramount-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385394", 
+            "venue": {
+                "city": "Seattle", 
+                "name": "Paramount Theatre", 
+                "state": "WA", 
+                "street": "901 Pine Street", 
+                "zip": "98101"
+            }
+        }
+    ]
+}

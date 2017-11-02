@@ -1,8 +1,9 @@
 # Contains URIs for all Artists we wish to collect data for.
 # You can get the URI from the Spotify Artist Page.
-spotify:artist:3jOstUTkEu2JkjvRdBA5Gu
-spotify:artist:4OOlG5eBXSkSAAEeKjJb5Y
-spotify:artist:3kzwYV3OCB010YfXMF0Avt
-spotify:artist:2cCUtGK9sDU2EoElnk0GNB
-spotify:artist:5gspAQIAH8nJUrMYgXjCJ2
-spotify:artist:4wLIbcoqmqI4WZHDiBxeCB
+# !!! ELEMENTS ARE SEPARATED BY TABS WITH NO SPACES !!!
+spotify:artist:3jOstUTkEu2JkjvRdBA5Gu	Weezer	https://www.songkick.com/artists/544909-weezer/calendar
+spotify:artist:4OOlG5eBXSkSAAEeKjJb5Y	Courtney Barnett	https://www.songkick.com/artists/3909026-courtney-barnett/calendar
+spotify:artist:3kzwYV3OCB010YfXMF0Avt	Alvvays	https://www.songkick.com/artists/6938324-alvvays/calendar
+spotify:artist:2cCUtGK9sDU2EoElnk0GNB	The National	https://www.songkick.com/artists/405285-national/calendar
+spotify:artist:5gspAQIAH8nJUrMYgXjCJ2	Kurt Vile	https://www.songkick.com/artists/4294851-kurt-vile/calendar
+spotify:artist:4wLIbcoqmqI4WZHDiBxeCB	Sleater-Kinney	N/A
