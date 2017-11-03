@@ -12,7 +12,7 @@ public interface ConcertMapper {
     
     public Concert getConcert(String id);
     
-    public List<Concert>  getConcertsForArtist(String id);
+    public List<Concert> getConcertsForArtist(String id);
     
 }
 

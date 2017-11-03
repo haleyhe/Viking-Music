@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.UserIdentifier;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class Playlist implements Serializable {
     String id;
     String name;
-    User creator;
+    UserIdentifier creator;
     Date creationDate;
     String description;
     boolean publiclyVisible;
@@ -40,11 +41,11 @@ public class Playlist implements Serializable {
         this.name = name;
     }
 
-    public User getCreator() {
+    public UserIdentifier getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(UserIdentifier creator) {
         this.creator = creator;
     }
 

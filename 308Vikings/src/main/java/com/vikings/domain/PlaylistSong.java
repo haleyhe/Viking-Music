@@ -7,7 +7,7 @@ import java.util.Date;
  * Represents a song in a specific Playlist.
  */
 public class PlaylistSong extends Song implements Serializable {
-    Date timeAdded;
+    Date dateAdded;
     int playlistTrackNumber;
     
     public PlaylistSong() {
@@ -16,13 +16,26 @@ public class PlaylistSong extends Song implements Serializable {
     public PlaylistSong(String id) {
         this.id = id;
     }
-
-    public Date getTimeAdded() {
-        return timeAdded;
+    
+    public PlaylistSong(Song song) {
+        this.id = song.getId();
+        this.album = song.getAlbum();
+        this.artists = song.getArtists();
+        this.duration = song.getDuration();
+        this.explicit = song.isExplicit();
+        this.lyrics = song.getLyrics();
+        this.name = song.getName();
+        this.numPlays = song.getNumPlays();
+        this.discNumber = song.getDiscNumber();
+        this.trackNumber = song.getTrackNumber();
     }
 
-    public void setTimeAdded(Date timeAdded) {
-        this.timeAdded = timeAdded;
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     public int getPlaylistTrackNumber() {
@@ -31,6 +44,19 @@ public class PlaylistSong extends Song implements Serializable {
 
     public void setPlaylistTrackNumber(int playlistTrackNumber) {
         this.playlistTrackNumber = playlistTrackNumber;
+    }
+    
+    @Override
+    public int compareTo(Song s) {
+        if (s instanceof PlaylistSong) {
+            return Integer.compare(this.playlistTrackNumber, ((PlaylistSong) s).getPlaylistTrackNumber());
+        } else {
+            int result = Integer.compare(this.discNumber, s.getDiscNumber());
+            if (result != 0)
+                return result;
+            else
+            return Integer.compare(this.trackNumber, s.getTrackNumber()); 
+        }
     }
     
 }
