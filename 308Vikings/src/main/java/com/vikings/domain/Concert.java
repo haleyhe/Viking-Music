@@ -9,7 +9,6 @@ import java.util.List;
  */
 public class Concert implements Serializable {
     String id;
-    String name;
     Date date;
     Venue venue;
     String ticketingUrl;
@@ -29,14 +28,6 @@ public class Concert implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Date getDate() {

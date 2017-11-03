@@ -1,0 +1,59 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vikings.dao.mapper.ConcertMapper">
+    <cache />
+
+    <resultMap id="concertMap" type="com.vikings.domain.Concert">
+        <id property="id" column="concert_id"/>
+        <result property="date" column="concert_date"/>
+        <result property="ticketingUrl" column="concert_ticketing_url"/>
+        <association property="venue" javaType="com.vikings.domain.Venue">
+            <id property="id" column="venue_id"/>
+            <result property="name" column="venue_name"/>
+            <association property="address" javaType="com.vikings.domain.Address">
+                    <id property="street" column="venue_address_street"/>
+                    <id property="zip" column="venue_address_zip"/>
+                    <result property="city" column="venue_address_city"/>
+                    <result property="state" column="venue_address_state"/>
+            </association>
+        </association>
+        <collection property="artists" ofType="com.vikings.domain.Artist">
+            <id property="id" column="artist_id"/>
+        </collection>
+    </resultMap>
+    
+    <select id="getConcert" parameterType="String" resultMap="concertMap">
+        SELECT
+            c.concertId as 'concert_id',
+            c.concertDate as 'concert_date',
+            c.ticketingUrl as 'concert_ticketing_url',
+            v.venueId as 'venue_id',
+            v.name as 'venue_name',
+            a.street as 'venue_address_street',
+            a.city as 'venue_address_city',
+            a.state as 'venue_address_state',
+            a.zip as 'venue_address_zip',
+            ar.artistId as 'artist_id'
+        FROM
+            Concerts c
+        LEFT JOIN
+            ConcertVenues v
+        ON
+            c.venueId = v.venueId
+        LEFT JOIN
+            Addresses a
+        ON
+            a.street = v.street AND
+            a.zip = v.zip
+        LEFT JOIN
+            ConcertArtists ca
+        ON
+            ca.ConcertId = c.concertId
+        LEFT JOIN
+            Artists ar
+        ON
+            ca.artistId = ar.artistId
+        WHERE
+            c.concertId = #{id}
+    </select>
+    
+</mapper>
