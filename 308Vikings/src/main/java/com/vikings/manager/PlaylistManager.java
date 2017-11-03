@@ -96,6 +96,8 @@ public class PlaylistManager {
      *  of the given Playlist object:
      *  - Name
      *  - Description
+     *  The following attributes will be overwritten regardless of if you set them
+     *  or not, so make sure this is set to the desired state:
      *  - PubliclyVisible
      */
     public void updatePlaylist(Playlist playlist) {
