@@ -73,5 +73,23 @@
             #{song.dateAdded}
         )
     </insert>
+
+    <update id="updatePlaylist" parameterType="com.vikings.domain.Playlist">
+        UPDATE
+            Playlists p
+        SET
+            <if test="name != null">
+                p.name = #{name},
+            </if>
+            <if test="description != null">
+                p.description = #{description},
+            </if>
+            <if test="publiclyVisible != null">
+                p.isPublic = #{publiclyVisible},
+            </if>
+            p.playlistId = #{id}
+        WHERE
+            p.playlistId = #{id} 
+    </update>
     
 </mapper>

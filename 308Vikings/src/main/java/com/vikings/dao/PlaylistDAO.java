@@ -61,4 +61,18 @@ public class PlaylistDAO {
         playlistMapper.addSongToPlaylist(playlistId, song);
     }
     
+    /**
+     * Updates basic information of the Playlist wit the given ID.
+     * @param playlist
+     *  Playlist object containing the desired Playlist ID.
+     *  If non-null, the following attributes will be overwritten with the contents
+     *  of the given Playlist object:
+     *  - Name
+     *  - Description
+     *  - PubliclyVisible
+     */
+    public void updatePlaylist(Playlist playlist) {
+        playlistMapper.updatePlaylist(playlist);
+    }
+    
 }

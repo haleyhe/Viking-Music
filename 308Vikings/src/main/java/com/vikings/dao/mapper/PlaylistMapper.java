@@ -17,5 +17,7 @@ public interface PlaylistMapper {
     
     public void addSongToPlaylist(@Param("playlistId") String playlistId, @Param("song") PlaylistSong song);
     
+    public void updatePlaylist(Playlist playlist);
+    
 }
 

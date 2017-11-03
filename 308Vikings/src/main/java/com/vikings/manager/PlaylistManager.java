@@ -88,4 +88,27 @@ public class PlaylistManager {
         playlistDAO.addSongToPlaylist(playlistId, playlistSong);
     }
     
+    /**
+     * Updates basic information of the Playlist wit the given ID.
+     * @param playlist
+     *  Playlist object containing the desired Playlist ID.
+     *  If non-null, the following attributes will be overwritten with the contents
+     *  of the given Playlist object:
+     *  - Name
+     *  - Description
+     *  - PubliclyVisible
+     */
+    public void updatePlaylist(Playlist playlist) {
+        if (playlists.get(playlist.getId()) != null) {
+            Playlist oldPlaylist = playlists.get(playlist.getId());
+            if (playlist.getName() != null)
+                oldPlaylist.setName(playlist.getName());
+            if (playlist.getDescription() != null)
+                oldPlaylist.setDescription(playlist.getDescription());
+                
+            oldPlaylist.setPubliclyVisible(playlist.isPubliclyVisible());
+        }
+        playlistDAO.updatePlaylist(playlist);
+    }
+    
 }
