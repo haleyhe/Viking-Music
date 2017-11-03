@@ -42,4 +42,29 @@ public class ConcertDAO {
         return concert;
     }
     
+    /**
+     * Gets all Concerts for an Artist, sorted by ascending date.
+     * @param id
+     *  The Artist ID.
+     * @return 
+     *  List of detailed Concert objects.
+     */
+    public List<Concert> getConcertsForArtist(String id) {
+        List<Concert> concerts = concertMapper.getConcertsForArtist(id);
+        
+        for (Concert concert : concerts) {
+            // ConcertMapper returns dummy Artist objects with just the IDs.
+            // Make calls to artistMapper for detailed Artist info.
+            // (this is cached so don't worry about the repeat calls)
+            List<Artist> detailedArtists = new ArrayList<Artist>();
+            for (Artist artist : concert.getArtists()) {
+                Artist detailedArtist = artistMapper.getArtist(artist.getId());
+                detailedArtists.add(detailedArtist);
+            }
+            concert.setArtists(detailedArtists);
+        }
+        
+        return concerts;
+    }
+    
 }

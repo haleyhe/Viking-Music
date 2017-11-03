@@ -1,6 +1,7 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.Concert;
+import java.util.List;
 
 /**
  * Mapper class for ConcertDAO.
@@ -10,6 +11,8 @@ import com.vikings.domain.Concert;
 public interface ConcertMapper {
     
     public Concert getConcert(String id);
+    
+    public List<Concert>  getConcertsForArtist(String id);
     
 }
 

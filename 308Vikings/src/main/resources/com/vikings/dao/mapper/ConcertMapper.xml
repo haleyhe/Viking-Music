@@ -55,5 +55,42 @@
         WHERE
             c.concertId = #{id}
     </select>
+
+    <select id="getConcertsForArtist" parameterType="String" resultMap="concertMap">
+        SELECT
+            c.concertId as 'concert_id',
+            c.concertDate as 'concert_date',
+            c.ticketingUrl as 'concert_ticketing_url',
+            v.venueId as 'venue_id',
+            v.name as 'venue_name',
+            a.street as 'venue_address_street',
+            a.city as 'venue_address_city',
+            a.state as 'venue_address_state',
+            a.zip as 'venue_address_zip',
+            ar.artistId as 'artist_id'
+        FROM
+            ConcertArtists ca
+        LEFT JOIN
+            Concerts c
+        ON
+            c.concertId = ca.concertId
+        LEFT JOIN
+            ConcertVenues v
+        ON
+            c.venueId = v.venueId
+        LEFT JOIN
+            Addresses a
+        ON
+            a.street = v.street AND
+            a.zip = v.zip
+        LEFT JOIN
+            Artists ar
+        ON
+            ca.artistId = ar.artistId
+        WHERE
+            ca.artistId = #{id}
+        ORDER BY
+            c.concertDate ASC
+    </select>
     
 </mapper>

@@ -3,6 +3,7 @@ package com.vikings.manager;
 import com.vikings.dao.ConcertDAO;
 import com.vikings.domain.Concert;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,11 @@ public class ConcertManager {
     ConcertDAO concertDAO;
     
     Map<String, Concert> concerts;
+    Map<String, List<Concert>> concertsByArtist;
     
     public ConcertManager() {
         this.concerts = new HashMap<String, Concert>();
+        this.concertsByArtist = new HashMap<String, List<Concert>>();
     }
     
     /**
@@ -36,6 +39,23 @@ public class ConcertManager {
             concerts.put(id, concert);
         }
         return concert;
+    }
+    
+    /**
+     * Retrieves all Concerts for an Artist, sorted by
+     * ascending date.
+     * @param id
+     *  Artist ID.
+     * @return 
+     *  List of detailed Concert objects.
+     */
+    public List<Concert> getConcertsForArtist(String id) {
+        List<Concert> concerts = concertsByArtist.get(id);
+        if (concerts == null) {
+            concerts = concertDAO.getConcertsForArtist(id);
+            concertsByArtist.put(id, concerts);
+        }
+        return concerts;
     }
     
 }
