@@ -25,11 +25,24 @@
     <resultMap id="albumIdentifierMap" type="com.vikings.domain.identifier.AlbumIdentifier">
         <id property="id" column="album_id"/>
         <result property="name" column="album_name"/>
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
+        </collection>
     </resultMap>
 
     <resultMap id="artistIdentifierMap" type="com.vikings.domain.identifier.ArtistIdentifier">
         <id property="id" column="artist_id"/>
         <result property="name" column="artist_name"/>
+    </resultMap>
+
+    <resultMap id="playlistIdentifierMap" type="com.vikings.domain.identifier.PlaylistIdentifier">
+        <id property="id" column="playlist_id"/>
+        <result property="name" column="playlist_name"/>
+        <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
+            <id property="id" column="playlist_creator_id"/>
+            <result property="name" column="playlist_creator_name"/>
+        </association>
     </resultMap>
     
     <select id="getSong" parameterType="String" resultMap="songMap">
@@ -169,13 +182,23 @@
     <select id="getSavedAlbums" parameterType="String" resultMap="albumIdentifierMap">
         SELECT
             a.albumId as 'album_id',
-            a.name as 'album_name'
+            a.name as 'album_name',
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
         FROM
             UserAlbumsSaved uas
         LEFT JOIN
             Albums a
         ON
             a.albumId = uas.albumId
+        LEFT JOIN
+            AlbumArtists aa
+        ON
+            aa.albumId = a.albumId
+        LEFT JOIN
+            Artists ar
+        ON
+            ar.artistId = aa.artistId
         WHERE
             uas.userId = #{id}
     </select>
@@ -192,6 +215,26 @@
             a.artistId = uaf.artistId
         WHERE
             uaf.userId = #{id}
+    </select>
+
+    <select id="getFollowedPlaylists" parameterType="String" resultMap="playlistIdentifierMap">
+        SELECT
+            p.playlistId as 'playlist_id',
+            p.name as 'playlist_name',
+            u.userId as 'playlist_creator_id',
+            u.username as 'playlist_creator_name'
+        FROM
+            UserPlaylistsFollowed upf
+        LEFT JOIN
+            Playlists p
+        ON
+            p.playlistId = upf.playlistId
+        LEFT JOIN
+            Users u
+        ON
+            u.userId = p.creatorId
+        WHERE
+            upf.userId = #{id}
     </select>
 
     <select id="getHistory" parameterType="String" resultMap="songIdentifierMap">

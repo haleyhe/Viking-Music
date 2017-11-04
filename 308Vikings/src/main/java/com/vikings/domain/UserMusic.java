@@ -2,6 +2,7 @@ package com.vikings.domain;
 
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.identifier.SongIdentifier;
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +14,7 @@ public class UserMusic implements Serializable {
     List<SongIdentifier> savedSongs;
     List<AlbumIdentifier> savedAlbums;
     List<ArtistIdentifier> followedArtists;
-    List<Playlist> followedPlaylists;
+    List<PlaylistIdentifier> followedPlaylists;
     List<SongIdentifier> history;
     List<SongIdentifier> recentlyPlayed;
     
@@ -45,11 +46,11 @@ public class UserMusic implements Serializable {
         this.followedArtists = followedArtists;
     }
 
-    public List<Playlist> getFollowedPlaylists() {
+    public List<PlaylistIdentifier> getFollowedPlaylists() {
         return followedPlaylists;
     }
 
-    public void setFollowedPlaylists(List<Playlist> followedPlaylists) {
+    public void setFollowedPlaylists(List<PlaylistIdentifier> followedPlaylists) {
         this.followedPlaylists = followedPlaylists;
     }
 

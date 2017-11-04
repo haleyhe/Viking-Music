@@ -9,7 +9,7 @@
         <result property="description" column="playlist_description"/>
         <result property="publiclyVisible" column="playlist_public"/>
         <result property="numFollowers" column="playlist_num_followers"/>
-        <association property="artists" javaType="com.vikings.domain.identifier.UserIdentifier">
+        <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
             <id property="id" column="playlist_creator_id"/>
             <result property="name" column="playlist_creator_name"/>
         </association>
@@ -38,7 +38,7 @@
             p.playlistId as 'playlist_id',
             p.name as 'playlist_name',
             u.userId as 'playlist_creator_id',
-            u.name as 'playlist_creator_name',
+            u.username as 'playlist_creator_name',
             p.dateCreated as 'playlist_creation_date',
             p.description as 'playlist_description',
             p.isPublic as 'playlist_public',

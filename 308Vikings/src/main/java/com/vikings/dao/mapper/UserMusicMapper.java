@@ -2,6 +2,7 @@ package com.vikings.dao.mapper;
 
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.identifier.SongIdentifier;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,8 @@ public interface UserMusicMapper {
     public List<AlbumIdentifier> getSavedAlbums(String userId);
     
     public List<ArtistIdentifier> getFollowedArtists(String userId);
+    
+    public List<PlaylistIdentifier> getFollowedPlaylists(String userId);
     
     public List<SongIdentifier> getHistory(String userId);
     
