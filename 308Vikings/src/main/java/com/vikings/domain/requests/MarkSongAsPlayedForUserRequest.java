@@ -1,20 +1,18 @@
 package com.vikings.domain.requests;
 
-import com.vikings.domain.identifier.SongIdentifier;
-
 /**
  * Object for HTTP markSongAsPlayedForUser request.
  */
 public class MarkSongAsPlayedForUserRequest {
-    SongIdentifier songIdentifier;
+    String songId;
     boolean clicked;
 
-    public SongIdentifier getSongIdentifier() {
-        return songIdentifier;
+    public String getSongId() {
+        return songId;
     }
 
-    public void setSongIdentifier(SongIdentifier songIdentifier) {
-        this.songIdentifier = songIdentifier;
+    public void setSongId(String songId) {
+        this.songId = songId;
     }
 
     public boolean isClicked() {

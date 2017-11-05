@@ -3,7 +3,6 @@ package com.vikings.domain;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
-import com.vikings.domain.identifier.SongIdentifier;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,22 +10,22 @@ import java.util.List;
  * Represents a User's music library and preferences.
  */
 public class UserMusic implements Serializable {
-    List<SongIdentifier> savedSongs;
+    List<Song> savedSongs;
     List<AlbumIdentifier> savedAlbums;
     List<ArtistIdentifier> followedArtists;
     List<PlaylistIdentifier> followedPlaylists;
-    List<SongIdentifier> history;
-    List<SongIdentifier> recentlyPlayed;
+    List<Song> history;
+    List<Song> recentlyPlayed;
     
     public UserMusic() {
         
     }
 
-    public List<SongIdentifier> getSavedSongs() {
+    public List<Song> getSavedSongs() {
         return savedSongs;
     }
 
-    public void setSavedSongs(List<SongIdentifier> savedSongs) {
+    public void setSavedSongs(List<Song> savedSongs) {
         this.savedSongs = savedSongs;
     }
 
@@ -54,19 +53,19 @@ public class UserMusic implements Serializable {
         this.followedPlaylists = followedPlaylists;
     }
 
-    public List<SongIdentifier> getHistory() {
+    public List<Song> getHistory() {
         return history;
     }
 
-    public void setHistory(List<SongIdentifier> history) {
+    public void setHistory(List<Song> history) {
         this.history = history;
     }
 
-    public List<SongIdentifier> getRecentlyPlayed() {
+    public List<Song> getRecentlyPlayed() {
         return recentlyPlayed;
     }
 
-    public void setRecentlyPlayed(List<SongIdentifier> recentlyPlayed) {
+    public void setRecentlyPlayed(List<Song> recentlyPlayed) {
         this.recentlyPlayed = recentlyPlayed;
     }
     

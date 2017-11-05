@@ -1,18 +1,18 @@
 package com.vikings.controller;
 
+import com.vikings.domain.Song;
 import com.vikings.domain.User;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
+import com.vikings.manager.SongManager;
+import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * Controller for User Music preference actions
@@ -24,12 +24,17 @@ public class UserMusicController {
     @Autowired
     UserMusicManager userMusicManager;
     
+    @Autowired
+    SongManager songManager;
+    
+    @Autowired
+    UserAccountManager userAccountManager;
+    
     /**
      * Validates and registers the given User.
      * @param request
      *  MarkSongAsPlayedForUserRequest object containing:
-     *      - the user ID,
-     *      - the songIdentifier,
+     *      - the song ID
      *      - boolean true if the user clicked "Play" to initialize the song,
      *      - false if song began playing automatically.
      * @return 
@@ -37,19 +42,17 @@ public class UserMusicController {
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserMusic/markSongAsPlayedForUser")
     public @ResponseBody JsonResponse markSongAsPlayedForUser(@RequestBody MarkSongAsPlayedForUserRequest request) {
-        // get the user from HTTPSession
-        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-        HttpSession session = attr.getRequest().getSession(true);
-        User user = (User) session.getAttribute("user");
+        User user = userAccountManager.getSessionUser();
         
         if (user != null) {
+            Song song = songManager.getSong(request.getSongId());
             // update the history saved in the session
             if (request.isClicked())
-                user.getUserMusic().getRecentlyPlayed().add(request.getSongIdentifier());
+                user.getUserMusic().getRecentlyPlayed().add(song);
             
-            user.getUserMusic().getHistory().add(request.getSongIdentifier());
+            user.getUserMusic().getHistory().add(song);
             
-            userMusicManager.markSongAsPlayedForUser(user.getId(), request.getSongIdentifier().getId(), request.isClicked());
+            userMusicManager.markSongAsPlayedForUser(user.getId(), request.getSongId(), request.isClicked());
             
             return new JsonResponse(true);
         } else {

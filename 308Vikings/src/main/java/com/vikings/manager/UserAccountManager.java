@@ -5,8 +5,11 @@ import com.vikings.domain.User;
 import com.vikings.util.InputChecker;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * Manager for User Account actions
@@ -110,5 +113,17 @@ public class UserAccountManager {
         return true;
     }
     
+    /**
+     * Retrieves the User associated with the current session.
+     * @return 
+     *  Detailed User object, or null if none found.
+     */
+    public User getSessionUser() {
+        // get the user from HTTPSession
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        User user = (User) session.getAttribute("user");
+        return user;
+    }
     
 }
