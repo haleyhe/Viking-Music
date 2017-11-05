@@ -58,7 +58,6 @@ public class PaymentManager {
             return false;
         
         // luhn algorithm check
-        System.out.println("Doing the luhn algo");
         int sum = 0;
         int numDigits = payment.getCardNumber().length();
         boolean parity = false;
