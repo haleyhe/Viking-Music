@@ -14,6 +14,12 @@
             <result property="name" column="playlist_creator_name"/>
         </association>
     </resultMap>
+
+    <resultMap id="tempPlaylistSongMap" type="com.vikings.domain.PlaylistSong">
+        <id property="id" column="playlist_song_id"/>
+        <result property="playlistTrackNumber" column="playlist_song_track_number"/>
+        <result property="dateAdded" column="playlist_song_date_added"/>
+    </resultMap>
     
     <insert id="createPlaylist" parameterType="com.vikings.domain.Playlist">
         INSERT IGNORE INTO Playlists (
@@ -90,6 +96,51 @@
             p.playlistId = #{id}
         WHERE
             p.playlistId = #{id} 
+    </update>
+
+    <delete id="removeSongFromPlaylist" parameterType="Map">
+        DELETE FROM
+            PlaylistSongs
+        WHERE
+            playlistId = #{playlistId} AND
+            trackNumber = #{trackNum}
+    </delete>
+
+    <update id="updatePlaylistTrackNumbersAfterRemove" parameterType="Map">
+        UPDATE
+            PlaylistSongs
+        SET
+            trackNumber = trackNumber - 1
+        WHERE
+            playlistId = #{playlistId} AND
+            trackNumber > #{removedTrackNum}
+        ORDER BY
+            trackNumber ASC
+    </update>
+
+    <select id="getPlaylistSong" parameterType="Map" resultMap="tempPlaylistSongMap">
+        SELECT
+            songId as 'playlist_song_id',
+            trackNumber as 'playlist_song_track_number',
+            dateAdded as 'playlist_song_date_added'
+        FROM
+            PlaylistSongs
+        WHERE
+            playlistId = #{playlistId} AND
+            trackNumber =  #{trackNum}
+    </select>
+
+    <update id="updatePlaylistTrackNumbersBeforeInsert" parameterType="Map">
+        UPDATE
+            PlaylistSongs
+        SET
+            trackNumber = trackNumber + 1
+        WHERE
+            playlistId = #{playlistId} AND
+            trackNumber >= #{newTrackNum}
+        ORDER BY
+            trackNumber DESC
+
     </update>
     
 </mapper>

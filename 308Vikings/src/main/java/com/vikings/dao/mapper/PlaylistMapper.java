@@ -19,5 +19,13 @@ public interface PlaylistMapper {
     
     public void updatePlaylist(Playlist playlist);
     
+    public void removeSongFromPlaylist(@Param("playlistId") String playlistId, @Param("trackNum") int trackNum);
+    
+    public void updatePlaylistTrackNumbersAfterRemove(@Param("playlistId") String playlistId, @Param("removedTrackNum") int removedTrackNum);
+    
+    public PlaylistSong getPlaylistSong(@Param("playlistId") String playlistId, @Param("trackNum") int trackNum);
+    
+    public void updatePlaylistTrackNumbersBeforeInsert(@Param("playlistId") String playlistId, @Param("newTrackNum") int newTrackNum);
+    
 }
 

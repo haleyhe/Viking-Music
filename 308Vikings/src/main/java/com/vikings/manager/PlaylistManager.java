@@ -70,7 +70,7 @@ public class PlaylistManager {
     }
     
     /**
-     * Appends the given song to the Playlist with the given ID.
+     * Appends the given song to the end of the Playlist with the given ID.
      * @param playlistId
      *  The ID of the desired Playlist.
      * @param song 
@@ -86,6 +86,48 @@ public class PlaylistManager {
         playlist.getSongs().add(playlistSong);
         
         playlistDAO.addSongToPlaylist(playlistId, playlistSong);
+    }
+    
+    /**
+     * Removes the track with the given track number from the playlist
+     * with the given ID.
+     * @param playlistId
+     *  ID of the desired Playlist.
+     * @param trackNum
+     *  Track number of the song to remove.
+     * @return 
+     *  The updated Playlist.
+     */
+    public Playlist removeSongFromPlaylist(String playlistId, int trackNum) {
+        Playlist playlist = getPlaylist(playlistId);
+        playlist.removeSong(trackNum);
+        
+        playlistDAO.removeSongFromPlaylist(playlistId, trackNum);
+        
+        return playlist;
+        
+    }
+    
+    /**
+     * Moves the track with the given old track number to the given new position
+     * in the playlist with the given ID.
+     * @param playlistId
+     *  ID of the desired Playlist.
+     * @param oldTrackNum
+     *  Track number of the song to move.
+     * @param newTrackNum
+     *  The new track number (position) for the song.
+     * @return 
+     *  The updated Playlist.
+     */
+    public Playlist moveSongInPlaylist(String playlistId, int oldTrackNum, int newTrackNum) {
+        Playlist playlist = getPlaylist(playlistId);
+        playlist.moveSong(oldTrackNum, newTrackNum);
+        
+        playlistDAO.moveSongInPlaylist(playlistId, oldTrackNum, newTrackNum);
+        
+        return playlist;
+        
     }
     
     /**

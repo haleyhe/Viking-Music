@@ -2,13 +2,9 @@ package com.vikings.dao;
 
 import com.vikings.dao.mapper.PlaylistMapper;
 import com.vikings.dao.mapper.SongMapper;
-import com.vikings.domain.Album;
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
-import com.vikings.domain.Song;
-import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -73,6 +69,40 @@ public class PlaylistDAO {
      */
     public void updatePlaylist(Playlist playlist) {
         playlistMapper.updatePlaylist(playlist);
+    }
+    
+    /**
+     * Removes the track with the given track number from the playlist with
+     * the given ID.
+     * @param playlistId
+     *  ID of the Playlist to remove the Song from.
+     * @param trackNum 
+     *  Track number of the Song to remove.
+     */
+    public void removeSongFromPlaylist(String playlistId, int trackNum) {
+        playlistMapper.removeSongFromPlaylist(playlistId, trackNum);
+        playlistMapper.updatePlaylistTrackNumbersAfterRemove(playlistId, trackNum);
+    }
+    
+    /**
+     * Moves the track with the given old track number to the given new position
+     * in the playlist with the given ID.
+     * @param playlistId
+     *  ID of the desired Playlist.
+     * @param oldTrackNum
+     *  Track number of the song to move.
+     * @param newTrackNum
+     *  The new track number (position) for the song.
+     */
+    public void moveSongInPlaylist(String playlistId, int oldTrackNum, int newTrackNum) {
+        // save the playlist song
+        PlaylistSong playlistSong = playlistMapper.getPlaylistSong(playlistId, oldTrackNum);
+        playlistSong.setPlaylistTrackNumber(newTrackNum);
+        
+        // remove the song, increment the track numbers, then insert in the new free space
+        removeSongFromPlaylist(playlistId, oldTrackNum);
+        playlistMapper.updatePlaylistTrackNumbersBeforeInsert(playlistId, newTrackNum);
+        playlistMapper.addSongToPlaylist(playlistId, playlistSong);
     }
     
 }

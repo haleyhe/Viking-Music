@@ -89,4 +89,29 @@ public class Playlist implements Serializable {
         this.songs = songs;
     }
     
+    public void moveSong(int oldTrackNum, int newTrackNum) {
+        if (oldTrackNum <= songs.size() && newTrackNum <= songs.size() && newTrackNum > 0) {
+            PlaylistSong song = songs.remove(oldTrackNum - 1);
+            if (newTrackNum == songs.size() + 1)
+                songs.add(song);
+            else
+                songs.add(newTrackNum - 1, song);
+            
+            // update song numbering
+            for (int i = 0; i < songs.size(); i ++) {
+                songs.get(i).setPlaylistTrackNumber(i + 1);
+            }
+        }
+    }
+    
+    public void removeSong(int trackNum) {
+        if (trackNum <= songs.size() && trackNum > 0) {
+            songs.remove(trackNum - 1);
+            for (int i = trackNum - 1; i < songs.size(); i++) {
+                PlaylistSong song = songs.get(i);
+                song.setPlaylistTrackNumber(song.getPlaylistTrackNumber() - 1);
+            }
+        }
+    }
+    
 }
