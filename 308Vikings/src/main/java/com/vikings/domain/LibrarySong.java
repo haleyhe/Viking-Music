@@ -16,6 +16,10 @@ import java.util.Objects;
 public class LibrarySong implements Serializable {
     Date dateAdded;
     Song song;
+    
+    public LibrarySong() {
+        
+    }
 
     public LibrarySong(Song song, Date dateAdded) {
         this.dateAdded = dateAdded;
