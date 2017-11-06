@@ -128,7 +128,7 @@
             UserSongsSaved (
                 userId,
                 songId,
-                dateAdded
+                dateSaved
             )
         VALUES (
             #{userId},
