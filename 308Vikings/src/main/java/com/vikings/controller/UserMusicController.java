@@ -2,6 +2,7 @@ package com.vikings.controller;
 
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
+import com.vikings.domain.requests.IdRequest;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
 import com.vikings.manager.SongManager;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -62,11 +64,19 @@ public class UserMusicController {
           
     }
     
-    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/saveSong")
-    public @ResponseBody JsonResponse saveSong(@RequestBody String songId) {
+     /**
+     * Adds a song to an user's library
+     * @param songId
+     * id of the song that the user will add to their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/saveSong", consumes="application/json")
+    public @ResponseBody JsonResponse saveSong(@RequestBody IdRequest idReq) {
         User user = userAccountManager.getSessionUser();
+        String songId = idReq.getId();
         Date dateAdded = new Date();
-        JsonResponse json;
+        JsonResponse json; //new JsonResponse(true, songId.getId());
         
         userMusicManager.saveSong(user.getId(), songId, dateAdded);
         
@@ -79,9 +89,18 @@ public class UserMusicController {
         return json;
     }
     
+    
+    /**
+     * Removes a song from an user's library
+     * @param songId
+     * id of the song that the user will remove from their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
     @RequestMapping(method=RequestMethod.POST, value="/UserMusic/unsaveSong")
-    public @ResponseBody JsonResponse unsaveSong(@RequestBody String songId) {
+    public @ResponseBody JsonResponse unsaveSong(@RequestBody IdRequest idReq) {
         User user = userAccountManager.getSessionUser();
+        String songId = idReq.getId();
        JsonResponse json;
         
         userMusicManager.unsaveSong(user.getId(), songId);
