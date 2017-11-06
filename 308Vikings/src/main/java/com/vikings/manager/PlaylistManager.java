@@ -7,6 +7,7 @@ import com.vikings.domain.Song;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class PlaylistManager {
     Map<String, Playlist> playlists;
     
     public PlaylistManager() {
-        this.playlists = new HashMap<String, Playlist>();
+        this.playlists = new HashMap<>();
     }
     
     /**
@@ -153,6 +154,17 @@ public class PlaylistManager {
             oldPlaylist.setPubliclyVisible(playlist.isPubliclyVisible());
         }
         playlistDAO.updatePlaylist(playlist);
+    }
+    
+    /**
+     * Returns Playlist information for all Playlists created by admins.
+     * These will be the "Genre" playlists on the Browse Page and the Genres &
+     * Moods Page.
+     * @return 
+     *  A list of Playlists with IDs, titles, descriptors, etc.
+     */
+    public List<Playlist> getAdminCuratedPlaylists() {
+        return playlistDAO.getAdminCuratedPlaylists();
     }
     
 }

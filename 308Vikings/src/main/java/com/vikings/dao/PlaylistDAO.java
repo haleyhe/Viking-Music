@@ -105,4 +105,15 @@ public class PlaylistDAO {
         playlistMapper.addSongToPlaylist(playlistId, playlistSong);
     }
     
+    /**
+     * Returns Playlist information for all Playlists created by admins.
+     * These will be the "Genre" playlists on the Browse Page and the Genres &
+     * Moods Page.
+     * @return 
+     *  A list of Playlists with IDs, titles, descriptors, etc.
+     */
+    public List<Playlist> getAdminCuratedPlaylists() {
+        return playlistMapper.getAdminCuratedPlaylists();
+    }
+    
 }

@@ -142,5 +142,32 @@
             trackNumber DESC
 
     </update>
+
+    <select id="getAdminCuratedPlaylists" resultMap="playlistMap">
+        SELECT
+            p.playlistId as 'playlist_id',
+            p.name as 'playlist_name',
+            u.userId as 'playlist_creator_id',
+            u.username as 'playlist_creator_name',
+            p.dateCreated as 'playlist_creation_date',
+            p.description as 'playlist_description',
+            p.isPublic as 'playlist_public',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserPlaylistsFollowed upf
+            WHERE
+                upf.playlistId = #{id}
+            )
+            as 'playlist_num_followers'
+        FROM
+            Users u
+        LEFT JOIN
+            Playlists p
+        ON
+            p.creatorId = u.userId
+        WHERE
+            u.admin = 1
+    </select>
     
 </mapper>

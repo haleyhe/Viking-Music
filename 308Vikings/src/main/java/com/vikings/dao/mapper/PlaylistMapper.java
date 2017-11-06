@@ -2,6 +2,7 @@ package com.vikings.dao.mapper;
 
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -27,5 +28,6 @@ public interface PlaylistMapper {
     
     public void updatePlaylistTrackNumbersBeforeInsert(@Param("playlistId") String playlistId, @Param("newTrackNum") int newTrackNum);
     
+    public List<Playlist> getAdminCuratedPlaylists();
 }
 

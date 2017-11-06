@@ -1,7 +1,6 @@
 package com.vikings.domain.identifier;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Represents a handle to a Playlist.
