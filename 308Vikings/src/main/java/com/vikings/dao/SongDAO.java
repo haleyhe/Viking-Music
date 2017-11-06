@@ -2,7 +2,6 @@ package com.vikings.dao;
 
 import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.dao.mapper.SongMapper;
-import com.vikings.domain.Artist;
 import com.vikings.domain.Song;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +28,17 @@ public class SongDAO {
      */
     public Song getSong(String id) {
         return songMapper.getSong(id);
+    }
+    
+    /**
+     * Gets the Songs for the Artist, sorted by play count.
+     * @param id
+     *  The Artist ID.
+     * @return 
+     *  List of Songs sorted by play count (most-played songs at the top of the list).
+     */
+    public List<Song> getTopSongsForArtist(String id) {
+        return songMapper.getTopSongsForArtist(id);
     }
     
 }

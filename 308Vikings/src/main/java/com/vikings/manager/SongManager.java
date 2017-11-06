@@ -3,6 +3,7 @@ package com.vikings.manager;
 import com.vikings.dao.SongDAO;
 import com.vikings.domain.Song;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class SongManager {
     Map<String, Song> songs;
     
     public SongManager() {
-        this.songs = new HashMap<String, Song>();
+        this.songs = new HashMap<>();
     }
     
     /**
@@ -36,6 +37,17 @@ public class SongManager {
             songs.put(id, song);
         }
         return song;
+    }
+    
+    /**
+     * Gets the Songs for the Artist, sorted by play count.
+     * @param id
+     *  The Artist ID.
+     * @return 
+     *  List of Songs sorted by play count (most-played songs at the top of the list).
+     */
+    public List<Song> getTopSongsForArtist(String id) {
+        return songDAO.getTopSongsForArtist(id);
     }
     
 }

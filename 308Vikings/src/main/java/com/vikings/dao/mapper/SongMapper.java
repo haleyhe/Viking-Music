@@ -17,5 +17,7 @@ public interface SongMapper {
     
     public List<PlaylistSong> getSongsForPlaylist(String id);
     
+    public List<Song> getTopSongsForArtist(String id);
+    
 }
 
