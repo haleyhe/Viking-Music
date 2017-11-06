@@ -35,10 +35,10 @@ public class UserMusicDAO {
      * @param userId
      *  ID of the User.
      * @param songId 
-     *  ID of the Song.
+     *  ID of the Song., 
      */
-    public void saveSong(String userId, String songId) {
-        userMusicMapper.saveSong(userId, songId);
+    public void saveSong(String userId, String songId, Date dateAdded) {
+        userMusicMapper.saveSong(userId, songId, dateAdded);
     }
     
     /**
@@ -59,8 +59,8 @@ public class UserMusicDAO {
      * @param albumId 
      *  ID of the Album.
      */
-    public void saveAlbum(String userId, String albumId) {
-        userMusicMapper.saveAlbum(userId, albumId);
+    public void saveAlbum(String userId, String albumId, Date dateAdded) {
+        userMusicMapper.saveAlbum(userId, albumId, dateAdded);
     }
     
     /**
@@ -81,8 +81,8 @@ public class UserMusicDAO {
      * @param artistId 
      *  ID of the Artist.
      */
-    public void followArtist(String userId, String artistId) {
-        userMusicMapper.followArtist(userId, artistId);
+    public void followArtist(String userId, String artistId, Date dateAdded) {
+        userMusicMapper.followArtist(userId, artistId, dateAdded);
     }
     
     /**

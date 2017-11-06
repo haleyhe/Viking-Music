@@ -101,7 +101,7 @@ public class UserAccountController {
     public @ResponseBody JsonResponse logout() {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
-        session.removeAttribute("user");
+        session.invalidate();
         
         JsonResponse json = new JsonResponse();
         json.setSuccess(true);

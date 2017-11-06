@@ -17,15 +17,15 @@ public interface UserMusicMapper {
     
     public void markSongAsPlayedForUser(@Param("userId") String userId, @Param("songId") String songId, @Param("clicked") boolean clicked, @Param("datePlayed") Date datePlayed);
     
-    public void saveSong(@Param("userId") String userId, @Param("songId") String songId);
+    public void saveSong(@Param("userId") String userId, @Param("songId") String songId, @Param("dateAdded") Date dateAdded);
     
     public void unsaveSong(@Param("userId") String userId, @Param("songId") String songId);
     
-    public void saveAlbum(@Param("userId") String userId, @Param("albumId") String albumId);
+    public void saveAlbum(@Param("userId") String userId, @Param("albumId") String albumId, @Param("dateAdded") Date dateAdded);
     
     public void unsaveAlbum(@Param("userId") String userId, @Param("albumId") String albumId);
     
-    public void followArtist(@Param("userId") String userId, @Param("artistId") String artistId);
+    public void followArtist(@Param("userId") String userId, @Param("artistId") String artistId, @Param("dateAdded") Date dateAdded);
     
     public void unfollowArtist(@Param("userId") String userId, @Param("artistId") String artistId);
     

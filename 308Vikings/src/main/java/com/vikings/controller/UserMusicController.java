@@ -7,6 +7,7 @@ import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,5 +61,38 @@ public class UserMusicController {
         }
           
     }
+    
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/saveSong")
+    public @ResponseBody JsonResponse saveSong(@RequestBody String songId) {
+        User user = userAccountManager.getSessionUser();
+        Date dateAdded = new Date();
+        JsonResponse json;
+        
+        userMusicManager.saveSong(user.getId(), songId, dateAdded);
+        
+        if (userMusicManager.addSongToLibrarySession(user, songId, dateAdded)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This song is already in your library"); //probably need better error checking than this
+        }
+        return json;
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/unsaveSong")
+    public @ResponseBody JsonResponse unsaveSong(@RequestBody String songId) {
+        User user = userAccountManager.getSessionUser();
+       JsonResponse json;
+        
+        userMusicManager.unsaveSong(user.getId(), songId);
+        
+        if (userMusicManager.removeSongFromLibrarySession(user, songId)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This song is not in your library"); //probably need better error checking than this
+        }
+        return json;    }
+    
 
 }

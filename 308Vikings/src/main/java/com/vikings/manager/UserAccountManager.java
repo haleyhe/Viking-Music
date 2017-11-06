@@ -126,4 +126,16 @@ public class UserAccountManager {
         return user;
     }
     
+    /**
+     * Retrieves the User associated with the current session.
+     * @return 
+     *  Detailed User object, or null if none found.
+     */
+    public void setSessionUser(User user) {
+        // get the user from HTTPSession
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        session.setAttribute("user", user);
+    }
+    
 }

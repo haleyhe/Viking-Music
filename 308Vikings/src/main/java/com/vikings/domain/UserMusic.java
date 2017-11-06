@@ -5,15 +5,16 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents a User's music library and preferences.
  */
 public class UserMusic implements Serializable {
-    List<Song> savedSongs;
-    List<AlbumIdentifier> savedAlbums;
-    List<ArtistIdentifier> followedArtists;
-    List<PlaylistIdentifier> followedPlaylists;
+    Set<LibrarySong> savedSongs;
+    Set<AlbumIdentifier> savedAlbums;
+    Set<ArtistIdentifier> followedArtists;
+    Set<PlaylistIdentifier> followedPlaylists;
     List<Song> history;
     List<Song> recentlyPlayed;
     
@@ -21,37 +22,39 @@ public class UserMusic implements Serializable {
         
     }
 
-    public List<Song> getSavedSongs() {
+    public Set<LibrarySong> getSavedSongs() {
         return savedSongs;
     }
 
-    public void setSavedSongs(List<Song> savedSongs) {
+    public void setSavedSongs(Set<LibrarySong> savedSongs) {
         this.savedSongs = savedSongs;
     }
 
-    public List<AlbumIdentifier> getSavedAlbums() {
+    public Set<AlbumIdentifier> getSavedAlbums() {
         return savedAlbums;
     }
 
-    public void setSavedAlbums(List<AlbumIdentifier> savedAlbums) {
+    public void setSavedAlbums(Set<AlbumIdentifier> savedAlbums) {
         this.savedAlbums = savedAlbums;
     }
 
-    public List<ArtistIdentifier> getFollowedArtists() {
+    public Set<ArtistIdentifier> getFollowedArtists() {
         return followedArtists;
     }
 
-    public void setFollowedArtists(List<ArtistIdentifier> followedArtists) {
+    public void setFollowedArtists(Set<ArtistIdentifier> followedArtists) {
         this.followedArtists = followedArtists;
     }
 
-    public List<PlaylistIdentifier> getFollowedPlaylists() {
+    public Set<PlaylistIdentifier> getFollowedPlaylists() {
         return followedPlaylists;
     }
 
-    public void setFollowedPlaylists(List<PlaylistIdentifier> followedPlaylists) {
+    public void setFollowedPlaylists(Set<PlaylistIdentifier> followedPlaylists) {
         this.followedPlaylists = followedPlaylists;
     }
+
+    
 
     public List<Song> getHistory() {
         return history;
