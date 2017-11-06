@@ -1,11 +1,13 @@
 package com.vikings.dao.mapper;
 
+import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -33,13 +35,13 @@ public interface UserMusicMapper {
     
     public void unfollowPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId);
     
-    public List<Song> getSavedSongs(String userId);
+    public Set<LibrarySong> getSavedSongs(String userId);
     
-    public List<AlbumIdentifier> getSavedAlbums(String userId);
+    public Set<AlbumIdentifier> getSavedAlbums(String userId);
     
-    public List<ArtistIdentifier> getFollowedArtists(String userId);
+    public Set<ArtistIdentifier> getFollowedArtists(String userId);
     
-    public List<PlaylistIdentifier> getFollowedPlaylists(String userId);
+    public Set<PlaylistIdentifier> getFollowedPlaylists(String userId);
     
     public List<Song> getHistory(String userId);
     

@@ -21,6 +21,28 @@
         </collection>
     </resultMap>
 
+    <resultMap id="librarySongMap" type="com.vikings.domain.LibrarySong">
+        <result property="dateAdded" column="song_date_saved"/>
+        <association property="song" javaType="com.vikings.domain.Song">
+            <id property="id" column="song_id" />
+            <result property="name" column="song_name"/>
+            <result property="lyrics" column="song_lyrics"/>
+            <result property="duration" column="song_duration"/>
+            <result property="explicit" column="song_explicit"/>
+            <result property="discNumber" column="song_discnumber"/>
+            <result property="trackNumber" column="song_tracknumber"/>
+            <result property="numPlays" column="song_numplays"/>
+            <association property="album" javaType="com.vikings.domain.identifier.AlbumIdentifier">
+                <id property="id" column="album_id"/>
+                <result property="name" column="album_name"/>
+            </association>
+            <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+                <id property="id" column="artist_id"/>
+                <result property="name" column="artist_name"/>
+            </collection>
+        </association>
+    </resultMap>
+
     <resultMap id="songIdentifierMap" type="com.vikings.domain.identifier.SongIdentifier">
         <id property="id" column="song_id"/>
         <result property="name" column="song_name"/>
@@ -105,11 +127,13 @@
         INSERT IGNORE INTO
             UserSongsSaved (
                 userId,
-                songId
+                songId,
+                dateAdded
             )
         VALUES (
             #{userId},
-            #{songId}
+            #{songId},
+            #{dateAdded}
         )
     </insert>
 
@@ -181,7 +205,7 @@
             playlistId = #{playlistId}
     </delete>
 
-    <select id="getSavedSongs" parameterType="String" resultMap="songMap">
+    <select id="getSavedSongs" parameterType="String" resultMap="librarySongMap">
         SELECT
             s.songId as 'song_id',
             s.name as 'song_name',
@@ -194,7 +218,8 @@
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
-            al.name as 'album_name'
+            al.name as 'album_name',
+            uss.dateSaved as 'song_date_saved'
         FROM
             UserSongsSaved uss
         LEFT JOIN
