@@ -20,6 +20,11 @@
             <result property="name" column="album_name"/>
         </collection>
     </resultMap>
+
+    <resultMap id="artistIdentifierMap" type="com.vikings.domain.identifier.ArtistIdentifier">
+        <id property="id" column="artist_id" />
+        <result property="name" column="artist_name"/>
+    </resultMap>
     
     <select id="getArtist" parameterType="String" resultMap="artistMap">
         SELECT
@@ -67,6 +72,26 @@
             aa.albumId = al.albumId
         WHERE
             a.artistId = #{id}
+    </select>
+
+    <select id="getRelatedArtists" parameterType="String" resultMap="artistIdentifierMap">
+        SELECT
+            a.artistId as artist_id,
+            a.name as artist_name,
+            (SELECT COUNT(*)
+                FROM
+                    ArtistGenres ag, ArtistGenres ag2
+                WHERE
+                    ag.artistId = #{id} AND
+                    ag2.artistId = a.artistId AND
+                    ag.genre = ag2.genre
+            ) AS shared_genres
+        FROM
+            Artists a
+        WHERE
+            NOT(a.artistId = #{id})
+        ORDER BY
+            shared_genres DESC
     </select>
     
 </mapper>

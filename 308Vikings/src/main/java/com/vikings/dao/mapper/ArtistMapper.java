@@ -1,6 +1,7 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.Artist;
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
 
 /**
@@ -11,6 +12,8 @@ import java.util.List;
 public interface ArtistMapper {
     
     public Artist getArtist(String id);
+    
+    public List<ArtistIdentifier> getRelatedArtists(String id);
     
 }
 
