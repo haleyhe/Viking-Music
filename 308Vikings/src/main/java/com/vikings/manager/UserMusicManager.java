@@ -1,9 +1,13 @@
 package com.vikings.manager;
 
 import com.vikings.dao.UserMusicDAO;
+import com.vikings.domain.FollowedArtist;
+import com.vikings.domain.LibraryAlbum;
 import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
+import com.vikings.domain.identifier.AlbumIdentifier;
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.Date;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,15 @@ public class UserMusicManager {
     
     @Autowired
     SongManager songManager;
+    
+    @Autowired
+    AlbumManager albumManager;
+    
+    @Autowired
+    ArtistManager artistManager;
+    
+    @Autowired
+    PlaylistManager playlistManager;
     
     /**
      * Marks song as played for the given user.
@@ -143,5 +156,31 @@ public class UserMusicManager {
         Song song = new Song(songId);
         LibrarySong libSong = new LibrarySong(song);
         return savedSongs.remove(libSong);
+    }
+
+    public boolean addAlbumToLibrarySession(User user, String albumId, Date dateAdded) {
+        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
+        LibraryAlbum libAlbum = new LibraryAlbum(albumManager.getAlbumIdentifier(albumId), dateAdded);
+        return savedAlbums.add(libAlbum);
+    }
+
+    public boolean removeAlbumFromLibrarySession(User user, String albumId) {
+        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
+        AlbumIdentifier albumIdentifier = new AlbumIdentifier(albumId);
+        LibraryAlbum libAlbum = new LibraryAlbum(albumIdentifier);
+        return savedAlbums.remove(libAlbum);
+    }
+
+    public boolean addArtistToLibrarySession(User user, String artistId, Date dateAdded) {
+        Set<FollowedArtist> followedArtists = user.getUserMusic().getFollowedArtists();
+        FollowedArtist libArtist = new FollowedArtist(artistManager.getArtistIdentifier(artistId), dateAdded);
+        return followedArtists.add(libArtist);
+    }
+
+    public boolean removeArtistFromLibrarySession(User user, String artistId) {
+        Set<FollowedArtist> followedArtists = user.getUserMusic().getFollowedArtists();
+        ArtistIdentifier artistIdentifier = new ArtistIdentifier(artistId);
+        FollowedArtist libArtist = new FollowedArtist(artistIdentifier);
+        return followedArtists.remove(libArtist);
     }
 }

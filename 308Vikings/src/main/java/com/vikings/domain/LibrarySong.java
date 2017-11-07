@@ -66,9 +66,6 @@ public class LibrarySong implements Serializable {
             return false;
         }
         final LibrarySong other = (LibrarySong) obj;
-//        if (!Objects.equals(this.dateAdded, other.dateAdded)) {
-//            return false;
-//        }
         if (!Objects.equals(this.song, other.song)) {
             return false;
         }

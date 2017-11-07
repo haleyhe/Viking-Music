@@ -66,8 +66,8 @@ public class UserMusicController {
     
      /**
      * Adds a song to an user's library
-     * @param songId
-     * id of the song that the user will add to their library
+     * @param idReq
+     * json container for the id of the song that the user will add to their library
      * @return 
      *  JsonResponse indicating success or error.
      */
@@ -92,8 +92,8 @@ public class UserMusicController {
     
     /**
      * Removes a song from an user's library
-     * @param songId
-     * id of the song that the user will remove from their library
+     * @param idReq
+     * json container for the id of the song that the user will remove from their library
      * @return 
      *  JsonResponse indicating success or error.
      */
@@ -111,7 +111,105 @@ public class UserMusicController {
         } else {
             json = new JsonResponse(false, "This song is not in your library"); //probably need better error checking than this
         }
-        return json;    }
+        return json;    
+    }
     
-
+     /**
+     * Adds an album to an user's library
+     * @param idReq
+     * json container for the id of the album that the user will add to their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/saveAlbum")
+    public @ResponseBody JsonResponse saveAlbum(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String albumId = idReq.getId();
+        Date dateAdded = new Date();
+        JsonResponse json; 
+        
+        userMusicManager.saveAlbum(user.getId(), albumId, dateAdded);
+        
+        if (userMusicManager.addAlbumToLibrarySession(user, albumId, dateAdded)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This album is already in your library"); //probably need better error checking than this
+        }
+        return json;
+    }
+    
+    
+    /**
+     * Removes an album from an user's library
+     * @param idReq
+     * json container for the id of the album that the user will remove from their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/unsaveAlbum")
+    public @ResponseBody JsonResponse unsaveAlbum(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String albumId = idReq.getId();
+       JsonResponse json;
+        
+        userMusicManager.unsaveAlbum(user.getId(), albumId);
+        
+        if (userMusicManager.removeAlbumFromLibrarySession(user, albumId)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This album is not in your library"); //probably need better error checking than this
+        }
+        return json;    
+    }
+    
+    /**
+     * Adds an artist to an user's library
+     * @param idReq
+     * json container for the id of the artist that the user will add to their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/followArtist")
+    public @ResponseBody JsonResponse followArtist(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String artistId = idReq.getId();
+        Date dateAdded = new Date();
+        JsonResponse json; 
+        
+        userMusicManager.followArtist(user.getId(), artistId, dateAdded);
+        
+        if (userMusicManager.addArtistToLibrarySession(user, artistId, dateAdded)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This artist is already in your library"); //probably need better error checking than this
+        }
+        return json;
+    }
+    
+        /**
+     * Removes an album from an user's library
+     * @param idReq
+     * json container for the id of the artist that the user will remove from their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/unfollowArtist")
+    public @ResponseBody JsonResponse unfollowArtist(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String artistId = idReq.getId();
+       JsonResponse json;
+        
+        userMusicManager.unfollowArtist(user.getId(), artistId);
+        
+        if (userMusicManager.removeArtistFromLibrarySession(user, artistId)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This artist is not in your library"); //probably need better error checking than this
+        }
+        return json;    
+    }
 }

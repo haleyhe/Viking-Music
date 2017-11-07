@@ -2,8 +2,10 @@ package com.vikings.dao;
 
 import com.vikings.dao.mapper.UserAccountMapper;
 import com.vikings.dao.mapper.UserMusicMapper;
+import com.vikings.domain.LibrarySong;
 import com.vikings.domain.User;
 import com.vikings.domain.UserMusic;
+import java.util.HashSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -52,7 +54,8 @@ public class UserAccountDAO {
         if (foundUser != null) {
             // construct the UserMusic
             UserMusic userMusic = new UserMusic();
-            userMusic.setSavedSongs(userMusicMapper.getSavedSongs(foundUser.getId()));
+            userMusic.setSavedSongs(new HashSet<LibrarySong>());
+            //userMusic.setSavedSongs(userMusicMapper.getSavedSongs(foundUser.getId()));
             userMusic.setSavedAlbums(userMusicMapper.getSavedAlbums(foundUser.getId()));
             userMusic.setFollowedArtists(userMusicMapper.getFollowedArtists(foundUser.getId()));
             userMusic.setFollowedPlaylists(userMusicMapper.getFollowedPlaylists(foundUser.getId()));

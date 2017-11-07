@@ -18,13 +18,19 @@ public class FollowedArtist implements Serializable {
     Date dateAdded;
     ArtistIdentifier artistIdentifier;
 
+    public FollowedArtist() {
+    }
+    
     public FollowedArtist(ArtistIdentifier artistIdentifier, Date dateAdded) {
         this.dateAdded = dateAdded;
         this.artistIdentifier = artistIdentifier;
     }
-    
-    
 
+    public FollowedArtist(ArtistIdentifier artistIdentifier) {
+        this.artistIdentifier = artistIdentifier;
+    }
+
+    
     public ArtistIdentifier getArtistIdentifier() {
         return artistIdentifier;
     }
@@ -44,7 +50,6 @@ public class FollowedArtist implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.dateAdded);
         hash = 37 * hash + Objects.hashCode(this.artistIdentifier);
         return hash;
     }
@@ -61,9 +66,6 @@ public class FollowedArtist implements Serializable {
             return false;
         }
         final FollowedArtist other = (FollowedArtist) obj;
-        if (!Objects.equals(this.dateAdded, other.dateAdded)) {
-            return false;
-        }
         if (!Objects.equals(this.artistIdentifier, other.artistIdentifier)) {
             return false;
         }

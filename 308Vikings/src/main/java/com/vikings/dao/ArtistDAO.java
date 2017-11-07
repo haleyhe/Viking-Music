@@ -39,5 +39,9 @@ public class ArtistDAO {
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
         return artistMapper.getRelatedArtists(artistId);
     }
+
+    public ArtistIdentifier getArtistIdentifier(String id) {
+        return artistMapper.getArtistIdentifier(id);
+    }
     
 }

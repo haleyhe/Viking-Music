@@ -18,12 +18,14 @@ public class ArtistManager {
     @Autowired
     ArtistDAO artistDAO;
     
-    Map<String, Artist> artists;
-    Map<String, List<ArtistIdentifier>> relatedArtists;
+    Map<String, Artist> artistsMap;
+    Map<String, ArtistIdentifier> artistIdenMap;
+    Map<String, List<ArtistIdentifier>> relatedArtistsMap;
     
     public ArtistManager() {
-        this.artists = new HashMap<>();
-        this.relatedArtists = new HashMap<>();
+        this.artistsMap = new HashMap<>();
+        this.relatedArtistsMap = new HashMap<>();
+        this.artistIdenMap = new HashMap<>();
     }
     
     /**
@@ -34,10 +36,10 @@ public class ArtistManager {
      *  Detailed Artist object.
      */
     public Artist getArtist(String id) {
-        Artist artist = artists.get(id);
+        Artist artist = artistsMap.get(id);
         if (artist == null) {
             artist = artistDAO.getArtist(id);
-            artists.put(id, artist);
+            artistsMap.put(id, artist);
         }
         return artist;
     }
@@ -52,12 +54,21 @@ public class ArtistManager {
      *  An ordered list of related ArtistIdentifiers.
      */
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
-        List<ArtistIdentifier> artists = relatedArtists.get(artistId);
+        List<ArtistIdentifier> artists = relatedArtistsMap.get(artistId);
         if (artists == null) {
             artists = artistDAO.getRelatedArtists(artistId);
-            relatedArtists.put(artistId, artists);
+            relatedArtistsMap.put(artistId, artists);
         }
         return artists;
+    }
+
+    ArtistIdentifier getArtistIdentifier(String id) {
+        ArtistIdentifier artistIden = artistIdenMap.get(id);
+        if (artistIden == null) {
+            artistIden =artistDAO.getArtistIdentifier(id);
+            artistIdenMap.put(id, artistIden);
+        }
+        return artistIden;
     }
     
 }

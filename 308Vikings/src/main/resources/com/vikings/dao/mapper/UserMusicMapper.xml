@@ -149,11 +149,13 @@
         INSERT IGNORE INTO
             UserAlbumsSaved (
                 userId,
-                albumId
+                albumId,
+                dateSaved
             )
         VALUES (
             #{userId},
-            #{albumId}
+            #{albumId},
+            #{dateAdded}
         )
     </insert>
 
@@ -169,11 +171,13 @@
         INSERT IGNORE INTO
             UserArtistsFollowed (
                 userId,
-                artistId
+                artistId,
+                dateFollowed
             )
         VALUES (
             #{userId},
-            #{artistId}
+            #{artistId},
+            #{dateAdded}
         )
     </insert>
 

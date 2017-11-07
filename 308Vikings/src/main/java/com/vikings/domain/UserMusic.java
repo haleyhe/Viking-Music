@@ -12,8 +12,8 @@ import java.util.Set;
  */
 public class UserMusic implements Serializable {
     Set<LibrarySong> savedSongs;
-    Set<AlbumIdentifier> savedAlbums;
-    Set<ArtistIdentifier> followedArtists;
+    Set<LibraryAlbum> savedAlbums;
+    Set<FollowedArtist> followedArtists;
     Set<PlaylistIdentifier> followedPlaylists;
     List<Song> history;
     List<Song> recentlyPlayed;
@@ -30,22 +30,22 @@ public class UserMusic implements Serializable {
         this.savedSongs = savedSongs;
     }
 
-    public Set<AlbumIdentifier> getSavedAlbums() {
+    public Set<LibraryAlbum> getSavedAlbums() {
         return savedAlbums;
     }
 
-    public void setSavedAlbums(Set<AlbumIdentifier> savedAlbums) {
+    public void setSavedAlbums(Set<LibraryAlbum> savedAlbums) {
         this.savedAlbums = savedAlbums;
     }
 
-    public Set<ArtistIdentifier> getFollowedArtists() {
+    public Set<FollowedArtist> getFollowedArtists() {
         return followedArtists;
     }
 
-    public void setFollowedArtists(Set<ArtistIdentifier> followedArtists) {
+    public void setFollowedArtists(Set<FollowedArtist> followedArtists) {
         this.followedArtists = followedArtists;
     }
-
+    
     public Set<PlaylistIdentifier> getFollowedPlaylists() {
         return followedPlaylists;
     }
@@ -53,8 +53,6 @@ public class UserMusic implements Serializable {
     public void setFollowedPlaylists(Set<PlaylistIdentifier> followedPlaylists) {
         this.followedPlaylists = followedPlaylists;
     }
-
-    
 
     public List<Song> getHistory() {
         return history;

@@ -18,8 +18,15 @@ public class LibraryAlbum implements Serializable  {
     Date dateAdded;
     AlbumIdentifier albumIndentifier;
 
+    public LibraryAlbum() {
+    }
+
     public LibraryAlbum(AlbumIdentifier albumIndentifier, Date dateAdded) {
         this.dateAdded = dateAdded;
+        this.albumIndentifier = albumIndentifier;
+    }
+
+    public LibraryAlbum(AlbumIdentifier albumIndentifier) {
         this.albumIndentifier = albumIndentifier;
     }
     
@@ -43,9 +50,8 @@ public class LibraryAlbum implements Serializable  {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.dateAdded);
-        hash = 47 * hash + Objects.hashCode(this.albumIndentifier);
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode(this.albumIndentifier);
         return hash;
     }
 
@@ -61,14 +67,13 @@ public class LibraryAlbum implements Serializable  {
             return false;
         }
         final LibraryAlbum other = (LibraryAlbum) obj;
-        if (!Objects.equals(this.dateAdded, other.dateAdded)) {
-            return false;
-        }
         if (!Objects.equals(this.albumIndentifier, other.albumIndentifier)) {
             return false;
         }
         return true;
     }
+
+    
     
     
 }
