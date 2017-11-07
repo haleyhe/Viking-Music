@@ -62,6 +62,10 @@ $('div.menutabs li').click(function(){
 	}	
 });
 
+$(".close").click(function(){
+    $(".modal").css("display", "none");
+});
+
 $('.newPlaylist').click(function(){
 	$('.pages').css("display","none");
     $('#playListPage').show();
@@ -115,7 +119,7 @@ $('.user-dropdown-menu').click(
 });
 
 $('.registerbtn').click(function(){
-	$('#signup').css("display","block");
+	$('.signup.modal').css("display","block");
 });
 
 }

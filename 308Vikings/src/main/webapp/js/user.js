@@ -71,7 +71,12 @@ function login() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             //displayLoginMessage(data);
-            window.location.replace("/308Vikings/");
+            if(!data.success){
+                displayLoginMessage();
+            }
+            else{
+                window.location.replace("/308Vikings/");
+            }
         },
         error: function (e) {
             console.log("ERROR: ", e);
@@ -128,16 +133,10 @@ function display(data) {
     $('#feedback').html(json);
 }
 
-function displayLoginMessage(data) {
-    document.getElementById("signin-form").style.display = "none";
-    
-    if (data.success) {
-        document.getElementById("appPage").style.display = "block";
-    } else {
-        document.getElementById("feedback").style.display = "inline";
-        $('#feedback').html("<h4>Login Failed</h4>");
-    }
+function displayLoginMessage() {
+    $(".error.modal").css("display", "block");
 }
+
 function getUserInfoFromSession() {
     console.log("Calling User from session Ajax function...");
 
