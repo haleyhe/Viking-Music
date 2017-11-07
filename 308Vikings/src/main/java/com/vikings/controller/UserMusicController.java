@@ -2,6 +2,7 @@ package com.vikings.controller;
 
 import com.vikings.domain.LibraryArtist;
 import com.vikings.domain.LibraryAlbum;
+import com.vikings.domain.LibraryPlaylist;
 import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
@@ -51,6 +52,7 @@ public class UserMusicController {
     public @ResponseBody List<LibraryAlbum> getLibraryAlbums() {
         User user = userAccountManager.getSessionUser();
         List<LibraryAlbum> savedAlbumList = new ArrayList(user.getUserMusic().getSavedAlbums());
+        Collections.sort(savedAlbumList);
         return savedAlbumList;
     }
     
@@ -58,13 +60,15 @@ public class UserMusicController {
     public @ResponseBody List<LibraryArtist> getFollowedArtist() {
         User user = userAccountManager.getSessionUser();
         List<LibraryArtist> followedArtistList = new ArrayList(user.getUserMusic().getFollowedArtists());
+        Collections.sort(followedArtistList);
         return followedArtistList;
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/playlist")
-    public @ResponseBody List<PlaylistIdentifier> getFollowedPlaylist() {
+    public @ResponseBody List<LibraryPlaylist> getFollowedPlaylist() {
         User user = userAccountManager.getSessionUser();
-        List<PlaylistIdentifier> followedPlaylistList = new ArrayList(user.getUserMusic().getFollowedPlaylists());
+        List<LibraryPlaylist> followedPlaylistList = new ArrayList(user.getUserMusic().getFollowedPlaylists());
+        Collections.sort(followedPlaylistList);
         return followedPlaylistList;
     }
     

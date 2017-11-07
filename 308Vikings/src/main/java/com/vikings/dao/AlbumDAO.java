@@ -45,9 +45,4 @@ public class AlbumDAO {
     public List<AlbumIdentifier> getRecentAlbums() {
         return albumMapper.getRecentAlbums();
     }
-
-    public AlbumIdentifier getAlbumIdentifier(String id) {
-        return albumMapper.getAlbumIdentifier(id);
-    }
-    
 }

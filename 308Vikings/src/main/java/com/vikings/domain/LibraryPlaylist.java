@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class LibraryPlaylist implements Serializable {
+public class LibraryPlaylist implements Serializable, Comparable<LibraryPlaylist> {
     private Date dateAdded;
     private PlaylistIdentifier playlistIdentifier;
 
@@ -61,6 +61,13 @@ public class LibraryPlaylist implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(LibraryPlaylist o) {
+        if (this.dateAdded == null || o.getDateAdded() == null)
+            return 0;
+        return dateAdded.compareTo(o.getDateAdded());
     }
     
     

@@ -4,6 +4,7 @@ import com.vikings.dao.PlaylistDAO;
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.Song;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,10 +22,10 @@ public class PlaylistManager {
     @Autowired
     PlaylistDAO playlistDAO;
     
-    Map<String, Playlist> playlists;
+    Map<String, Playlist> playlistsMap;
     
     public PlaylistManager() {
-        this.playlists = new HashMap<>();
+        this.playlistsMap = new HashMap<>();
     }
     
     /**
@@ -49,7 +50,7 @@ public class PlaylistManager {
         
         playlistDAO.createPlaylist(playlist);
         
-        playlists.put(id, playlist);
+        playlistsMap.put(id, playlist);
         
         return id;
     }
@@ -62,12 +63,17 @@ public class PlaylistManager {
      *  Detailed Playlist object.
      */
     public Playlist getPlaylist(String id) {
-        Playlist playlist = playlists.get(id);
+        Playlist playlist = playlistsMap.get(id);
         if (playlist == null) {
             playlist = playlistDAO.getPlaylist(id);
-            playlists.put(id, playlist);
+            playlistsMap.put(id, playlist);
         }
         return playlist;
+    }
+    
+    public PlaylistIdentifier getPlaylistIdentifier(String id) {
+        Playlist playlist = getPlaylist(id);
+        return new PlaylistIdentifier(playlist);
     }
     
     /**
@@ -144,8 +150,8 @@ public class PlaylistManager {
      *  - PubliclyVisible
      */
     public void updatePlaylist(Playlist playlist) {
-        if (playlists.get(playlist.getId()) != null) {
-            Playlist oldPlaylist = playlists.get(playlist.getId());
+        if (playlistsMap.get(playlist.getId()) != null) {
+            Playlist oldPlaylist = playlistsMap.get(playlist.getId());
             if (playlist.getName() != null)
                 oldPlaylist.setName(playlist.getName());
             if (playlist.getDescription() != null)

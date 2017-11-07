@@ -188,15 +188,14 @@ public class UserMusicManager {
 
     public boolean addPlaylistToLibrarySession(User user, String playlistId, Date dateAdded) {
         Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
-        PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
-        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
+        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistManager.getPlaylistIdentifier(playlistId), dateAdded);
         return followedPlaylists.remove(libPlaylist);
     }
 
     public boolean removePlaylistFromLibrarySession(User user, String playlistId) {
         Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
-        PlaylistIdentifier artistIdentifier = new PlaylistIdentifier(playlistId);
-        LibraryPlaylist libPlaylist = new LibraryPlaylist(artistIdentifier);
+        PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
+        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
         return followedPlaylists.remove(libPlaylist);
     }
 }

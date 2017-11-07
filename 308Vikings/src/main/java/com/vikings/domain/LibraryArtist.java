@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author HH
  */
-public class LibraryArtist implements Serializable {
+public class LibraryArtist implements Serializable, Comparable<LibraryArtist> {
     Date dateAdded;
     ArtistIdentifier artistIdentifier;
 
@@ -70,6 +70,13 @@ public class LibraryArtist implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(LibraryArtist o) {
+        if (this.dateAdded == null || o.getDateAdded() == null)
+            return 0;
+        return dateAdded.compareTo(o.getDateAdded());
     }
 
     

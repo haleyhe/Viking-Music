@@ -19,13 +19,11 @@ public class ArtistManager {
     ArtistDAO artistDAO;
     
     Map<String, Artist> artistsMap;
-    Map<String, ArtistIdentifier> artistIdenMap;
     Map<String, List<ArtistIdentifier>> relatedArtistsMap;
     
     public ArtistManager() {
         this.artistsMap = new HashMap<>();
         this.relatedArtistsMap = new HashMap<>();
-        this.artistIdenMap = new HashMap<>();
     }
     
     /**
@@ -63,12 +61,8 @@ public class ArtistManager {
     }
 
     ArtistIdentifier getArtistIdentifier(String id) {
-        ArtistIdentifier artistIden = artistIdenMap.get(id);
-        if (artistIden == null) {
-            artistIden =artistDAO.getArtistIdentifier(id);
-            artistIdenMap.put(id, artistIden);
-        }
-        return artistIden;
+        Artist artist = getArtist(id);
+        return new ArtistIdentifier(artist);
     }
     
 }

@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author HH
  */
-public class LibraryAlbum implements Serializable  {
+public class LibraryAlbum implements Serializable, Comparable<LibraryAlbum>  {
     Date dateAdded;
     AlbumIdentifier albumIndentifier;
 
@@ -71,6 +71,13 @@ public class LibraryAlbum implements Serializable  {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int compareTo(LibraryAlbum o) {
+        if (this.dateAdded == null || o.getDateAdded() == null)
+            return 0;
+        return dateAdded.compareTo(o.getDateAdded());
     }
 
     

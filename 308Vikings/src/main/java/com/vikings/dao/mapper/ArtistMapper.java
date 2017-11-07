@@ -14,8 +14,6 @@ public interface ArtistMapper {
     public Artist getArtist(String id);
     
     public List<ArtistIdentifier> getRelatedArtists(String id);
-
-    public ArtistIdentifier getArtistIdentifier(String id);
     
 }
 

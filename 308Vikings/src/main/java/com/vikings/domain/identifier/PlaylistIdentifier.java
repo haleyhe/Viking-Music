@@ -1,6 +1,8 @@
 package com.vikings.domain.identifier;
 
+import com.vikings.domain.Playlist;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -17,6 +19,12 @@ public class PlaylistIdentifier implements Serializable {
     public PlaylistIdentifier(String id) {
         this.id = id;
     }      
+
+    public PlaylistIdentifier(Playlist playlist) {
+        this.id = playlist.getId();
+        this.name = playlist.getName();
+        this.creator = playlist.getCreator();
+    }
     
     public String getId() {
         return id;

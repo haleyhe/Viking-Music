@@ -1,5 +1,6 @@
 package com.vikings.domain.identifier;
 
+import com.vikings.domain.Artist;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -15,6 +16,11 @@ public class ArtistIdentifier implements Serializable {
 
     public ArtistIdentifier(String id) {
         this.id = id;
+    }
+
+    public ArtistIdentifier(Artist artist) {
+        this.id = artist.getId();
+        this.name = artist.getName();
     }
     
     public String getId() {

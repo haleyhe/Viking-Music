@@ -20,11 +20,9 @@ public class AlbumManager {
     AlbumDAO albumDAO;
     
     Map<String, Album> albumsMap;
-    Map<String, AlbumIdentifier> albumIdenMap;
     
     public AlbumManager() {
-        this.albumsMap = new HashMap<>();
-        this.albumIdenMap = new HashMap<>();        
+        this.albumsMap = new HashMap<>();      
     }
     
     /**
@@ -53,12 +51,8 @@ public class AlbumManager {
     }
 
     public AlbumIdentifier getAlbumIdentifier(String id) {
-        AlbumIdentifier albumIden = albumIdenMap.get(id);
-        if (albumIden == null) {
-            albumIden =albumDAO.getAlbumIdentifier(id);
-            albumIdenMap.put(id, albumIden);
-        }
-        return albumIden;
+        Album album = getAlbum(id);
+        return new AlbumIdentifier(album);
     }
     
 }
