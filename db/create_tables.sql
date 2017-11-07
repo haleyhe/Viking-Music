@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS Artists (
     name VARCHAR(64),
     bio TEXT,
     numFollowers INT DEFAULT 0,
+    royaltyRate DECIMAL(5,3) DEFAULT 0.1,
     PRIMARY KEY (artistId)
 );
 
