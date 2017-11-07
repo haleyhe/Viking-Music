@@ -111,8 +111,7 @@ public class PlaylistManager {
         
         playlistDAO.removeSongFromPlaylist(playlistId, trackNum);
         
-        return playlist;
-        
+        return playlist; 
     }
     
     /**
@@ -133,8 +132,7 @@ public class PlaylistManager {
         
         playlistDAO.moveSongInPlaylist(playlistId, oldTrackNum, newTrackNum);
         
-        return playlist;
-        
+        return playlist;    
     }
     
     /**

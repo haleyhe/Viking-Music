@@ -127,9 +127,9 @@ public class UserAccountManager {
     }
     
     /**
-     * Retrieves the User associated with the current session.
-     * @return 
-     *  Detailed User object, or null if none found.
+     * Sets the User associated with the current session.
+     * @param user
+     *  The User to associate with this session.
      */
     public void setSessionUser(User user) {
         // get the user from HTTPSession
