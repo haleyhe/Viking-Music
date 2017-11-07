@@ -43,6 +43,52 @@
         </association>
     </resultMap>
 
+    <resultMap id="libraryAlbumMap" type="com.vikings.domain.identifier.LibraryAlbum">
+        <id property="dateAdded" column="album_id"/>
+        <result property="name" column="album_name"/>
+        <association property="album"
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="libraryAlbumMap" type="com.vikings.domain.LibraryAlbum">
+        <id property="dateAdded" column="album_date_added"/>
+        <association property="albumIdentifier" javaType="com.vikings.domain.identifier.AlbumIdentifier">
+            <id property="id" column="album_id"/>
+            <result property="name" column="album_name"/>
+            <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+                <id property="id" column="artist_id"/>
+                <result property="name" column="artist_name"/>
+            </collection>
+        </association>
+    </resultMap>
+
+    <resultMap id="libraryArtistMap" type="com.vikings.domain.LibraryArtist">
+        <id property="dateAdded" column="album_date_added"/>
+        <association property="artistIdentifier" javaType="com.vikings.domain.identifier.ArtistIdentifier">
+            <id property="id" column="album_id"/>
+            <result property="name" column="album_name"/>
+            <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+                <id property="id" column="artist_id"/>
+                <result property="name" column="artist_name"/>
+            </collection>
+        </association>
+    </resultMap>
+
+    <resultMap id="libraryPlaylistMap" type="com.vikings.domain.LibraryPlaylist">
+        <id property="dateAdded" column="album_date_added"/>
+        <association property="playlistIdentifier" javaType="com.vikings.domain.identifier.PlaylistIdentifier">
+            <id property="id" column="playlist_id"/>
+            <result property="name" column="playlist_name"/>
+            <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
+                <id property="id" column="playlist_creator_id"/>
+                <result property="name" column="playlist_creator_name"/>
+            </association>
+        </association>
+    </resultMap>
+
     <resultMap id="songIdentifierMap" type="com.vikings.domain.identifier.SongIdentifier">
         <id property="id" column="song_id"/>
         <result property="name" column="song_name"/>
@@ -254,12 +300,13 @@
             uss.dateSaved ASC
     </select>
 
-    <select id="getSavedAlbums" parameterType="String" resultMap="albumIdentifierMap">
+    <select id="getSavedAlbums" parameterType="String" resultMap="libraryAlbumMap">
         SELECT
             a.albumId as 'album_id',
             a.name as 'album_name',
             ar.artistId as 'artist_id',
-            ar.name as 'artist_name'
+            ar.name as 'artist_name',
+            uas.dateSaved as 'album_date_added'
         FROM
             UserAlbumsSaved uas
         LEFT JOIN
@@ -280,10 +327,11 @@
             uas.dateSaved ASC
     </select>
 
-    <select id="getFollowedArtists" parameterType="String" resultMap="artistIdentifierMap">
+    <select id="getFollowedArtists" parameterType="String" resultMap="libraryArtistMap">
         SELECT
             a.artistId as 'artist_id',
-            a.name as 'artist_name'
+            a.name as 'artist_name',
+            uaf.dateFollowed as 'artist_date_added'
         FROM
             UserArtistsFollowed uaf
         LEFT JOIN
@@ -296,12 +344,13 @@
             uaf.dateFollowed ASC
     </select>
 
-    <select id="getFollowedPlaylists" parameterType="String" resultMap="playlistIdentifierMap">
+    <select id="getFollowedPlaylists" parameterType="String" resultMap="libraryPlaylistMap">
         SELECT
             p.playlistId as 'playlist_id',
             p.name as 'playlist_name',
             u.userId as 'playlist_creator_id',
-            u.username as 'playlist_creator_name'
+            u.username as 'playlist_creator_name',
+            upf.dateFollowed as 'playlist_date_added'
         FROM
             UserPlaylistsFollowed upf
         LEFT JOIN
