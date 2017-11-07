@@ -193,11 +193,13 @@
         INSERT IGNORE INTO
             UserPlaylistsFollowed (
                 userId,
-                playlistId
+                playlistId,
+                dateFollowed
             )
         VALUES (
             #{userId},
-            #{playlistId}
+            #{playlistId},
+            #{dateAdded}
         )
     </insert>
 

@@ -14,19 +14,19 @@ import java.util.Objects;
  *
  * @author HH
  */
-public class FollowedArtist implements Serializable {
+public class LibraryArtist implements Serializable {
     Date dateAdded;
     ArtistIdentifier artistIdentifier;
 
-    public FollowedArtist() {
+    public LibraryArtist() {
     }
     
-    public FollowedArtist(ArtistIdentifier artistIdentifier, Date dateAdded) {
+    public LibraryArtist(ArtistIdentifier artistIdentifier, Date dateAdded) {
         this.dateAdded = dateAdded;
         this.artistIdentifier = artistIdentifier;
     }
 
-    public FollowedArtist(ArtistIdentifier artistIdentifier) {
+    public LibraryArtist(ArtistIdentifier artistIdentifier) {
         this.artistIdentifier = artistIdentifier;
     }
 
@@ -65,7 +65,7 @@ public class FollowedArtist implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final FollowedArtist other = (FollowedArtist) obj;
+        final LibraryArtist other = (LibraryArtist) obj;
         if (!Objects.equals(this.artistIdentifier, other.artistIdentifier)) {
             return false;
         }

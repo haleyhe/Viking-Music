@@ -31,7 +31,7 @@ public interface UserMusicMapper {
     
     public void unfollowArtist(@Param("userId") String userId, @Param("artistId") String artistId);
     
-    public void followPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId);
+    public void followPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId, @Param("dateAdded") Date dateAdded);
     
     public void unfollowPlaylist(@Param("userId") String userId, @Param("playlistId") String playlistId);
     

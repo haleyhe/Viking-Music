@@ -109,8 +109,8 @@ public class UserMusicDAO {
      * @param playlistId 
      *  ID of the Playlist.
      */
-    public void followPlaylist(String userId, String playlistId) {
-        userMusicMapper.followPlaylist(userId, playlistId);
+    public void followPlaylist(String userId, String playlistId, Date dateAdded) {
+        userMusicMapper.followPlaylist(userId, playlistId, dateAdded);
     }
     
     /**

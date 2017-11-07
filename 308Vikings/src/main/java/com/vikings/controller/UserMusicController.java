@@ -1,20 +1,26 @@
 package com.vikings.controller;
 
+import com.vikings.domain.LibraryArtist;
+import com.vikings.domain.LibraryAlbum;
+import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.requests.IdRequest;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -33,6 +39,48 @@ public class UserMusicController {
     @Autowired
     UserAccountManager userAccountManager;
     
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/songs")
+    public @ResponseBody List<LibrarySong> getLibrarySongs() {
+        User user = userAccountManager.getSessionUser();
+        List<LibrarySong> savedSongList = new ArrayList(user.getUserMusic().getSavedSongs());
+        Collections.sort(savedSongList);
+        return savedSongList;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/albums")
+    public @ResponseBody List<LibraryAlbum> getLibraryAlbums() {
+        User user = userAccountManager.getSessionUser();
+        List<LibraryAlbum> savedAlbumList = new ArrayList(user.getUserMusic().getSavedAlbums());
+        return savedAlbumList;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/artists")
+    public @ResponseBody List<LibraryArtist> getFollowedArtist() {
+        User user = userAccountManager.getSessionUser();
+        List<LibraryArtist> followedArtistList = new ArrayList(user.getUserMusic().getFollowedArtists());
+        return followedArtistList;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/playlist")
+    public @ResponseBody List<PlaylistIdentifier> getFollowedPlaylist() {
+        User user = userAccountManager.getSessionUser();
+        List<PlaylistIdentifier> followedPlaylistList = new ArrayList(user.getUserMusic().getFollowedPlaylists());
+        return followedPlaylistList;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/recentlyPlayed")
+    public @ResponseBody List<Song> getRecentlyPlayed() {
+        User user = userAccountManager.getSessionUser();
+        return user.getUserMusic().getRecentlyPlayed();
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/history")
+    public @ResponseBody List<Song> getHistory() {
+        User user = userAccountManager.getSessionUser();
+        return user.getUserMusic().getHistory();
+    }
+    
+
     /**
      * Validates and registers the given User.
      * @param request
@@ -76,7 +124,7 @@ public class UserMusicController {
         User user = userAccountManager.getSessionUser();
         String songId = idReq.getId();
         Date dateAdded = new Date();
-        JsonResponse json; //new JsonResponse(true, songId.getId());
+        JsonResponse json; 
         
         userMusicManager.saveSong(user.getId(), songId, dateAdded);
         
@@ -190,7 +238,7 @@ public class UserMusicController {
     }
     
         /**
-     * Removes an album from an user's library
+     * Removes an artist from an user's library
      * @param idReq
      * json container for the id of the artist that the user will remove from their library
      * @return 
@@ -209,6 +257,55 @@ public class UserMusicController {
             json = new JsonResponse(true);
         } else {
             json = new JsonResponse(false, "This artist is not in your library"); //probably need better error checking than this
+        }
+        return json;    
+    }
+    
+    /**
+     * Adds an playlist to an user's library
+     * @param idReq
+     * json container for the id of the playlist that the user will add to their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/followPlaylist")
+    public @ResponseBody JsonResponse followPlaylist(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String playlistId = idReq.getId();
+        Date dateAdded = new Date();
+        JsonResponse json; 
+        
+        userMusicManager.followPlaylist(user.getId(), playlistId, dateAdded);
+        
+        if (userMusicManager.addPlaylistToLibrarySession(user, playlistId, dateAdded)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This playlist is already in your library"); //probably need better error checking than this
+        }
+        return json;
+    }
+    
+            /**
+     * Removes an artist from an user's library
+     * @param idReq
+     * json container for the id of the artist that the user will remove from their library
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/unfollowPlaylist")
+    public @ResponseBody JsonResponse unfollowPlaylist(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String playlistId = idReq.getId();
+       JsonResponse json;
+        
+        userMusicManager.unfollowPlaylist(user.getId(), playlistId);
+        
+        if (userMusicManager.removePlaylistFromLibrarySession(user, playlistId)) {
+            userAccountManager.setSessionUser(user);
+            json = new JsonResponse(true);
+        } else {
+            json = new JsonResponse(false, "This playlist is not in your library"); //probably need better error checking than this
         }
         return json;    
     }

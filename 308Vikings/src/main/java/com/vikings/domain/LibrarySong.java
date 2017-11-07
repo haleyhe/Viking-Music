@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author HH
  */
-public class LibrarySong implements Serializable {
+public class LibrarySong implements Serializable, Comparable<LibrarySong> {
     Date dateAdded;
     Song song;
     
@@ -71,6 +71,14 @@ public class LibrarySong implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public int compareTo(LibrarySong o) {
+        if (this.dateAdded == null || o.getDateAdded() == null)
+            return 0;
+        return dateAdded.compareTo(o.getDateAdded());
+    }
+    
     
     
 }
