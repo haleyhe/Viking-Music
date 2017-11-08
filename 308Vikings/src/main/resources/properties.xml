@@ -43,6 +43,10 @@
             <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
 
             <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
+
+            <!-- Filepaths -->
+            <prop key="file.Playlist.sourceThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/src/main/webapp/css/playlist/</prop>
+            <prop key="file.Playlist.targetThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/target/308Vikings-1.0-SNAPSHOT/css/playlist/</prop>
             
             <!-- 
                 PROPERTIES END HERE

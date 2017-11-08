@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.ContextLoader;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -20,7 +19,6 @@ public class FileManager {
     private static final long MAX_IMAGE_SIZE_BYTES = 10000000; // 10 MB
     private static final int PLAYLIST_THUMBNAIL_WIDTH = 400;
     private static final int PLAYLIST_THUMBNAIL_HEIGHT = 400;
-    private static final String PLAYLIST_THUMBNAIL_FILEPATH = "/playlists/";
     
     /**
      * Attempts to upload the given Playlist thumbnail image to the server.
@@ -43,15 +41,19 @@ public class FileManager {
             // The resized image has to be redrawn onto a new BufferedImage.
             // Resizing converts the BufferedImage to an Image, but only BufferedImages
             // can be written using ImageIO.
-            BufferedImage bufferedResizedThumbnail = new BufferedImage(PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+            BufferedImage bufferedResizedThumbnail = new BufferedImage(PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, BufferedImage.TYPE_INT_RGB);
             Graphics2D bufferedGraphic = bufferedResizedThumbnail.createGraphics();
             bufferedGraphic.drawImage(resizedThumbnail, 0, 0, PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, null);
             bufferedGraphic.dispose();
             
-            String filepath = PLAYLIST_THUMBNAIL_FILEPATH + playlistId + ".jpg";
-            File imageFile = new File(filepath);
-            imageFile.getParentFile().mkdirs();
-            ImageIO.write(bufferedResizedThumbnail, "jpg", imageFile);
+            String sourceFilepath = System.getProperty("file.Playlist.sourceThumbnailPath") + playlistId + ".jpg";
+            String targetFilepath = System.getProperty("file.Playlist.targetThumbnailPath") + playlistId + ".jpg";
+            File sourceImageFile = new File(sourceFilepath);
+            File targetImageFile = new File(targetFilepath);
+            sourceImageFile.getParentFile().mkdirs();
+            targetImageFile.getParentFile().mkdirs();
+            ImageIO.write(bufferedResizedThumbnail, "jpg", sourceImageFile);
+            ImageIO.write(bufferedResizedThumbnail, "jpg", targetImageFile);
             
         } catch (IOException e) {
             return false;

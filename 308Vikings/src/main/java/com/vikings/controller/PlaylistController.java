@@ -36,8 +36,10 @@ public class PlaylistController {
     UserMusicManager userMusicManager;
     
     /**
-     * !!! BRYAN IS WORKING ON THIS !!!
-     * !!! DON'T EVEN TRY USING IT YET !!!
+     * !!! THIS WILL LITERALLY ONLY WORK ON BRYAN'S MACHINE      !!!
+     * !!! DUE TO FILEPATH SHENANIGANS THAT I HAVEN'T SOLVED YET !!!
+     * !!! The playlist will create in the database correctly,   !!!
+     * !!! but image saving will have issues.                    !!!
      * 
      * Makes a new Playlist with the given parameters
      * (created by the User in the current session),
@@ -62,11 +64,6 @@ public class PlaylistController {
             @RequestParam("publiclyVisible") boolean publiclyVisible) {
         User sessionUser = userAccountManager.getSessionUser();
         
-        /** BEGIN DEBUG ONLY **/
-        sessionUser = new User();
-        sessionUser.setId("b6fe52f9-ec33-4e41-9fea-9ff377e0d096");
-        sessionUser.setUsername("test");
-        /** END DEBUG ONLY **/
         if (sessionUser == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
@@ -83,9 +80,7 @@ public class PlaylistController {
         // mark the creator as a follower
         Date creationDate = new java.util.Date();
         userMusicManager.followPlaylist(sessionUser.getId(), playlistId, creationDate);
-        /** BEGIN FINAL ONLY **/
-        //userMusicManager.addPlaylistToLibrarySession(sessionUser, playlistId, creationDate);
-        /** END  ONLY **/
+        userMusicManager.addPlaylistToLibrarySession(sessionUser, playlistId, creationDate);
         
         // attempt to upload the thumbnail
         if (fileManager.uploadPlaylistThumbnail(thumbnail, playlistId)) {
