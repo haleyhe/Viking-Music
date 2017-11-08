@@ -30,21 +30,21 @@
     <property name="targetMethod" value="putAll"/>
     <property name="arguments">
         <util:properties>
-        	<!-- 
-        		PROPERTIES BEGIN HERE
-        	-->
-
-        	<!-- Error messages -->
+            <!-- 
+                PROPERTIES BEGIN HERE
+            -->
+            
+            <!-- Error messages -->
             <prop key="error.UserAccount.userExists">Username already taken.</prop>
             <prop key="error.UserAccount.invalidLogin">Invalid username and password combination.</prop>
             <prop key="error.UserAccount.sessionExpired">User session expired. Please log in again.</prop>
-
+            
             <prop key="error.UserMusic.libraryItemDuplicate">This item is already in your library.</prop>
             <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
-
+            
             <!-- 
-        		PROPERTIES END HERE
-        	-->
+                PROPERTIES END HERE
+            -->
         </util:properties>
     </property>
 </bean>
