@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.UserIdentifier;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -119,6 +120,10 @@ public class User implements Serializable {
 
     public void setUserMusic(UserMusic userMusic) {
         this.userMusic = userMusic;
+    }
+    
+    public UserIdentifier toUserIdentifier() {
+        return new UserIdentifier(this.id, this.username);
     }
     
 }

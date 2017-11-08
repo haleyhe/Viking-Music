@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.io.Serializable;
 import java.util.Date;
@@ -60,6 +61,10 @@ public class Album implements Serializable {
 
     public void setSongs(List<Song> songs) {
         this.songs = songs;
+    }
+    
+    public AlbumIdentifier toAlbumIdentifier() {
+        return new AlbumIdentifier(this.id, this.name, this.artists);
     }
     
 }

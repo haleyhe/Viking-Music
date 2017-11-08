@@ -41,6 +41,8 @@
             
             <prop key="error.UserMusic.libraryItemDuplicate">This item is already in your library.</prop>
             <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
+
+            <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
             
             <!-- 
                 PROPERTIES END HERE

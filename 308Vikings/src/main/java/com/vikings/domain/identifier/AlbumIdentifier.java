@@ -2,7 +2,6 @@ package com.vikings.domain.identifier;
 
 import com.vikings.domain.Album;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,6 +18,12 @@ public class AlbumIdentifier implements Serializable {
     
     public AlbumIdentifier(String albumId) {
         this.id = albumId;
+    }
+    
+    public AlbumIdentifier(String id, String name, List<ArtistIdentifier> artists) {
+        this.id = id;
+        this.name = name;
+        this.artists = artists;
     }
 
     public AlbumIdentifier(Album album) {

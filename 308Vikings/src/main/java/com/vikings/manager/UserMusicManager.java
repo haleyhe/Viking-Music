@@ -189,7 +189,7 @@ public class UserMusicManager {
     public boolean addPlaylistToLibrarySession(User user, String playlistId, Date dateAdded) {
         Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
         LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistManager.getPlaylistIdentifier(playlistId), dateAdded);
-        return followedPlaylists.remove(libPlaylist);
+        return followedPlaylists.add(libPlaylist);
     }
 
     public boolean removePlaylistFromLibrarySession(User user, String playlistId) {
