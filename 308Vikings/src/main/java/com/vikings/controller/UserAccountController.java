@@ -42,7 +42,7 @@ public class UserAccountController {
             json.setSuccess(true);  
         } else {
             json.setSuccess(false);
-            json.setError("Username already taken.");
+            json.setError(System.getProperty("error.UserAccount.userExists"));
         }
         return json;
     }
@@ -73,7 +73,7 @@ public class UserAccountController {
             json.setSuccess(true);
         } else {
             json.setSuccess(false);
-            json.setError("Invalid username and password combination.");
+            json.setError(System.getProperty("error.UserAccount.invalidLogin"));
         }
         return json;
     }
