@@ -153,21 +153,16 @@ hr.style15 {
   padding-left: 1%;
 }
 
-#user-buttons{
+#user-buttons ul{
   font-family: 'Raleway', sans-serif;
-  margin-right: 200px;
-  margin-top: 15px;
+  margin-left: 63%;
 }
 
 #user-buttons li{
   text-align: right;
-  float: right;
+  float: left;
   list-style: none;
   cursor: pointer;
-}
-
-#user-display-name a:hover {
-  text-decoration: underline;
 }
 
 #user-buttons li button{
@@ -181,12 +176,17 @@ hr.style15 {
   height: 25px;
   margin-top: -5px;
   font-size: 20px;
+  padding: 0px;
 }
 
 #user-buttons li img{ 
   width: 30px;
   margin-top: -5px;
   margin-right:5px;
+}
+
+#user-display-name a:hover {
+  text-decoration: underline;
 }
 
 .player-bar {
