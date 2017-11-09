@@ -37,6 +37,9 @@ public class UserMusicManager {
     @Autowired
     PlaylistManager playlistManager;
     
+    @Autowired
+    UserAccountManager userAccountManager;
+    
     /**
      * Marks song as played for the given user.
      * @param userId
@@ -145,6 +148,18 @@ public class UserMusicManager {
      */
     public void unfollowPlaylist(String userId, String playlistId) {
         userMusicDAO.unfollowPlaylist(userId, playlistId);
+    }
+    
+    public boolean hasSavedAlbum(AlbumIdentifier albumIdentifier) {
+        User user = userAccountManager.getSessionUser();
+        if (user != null) {
+            for (LibraryAlbum album : user.getUserMusic().getSavedAlbums()) {
+                if (album.getAlbumIdentifier().equals(albumIdentifier)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     public boolean addSongToLibrarySession(User user, String songId, Date dateAdded) {

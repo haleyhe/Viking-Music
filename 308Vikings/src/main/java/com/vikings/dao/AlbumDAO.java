@@ -37,6 +37,10 @@ public class AlbumDAO {
         return album;
     }
     
+    public List<AlbumIdentifier> getAlbumsForArtist(String id) {
+        return albumMapper.getAlbumsForArtist(id);
+    }
+    
     /**
      * Returns the 25 most recent albums on the service, by release date.
      * @return 

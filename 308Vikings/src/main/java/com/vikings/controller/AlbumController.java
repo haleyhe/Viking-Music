@@ -2,10 +2,15 @@ package com.vikings.controller;
 
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
+import com.vikings.domain.requests.AlbumPageResponse;
+import com.vikings.domain.requests.IdRequest;
 import com.vikings.manager.AlbumManager;
+import com.vikings.manager.ArtistManager;
+import com.vikings.manager.UserMusicManager;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +24,36 @@ public class AlbumController {
     
     @Autowired
     AlbumManager albumManager;
+    
+    @Autowired
+    UserMusicManager userMusicManager;
+    
+    /**
+     * Packages and returns necessary info for Album Page.
+     * @param id
+     *  Album ID.
+     * @return 
+     *  Response object containing:
+     *  -Album info,
+     *  -Related albums,
+     *  -Boolean indicating whether the user has saved the Album.
+     * 
+     * Or null if no Album found.
+     *  
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbumPageDetails")
+    public @ResponseBody AlbumPageResponse getAlbumPageDetails(@RequestParam("id") String id) {
+        Album album = albumManager.getAlbum(id);
+        if (album == null)
+            return null;
+        List<AlbumIdentifier> relatedAlbums = albumManager.getAlbumsForArtist(album.getArtists().get(0).getId());
+        relatedAlbums.remove(album.toAlbumIdentifier());
+        boolean saved = userMusicManager.hasSavedAlbum(album.toAlbumIdentifier());
+        
+        return new AlbumPageResponse(album, relatedAlbums, saved);
+    }
+    
+    
     
     /**
      * Gets the Album with the given ID.

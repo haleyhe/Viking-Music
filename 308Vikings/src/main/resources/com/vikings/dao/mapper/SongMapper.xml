@@ -14,6 +14,10 @@
         <association property="album" javaType="com.vikings.domain.identifier.AlbumIdentifier">
             <id property="id" column="album_id"/>
             <result property="name" column="album_name"/>
+            <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
+                <id property="id" column="album_artist_id"/>
+                <result property="name" column="album_artist_name"/>
+            </collection>
         </association>
         <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
             <id property="id" column="artist_id"/>
@@ -61,7 +65,9 @@
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
-            al.name as 'album_name'
+            al.name as 'album_name',
+            a2.artistId as 'album_artist_id',
+            a2.name as 'album_artist_name'
         FROM
             Songs s
         LEFT JOIN
@@ -80,6 +86,14 @@
             Albums al
         ON
             al.albumId = als.albumId
+        LEFT JOIN
+            AlbumArtists ala
+        ON
+            ala.albumId = al.albumId
+        LEFT JOIN
+            Artists a2
+        ON
+            a2.artistId = ala.artistId
         WHERE
             s.songId = #{id}
     </select>
@@ -97,7 +111,9 @@
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
-            al.name as 'album_name'
+            al.name as 'album_name',
+            a2.artistId as 'album_artist_id',
+            a2.name as 'album_artist_name'
         FROM
             AlbumSongs als
         LEFT JOIN
@@ -116,6 +132,14 @@
             Albums al
         ON
             al.albumId = als.albumId
+        LEFT JOIN
+            AlbumArtists ala
+        ON
+            ala.albumId = al.albumId
+        LEFT JOIN
+            Artists a2
+        ON
+            a2.artistId = ala.artistId
         WHERE
             als.albumId = #{id}
     </select>
