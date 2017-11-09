@@ -83,20 +83,22 @@
                     </div>
                     <div id=user-buttons>
                       <ul>
-                        <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
-                        <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
-                        <li id=user-display-name><a>viking123</a></li>  
-                        <li style="margin-left: 2%;">
-                           <button class = dropdownbtn><b>></b></button>
-                            <div class=user-dropdown-menu>
-                              <a><button>Account Information</button></a>
-                              <a><button>Billing</button></a>
-                              <form id="signout-form">
-                                  <a><button>Logout</button></a>
-                              </form>
+                        <li>
+                        <button class = dropdownbtn><b>></b></button>
 
-                            </div>
+                        <div class=user-dropdown-menu>
+                          <a><button>Account Information</button></a>
+                          <a><button>Billing</button></a>
+                          <form id="signout-form">
+                              <a><button>Logout</button></a>
+                          </form>
+                          
+                        </div>
+
                         </li>
+                        <li id=user-display-name><a>viking123</a></li>
+                        <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
+                        <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
                       </ul>
                     </div>
                   </div>
