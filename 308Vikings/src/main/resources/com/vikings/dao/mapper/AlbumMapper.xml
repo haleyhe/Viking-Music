@@ -59,9 +59,10 @@
             Artists ar
         ON
             ar.artistId = aa.artistId
+        WHERE
+            al.releaseDate >= NOW() - INTERVAL 1 YEAR
         ORDER BY
             al.releaseDate DESC
-        LIMIT 25
     </select>
     
 </mapper>

@@ -33,7 +33,7 @@ public class AlbumController {
     }
     
     /**
-     * Returns the 25 most recent albums on the service, by release date.
+     * Returns albums released in the past year on the service, by release date.
      * @return 
      *  List of AlbumIdentifiers for recent Albums.
      */
