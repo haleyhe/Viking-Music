@@ -9,14 +9,14 @@ body{
     display: none; 
 }
 
-a{
-  text-decoration: none;
-  color: black;
-}
-
 :visited{
   color: black;
   text-decoration: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 hr.style15 { 
@@ -153,21 +153,17 @@ hr.style15 {
   padding-left: 1%;
 }
 
-#user-buttons{
+#user-buttons ul{
   font-family: 'Raleway', sans-serif;
-  margin-right: 200px;
-  margin-top: 15px;
+  height: 15px;
+  margin-left: 63%;
 }
 
 #user-buttons li{
+  float: left;
   text-align: right;
-  float: right;
   list-style: none;
   cursor: pointer;
-}
-
-#user-display-name a:hover {
-  text-decoration: underline;
 }
 
 #user-buttons li button{
@@ -175,12 +171,13 @@ hr.style15 {
   background-repeat:no-repeat;
   cursor:pointer;
   overflow: hidden;
-   outline:none;
+  outline:none;
   border: none;
   border-radius: 20px;
   height: 25px;
   margin-top: -5px;
   font-size: 20px;
+  padding: 0px;
 }
 
 #user-buttons li img{ 
@@ -188,6 +185,12 @@ hr.style15 {
   margin-top: -5px;
   margin-right:5px;
 }
+
+#user-display-name a:hover {
+  text-decoration: underline;
+}
+
+
 
 .player-bar {
   background-color: rgba(100, 100, 100, 0.9);
