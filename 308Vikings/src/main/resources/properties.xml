@@ -1,0 +1,58 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!-- 	This file contains static constant properties such as error messages.
+		To access these properties in code:
+
+		Given property:
+			<prop key="my.key">myvalue</prop>
+
+		Access using:
+			System.getProperty("my.key")
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.1.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+   <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetObject">
+        <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+            <property name="targetClass" value="java.lang.System"/>
+            <property name="targetMethod" value="getProperties"/>
+        </bean>
+    </property>
+    <property name="targetMethod" value="putAll"/>
+    <property name="arguments">
+        <util:properties>
+            <!-- 
+                PROPERTIES BEGIN HERE
+            -->
+            
+            <!-- Error messages -->
+            <prop key="error.UserAccount.userExists">Username already taken.</prop>
+            <prop key="error.UserAccount.invalidLogin">Invalid username and password combination.</prop>
+            <prop key="error.UserAccount.sessionExpired">User session expired. Please log in again.</prop>
+            
+            <prop key="error.UserMusic.libraryItemDuplicate">This item is already in your library.</prop>
+            <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
+
+            <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
+
+            <!-- Filepaths -->
+            <prop key="file.Playlist.sourceThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/src/main/webapp/css/playlist/</prop>
+            <prop key="file.Playlist.targetThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/target/308Vikings-1.0-SNAPSHOT/css/playlist/</prop>
+            
+            <!-- 
+                PROPERTIES END HERE
+            -->
+        </util:properties>
+    </property>
+</bean>
+
+</beans>

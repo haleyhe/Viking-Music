@@ -59,9 +59,33 @@
             Artists ar
         ON
             ar.artistId = aa.artistId
+        WHERE
+            al.releaseDate >= NOW() - INTERVAL 1 YEAR
         ORDER BY
             al.releaseDate DESC
-        LIMIT 25
+    </select>
+
+    <select id="getAlbumsForArtist" resultMap="albumIdentifierMap">
+        SELECT
+            al.albumId as 'album_id',
+            al.name as 'album_name',
+            al.releaseDate as 'album_release_date',
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
+        FROM
+            AlbumArtists aa
+        LEFT JOIN
+            Albums al
+        ON
+            aa.albumId = al.albumId
+        LEFT JOIN
+            Artists ar
+        ON
+            ar.artistId = aa.artistId
+        WHERE
+            aa.artistId = #{id}
+        ORDER BY
+            al.releaseDate DESC
     </select>
     
 </mapper>

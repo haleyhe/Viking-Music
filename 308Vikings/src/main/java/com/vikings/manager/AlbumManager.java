@@ -42,12 +42,16 @@ public class AlbumManager {
     }
     
     /**
-     * Returns the 25 most recent albums on the service, by release date.
+     * Returns albums released with in the past year on the service, by release date.
      * @return 
      *  List of AlbumIdentifiers for recent Albums.
      */
     public List<AlbumIdentifier> getRecentAlbums() {
         return albumDAO.getRecentAlbums();
+    }
+    
+    public List<AlbumIdentifier> getAlbumsForArtist(String id) {
+        return albumDAO.getAlbumsForArtist(id);
     }
 
     public AlbumIdentifier getAlbumIdentifier(String id) {

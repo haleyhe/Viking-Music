@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.identifier.UserIdentifier;
 import java.io.Serializable;
 import java.util.Date;
@@ -112,6 +113,10 @@ public class Playlist implements Serializable {
                 song.setPlaylistTrackNumber(song.getPlaylistTrackNumber() - 1);
             }
         }
+    }
+    
+    public PlaylistIdentifier toPlaylistIdentifier() {
+        return new PlaylistIdentifier(this.id, this.name, this.creator);
     }
     
 }

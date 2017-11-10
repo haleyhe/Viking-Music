@@ -9,6 +9,14 @@ import java.util.List;
 public class UserIdentifier implements Serializable {
     String id;
     String name;
+    
+    public UserIdentifier() {
+    }
+    
+    public UserIdentifier(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public String getId() {
         return id;

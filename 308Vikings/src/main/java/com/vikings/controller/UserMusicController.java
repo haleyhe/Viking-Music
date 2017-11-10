@@ -111,7 +111,7 @@ public class UserMusicController {
             
             return new JsonResponse(true);
         } else {
-            return new JsonResponse(false, "User session expired.");
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
           
     }
@@ -136,7 +136,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This song is already in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemDuplicate")); //probably need better error checking than this
         }
         return json;
     }
@@ -161,7 +161,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This song is not in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemMissing")); //probably need better error checking than this
         }
         return json;    
     }
@@ -186,7 +186,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This album is already in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemDuplicate")); //probably need better error checking than this
         }
         return json;
     }
@@ -211,7 +211,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This album is not in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemMissing")); //probably need better error checking than this
         }
         return json;    
     }
@@ -236,7 +236,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This artist is already in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemDuplicate")); //probably need better error checking than this
         }
         return json;
     }
@@ -260,7 +260,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This artist is not in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemMissing")); //probably need better error checking than this
         }
         return json;    
     }
@@ -285,7 +285,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This playlist is already in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemDuplicate")); //probably need better error checking than this
         }
         return json;
     }
@@ -309,7 +309,7 @@ public class UserMusicController {
             userAccountManager.setSessionUser(user);
             json = new JsonResponse(true);
         } else {
-            json = new JsonResponse(false, "This playlist is not in your library"); //probably need better error checking than this
+            json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemMissing")); //probably need better error checking than this
         }
         return json;    
     }

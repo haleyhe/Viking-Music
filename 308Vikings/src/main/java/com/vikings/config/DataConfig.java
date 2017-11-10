@@ -18,13 +18,18 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 @MapperScan("com.vikings.dao.mapper")
 public class DataConfig {
     
+    public static final Class DATABASE_DRIVERCLASS = com.mysql.jdbc.Driver.class;
+    public static final String DATABASE_URL = "jdbc:mysql://mysql2.cs.stonybrook.edu:3306/vikings";
+    public static final String DATABASE_USERNAME = "vikings";
+    public static final String DATABASE_PASSWORD = "password";
+    
     @Bean
     public DataSource dataSource() {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
-        dataSource.setUsername("vikings");
-        dataSource.setUrl("jdbc:mysql://mysql2.cs.stonybrook.edu:3306/vikings");
-        dataSource.setPassword("password");
+        dataSource.setDriverClass(DATABASE_DRIVERCLASS);
+        dataSource.setUsername(DATABASE_USERNAME);
+        dataSource.setUrl(DATABASE_URL);
+        dataSource.setPassword(DATABASE_PASSWORD);
 	
         return dataSource;
     }

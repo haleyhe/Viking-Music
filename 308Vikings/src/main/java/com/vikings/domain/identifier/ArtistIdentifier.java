@@ -17,6 +17,11 @@ public class ArtistIdentifier implements Serializable {
     public ArtistIdentifier(String id) {
         this.id = id;
     }
+    
+    public ArtistIdentifier(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public ArtistIdentifier(Artist artist) {
         this.id = artist.getId();

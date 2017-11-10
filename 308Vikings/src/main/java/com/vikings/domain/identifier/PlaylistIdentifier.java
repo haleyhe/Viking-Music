@@ -18,7 +18,13 @@ public class PlaylistIdentifier implements Serializable {
     
     public PlaylistIdentifier(String id) {
         this.id = id;
-    }      
+    }
+    
+    public PlaylistIdentifier(String id, String name, UserIdentifier creator) {
+        this.id = id;
+        this.name = name;
+        this.creator = creator;
+    }
 
     public PlaylistIdentifier(Playlist playlist) {
         this.id = playlist.getId();

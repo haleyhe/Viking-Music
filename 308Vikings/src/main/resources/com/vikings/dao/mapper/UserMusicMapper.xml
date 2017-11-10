@@ -60,10 +60,6 @@
         <association property="artistIdentifier" javaType="com.vikings.domain.identifier.ArtistIdentifier">
             <id property="id" column="album_id"/>
             <result property="name" column="album_name"/>
-            <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
-                <id property="id" column="artist_id"/>
-                <result property="name" column="artist_name"/>
-            </collection>
         </association>
     </resultMap>
 
