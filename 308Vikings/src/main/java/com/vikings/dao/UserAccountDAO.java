@@ -6,6 +6,7 @@ import com.vikings.domain.LibrarySong;
 import com.vikings.domain.User;
 import com.vikings.domain.UserMusic;
 import java.util.HashSet;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -74,6 +75,10 @@ public class UserAccountDAO {
      */
     public void updateUser(User user) {
         userAccountMapper.updateUser(user);
+    }
+    
+    public Set<User> getPremiumUsersForMonthlyRevenue() {
+        return userAccountMapper.getPremiumUsersForMonthlyRevenue();
     }
     
 }

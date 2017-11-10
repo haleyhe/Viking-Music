@@ -198,6 +198,7 @@ CREATE TABLE IF NOT EXISTS UserPayments (
 ### FOR REVENUE SUMMARIES ###
 
 CREATE TABLE IF NOT EXISTS RevenueSummaryUsers (
+    userId VARCHAR(40),
     cardNumber VARCHAR(32),
     paymentAmount DECIMAL(10, 2),
     datePaid DATE,

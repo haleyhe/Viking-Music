@@ -16,6 +16,13 @@ public class RevenueSummary implements Serializable {
     public RevenueSummary() {
         
     }
+    
+    public RevenueSummary(User user, Payment payment, Date datePaid, double amountPaid) {
+        this.user = user;
+        this.payment = payment;
+        this.datePaid = datePaid;
+        this.amountPaid = amountPaid;
+    }
 
     public User getUser() {
         return user;

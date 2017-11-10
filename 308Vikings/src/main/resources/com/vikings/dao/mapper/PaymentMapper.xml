@@ -50,18 +50,33 @@
         )
     </insert>
 
-    <insert id="recordMonthlyPayments" parameterType="java.util.List">
+    <insert id="recordMonthlyPayments" parameterType="java.util.Set">
         INSERT IGNORE INTO RevenueSummarySongs (
             songId,
             numMonthlyPlays,
             paymentAmount,
             datePaid
         ) VALUES
-        <foreach collection="list" item="payment" open="(" separator="),(" close=")">
+        <foreach collection="collection" item="payment" open="(" separator="),(" close=")">
             #{payment.id},
             #{payment.numPlays},
             #{payment.amountPaid},
             #{payment.datePaid}
+        </foreach>
+    </insert>
+
+    <insert id="recordMonthlyRevenue" parameterType="java.util.Set">
+        INSERT IGNORE INTO RevenueSummaryUsers (
+            userId,
+            cardNumber,
+            paymentAmount,
+            datePaid
+        ) VALUES
+        <foreach collection="collection" item="revenue" open="(" separator="),(" close=")">
+            #{revenue.user.id},
+            #{revenue.payment.cardNumber},
+            #{revenue.amountPaid},
+            #{revenue.datePaid}
         </foreach>
     </insert>
     

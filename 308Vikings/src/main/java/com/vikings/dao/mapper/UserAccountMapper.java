@@ -1,6 +1,7 @@
 package com.vikings.dao.mapper;
 
 import com.vikings.domain.User;
+import java.util.Set;
 
 /**
  * Mapper class for UserAccountDAO.
@@ -16,6 +17,8 @@ public interface UserAccountMapper {
     public User processLogin(User user);
     
     public void updateUser(User user);
+    
+    public Set<User> getPremiumUsersForMonthlyRevenue();
     
 }
 

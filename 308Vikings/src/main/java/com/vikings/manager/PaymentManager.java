@@ -3,14 +3,16 @@ package com.vikings.manager;
 import com.vikings.dao.ArtistDAO;
 import com.vikings.dao.PaymentDAO;
 import com.vikings.dao.SongDAO;
+import com.vikings.dao.UserAccountDAO;
 import com.vikings.domain.Artist;
 import com.vikings.domain.Payment;
 import com.vikings.domain.PaymentSummary;
+import com.vikings.domain.RevenueSummary;
 import com.vikings.domain.Song;
-import java.util.ArrayList;
+import com.vikings.domain.User;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentManager {
     
+    static final double MONTHLY_PREMIUM_COST = 5.00;
+    
     @Autowired
     PaymentDAO paymentDAO;
     
@@ -31,6 +35,9 @@ public class PaymentManager {
     
     @Autowired
     SongDAO songDAO;
+    
+    @Autowired
+    UserAccountDAO userAccountDAO;
     
     /**
      * Checks the given payment and, if valid, links the Payment to the user
@@ -61,6 +68,9 @@ public class PaymentManager {
      *  true if valid, false otherwise.
      */
     private boolean isValidPayment(Payment payment) {
+        if (payment == null)
+            return false;
+        
         if (payment.getCardNumber() == null)
             return false;
         
@@ -93,7 +103,7 @@ public class PaymentManager {
         for (Artist artist : artists) {
             Set<Song> songs = songDAO.getArtistSongsForPayment(artist.getId(), startDate, endDate);
             if (songs.size() > 0) {
-                List<PaymentSummary> payments = new ArrayList<>();
+                Set<PaymentSummary> payments = new HashSet<>();
                 for (Song song : songs) {
                     String id = song.getId();
                     int numPlays = song.getNumPlays();
@@ -105,6 +115,24 @@ public class PaymentManager {
                 paymentDAO.recordMonthlyPayments(payments);
             }
         }
+        System.out.println("Done.");
+    }
+        
+    public void generateMonthlyRevenue() {
+        System.out.println("AUTOMATED: Generating monthly User Premium revenue.");
+        Set<User> users = userAccountDAO.getPremiumUsersForMonthlyRevenue();
+        Set<RevenueSummary> revenues = new HashSet<>();
+        for (User user : users) {
+            if (isValidPayment(user.getPayment())) {
+                Date datePaid = new java.util.Date();
+                double amountPaid = MONTHLY_PREMIUM_COST;    
+                revenues.add(new RevenueSummary(user, user.getPayment(), datePaid, amountPaid));   
+            } else {
+                user.setPremium(false);
+                userAccountDAO.updateUser(user);
+            }
+        }
+        paymentDAO.recordMonthlyRevenue(revenues);
         System.out.println("Done.");
     }
     

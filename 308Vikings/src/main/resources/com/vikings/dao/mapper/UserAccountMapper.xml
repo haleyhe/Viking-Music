@@ -12,6 +12,34 @@
         <result property="admin" column="user_admin"/>
         <result property="facebookId" column="user_facebook"/>
     </resultMap>
+
+    <resultMap id="userPaymentMap" type="com.vikings.domain.User">
+        <id property="id" column="user_id" />
+        <result property="username" column="user_username"/>
+        <result property="email" column="user_email"/>
+        <result property="zip" column="user_zip"/>
+        <result property="dateOfBirth" column="user_birth" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="premium" column="user_premium"/>
+        <result property="admin" column="user_admin"/>
+        <result property="facebookId" column="user_facebook"/>
+        <association property="payment" javaType="com.vikings.domain.Payment">
+            <id property="cardNumber" column="payment_card_number"/>
+            <result property="cvv" column="payment_cvv"/>
+            <result property="expirationDate" column="payment_expiration_date"/>
+            <result property="creditCardCompany" column="payment_company"/>
+            <result property="phoneNum" column="payment_phone_number"/>
+            <association property="name" javaType="com.vikings.domain.Name">
+                <id property="firstName" column="payment_first_name"/>
+                <id property="lastName" column="payment_last_name"/>
+            </association>
+            <association property="billingAddress" javaType="com.vikings.domain.Address">
+                <id property="street" column="payment_address_street"/>
+                <id property="zip" column="payment_address_zip"/>
+                <result property="state" column="payment_address_state"/>
+                <result property="city" column="payment_address_city"/>
+            </association>
+        </association>
+    </resultMap>
     
     <select id="userExists" parameterType="com.vikings.domain.User" resultType="boolean">
         SELECT
@@ -86,5 +114,48 @@
             u.userId = #{id}
         
     </update>
+
+    <select id="getPremiumUsersForMonthlyRevenue" resultMap="userPaymentMap">
+        SELECT
+            u.userId as 'user_id',
+            u.username as 'user_username',
+            u.emailAddress as 'user_email',
+            u.zip as 'user_zip',
+            u.birthDate as 'user_birth',
+            u.premium as 'user_premium',
+            u.admin as 'user_admin',
+            u.facebookId as 'user_facebook',
+            p.cardNumber as 'payment_card_number',
+            p.firstName as 'payment_first_name',
+            p.lastName as 'payment_last_name',
+            p.cvv as 'payment_cvv',
+            p.expirationDate as 'payment_expiration_date',
+            p.company as 'payment_company',
+            p.phoneNumber as 'payment_phone_number',
+            a.street as 'payment_address_street',
+            a.city as 'payment_address_city',
+            a.state as 'payment_address_state',
+            a.zip as 'payment_address_zip'
+        FROM
+            Users u
+        LEFT JOIN
+            UserPayments up
+        ON
+            up.userId = u.userId
+        LEFT JOIN
+            Payments p
+        ON
+            p.cardNumber = up.cardNumber
+        LEFT JOIN
+            Addresses a
+        ON
+            a.street = p.street
+        AND
+            a.zip = p.zip
+        WHERE
+            u.premium = 1
+            AND
+            u.admin = 0
+    </select>
     
 </mapper>

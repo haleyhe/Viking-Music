@@ -3,7 +3,8 @@ package com.vikings.dao;
 import com.vikings.dao.mapper.PaymentMapper;
 import com.vikings.domain.Payment;
 import com.vikings.domain.PaymentSummary;
-import java.util.List;
+import com.vikings.domain.RevenueSummary;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,7 +31,11 @@ public class PaymentDAO {
         paymentMapper.linkPaymentToUser(userId, payment.getCardNumber());
     }
     
-    public void recordMonthlyPayments(List<PaymentSummary> payments) {
+    public void recordMonthlyPayments(Set<PaymentSummary> payments) {
         paymentMapper.recordMonthlyPayments(payments);
+    }
+    
+    public void recordMonthlyRevenue(Set<RevenueSummary> revenues) {
+        paymentMapper.recordMonthlyRevenue(revenues);
     }
 }

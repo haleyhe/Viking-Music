@@ -27,5 +27,6 @@ public class PaymentController {
     @RequestMapping(method=RequestMethod.GET, value="/Payment/generateMonthlyPayments")
     public void generateMonthlyPayments() {
         paymentManager.generateMonthlyPayments();
+        paymentManager.generateMonthlyRevenue();
     }
 }
