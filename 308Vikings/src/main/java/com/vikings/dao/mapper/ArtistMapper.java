@@ -14,6 +14,8 @@ public interface ArtistMapper {
     
     public Artist getArtist(String id);
     
+    public Set<Artist> getAllArtistsForPayment();
+    
     public List<ArtistIdentifier> getRelatedArtists(String id);
     
     public Set<ArtistIdentifier> search(String query);

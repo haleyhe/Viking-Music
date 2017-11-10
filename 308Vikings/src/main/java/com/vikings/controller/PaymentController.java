@@ -24,7 +24,7 @@ public class PaymentController {
      *  
      */
     @Scheduled(cron="${cron.Payment.generatePayments}")
-    @RequestMapping(method=RequestMethod.POST, value="/Payment/generateMonthlyPayments")
+    @RequestMapping(method=RequestMethod.GET, value="/Payment/generateMonthlyPayments")
     public void generateMonthlyPayments() {
         paymentManager.generateMonthlyPayments();
     }

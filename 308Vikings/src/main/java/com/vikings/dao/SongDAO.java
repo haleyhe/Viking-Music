@@ -3,6 +3,7 @@ package com.vikings.dao;
 import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Song;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,10 @@ public class SongDAO {
         // search regex for mysql
         query = "%" + query + "%";
         return songMapper.search(query);
+    }
+    
+    public Set<Song> getArtistSongsForPayment(String id, Date startDate, Date endDate) {
+        return songMapper.getArtistSongsForPayment(id, startDate, endDate);
     }
     
 }

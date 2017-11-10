@@ -1,9 +1,18 @@
 package com.vikings.manager;
 
+import com.vikings.dao.ArtistDAO;
 import com.vikings.dao.PaymentDAO;
+import com.vikings.dao.SongDAO;
+import com.vikings.domain.Artist;
 import com.vikings.domain.Payment;
+import com.vikings.domain.PaymentSummary;
+import com.vikings.domain.Song;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,6 +25,12 @@ public class PaymentManager {
     
     @Autowired
     PaymentDAO paymentDAO;
+    
+    @Autowired
+    ArtistDAO artistDAO;
+    
+    @Autowired
+    SongDAO songDAO;
     
     /**
      * Checks the given payment and, if valid, links the Payment to the user
@@ -71,7 +86,46 @@ public class PaymentManager {
     }
     
     public void generateMonthlyPayments() {
-        //@TODO
+        Date startDate = getStartDate();
+        Date endDate = getEndDate();
+        System.out.println("AUTOMATED: Generating payments from " + startDate.toString() + " to " + endDate.toString());
+        Set<Artist> artists = artistDAO.getAllArtistsForPayment();
+        for (Artist artist : artists) {
+            Set<Song> songs = songDAO.getArtistSongsForPayment(artist.getId(), startDate, endDate);
+            if (songs.size() > 0) {
+                List<PaymentSummary> payments = new ArrayList<>();
+                for (Song song : songs) {
+                    String id = song.getId();
+                    int numPlays = song.getNumPlays();
+                    Date datePaid = new java.util.Date();
+                    double amountPaid = numPlays * artist.getRoyaltyRate();
+                    
+                    payments.add(new PaymentSummary(id, numPlays, datePaid, amountPaid));
+                }
+                paymentDAO.recordMonthlyPayments(payments);
+            }
+        }
+        System.out.println("Done.");
+    }
+    
+    private Date getStartDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.roll(Calendar.MONTH, false);
+        calendar.set(Calendar.DATE, 1);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        return calendar.getTime();
+    }
+    
+    private Date getEndDate() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.roll(Calendar.MONTH, false);
+        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 59);
+        return calendar.getTime();
     }
     
 }

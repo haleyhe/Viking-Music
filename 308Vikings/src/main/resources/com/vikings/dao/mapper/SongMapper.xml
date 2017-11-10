@@ -107,7 +107,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
@@ -153,7 +159,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
@@ -230,6 +242,50 @@
             song_numplays
         DESC
 
+    </select>
+
+    <select id="getArtistSongsForPayment" parameterType="Map" resultMap="songMap">
+        SELECT
+            s.songId as 'song_id',
+            s.name as 'song_name',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId
+                AND
+                usp.datePlayed <![CDATA[>=]]> #{startDate}
+                AND
+                usp.datePlayed <![CDATA[<=]]> #{endDate}
+            )
+            as 'song_numplays'
+        FROM
+            Songs s,
+            UserSongsPlayed usp,
+            SongArtists sa
+        WHERE
+            (
+                (SELECT
+                    COUNT(*)
+                FROM
+                    UserSongsPlayed usp
+                WHERE
+                    usp.songId = s.songId
+                    AND
+                    usp.datePlayed <![CDATA[>=]]> #{startDate}
+                    AND
+                    usp.datePlayed <![CDATA[<=]]> #{endDate}
+                ) > 0
+            )
+            AND
+            (
+                sa.artistId = #{id}
+                AND
+                s.songId = sa.songId
+            )
+        GROUP BY
+            s.songId
     </select>
 
     <select id="search" parameterType="String" resultMap="songMap">

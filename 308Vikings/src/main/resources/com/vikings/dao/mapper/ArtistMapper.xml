@@ -8,6 +8,7 @@
         <result property="bio" column="artist_bio"/>
         <result property="followerCount" column="artist_followercount"/>
         <result property="playCount" column="artist_playcount"/>
+        <result property="royaltyRate" column="artist_royalty_rate"/>
         <collection property="relatedNames" ofType="com.vikings.domain.Name">
             <id property="firstName" column="artist_firstname"/>
             <id property="lastName" column="artist_lastname"/>
@@ -24,6 +25,16 @@
     <resultMap id="artistIdentifierMap" type="com.vikings.domain.identifier.ArtistIdentifier">
         <id property="id" column="artist_id" />
         <result property="name" column="artist_name"/>
+    </resultMap>
+
+    <resultMap id="paymentArtistMap" type="com.vikings.domain.Artist">
+        <id property="id" column="artist_id" />
+        <result property="name" column="artist_name"/>
+        <result property="royaltyRate" column="artist_royalty_rate"/>
+        <collection property="relatedNames" ofType="com.vikings.domain.Name">
+            <id property="firstName" column="artist_firstname"/>
+            <id property="lastName" column="artist_lastname"/>
+        </collection>
     </resultMap>
     
     <select id="getArtist" parameterType="String" resultMap="artistMap">
@@ -72,6 +83,21 @@
             aa.albumId = al.albumId
         WHERE
             a.artistId = #{id}
+    </select>
+
+    <select id="getAllArtistsForPayment" resultMap="paymentArtistMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            an.firstName as 'artist_firstname',
+            an.lastName as 'artist_lastname',
+            a.royaltyRate as 'artist_royalty_rate'
+        FROM
+            Artists a
+        LEFT JOIN
+            ArtistNames an
+        ON
+            an.artistId = a.artistId
     </select>
 
     <select id="getRelatedArtists" parameterType="String" resultMap="artistIdentifierMap">

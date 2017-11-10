@@ -18,6 +18,7 @@ public class Artist implements Serializable {
     int playCount;
     List<String> genres;
     List<AlbumIdentifier> albums;
+    double royaltyRate;
     
     public Artist() {
     }
@@ -88,6 +89,14 @@ public class Artist implements Serializable {
     
     public void setAlbums(List<AlbumIdentifier> albums) {
         this.albums = albums;
+    }
+
+    public double getRoyaltyRate() {
+        return royaltyRate;
+    }
+
+    public void setRoyaltyRate(double royaltyRate) {
+        this.royaltyRate = royaltyRate;
     }
     
     public ArtistIdentifier toArtistIdentifier() {
