@@ -7,6 +7,7 @@ import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,13 +23,6 @@ public class AlbumDAO {
     @Autowired
     SongMapper songMapper;
     
-    /**
-     * Gets information for a single Album.
-     * @param id
-     *  The ID of the desired Album.
-     * @return 
-     *  The detailed Album object.
-     */
     public Album getAlbum(String id) {
         Album album = albumMapper.getAlbum(id);
         List<Song> songs = songMapper.getSongsForAlbum(id);
@@ -42,11 +36,17 @@ public class AlbumDAO {
     }
     
     /**
-     * Returns the 25 most recent albums on the service, by release date.
+     * Returns albums released in the past year on the service, by release date.
      * @return 
      *  List of AlbumIdentifiers for recent Albums.
      */
     public List<AlbumIdentifier> getRecentAlbums() {
         return albumMapper.getRecentAlbums();
+    }
+    
+    public Set<AlbumIdentifier> search(String query) {
+        // search regex for mysql
+        query = "%" + query + "%";
+        return albumMapper.search(query);
     }
 }

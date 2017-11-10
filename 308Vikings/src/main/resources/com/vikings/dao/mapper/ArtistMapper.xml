@@ -93,5 +93,39 @@
         ORDER BY
             shared_genres DESC
     </select>
+
+    <select id="search" parameterType="String" resultMap="artistIdentifierMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name'
+        FROM
+            Artists a,
+            ArtistNames an,
+            ArtistGenres ag,
+            AlbumArtists aa,
+            Albums al
+        WHERE
+            (
+                a.name LIKE #{query}
+                OR
+                CONCAT(an.firstName, ' ', an.lastName) LIKE #{query}
+                OR
+                ag.genre LIKE #{query}
+                OR
+                al.name LIKE #{query}
+            )
+        AND
+            (
+                an.artistId = a.artistId
+                AND
+                ag.artistId = a.artistId
+                AND
+                aa.artistId = a.artistId
+                AND
+                al.albumId = aa.albumId
+            )
+        GROUP BY
+            a.artistId
+    </select>
     
 </mapper>

@@ -4,6 +4,7 @@ import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.domain.Artist;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,13 +17,6 @@ public class ArtistDAO {
     @Autowired
     ArtistMapper artistMapper;
     
-    /**
-     * Gets information for a single Artist.
-     * @param id
-     *  The Artist ID.
-     * @return 
-     *  The detailed Artist object.
-     */
     public Artist getArtist(String id) {
         return artistMapper.getArtist(id);
     }
@@ -38,6 +32,12 @@ public class ArtistDAO {
      */
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
         return artistMapper.getRelatedArtists(artistId);
+    }
+    
+    public Set<ArtistIdentifier> search(String query) {
+        // search regex for mysql
+        query = "%" + query + "%";
+        return artistMapper.search(query);
     }
     
 }

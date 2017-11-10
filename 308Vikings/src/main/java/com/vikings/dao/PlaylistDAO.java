@@ -4,8 +4,10 @@ import com.vikings.dao.mapper.PlaylistMapper;
 import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -30,13 +32,6 @@ public class PlaylistDAO {
         playlistMapper.createPlaylist(playlist);
     }
     
-    /**
-     * Gets information for a single Playlist.
-     * @param id
-     *  The ID of the desired Playlist.
-     * @return 
-     *  The detailed Playlist object.
-     */
     public Playlist getPlaylist(String id) {
         Playlist playlist = playlistMapper.getPlaylist(id);
         List<PlaylistSong> songs = songMapper.getSongsForPlaylist(id);
@@ -114,6 +109,12 @@ public class PlaylistDAO {
      */
     public List<Playlist> getAdminCuratedPlaylists() {
         return playlistMapper.getAdminCuratedPlaylists();
+    }
+    
+    public Set<PlaylistIdentifier> search(String query) {
+        // search regex for mysql
+        query = "%" + query + "%";
+        return playlistMapper.search(query);
     }
     
 }

@@ -87,5 +87,30 @@
         ORDER BY
             al.releaseDate DESC
     </select>
+
+    <select id="search" parameterType="String" resultMap="albumIdentifierMap">
+        SELECT
+            al.albumId as 'album_id',
+            al.name as 'album_name',
+            al.releaseDate as 'album_release_date',
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
+        FROM
+            Albums al,
+            AlbumArtists aa,
+            Artists ar
+        WHERE
+            (
+                al.name LIKE #{query}
+                OR
+                ar.name LIKE #{query}
+            )
+        AND
+            (
+                aa.albumId = al.albumId
+                AND
+                ar.artistId = aa.artistId
+            )
+    </select>
     
 </mapper>

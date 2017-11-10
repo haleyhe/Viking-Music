@@ -3,6 +3,7 @@ package com.vikings.dao.mapper;
 import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.Song;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Mapper class for SongDAO.
@@ -19,5 +20,6 @@ public interface SongMapper {
     
     public List<Song> getTopSongsForArtist(String id);
     
+    public Set<Song> search(String query);
 }
 

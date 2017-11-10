@@ -6,6 +6,7 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +64,10 @@ public class ArtistManager {
     ArtistIdentifier getArtistIdentifier(String id) {
         Artist artist = getArtist(id);
         return new ArtistIdentifier(artist);
+    }
+    
+    public Set<ArtistIdentifier> search(String query) {
+        return artistDAO.search(query);
     }
     
 }
