@@ -2,19 +2,14 @@ package com.vikings.manager;
 
 import com.vikings.dao.PaymentDAO;
 import com.vikings.domain.Payment;
-import com.vikings.domain.User;
-import com.vikings.util.InputChecker;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
  * Manager for User Payment actions
- * (e.g. adding Payment for a User).
+ * (e.g. adding Payment for a User), as well as generating and retrieving
+ * Payment and Revenue summaries.
  */
 @Service
 public class PaymentManager {
@@ -73,6 +68,10 @@ public class PaymentManager {
             }
         }
         return sum % 10 == 0;
+    }
+    
+    public void generateMonthlyPayments() {
+        //@TODO
     }
     
 }

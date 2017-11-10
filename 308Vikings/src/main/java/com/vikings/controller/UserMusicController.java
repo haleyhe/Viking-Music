@@ -6,7 +6,6 @@ import com.vikings.domain.LibraryPlaylist;
 import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
-import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.requests.IdRequest;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
