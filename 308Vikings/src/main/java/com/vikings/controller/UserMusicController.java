@@ -290,7 +290,7 @@ public class UserMusicController {
         return json;
     }
     
-            /**
+     /**
      * Removes an artist from an user's library
      * @param idReq
      * json container for the id of the artist that the user will remove from their library

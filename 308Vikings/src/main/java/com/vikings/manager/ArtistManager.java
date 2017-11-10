@@ -18,12 +18,12 @@ public class ArtistManager {
     @Autowired
     ArtistDAO artistDAO;
     
-    Map<String, Artist> artistsMap;
-    Map<String, List<ArtistIdentifier>> relatedArtistsMap;
+    Map<String, Artist> artistCache;
+    Map<String, List<ArtistIdentifier>> relatedArtistCache;
     
     public ArtistManager() {
-        this.artistsMap = new HashMap<>();
-        this.relatedArtistsMap = new HashMap<>();
+        this.artistCache = new HashMap<>();
+        this.relatedArtistCache = new HashMap<>();
     }
     
     /**
@@ -34,10 +34,10 @@ public class ArtistManager {
      *  Detailed Artist object.
      */
     public Artist getArtist(String id) {
-        Artist artist = artistsMap.get(id);
+        Artist artist = artistCache.get(id);
         if (artist == null) {
             artist = artistDAO.getArtist(id);
-            artistsMap.put(id, artist);
+            artistCache.put(id, artist);
         }
         return artist;
     }
@@ -52,10 +52,10 @@ public class ArtistManager {
      *  An ordered list of related ArtistIdentifiers.
      */
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
-        List<ArtistIdentifier> artists = relatedArtistsMap.get(artistId);
+        List<ArtistIdentifier> artists = relatedArtistCache.get(artistId);
         if (artists == null) {
             artists = artistDAO.getRelatedArtists(artistId);
-            relatedArtistsMap.put(artistId, artists);
+            relatedArtistCache.put(artistId, artists);
         }
         return artists;
     }
