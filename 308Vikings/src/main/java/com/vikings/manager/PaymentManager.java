@@ -95,6 +95,18 @@ public class PaymentManager {
         return sum % 10 == 0;
     }
     
+    public Set<RevenueSummary> getRevenue(Date month) {
+        return paymentDAO.getRevenue(month);
+    }
+    
+    public Set<PaymentSummary> getPayments(Date month) {
+        return paymentDAO.getPayments(month);
+    }
+    
+    public Set<PaymentSummary> getArtistPayments(String artistId, Date month) {
+        return paymentDAO.getArtistPayments(artistId, month);
+    }
+    
     public void generateMonthlyPayments() {
         Date startDate = getStartDate();
         Date endDate = getEndDate();
@@ -126,7 +138,7 @@ public class PaymentManager {
             if (isValidPayment(user.getPayment())) {
                 Date datePaid = new java.util.Date();
                 double amountPaid = MONTHLY_PREMIUM_COST;    
-                revenues.add(new RevenueSummary(user, user.getPayment(), datePaid, amountPaid));   
+                revenues.add(new RevenueSummary(user.toUserIdentifier(), user.getPayment(), datePaid, amountPaid));   
             } else {
                 user.setPremium(false);
                 userAccountDAO.updateUser(user);

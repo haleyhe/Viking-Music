@@ -2,6 +2,26 @@
 <mapper namespace="com.vikings.dao.mapper.PaymentMapper">
     <cache />
 
+    <resultMap id="revenueMap" type="com.vikings.domain.RevenueSummary">
+        <result property="datePaid" column="revenue_date_paid"/>
+        <result property="amountPaid" column="revenue_payment_amount"/>
+        <association property="user" javaType="com.vikings.domain.identifier.UserIdentifier">
+            <id property="id" column="revenue_user_id"/>
+            <result property="name" column="revenue_user_name"/>
+        </association>
+        <association property="payment" javaType="com.vikings.domain.Payment">
+            <id property="cardNumber" column="revenue_card_number"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="paymentMap" type="com.vikings.domain.PaymentSummary">
+        <id property="id" column="payment_id"/>
+        <result property="name" column="payment_name"/>
+        <result property="numPlays" column="payment_num_plays"/>
+        <result property="datePaid" column="payment_date_paid"/>
+        <result property="amountPaid" column="payment_amount"/>
+    </resultMap>
+
     <insert id="addAddress" parameterType="com.vikings.domain.Address">
         INSERT IGNORE INTO Addresses (
             street,
@@ -79,5 +99,72 @@
             #{revenue.datePaid}
         </foreach>
     </insert>
+
+    <select id="getRevenue" parameterType="java.util.Date" resultMap="revenueMap">
+        SELECT
+            u.userId as 'revenue_user_id',
+            u.username as 'revenue_user_name',
+            rsu.cardNumber as 'revenue_card_number',
+            rsu.paymentAmount as 'revenue_payment_amount',
+            rsu.datePaid as 'revenue_date_paid'
+        FROM
+            RevenueSummaryUsers rsu
+        LEFT JOIN
+            Users u
+        ON
+            u.userId = rsu.userId
+        WHERE
+            MONTH(rsu.datePaid) = MONTH(#{month})
+    </select>
+
+    <select id="getPayments" parameterType="java.util.Date" resultMap="paymentMap">
+        SELECT
+            a.artistId as 'payment_id',
+            a.name as 'payment_name',
+            SUM(rss.numMonthlyPlays) as 'payment_num_plays',
+            SUM(rss.paymentAmount) as 'payment_amount',
+            rss.datePaid as 'payment_date_paid'
+        FROM
+            RevenueSummarySongs rss
+        LEFT JOIN
+            SongArtists sa
+        ON
+            sa.songId = rss.songId
+        LEFT JOIN
+            Artists a
+        ON
+            a.artistId = sa.artistId
+        WHERE
+            MONTH(rss.datePaid) = MONTH(#{month})
+        GROUP BY
+            payment_id
+    </select>
+
+    <select id="getArtistPayments" parameterType="Map" resultMap="paymentMap">
+        SELECT
+            s.songId as 'payment_id',
+            s.name as 'payment_name',
+            rss.numMonthlyPlays as 'payment_num_plays',
+            rss.paymentAmount as 'payment_amount',
+            rss.datePaid as 'payment_date_paid'
+        FROM
+            RevenueSummarySongs rss
+        LEFT JOIN
+            SongArtists sa
+        ON
+            sa.songId = rss.songId
+        LEFT JOIN
+            Artists a
+        ON
+            a.artistId = sa.artistId
+        LEFT JOIN
+            Songs s
+        ON
+            s.songId = rss.songId
+        WHERE
+            MONTH(rss.datePaid) = MONTH(#{month})
+            AND
+            a.artistId = #{artistId}
+    </select>
     
 </mapper>
