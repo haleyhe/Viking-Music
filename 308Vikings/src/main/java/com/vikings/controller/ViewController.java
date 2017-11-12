@@ -42,6 +42,7 @@ public class ViewController {
         ModelAndView model = new ModelAndView();
         if (artist == null) {
             model.setViewName("artist_startup");
+            model.addObject("artist", artist);
         } else {
             model.setViewName("artist_portal");
         }

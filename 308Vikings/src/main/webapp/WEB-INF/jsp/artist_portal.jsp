@@ -13,7 +13,7 @@
         <link href="<c:url value="/css/style.css" />" rel="stylesheet">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-        <script type="text/javascript" src="<c:url value="/js/artist_startup.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/artist_portal.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +21,55 @@
         <title>Vikings Artists</title>
     </head>
     <body>
-        congrats you logged in
+        <div id=appPage>
+            <div class=menu>
+                  <!--Top Menu Logo and Artist Options-->
+                  <div class=menutabs id=browserTabs>
+                    <ul>
+                      <li>
+                        <img id=logo src=${home}/css/viking.png></img>
+                      </li> 
+                      <b>
+                      <h4>VIKINGS ARTIST PORTAL</h4>
+                      </b>       
+                    </ul>
+                  </div>
+
+                  <!--Menu tabs-->
+                  <div class=menutabs id=personalTabs>
+                    <ul>
+                      <b>
+                      <li class="tab-link" data-tab="menutab-1">Edit Info</li>
+                      <li class="tab-link" data-tab="menutab-2">Change Image</li>
+                      <li class="tab-link" data-tab="menutab-3">View Summary</li>
+                      <li class="tab-link" data-tab="menutab-4">Request Song</li>
+                      <li class="tab-link" data-tab="menutab-5">Remove Song</li>
+                      </b>
+                    </ul>
+                  </div>
+            </div>
+                
+            <!--Browser Panel: Panel that will have anything that we want to show-->
+            <div class=browse>
+              <!--Top Navigation Bar -->
+                <div class=topnav-bar>
+                  <div id=user-buttons>
+                    <ul>
+                      <li id=user-display-img><img src=${home}/css/artist/${artist.id}.jpg></img></li>
+                      <li id=user-display-name style="margin-right: 2%;"><a>${artist.name}</a></li>
+                      <li>
+                      <button class = dropdownbtn><b>></b></button>
+                      <div class=user-dropdown-menu>
+                        <form id="artist-signout-form">
+                            <a><button>Logout</button></a>
+                        </form>
+                      </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script>
        window.onload = function () {

@@ -46,7 +46,7 @@ public class ArtistAccountController {
     /**
      * Logs the Artist in the session out.
      */
-    @RequestMapping(method = RequestMethod.GET, value = "/ArtistAccount/logout")
+    @RequestMapping(method = RequestMethod.POST, value = "/ArtistAccount/logout")
     public @ResponseBody JsonResponse logout() {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
