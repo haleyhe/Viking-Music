@@ -62,10 +62,7 @@ public class UserAccountController {
         
         JsonResponse json = new JsonResponse();
         if (user != null) {
-            // add user to the session
-            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-            HttpSession session = attr.getRequest().getSession(true);
-            session.setAttribute("user", user);
+            userAccountManager.setSessionUser(user);
             json.setSuccess(true);
         } else {
             json.setSuccess(false);

@@ -4,6 +4,7 @@ import com.vikings.domain.Artist;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
 import java.util.Set;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Mapper class for ArtistDAO.
@@ -13,6 +14,8 @@ import java.util.Set;
 public interface ArtistMapper {
     
     public Artist getArtist(String id);
+    
+    public Artist getArtistAccount(@Param("id") String id, @Param("password") String password);
     
     public Set<Artist> getAllArtistsForPayment();
     

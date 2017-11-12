@@ -18,6 +18,10 @@ public class ArtistDAO {
         return artistMapper.getArtist(id);
     }
     
+    public Artist getArtistAccount(String id, String password) {
+        return artistMapper.getArtistAccount(id, password);
+    }
+    
     public Set<Artist> getAllArtistsForPayment() {
         return artistMapper.getAllArtistsForPayment();
     }

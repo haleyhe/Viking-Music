@@ -7,11 +7,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Service
 public class ArtistManager {
+    
+    @Autowired
+    UserAccountManager userAccountManager;
     
     @Autowired
     ArtistDAO artistDAO;
@@ -41,6 +47,21 @@ public class ArtistManager {
     }
     
     /**
+     * Retrieves Artist for account login.
+     * @param id
+     *  Artist ID
+     * @param password
+     *  Artist password (unhashed)
+     * @return
+     *  Detailed Artist object if success, null if invalid ID/password.
+     */
+    public Artist getArtistAccount(String id, String password) {
+        password = userAccountManager.hashPassword(password);
+        return artistDAO.getArtistAccount(id, password);
+        
+    }
+    
+    /**
      * Returns a list of Artist who have overlapping genres with the given Artist.
      * The list is ordered by number of overlapping genres (first in list =
      * most "related")
@@ -65,6 +86,30 @@ public class ArtistManager {
     
     public Set<ArtistIdentifier> search(String query) {
         return artistDAO.search(query);
+    }
+    
+    /**
+     * Retrieves the Artist associated with the current session.
+     * @return 
+     *  Detailed Artist object, or null if none found.
+     */
+    public Artist getSessionArtist() {
+        // get the artist from HTTPSession
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        Artist artist = (Artist) session.getAttribute("artist");
+        return artist;
+    }
+    
+    /**
+     * Sets the Artist associated with the current session.
+     * @param artist
+     *  The Artist to associate with this session.
+     */
+    public void setSessionArtist(Artist artist) {
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        session.setAttribute("artist", artist);
     }
     
 }

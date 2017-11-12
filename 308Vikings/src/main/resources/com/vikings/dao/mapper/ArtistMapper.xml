@@ -85,6 +85,55 @@
             a.artistId = #{id}
     </select>
 
+    <select id="getArtistAccount" parameterType="String" resultMap="artistMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            an.firstName as 'artist_firstname',
+            an.lastName as 'artist_lastname',
+            a.bio as 'artist_bio',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserArtistsFollowed uaf
+            WHERE
+                uaf.artistId = a.artistId)
+            as 'artist_followercount',
+            (SELECT
+                SUM(s.numPlays)
+            FROM
+                Songs s,
+                SongArtists sa
+            WHERE
+                s.songId = sa.songId AND
+                sa.artistId = a.artistId)
+            as 'artist_playcount',
+            ag.genre as 'artist_genre',
+            al.albumId as 'album_id',
+            al.name as 'album_name'
+        FROM
+            Artists a
+        LEFT JOIN
+            ArtistNames an
+        ON
+            an.artistId = a.artistId
+        LEFT JOIN
+            ArtistGenres ag
+        ON
+            ag.artistId = a.artistId
+        INNER JOIN
+            AlbumArtists aa
+        ON
+            aa.artistId = a.artistId
+        INNER JOIN
+            Albums al
+        ON
+            aa.albumId = al.albumId
+        WHERE
+            a.artistId = #{id} AND
+            a.hashedPassword = #{password}
+    </select>
+
     <select id="getAllArtistsForPayment" resultMap="paymentArtistMap">
         SELECT
             a.artistId as 'artist_id',

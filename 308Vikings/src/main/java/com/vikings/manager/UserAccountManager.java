@@ -63,7 +63,7 @@ public class UserAccountManager {
      * @return 
      *  Hashed password as a String
      */
-    private String hashPassword(String password) {
+    public String hashPassword(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
             byte[] passwordBytes = password.getBytes();
