@@ -1,15 +1,19 @@
 package com.vikings.controller;
 
+import com.vikings.domain.Artist;
 import com.vikings.domain.PaymentSummary;
 import com.vikings.domain.RevenueSummary;
 import com.vikings.domain.requests.AdminMonthlySummaryResponse;
 import com.vikings.domain.requests.ArtistMonthlySummaryResponse;
+import com.vikings.manager.ArtistManager;
 import com.vikings.manager.PaymentManager;
 import java.util.Date;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +24,9 @@ public class PaymentController {
     
     @Autowired
     PaymentManager paymentManager;
+    
+    @Autowired
+    ArtistManager artistManager;
     
     /**
      * THIS SHOULD NOT BE CALLED MANUALLY BEYOND DEBUGGING.
@@ -54,18 +61,20 @@ public class PaymentController {
     }
     
     /**
-     * Retrieves the monthly summary for the Artist, including detailed information
+     * Retrieves the monthly summary for the Artist in the session, including detailed information
      * about the royalty amount paid for each Song.
-     * @param artistId
-     *  ID of the Artist.
      * @param month
      *  Month to see payments for.
      * @return 
-     *  Response object containing set of PaymentSummaries.
+     *  Response object containing set of PaymentSummaries, or null if no artist in session.
      */
-    @RequestMapping(method=RequestMethod.GET, value="/Payment/getArtistMonthlySummary")
-    public @ResponseBody ArtistMonthlySummaryResponse getArtistMonthlySummary(@RequestParam("artistId") String artistId, @RequestParam("month") Date month) {
-        Set<PaymentSummary> payments = paymentManager.getArtistPayments(artistId, month);
+    @RequestMapping(method=RequestMethod.POST, value="/Payment/getArtistMonthlySummary")
+    public @ResponseBody ArtistMonthlySummaryResponse getArtistMonthlySummary(@RequestBody Date month) {
+        Artist artist = artistManager.getSessionArtist();
+        if (artist == null)
+            return null;
+        
+        Set<PaymentSummary> payments = paymentManager.getArtistPayments(artist.getId(), month);
         return new ArtistMonthlySummaryResponse(payments);
     }
 }

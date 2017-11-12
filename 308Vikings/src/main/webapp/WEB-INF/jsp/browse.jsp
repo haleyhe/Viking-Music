@@ -436,7 +436,7 @@
 
                   <div class=pages id=indivAlbumPage>
                     <div>
-                      <img style="margin-top: 10px;" class=albumimg src="${home}/css/album/MiGente.jpg"></img>   
+                      <img style="margin: 10px;-top: 10px;" class=albumimg src="${home}/css/album/MiGente.jpg"></img>   
                     </div>
                     <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
                       <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">Mi Gente</h1>

@@ -2,6 +2,14 @@
     $('.pages').css("display","none");
     $('#artist-overview').show();
     
+    // hide result forms
+    $('#artist-monthly-summary-result').css("display", "none");
+    $('#artist-monthly-summary-no-result').css("display", "none");
+    
+    $("#error-message-close").click(function (event) {
+        $("#artist-error").css("display", "none");
+    });
+    
     $("#artist-signout-form").submit(function (event) {
         event.preventDefault();
         logout();
@@ -18,9 +26,6 @@
 
         $(this).addClass('current');
         $("#"+tab_id).addClass('current');
-        
-        console.log("GOT");
-        console.log($(this).attr('data-tab'));
 
         if($(this).attr('data-tab') == 'menutab-1'){
             $('.pages').css("display","none");
@@ -47,6 +52,12 @@
             $('#artist-remove-song').show();
         }
     });
+    
+    // Monthly Summary Page
+    $("#artist-summary-month-picker").submit(function (event) {
+        event.preventDefault();
+        getMonthlySummary();
+    });
 });
 
 function displayErrorMessage(message) {
@@ -68,4 +79,61 @@ function logout() {
             window.location.replace("/308Vikings/artistportal");
         }     
     });
+}
+
+// Monthly Summary Page
+function getMonthlySummary() {
+    date = $("#artist-summary-month").val();
+    if (!date) {
+        displayErrorMessage("Please enter a date.");
+        return;
+    }
+    date = date + '-01';
+    
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/308Vikings/Payment/getArtistMonthlySummary",
+        data: JSON.stringify(date),
+        dataType: 'json',
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        displayMonthlySummaryResults(date, data);
+    });
+}
+
+function displayMonthlySummaryResults(date, data) {
+    $("#artist-monthly-summary-result").css("display","none");
+    $("#artist-monthly-summary-no-result").css("display","none");
+    if (Object.keys(data.payments).length === 0) {
+        message = "No results for " + date.split("-")[1] + "/" + date.split("-")[0];
+        document.getElementById("artist-monthly-summary-no-result-title").innerHTML = message;
+        $("#artist-monthly-summary-no-result").show();
+    } else {
+        message = "Results for " + date.split("-")[1] + "/" + date.split("-")[0];
+        document.getElementById("artist-monthly-summary-result-title").innerHTML = message;
+        var header = "<tr><td>Song ID</td> <td>Name</td> <td>Monthly Plays</td> <td>Payment Date</td> <td>Amount Paid</td> </tr>";
+        var tableRows = "";
+        $.each(data.payments, function() {
+            tableRows += createMonthlySummaryResultsTableRow(this);
+        });
+        console.log($("#artist-monthly-summary-result-table"));
+        $("#artist-monthly-summary-result-table tbody").html(tableRows);
+        $("#artist-monthly-summary-result-table").show();
+        $("#artist-monthly-summary-result").show();
+    }
+}
+
+function createMonthlySummaryResultsTableRow(payment) {
+    var result= "<tr>";
+    result += "<td>" + payment.id + "</td>";
+    result += "<td>" + payment.name + "</td>";
+    result += "<td>" + payment.numPlays + "</td>";
+    var date = new Date(payment.datePaid);
+    var dateFormatted = date.getFullYear() + '/' + (date.getMonth() + 1) + "/" + date.getDay();
+    result += "<td>" + dateFormatted + "</td>";
+    result += "<td>" + "$" + parseFloat(payment.amountPaid).toFixed(2) + "</td>";
+    result += "</tr>";
+    return result;
 }
