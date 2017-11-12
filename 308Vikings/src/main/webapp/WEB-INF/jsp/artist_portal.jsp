@@ -6,7 +6,7 @@
     <head>
         <c:url var="home" value="/" scope="request" />
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-         <meta charset="UTF-8" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5, user-scalable=no">
         <link href='http://fonts.googleapis.com/css?family=Julius Sans One:400;300' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type='text/css'>
@@ -14,13 +14,13 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script type="text/javascript" src="<c:url value="/js/artist_portal.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
         <title>Vikings Artists</title>
     </head>
     <body>
+        <div id='feedback'>
         <div id=appPage>
             <div class=menu>
                   <!--Top Menu Logo and Artist Options-->
@@ -39,11 +39,12 @@
                   <div class=menutabs id=personalTabs>
                     <ul>
                       <b>
-                      <li class="tab-link" data-tab="menutab-1">Edit Info</li>
-                      <li class="tab-link" data-tab="menutab-2">Change Image</li>
-                      <li class="tab-link" data-tab="menutab-3">View Summary</li>
-                      <li class="tab-link" data-tab="menutab-4">Request Song</li>
-                      <li class="tab-link" data-tab="menutab-5">Remove Song</li>
+                      <li class="tab-link" data-tab="menutab-1">Overview</li>
+                      <li class="tab-link" data-tab="menutab-2">Edit Info</li>
+                      <li class="tab-link" data-tab="menutab-3">Change Image</li>
+                      <li class="tab-link" data-tab="menutab-4">View Summary</li>
+                      <li class="tab-link" data-tab="menutab-5">Request Song</li>
+                      <li class="tab-link" data-tab="menutab-6">Remove Song</li>
                       </b>
                     </ul>
                   </div>
@@ -68,7 +69,30 @@
                     </ul>
                   </div>
                 </div>
+                      
+            <div class="pages" id="artist-overview">
+              <div class='container'>
+              <div>
+                <img style="-top: 10px;" class=albumimg src="${home}/css/artist/${artist.id}.jpg">
+                <h1 style="padding-top: 50px;">${artist.name}</h1>
+                <div style="padding: 30px;" class=artistbio>${artist.bio}</div>
+              </div>
+              </div>
             </div>
+              
+            <div class="pages" id="artist-summary">
+              <div class='container'>
+              <div>
+                  <h1 style="padding-top: 50px;">Monthly Artist Summary</h1>
+                  <h4>Select a month to view royalties and stats for:</h4>
+                  <form id='artist-summary-month-picker'>
+                      <input type='month' id='artist-summary-month'>
+                      <input type='submit' id='artist-summary-submit'>
+                  </form>
+              </div>
+              </div>
+            </div>
+        </div>
         </div>
     </body>
     <script>

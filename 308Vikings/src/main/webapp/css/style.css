@@ -297,6 +297,13 @@ div.menutabs li.current{
   border-radius: 50%;  
 }
 
+.artistbio {
+    font-size: 0.5;
+    margin: 50px;
+    margin-left: 30px;
+    margin-bottom: 0px;
+}
+
 .albumname, .albumartist, .artistname, .songnumber{
   text-align: center;
 }
