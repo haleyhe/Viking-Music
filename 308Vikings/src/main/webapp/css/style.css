@@ -54,6 +54,12 @@ hr.style15 {
   font-size: 1em;
 }
 
+.signin textarea{
+  height: 200px;
+  width: 60%;
+  font-size: 0.5e;
+}
+
 .signin button{
   height: 50px;
   width: 30%;

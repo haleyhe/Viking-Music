@@ -3,6 +3,7 @@ package com.vikings.controller;
 import com.vikings.domain.Artist;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.LoginRequest;
+import com.vikings.domain.requests.UpdateArtistRequest;
 import com.vikings.manager.ArtistManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,38 @@ public class ArtistAccountController {
             json.setError(System.getProperty("error.UserAccount.invalidLogin"));
         }
         return json;
+    }
+    
+    /**
+     * Updates the Artist in the session with the new given bio and name, and adds
+     * genre or name if provided.
+     * @param updateArtistRequest
+     *  Request object with new parameters (including new name or new genre).
+     * @return 
+     *  JsonResponse indicating success or fail.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/ArtistAccount/updateArtist")
+    public @ResponseBody JsonResponse updateArtist(@RequestBody UpdateArtistRequest updateArtistRequest) {
+        Artist sessionArtist = artistManager.getSessionArtist();
+        
+        if (sessionArtist == null) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+        if (updateArtistRequest.getName().trim().isEmpty()) {
+            return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
+        }
+        if (updateArtistRequest.getRelatedName().getFirstName().trim().isEmpty()
+            || updateArtistRequest.getRelatedName().getLastName().trim().isEmpty()) {
+            updateArtistRequest.setRelatedName(null);
+        }
+        if (updateArtistRequest.getGenre().trim().isEmpty()) {
+            updateArtistRequest.setGenre(null);
+        }
+        
+        Artist resultArtist = artistManager.updateArtist(sessionArtist.getId(), updateArtistRequest);
+        artistManager.setSessionArtist(resultArtist);
+        
+        return new JsonResponse(true); 
     }
        
     /**

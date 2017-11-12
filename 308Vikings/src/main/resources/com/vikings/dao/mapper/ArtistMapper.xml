@@ -36,6 +36,42 @@
             <id property="lastName" column="artist_lastname"/>
         </collection>
     </resultMap>
+
+    <update id="updateArtist" parameterType="com.vikings.domain.Artist">
+        UPDATE
+            Artists a
+        SET
+            a.name = #{name},
+            a.bio = #{bio}
+        WHERE
+            a.artistId = #{id}
+    </update>
+
+    <insert id="addRelatedName" parameterType="Map">
+        INSERT INTO
+            ArtistNames (
+                artistId,
+                firstName,
+                lastName
+            )
+        VALUES (
+            #{artistId},
+            #{name.firstName},
+            #{name.lastName}
+        )
+    </insert>
+
+    <insert id="addGenre" parameterType="Map">
+        INSERT INTO
+            ArtistGenres (
+                artistId,
+                genre
+            )
+        VALUES (
+            #{artistId},
+            #{genre}
+        )
+    </insert>
     
     <select id="getArtist" parameterType="String" resultMap="artistMap">
         SELECT

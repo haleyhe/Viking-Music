@@ -15,8 +15,17 @@
         logout();
     });
     
+    $("#artist-edit-form").submit(function (event) {
+        event.preventDefault();
+        submitNewArtistInfo();
+    });
+    
     $("#error-message-close").click(function (event) {
         $("#artist-signin-error").css("display", "none");
+    });
+    
+    $("#success-message-close").click(function (event) {
+        window.location.replace("/308Vikings/artistportal");
     });
     
     $('div.menutabs li').click(function() {
@@ -65,6 +74,11 @@ function displayErrorMessage(message) {
     $(".error.modal").css("display", "block");
 }
 
+function displaySuccessMessage(message) {
+    document.getElementById("success-message").innerHTML = message;
+    $(".success.modal").css("display", "block");
+}
+
 function logout() {
     $.ajax({
         type: "POST",
@@ -79,6 +93,51 @@ function logout() {
             window.location.replace("/308Vikings/artistportal");
         }     
     });
+}
+
+// Edit Artist Info Page
+function submitNewArtistInfo() {
+    if ($("#artist-edit-name").val().length === 0) {
+        displayErrorMessage("Name cannot be blank.");
+        return;
+    }
+    if ($("#artist-edit-first-name").val().length === 0) {
+        if ($("#artist-edit-last-name").val().length > 0) {
+            displayErrorMessage("First name required.");
+            return;
+        }
+    }
+    if ($("#artist-edit-last-name").val().length === 0) {
+        if ($("#artist-edit-first-name").val().length > 0) {
+            displayErrorMessage("Last name required.");
+            return;
+        }
+    }
+    var artist = {};
+    artist["name"] = $("#artist-edit-name").val();
+    artist["bio"] = $("#artist-edit-bio").val();
+    var newName = {};
+    newName["firstName"] = $("#artist-edit-first-name").val();
+    newName["lastName"] = $("#artist-edit-last-name").val();
+    artist["relatedName"] = newName;
+    artist["genre"] = $("#artist-edit-genre").val();
+    
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/308Vikings/ArtistAccount/updateArtist",
+        data: JSON.stringify(artist),
+        dataType: 'json',
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        if (!data.success) {
+            displayErrorMessage(data.error);
+        } else {
+            displaySuccessMessage("Changes successfully saved.");
+        }
+    });
+    
 }
 
 // Monthly Summary Page

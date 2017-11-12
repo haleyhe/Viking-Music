@@ -82,6 +82,42 @@
               </div>
             </div>
               
+            <div class="pages" id="artist-edit-info">
+              <div class='container'>
+              <div>
+                <h1 style="padding-top: 50px;">Edit Info</h1>
+                <form id="artist-edit-form">
+                    <div class="signin">
+                    <div>Name:</div>
+                    <div><input id="artist-edit-name" placeholder="Name" value="${artist.name}"></div>
+                    <br/>
+                    <div>Bio:</div>
+                    <div><textarea id="artist-edit-bio">${artist.bio}</textarea></div>
+                    <div>Current Related Names:</div>
+                    <div><ul>
+                    <c:forEach items="${artist.relatedNames}" var="name">
+                        <li>${name.firstName} ${name.lastName}</li>
+                    </c:forEach>
+                    </ul></div>
+                    <div>Add New Name:</div>
+                    <div><input id="artist-edit-first-name" placeholder="First Name"> <input id="artist-edit-last-name" placeholder="Last Name"></div>
+                    <br/>
+                    <div>Current Genres:</div>
+                    <div><ul>
+                    <c:forEach items="${artist.genres}" var="genre">
+                        <li>${genre}</li>
+                    </c:forEach>
+                    </ul></div>
+                    <div>Add New Genre:</div>
+                    <div><input id="artist-edit-genre" placeholder="Genre"></div>
+                    <br/>
+                    <div><button id="artist-edit-submit" class=signupbtn type="submit">Submit Changes</button></div>
+                    </div>
+                </form>
+              </div>
+              </div>
+            </div>
+              
             <div class="pages" id="artist-summary">
               <div class='container'>
               <div>
@@ -122,6 +158,13 @@
                    <div>Error</div>
                    <div id='error-message'></div>
                    <button id='error-message-close' class="close">CLOSE</button>
+               </div>
+        </div>
+        <div id='artist-success' class="success modal">
+               <div class="modal-content">
+                   <div>Success</div>
+                   <div id='success-message'></div>
+                   <button id='success-message-close' class="close">CLOSE</button>
                </div>
         </div>
     </body>
