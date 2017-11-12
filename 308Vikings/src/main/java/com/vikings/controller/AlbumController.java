@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Controller for Album and Album Page actions
- */
 @Controller
 public class AlbumController {
     
@@ -73,7 +70,5 @@ public class AlbumController {
     public @ResponseBody List<AlbumIdentifier> getRecentAlbums() {
         return albumManager.getRecentAlbums();
     }
-    
-    
 
 }

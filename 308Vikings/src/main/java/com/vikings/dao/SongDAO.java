@@ -9,9 +9,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for basic Song actions
- */
 @Repository
 public class SongDAO {
     

@@ -8,9 +8,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Manager for Album and Album Page actions
- */
 @Service
 public class ConcertManager {
     
@@ -21,8 +18,8 @@ public class ConcertManager {
     Map<String, List<Concert>> concertsByArtist;
     
     public ConcertManager() {
-        this.concerts = new HashMap<String, Concert>();
-        this.concertsByArtist = new HashMap<String, List<Concert>>();
+        this.concerts = new HashMap<>();
+        this.concertsByArtist = new HashMap<>();
     }
     
     /**
@@ -50,12 +47,12 @@ public class ConcertManager {
      *  List of detailed Concert objects.
      */
     public List<Concert> getConcertsForArtist(String id) {
-        List<Concert> concerts = concertsByArtist.get(id);
-        if (concerts == null) {
-            concerts = concertDAO.getConcertsForArtist(id);
-            concertsByArtist.put(id, concerts);
+        List<Concert> c = concertsByArtist.get(id);
+        if (c == null) {
+            c= concertDAO.getConcertsForArtist(id);
+            concertsByArtist.put(id, c);
         }
-        return concerts;
+        return c;
     }
     
 }

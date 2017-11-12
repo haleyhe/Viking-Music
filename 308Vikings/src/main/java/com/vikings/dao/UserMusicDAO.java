@@ -108,6 +108,8 @@ public class UserMusicDAO {
      *  ID of the User.
      * @param playlistId 
      *  ID of the Playlist.
+     * @param dateAdded
+     *  Timestamp of when the user added the playlist to their library.
      */
     public void followPlaylist(String userId, String playlistId, Date dateAdded) {
         userMusicMapper.followPlaylist(userId, playlistId, dateAdded);

@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Represents a user-created Playlist.
- */
 public class Playlist implements Serializable {
     String id;
     String name;

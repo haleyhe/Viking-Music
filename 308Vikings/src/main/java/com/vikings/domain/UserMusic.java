@@ -1,6 +1,5 @@
 package com.vikings.domain;
 
-import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;

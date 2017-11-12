@@ -1,4 +1,3 @@
-
 package com.vikings.domain;
 
 import com.vikings.domain.identifier.PlaylistIdentifier;

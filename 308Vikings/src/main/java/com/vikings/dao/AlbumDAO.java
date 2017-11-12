@@ -11,9 +11,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for Album and Album Page actions
- */
 @Repository
 public class AlbumDAO {
     
@@ -35,11 +32,6 @@ public class AlbumDAO {
         return albumMapper.getAlbumsForArtist(id);
     }
     
-    /**
-     * Returns albums released in the past year on the service, by release date.
-     * @return 
-     *  List of AlbumIdentifiers for recent Albums.
-     */
     public List<AlbumIdentifier> getRecentAlbums() {
         return albumMapper.getRecentAlbums();
     }

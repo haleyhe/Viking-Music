@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Represents a song in the Spotify system.
- */
 public class Song implements Serializable, Comparable<Song> {
     String id;
     String name;

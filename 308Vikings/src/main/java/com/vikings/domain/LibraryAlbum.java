@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vikings.domain;
 
 import com.vikings.domain.identifier.AlbumIdentifier;
@@ -10,10 +5,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-/**
- *
- * @author HH
- */
 public class LibraryAlbum implements Serializable, Comparable<LibraryAlbum>  {
     Date dateAdded;
     AlbumIdentifier albumIndentifier;

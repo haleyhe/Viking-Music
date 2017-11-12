@@ -10,10 +10,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for User Account actions
- * (e.g. sign up, sign in, edit profile)
- */
 @Repository
 public class UserAccountDAO {
     

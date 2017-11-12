@@ -8,9 +8,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for Artist and Artist Page actions
- */
 @Repository
 public class ArtistDAO {
     

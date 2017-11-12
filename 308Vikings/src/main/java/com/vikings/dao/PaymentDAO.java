@@ -9,10 +9,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for User Payment actions
- * (e.g. adding Payment for a User).
- */
 @Repository
 public class PaymentDAO {
     

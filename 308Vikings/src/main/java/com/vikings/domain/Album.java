@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Represents an album in the Spotify system.
- */
 public class Album implements Serializable {
     String id;
     String name;
