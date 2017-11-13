@@ -28,6 +28,10 @@ public class AlbumDAO {
         return album;
     }
     
+    public List<AlbumIdentifier> getAllAlbums() {
+        return albumMapper.getAllAlbums();
+    }
+    
     public List<AlbumIdentifier> getAlbumsForArtist(String id) {
         return albumMapper.getAlbumsForArtist(id);
     }

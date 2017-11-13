@@ -38,6 +38,10 @@ public class AlbumManager {
         return album;
     }
     
+    public List<AlbumIdentifier> getAllAlbums() {
+        return albumDAO.getAllAlbums();
+    }
+    
     /**
      * Returns albums released with in the past year on the service, by release date.
      * @return 

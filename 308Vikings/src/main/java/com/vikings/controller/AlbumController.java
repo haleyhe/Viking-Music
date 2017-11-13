@@ -3,6 +3,7 @@ package com.vikings.controller;
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.requests.AlbumPageResponse;
+import com.vikings.domain.requests.AlbumsResponse;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.UserMusicManager;
 import java.util.List;
@@ -47,7 +48,10 @@ public class AlbumController {
         return new AlbumPageResponse(album, relatedAlbums, saved);
     }
     
-    
+    @RequestMapping(method=RequestMethod.GET, value="/Album/getAllAlbums")
+    public @ResponseBody AlbumsResponse getAllAlbums() {
+        return new AlbumsResponse(albumManager.getAllAlbums());
+    }
     
     /**
      * Gets the Album with the given ID.
