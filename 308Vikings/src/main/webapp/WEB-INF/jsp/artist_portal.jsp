@@ -121,7 +121,7 @@
             </div>
               
             <div class="pages" id="artist-summary">
-              <div class='container'>
+              <div class='container' style="padding: 20px;">
               <div>
                   <h1 style="padding-top: 50px;">Monthly Artist Summary</h1>
                   <h4>Select a month to view royalties and stats for:</h4>
