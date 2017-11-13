@@ -45,6 +45,7 @@
             <prop key="error.Form.invalidParameters">Invalid parameters.</prop>
 
             <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
+            <prop key="error.Playlist.notCreator">You cannot edit the playlist because you are not the playlist owner.</prop>
 
             <!-- Scheduled event regexes -->
             <!-- Generate payment summaries at 00:00 on the 1st of every month -->
