@@ -1,6 +1,21 @@
  jQuery(document).ready(function ($) {
     $('.pages').css("display","none");
     $('#artist-overview').show();
+
+    $('.dropdownbtn').click(function() {
+        if ($(this).hasClass('open')) {
+            $('.user-dropdown-menu').css("display", "none");
+            $(this).removeClass('open');
+        } else {
+            $('.user-dropdown-menu').css("display", "block");
+            $(this).addClass('open');
+        }
+    });
+
+    $('.user-dropdown-menu').click(function() {
+        $(this).removeClass('open');
+        $('.user-dropdown-menu').css("display", "none");
+    });
     
     // hide result forms
     $('#artist-monthly-summary-result').css("display", "none");
@@ -46,17 +61,13 @@
         }	
         if($(this).attr('data-tab') == 'menutab-3'){
             $('.pages').css("display","none");
-            $('#artist-change-image').show();
-        }	
-        if($(this).attr('data-tab') == 'menutab-4'){
-            $('.pages').css("display","none");
             $('#artist-summary').show();
         }
-        if($(this).attr('data-tab') == 'menutab-5'){
+        if($(this).attr('data-tab') == 'menutab-4'){
             $('.pages').css("display","none");
             $('#artist-request-song').show();
         }
-        if($(this).attr('data-tab') == 'menutab-6'){
+        if($(this).attr('data-tab') == 'menutab-5'){
             $('.pages').css("display","none");
             $('#artist-remove-song').show();
         }
@@ -121,19 +132,17 @@ function submitNewArtistInfo() {
     formData.append("lastName", $("#artist-edit-last-name").val());
     formData.append("genre", $("#artist-edit-genre").val());
     var thumbnailFile = null;
-    if ($("#artist-edit-thumbnail").val() !== "") {
-        thumbnailFile = $("#artist-edit-thumbnail").prop("files")[0];
+    var filesSelected = document.getElementById("artist-edit-thumbnail").files;
+    if (filesSelected.length > 0) {
+        formData.append("thumbnail", filesSelected[0]);
     }
     
     $.ajax({
         type: "POST",
         url: "/308Vikings/ArtistAccount/updateArtist",
-        data: {name : $("#artist-edit-name").val(),
-               bio :  $("#artist-edit-bio").val(),
-               firstName : $("#artist-edit-first-name").val(),
-               lastName : $("#artist-edit-last-name").val(),
-               genre : $("#artist-edit-genre").val(),
-               thumbnail : thumbnailFile},
+        contentType: false,
+        processData: false,
+        data: formData,
         async: true,
         timeout: 100000
     }).done(function(data) {
@@ -178,12 +187,10 @@ function displayMonthlySummaryResults(date, data) {
     } else {
         message = "Results for " + date.split("-")[1] + "/" + date.split("-")[0];
         document.getElementById("artist-monthly-summary-result-title").innerHTML = message;
-        var header = "<tr><td>Song ID</td> <td>Name</td> <td>Monthly Plays</td> <td>Payment Date</td> <td>Amount Paid</td> </tr>";
         var tableRows = "";
         $.each(data.payments, function() {
             tableRows += createMonthlySummaryResultsTableRow(this);
         });
-        console.log($("#artist-monthly-summary-result-table"));
         $("#artist-monthly-summary-result-table tbody").html(tableRows);
         $("#artist-monthly-summary-result-table").show();
         $("#artist-monthly-summary-result").show();

@@ -4,8 +4,8 @@ import com.vikings.domain.Artist;
 import com.vikings.domain.Name;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.LoginRequest;
-import com.vikings.domain.requests.UpdateArtistRequest;
 import com.vikings.manager.ArtistManager;
+import com.vikings.manager.FileManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +23,9 @@ public class ArtistAccountController {
     
     @Autowired
     ArtistManager artistManager;
+    
+    @Autowired
+    FileManager fileManager;
     
     /**
      * Attempts to log in with the given Artist ID and password, adding
@@ -76,9 +79,11 @@ public class ArtistAccountController {
         
         Artist sessionArtist = artistManager.getSessionArtist();
         
+        // check for nulls and account for empty/invalid parameters
         if (sessionArtist == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
+        
         Name newName = new Name(firstName, lastName);
         if (name.trim().isEmpty()) {
             return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
@@ -91,6 +96,13 @@ public class ArtistAccountController {
             genre = null;
         }
         
+        if (thumbnail != null) {
+            boolean result = fileManager.uploadArtistThumbnail(thumbnail, sessionArtist.getId());
+            if (result == false) {
+                return new JsonResponse(false, System.getProperty("error.Artist.thumbnailUploadFail"));
+            }
+        }
+        
         Artist resultArtist = artistManager.updateArtist(sessionArtist.getId(), name, bio, newName, genre);
         artistManager.setSessionArtist(resultArtist);
         
@@ -99,6 +111,9 @@ public class ArtistAccountController {
        
     /**
      * Logs the Artist in the session out.
+     * 
+     * @return
+     *  JsonResponse indicating success or failure.
      */
     @RequestMapping(method = RequestMethod.POST, value = "/ArtistAccount/logout")
     public @ResponseBody JsonResponse logout() {

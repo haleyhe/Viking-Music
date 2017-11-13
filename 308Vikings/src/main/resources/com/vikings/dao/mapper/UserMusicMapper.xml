@@ -56,10 +56,10 @@
     </resultMap>
 
     <resultMap id="libraryArtistMap" type="com.vikings.domain.LibraryArtist">
-        <id property="dateAdded" column="album_date_added"/>
+        <id property="dateAdded" column="artist_date_added"/>
         <association property="artistIdentifier" javaType="com.vikings.domain.identifier.ArtistIdentifier">
-            <id property="id" column="album_id"/>
-            <result property="name" column="album_name"/>
+            <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
         </association>
     </resultMap>
 

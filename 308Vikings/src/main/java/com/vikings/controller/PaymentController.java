@@ -10,13 +10,11 @@ import com.vikings.manager.PaymentManager;
 import java.util.Date;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -53,8 +51,8 @@ public class PaymentController {
      * @return 
      *  Response object containing set of RevenueSummaries and set of PaymentSummaries.
      */
-    @RequestMapping(method=RequestMethod.GET, value="/Payment/getAdminMonthlySummary")
-    public @ResponseBody AdminMonthlySummaryResponse getAdminMonthlySummary(@RequestParam("month") Date month) {
+    @RequestMapping(method=RequestMethod.POST, value="/Payment/getAdminMonthlySummary")
+    public @ResponseBody AdminMonthlySummaryResponse getAdminMonthlySummary(@RequestBody Date month) {
         Set<RevenueSummary> revenue = paymentManager.getRevenue(month);
         Set<PaymentSummary> payments = paymentManager.getPayments(month);
         return new AdminMonthlySummaryResponse(revenue, payments);

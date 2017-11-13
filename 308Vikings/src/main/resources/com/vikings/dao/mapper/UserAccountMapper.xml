@@ -58,14 +58,18 @@
             hashedPassword,
             emailAddress,
             zip,
-            birthDate
+            birthDate,
+            premium,
+            admin
         ) VALUES (
             #{id},
             #{username},
             #{password},
             #{email},
             #{zip},
-            #{dateOfBirth}
+            #{dateOfBirth},
+            #{premium},
+            #{admin}
         );
     </insert>
     

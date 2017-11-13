@@ -47,6 +47,8 @@
             <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
             <prop key="error.Playlist.notCreator">You cannot edit the playlist because you are not the playlist owner.</prop>
 
+            <prop key="error.Artist.thumbnailUploadFail">Thumbnail could not be uploaded.</prop>
+
             <!-- Scheduled event regexes -->
             <!-- Generate payment summaries at 00:00 on the 1st of every month -->
             <prop key="cron.Payment.generatePayments">0 0 0 1 * *</prop> 
