@@ -2,9 +2,10 @@ package com.vikings.domain.requests;
 
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
+import java.util.HashMap;
 import java.util.List;
 
-public class AlbumPageResponse {
+public class AlbumPageResponse extends PageResponse{
     Album album;
     List<AlbumIdentifier> relatedAlbums;
     boolean saved;
@@ -13,6 +14,13 @@ public class AlbumPageResponse {
     }
     
     public AlbumPageResponse(Album album, List<AlbumIdentifier> relatedAlbums, boolean saved) {
+        this.album = album;
+        this.relatedAlbums = relatedAlbums;
+        this.saved = saved;
+    }
+
+    public AlbumPageResponse(Album album, List<AlbumIdentifier> relatedAlbums, boolean saved, HashMap<String, Boolean> savedSongs) {
+        this.savedSongs = savedSongs;
         this.album = album;
         this.relatedAlbums = relatedAlbums;
         this.saved = saved;
@@ -41,7 +49,7 @@ public class AlbumPageResponse {
     public void setSaved(boolean saved) {
         this.saved = saved;
     }
+
     
-    
-    
+      
 }
