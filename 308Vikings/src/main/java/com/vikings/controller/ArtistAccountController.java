@@ -1,6 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.Artist;
+import com.vikings.domain.Name;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.LoginRequest;
 import com.vikings.domain.requests.UpdateArtistRequest;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class ArtistAccountController {
@@ -47,30 +50,48 @@ public class ArtistAccountController {
     /**
      * Updates the Artist in the session with the new given bio and name, and adds
      * genre or name if provided.
-     * @param updateArtistRequest
-     *  Request object with new parameters (including new name or new genre).
+     * @param thumbnail
+     *  New artist image (optional)
+     * @param name
+     *  Artist name
+     * @param bio
+     *  Artist bio
+     * @param firstName
+     *  First name of new Related Name
+     * @param lastName
+     *  Last name of new Related Name
+     * @param genre
+     *  New associated genre
      * @return 
      *  JsonResponse indicating success or fail.
      */
     @RequestMapping(method=RequestMethod.POST, value="/ArtistAccount/updateArtist")
-    public @ResponseBody JsonResponse updateArtist(@RequestBody UpdateArtistRequest updateArtistRequest) {
+    public @ResponseBody JsonResponse updateArtist(
+            @RequestParam(value="thumbnail", required=false) MultipartFile thumbnail,
+            @RequestParam(value="name") String name,
+            @RequestParam(value="bio") String bio,
+            @RequestParam(value="firstName") String firstName,
+            @RequestParam(value="lastName") String lastName,
+            @RequestParam(value="genre") String genre) {
+        
         Artist sessionArtist = artistManager.getSessionArtist();
         
         if (sessionArtist == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
-        if (updateArtistRequest.getName().trim().isEmpty()) {
+        Name newName = new Name(firstName, lastName);
+        if (name.trim().isEmpty()) {
             return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
         }
-        if (updateArtistRequest.getRelatedName().getFirstName().trim().isEmpty()
-            || updateArtistRequest.getRelatedName().getLastName().trim().isEmpty()) {
-            updateArtistRequest.setRelatedName(null);
+        if (firstName.trim().isEmpty()
+            || lastName.trim().isEmpty()) {
+            newName = null;
         }
-        if (updateArtistRequest.getGenre().trim().isEmpty()) {
-            updateArtistRequest.setGenre(null);
+        if (genre.trim().isEmpty()) {
+            genre = null;
         }
         
-        Artist resultArtist = artistManager.updateArtist(sessionArtist.getId(), updateArtistRequest);
+        Artist resultArtist = artistManager.updateArtist(sessionArtist.getId(), name, bio, newName, genre);
         artistManager.setSessionArtist(resultArtist);
         
         return new JsonResponse(true); 

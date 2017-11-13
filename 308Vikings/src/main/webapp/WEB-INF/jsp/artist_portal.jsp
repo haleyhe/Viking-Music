@@ -88,6 +88,9 @@
                 <h1 style="padding-top: 50px;">Edit Info</h1>
                 <form id="artist-edit-form">
                     <div class="signin">
+                    <div><img style="width: 10%; height: 10%" src="${home}/css/artist/${artist.id}.jpg"></div>
+                    <div>Image:</div>
+                    <div><input id="artist-edit-thumbnail" type="file" name="thumbnail" accept=".jpg"/></div>
                     <div>Name:</div>
                     <div><input id="artist-edit-name" placeholder="Name" value="${artist.name}"></div>
                     <br/>

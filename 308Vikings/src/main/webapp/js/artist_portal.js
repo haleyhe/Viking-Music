@@ -113,21 +113,27 @@ function submitNewArtistInfo() {
             return;
         }
     }
-    var artist = {};
-    artist["name"] = $("#artist-edit-name").val();
-    artist["bio"] = $("#artist-edit-bio").val();
-    var newName = {};
-    newName["firstName"] = $("#artist-edit-first-name").val();
-    newName["lastName"] = $("#artist-edit-last-name").val();
-    artist["relatedName"] = newName;
-    artist["genre"] = $("#artist-edit-genre").val();
+    
+    var formData = new FormData();
+    formData.append("name", $("#artist-edit-name").val());
+    formData.append("bio", $("#artist-edit-bio").val());
+    formData.append("firstName", $("#artist-edit-first-name").val());
+    formData.append("lastName", $("#artist-edit-last-name").val());
+    formData.append("genre", $("#artist-edit-genre").val());
+    var thumbnailFile = null;
+    if ($("#artist-edit-thumbnail").val() !== "") {
+        thumbnailFile = $("#artist-edit-thumbnail").prop("files")[0];
+    }
     
     $.ajax({
         type: "POST",
-        contentType: "application/json",
         url: "/308Vikings/ArtistAccount/updateArtist",
-        data: JSON.stringify(artist),
-        dataType: 'json',
+        data: {name : $("#artist-edit-name").val(),
+               bio :  $("#artist-edit-bio").val(),
+               firstName : $("#artist-edit-first-name").val(),
+               lastName : $("#artist-edit-last-name").val(),
+               genre : $("#artist-edit-genre").val(),
+               thumbnail : thumbnailFile},
         async: true,
         timeout: 100000
     }).done(function(data) {

@@ -2,6 +2,7 @@ package com.vikings.manager;
 
 import com.vikings.dao.ArtistDAO;
 import com.vikings.domain.Artist;
+import com.vikings.domain.Name;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.requests.UpdateArtistRequest;
 import java.util.HashMap;
@@ -80,22 +81,22 @@ public class ArtistManager {
         return artists;
     }
     
-    public Artist updateArtist(String artistId, UpdateArtistRequest updateArtistRequest) {
+    public Artist updateArtist(String artistId, String name, String bio, Name relatedName, String genre) {
         Artist artist = getArtist(artistId);
         
-        artist.setName(updateArtistRequest.getName());
-        artist.setBio(updateArtistRequest.getBio());
+        artist.setName(name);
+        artist.setBio(bio);
         
         artistDAO.updateArtist(artist);
         
-        if (updateArtistRequest.getRelatedName() != null) {
-            artist.getRelatedNames().add(updateArtistRequest.getRelatedName());
-            artistDAO.addRelatedName(artistId, updateArtistRequest.getRelatedName());
+        if (relatedName != null) {
+            artist.getRelatedNames().add(relatedName);
+            artistDAO.addRelatedName(artistId, relatedName);
         }
         
-        if (updateArtistRequest.getGenre() != null) {
-            artist.getGenres().add(updateArtistRequest.getGenre());
-            artistDAO.addGenre(artistId, updateArtistRequest.getGenre());
+        if (genre != null) {
+            artist.getGenres().add(genre);
+            artistDAO.addGenre(artistId, genre);
         }
         
         return artist;
