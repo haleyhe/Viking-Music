@@ -15,10 +15,10 @@ public class SongManager {
     @Autowired
     SongDAO songDAO;
     
-    Map<String, Song> songs;
+    Map<String, Song> songCache;
     
     public SongManager() {
-        this.songs = new HashMap<>();
+        this.songCache = new HashMap<>();
     }
     
     /**
@@ -29,10 +29,10 @@ public class SongManager {
      *  Detailed Song object.
      */
     public Song getSong(String id) {
-        Song song = songs.get(id);
+        Song song = songCache.get(id);
         if (song == null) {
             song = songDAO.getSong(id);
-            songs.put(id, song);
+            songCache.put(id, song);
         }
         return song;
     }

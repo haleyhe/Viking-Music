@@ -16,10 +16,10 @@ public class AlbumManager {
     @Autowired
     AlbumDAO albumDAO;
     
-    Map<String, Album> albumsMap;
+    Map<String, Album> albumCache;
     
     public AlbumManager() {
-        this.albumsMap = new HashMap<>();      
+        this.albumCache = new HashMap<>();      
     }
     
     /**
@@ -30,10 +30,10 @@ public class AlbumManager {
      *  Detailed Album object.
      */
     public Album getAlbum(String id) {
-        Album album = albumsMap.get(id);
+        Album album = albumCache.get(id);
         if (album == null) {
             album = albumDAO.getAlbum(id);
-            albumsMap.put(id, album);
+            albumCache.put(id, album);
         }
         return album;
     }

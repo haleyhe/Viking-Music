@@ -20,10 +20,10 @@ public class PlaylistManager {
     @Autowired
     PlaylistDAO playlistDAO;
     
-    Map<String, Playlist> playlistsMap;
+    Map<String, Playlist> playlistCache;
     
     public PlaylistManager() {
-        this.playlistsMap = new HashMap<>();
+        this.playlistCache = new HashMap<>();
     }
     
     /**
@@ -48,7 +48,7 @@ public class PlaylistManager {
         
         playlistDAO.createPlaylist(playlist);
         
-        playlistsMap.put(id, playlist);
+        playlistCache.put(id, playlist);
         
         return id;
     }
@@ -61,10 +61,10 @@ public class PlaylistManager {
      *  Detailed Playlist object.
      */
     public Playlist getPlaylist(String id) {
-        Playlist playlist = playlistsMap.get(id);
+        Playlist playlist = playlistCache.get(id);
         if (playlist == null) {
             playlist = playlistDAO.getPlaylist(id);
-            playlistsMap.put(id, playlist);
+            playlistCache.put(id, playlist);
         }
         return playlist;
     }
@@ -146,8 +146,8 @@ public class PlaylistManager {
      *  - PubliclyVisible
      */
     public void updatePlaylist(Playlist playlist) {
-        if (playlistsMap.get(playlist.getId()) != null) {
-            Playlist oldPlaylist = playlistsMap.get(playlist.getId());
+        if (playlistCache.get(playlist.getId()) != null) {
+            Playlist oldPlaylist = playlistCache.get(playlist.getId());
             if (playlist.getName() != null)
                 oldPlaylist.setName(playlist.getName());
             if (playlist.getDescription() != null)

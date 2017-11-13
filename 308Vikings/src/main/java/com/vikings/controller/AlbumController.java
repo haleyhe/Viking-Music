@@ -5,10 +5,13 @@ import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.requests.AlbumPageResponse;
 import com.vikings.domain.requests.AlbumsResponse;
 import com.vikings.manager.AlbumManager;
+import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +26,9 @@ public class AlbumController {
     @Autowired
     UserMusicManager userMusicManager;
     
+    @Autowired
+    UserAccountManager userAccountManager;
+    
     /**
      * Packages and returns necessary info for Album Page.
      * @param id
@@ -36,16 +42,16 @@ public class AlbumController {
      * Or null if no Album found.
      *  
      */
-    @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbumPageDetails")
-    public @ResponseBody AlbumPageResponse getAlbumPageDetails(@RequestParam("id") String id) {
+    @RequestMapping(method=RequestMethod.GET, value="/Album/{id}")
+    public @ResponseBody AlbumPageResponse getAlbumPageDetails(@PathVariable("id") String id) {
         Album album = albumManager.getAlbum(id);
         if (album == null)
             return null;
         List<AlbumIdentifier> relatedAlbums = albumManager.getAlbumsForArtist(album.getArtists().get(0).getId());
         relatedAlbums.remove(album.toAlbumIdentifier());
         boolean saved = userMusicManager.hasSavedAlbum(album.toAlbumIdentifier());
-        
-        return new AlbumPageResponse(album, relatedAlbums, saved);
+        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(album, userAccountManager.getSessionUser());
+        return new AlbumPageResponse(album, relatedAlbums, saved, savedSongs);
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/Album/getAllAlbums")

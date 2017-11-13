@@ -1,16 +1,21 @@
 package com.vikings.manager;
 
 import com.vikings.dao.UserMusicDAO;
+import com.vikings.domain.Album;
 import com.vikings.domain.LibraryArtist;
 import com.vikings.domain.LibraryAlbum;
 import com.vikings.domain.LibraryPlaylist;
 import com.vikings.domain.LibrarySong;
+import com.vikings.domain.Playlist;
+import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -212,5 +217,27 @@ public class UserMusicManager {
         PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
         LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
         return followedPlaylists.remove(libPlaylist);
+    }
+    
+    public HashMap<String,Boolean> findSavedSongList(Album album, User user) {
+        HashMap<String,Boolean> savedSongs = new HashMap<>();
+        List<Song> songList = album.getSongs();
+        for (Song s: songList) {
+           LibrarySong tempLibSong = new LibrarySong(s);
+           Boolean saved = user.getUserMusic().getSavedSongs().contains(tempLibSong);
+           savedSongs.put(s.getId(), saved);
+       }
+       return savedSongs;
+    }
+    
+    public HashMap<String,Boolean>findSavedSongList(Playlist playlist, User user) {
+       HashMap<String,Boolean> savedSongs = new HashMap<>();
+       List<PlaylistSong> songList = playlist.getSongs();
+       for (PlaylistSong ps: songList) {
+           LibrarySong tempLibSong = new LibrarySong((Song) ps);
+           Boolean saved = user.getUserMusic().getSavedSongs().contains(tempLibSong);
+           savedSongs.put(ps.getId(), saved);
+       }
+       return savedSongs;
     }
 }

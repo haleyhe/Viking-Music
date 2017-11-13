@@ -18,8 +18,8 @@ public class ConcertManager {
     Map<String, List<Concert>> concertsByArtist;
     
     public ConcertManager() {
-        this.concerts = new HashMap<>();
-        this.concertsByArtist = new HashMap<>();
+        this.concerts = new HashMap<String, Concert>();
+        this.concertsByArtist = new HashMap<String, List<Concert>>();
     }
     
     /**
