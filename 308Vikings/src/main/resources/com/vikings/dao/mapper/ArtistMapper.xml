@@ -8,6 +8,7 @@
         <result property="bio" column="artist_bio"/>
         <result property="followerCount" column="artist_followercount"/>
         <result property="playCount" column="artist_playcount"/>
+        <result property="royaltyRate" column="artist_royalty_rate"/>
         <collection property="relatedNames" ofType="com.vikings.domain.Name">
             <id property="firstName" column="artist_firstname"/>
             <id property="lastName" column="artist_lastname"/>
@@ -25,6 +26,52 @@
         <id property="id" column="artist_id" />
         <result property="name" column="artist_name"/>
     </resultMap>
+
+    <resultMap id="paymentArtistMap" type="com.vikings.domain.Artist">
+        <id property="id" column="artist_id" />
+        <result property="name" column="artist_name"/>
+        <result property="royaltyRate" column="artist_royalty_rate"/>
+        <collection property="relatedNames" ofType="com.vikings.domain.Name">
+            <id property="firstName" column="artist_firstname"/>
+            <id property="lastName" column="artist_lastname"/>
+        </collection>
+    </resultMap>
+
+    <update id="updateArtist" parameterType="com.vikings.domain.Artist">
+        UPDATE
+            Artists a
+        SET
+            a.name = #{name},
+            a.bio = #{bio}
+        WHERE
+            a.artistId = #{id}
+    </update>
+
+    <insert id="addRelatedName" parameterType="Map">
+        INSERT INTO
+            ArtistNames (
+                artistId,
+                firstName,
+                lastName
+            )
+        VALUES (
+            #{artistId},
+            #{name.firstName},
+            #{name.lastName}
+        )
+    </insert>
+
+    <insert id="addGenre" parameterType="Map">
+        INSERT INTO
+            ArtistGenres (
+                artistId,
+                genre
+            )
+        VALUES (
+            #{artistId},
+            #{genre}
+        )
+    </insert>
     
     <select id="getArtist" parameterType="String" resultMap="artistMap">
         SELECT
@@ -74,6 +121,70 @@
             a.artistId = #{id}
     </select>
 
+    <select id="getArtistAccount" parameterType="String" resultMap="artistMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            an.firstName as 'artist_firstname',
+            an.lastName as 'artist_lastname',
+            a.bio as 'artist_bio',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserArtistsFollowed uaf
+            WHERE
+                uaf.artistId = a.artistId)
+            as 'artist_followercount',
+            (SELECT
+                SUM(s.numPlays)
+            FROM
+                Songs s,
+                SongArtists sa
+            WHERE
+                s.songId = sa.songId AND
+                sa.artistId = a.artistId)
+            as 'artist_playcount',
+            ag.genre as 'artist_genre',
+            al.albumId as 'album_id',
+            al.name as 'album_name'
+        FROM
+            Artists a
+        LEFT JOIN
+            ArtistNames an
+        ON
+            an.artistId = a.artistId
+        LEFT JOIN
+            ArtistGenres ag
+        ON
+            ag.artistId = a.artistId
+        INNER JOIN
+            AlbumArtists aa
+        ON
+            aa.artistId = a.artistId
+        INNER JOIN
+            Albums al
+        ON
+            aa.albumId = al.albumId
+        WHERE
+            a.artistId = #{id} AND
+            a.hashedPassword = #{password}
+    </select>
+
+    <select id="getAllArtistsForPayment" resultMap="paymentArtistMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name',
+            an.firstName as 'artist_firstname',
+            an.lastName as 'artist_lastname',
+            a.royaltyRate as 'artist_royalty_rate'
+        FROM
+            Artists a
+        LEFT JOIN
+            ArtistNames an
+        ON
+            an.artistId = a.artistId
+    </select>
+
     <select id="getRelatedArtists" parameterType="String" resultMap="artistIdentifierMap">
         SELECT
             a.artistId as artist_id,
@@ -92,6 +203,40 @@
             NOT(a.artistId = #{id})
         ORDER BY
             shared_genres DESC
+    </select>
+
+    <select id="search" parameterType="String" resultMap="artistIdentifierMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name'
+        FROM
+            Artists a,
+            ArtistNames an,
+            ArtistGenres ag,
+            AlbumArtists aa,
+            Albums al
+        WHERE
+            (
+                a.name LIKE #{query}
+                OR
+                CONCAT(an.firstName, ' ', an.lastName) LIKE #{query}
+                OR
+                ag.genre LIKE #{query}
+                OR
+                al.name LIKE #{query}
+            )
+        AND
+            (
+                an.artistId = a.artistId
+                AND
+                ag.artistId = a.artistId
+                AND
+                aa.artistId = a.artistId
+                AND
+                al.albumId = aa.albumId
+            )
+        GROUP BY
+            a.artistId
     </select>
     
 </mapper>

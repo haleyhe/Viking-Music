@@ -3,6 +3,7 @@ package com.vikings.dao.mapper;
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Mapper class for AlbumDAO.
@@ -17,5 +18,6 @@ public interface AlbumMapper {
     
     public List<AlbumIdentifier> getRecentAlbums();
     
+    public Set<AlbumIdentifier> search(String query);   
 }
 

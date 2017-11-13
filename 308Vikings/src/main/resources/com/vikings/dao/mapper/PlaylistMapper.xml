@@ -15,6 +15,15 @@
         </association>
     </resultMap>
 
+    <resultMap id="playlistIdentifierMap" type="com.vikings.domain.identifier.PlaylistIdentifier">
+        <id property="id" column="playlist_id" />
+        <result property="name" column="playlist_name"/>
+        <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
+            <id property="id" column="playlist_creator_id"/>
+            <result property="name" column="playlist_creator_name"/>
+        </association>
+    </resultMap>
+
     <resultMap id="tempPlaylistSongMap" type="com.vikings.domain.PlaylistSong">
         <id property="id" column="playlist_song_id"/>
         <result property="playlistTrackNumber" column="playlist_song_track_number"/>
@@ -168,6 +177,29 @@
             p.creatorId = u.userId
         WHERE
             u.admin = 1
+    </select>
+
+    <select id="search" resultMap="playlistIdentifierMap">
+        SELECT
+            p.playlistId as 'playlist_id',
+            p.name as 'playlist_name',
+            u.userId as 'playlist_creator_id',
+            u.username as 'playlist_creator_name'
+        FROM
+            Playlists p,
+            Users u
+        WHERE
+            (
+                p.name LIKE #{query}
+                OR
+                p.description LIKE #{query}
+                OR
+                u.username LIKE #{query}
+            )
+            AND
+            (
+                p.creatorId = u.userId
+            )
     </select>
     
 </mapper>

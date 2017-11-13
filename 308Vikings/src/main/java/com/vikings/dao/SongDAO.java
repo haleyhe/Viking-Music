@@ -3,13 +3,12 @@ package com.vikings.dao;
 import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.dao.mapper.SongMapper;
 import com.vikings.domain.Song;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for basic Song actions
- */
 @Repository
 public class SongDAO {
     
@@ -19,13 +18,6 @@ public class SongDAO {
     @Autowired
     ArtistMapper artistMapper;
     
-    /**
-     * Gets information for a single Song.
-     * @param id
-     *  The Song ID.
-     * @return 
-     *  The detailed Song object.
-     */
     public Song getSong(String id) {
         return songMapper.getSong(id);
     }
@@ -39,6 +31,16 @@ public class SongDAO {
      */
     public List<Song> getTopSongsForArtist(String id) {
         return songMapper.getTopSongsForArtist(id);
+    }
+    
+    public Set<Song> search(String query) {
+        // search regex for mysql
+        query = "%" + query + "%";
+        return songMapper.search(query);
+    }
+    
+    public Set<Song> getArtistSongsForPayment(String id, Date startDate, Date endDate) {
+        return songMapper.getArtistSongsForPayment(id, startDate, endDate);
     }
     
 }

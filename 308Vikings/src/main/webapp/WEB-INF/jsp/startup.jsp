@@ -23,7 +23,7 @@
     <body>
         <div class=startUpPage>
            <form id="signin-form">
-            <div class= signin>
+            <div class=signin>
                 <div><img src="../${home}/css/viking.png"></div>
                 <div class=startUptitle><b>VIKING</b></div>
                 <div><input id='login-username' placeholder="Username"></div>

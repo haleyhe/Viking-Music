@@ -42,11 +42,24 @@
             <prop key="error.UserMusic.libraryItemDuplicate">This item is already in your library.</prop>
             <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
 
+            <prop key="error.Form.invalidParameters">Invalid parameters.</prop>
+
             <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
 
+            <!-- Scheduled event regexes -->
+            <!-- Generate payment summaries at 00:00 on the 1st of every month -->
+            <prop key="cron.Payment.generatePayments">0 0 0 1 * *</prop> 
+
             <!-- Filepaths -->
-            <prop key="file.Playlist.sourceThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/src/main/webapp/css/playlist/</prop>
-            <prop key="file.Playlist.targetThumbnailPath">/Users/bryankoelbel/CSE308/308Vikings/target/308Vikings-1.0-SNAPSHOT/css/playlist/</prop>
+            <prop key="file.rootFilePath">/Users/bryankoelbel/CSE308/308Vikings/</prop>
+            <prop key="file.Playlist.sourceThumbnailPath">src/main/webapp/css/playlist/</prop>
+            <prop key="file.Playlist.targetThumbnailPath">target/308Vikings-1.0-SNAPSHOT/css/playlist/</prop>
+            <prop key="file.Album.sourceThumbnailPath">src/main/webapp/css/album/</prop>
+            <prop key="file.Album.targetThumbnailPath">target/308Vikings-1.0-SNAPSHOT/css/album/</prop>
+            <prop key="file.Artist.sourceThumbnailPath">src/main/webapp/css/artist/</prop>
+            <prop key="file.Artist.targetThumbnailPath">target/308Vikings-1.0-SNAPSHOT/css/artist/</prop>
+            <prop key="file.Song.sourceMP3Path">src/main/webapp/mp3/</prop>
+            <prop key="file.Song.targetMP3Path">target/308Vikings-1.0-SNAPSHOT/mp3/</prop>
             
             <!-- 
                 PROPERTIES END HERE

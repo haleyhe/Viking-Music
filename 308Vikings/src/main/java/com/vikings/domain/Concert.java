@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Represents a single Concert.
- */
 public class Concert implements Serializable {
     String id;
     Date date;

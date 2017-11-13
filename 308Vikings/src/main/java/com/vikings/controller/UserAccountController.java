@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-/**
- * Controller for User Account pages and actions
- * (e.g. sign up, sign in, edit profile)
- */
 @Controller
 public class UserAccountController {
     
@@ -66,10 +62,7 @@ public class UserAccountController {
         
         JsonResponse json = new JsonResponse();
         if (user != null) {
-            // add user to the session
-            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-            HttpSession session = attr.getRequest().getSession(true);
-            session.setAttribute("user", user);
+            userAccountManager.setSessionUser(user);
             json.setSuccess(true);
         } else {
             json.setSuccess(false);
@@ -108,6 +101,15 @@ public class UserAccountController {
         return json;
     }
     
+    /**
+     * Updates the User with the given ID with any non-null
+     * attributes in the given User object.
+     * @param updatedUser
+     *  User object containing the correct ID and
+     *  attributes to update.
+     * @return 
+     *  true if success, false otherwise (invalid parameters).
+     */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/updateUserProfile")
     public @ResponseBody boolean updateUserProfile(@RequestBody User updatedUser) {
         return (userAccountManager.updateUserProfile(updatedUser));

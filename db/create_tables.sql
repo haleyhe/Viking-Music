@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS Artists (
     bio TEXT,
     numFollowers INT DEFAULT 0,
     royaltyRate DECIMAL(5,3) DEFAULT 0.1,
+    hashedPassword VARCHAR(256),
     PRIMARY KEY (artistId)
 );
 
@@ -198,6 +199,7 @@ CREATE TABLE IF NOT EXISTS UserPayments (
 ### FOR REVENUE SUMMARIES ###
 
 CREATE TABLE IF NOT EXISTS RevenueSummaryUsers (
+    userId VARCHAR(40),
     cardNumber VARCHAR(32),
     paymentAmount DECIMAL(10, 2),
     datePaid DATE,

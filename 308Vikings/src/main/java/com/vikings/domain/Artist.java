@@ -6,9 +6,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Represents an artist in the Spotify system.
- */
 public class Artist implements Serializable {
     String id;
     String name;
@@ -18,6 +15,7 @@ public class Artist implements Serializable {
     int playCount;
     List<String> genres;
     List<AlbumIdentifier> albums;
+    double royaltyRate;
     
     public Artist() {
     }
@@ -88,6 +86,14 @@ public class Artist implements Serializable {
     
     public void setAlbums(List<AlbumIdentifier> albums) {
         this.albums = albums;
+    }
+
+    public double getRoyaltyRate() {
+        return royaltyRate;
+    }
+
+    public void setRoyaltyRate(double royaltyRate) {
+        this.royaltyRate = royaltyRate;
     }
     
     public ArtistIdentifier toArtistIdentifier() {

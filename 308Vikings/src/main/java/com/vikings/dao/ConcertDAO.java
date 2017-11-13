@@ -9,9 +9,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for Concert and Concert Page actions
- */
 @Repository
 public class ConcertDAO {
     
@@ -33,7 +30,7 @@ public class ConcertDAO {
         
         // ConcertMapper returns dummy Artist objects with just the IDs.
         // Make calls to artistMapper for detailed Artist info.
-        List<Artist> detailedArtists = new ArrayList<Artist>();
+        List<Artist> detailedArtists = new ArrayList<>();
         for (Artist artist : concert.getArtists()) {
             Artist detailedArtist = artistMapper.getArtist(artist.getId());
             detailedArtists.add(detailedArtist);
@@ -56,7 +53,7 @@ public class ConcertDAO {
             // ConcertMapper returns dummy Artist objects with just the IDs.
             // Make calls to artistMapper for detailed Artist info.
             // (this is cached so don't worry about the repeat calls)
-            List<Artist> detailedArtists = new ArrayList<Artist>();
+            List<Artist> detailedArtists = new ArrayList<>();
             for (Artist artist : concert.getArtists()) {
                 Artist detailedArtist = artistMapper.getArtist(artist.getId());
                 detailedArtists.add(detailedArtist);

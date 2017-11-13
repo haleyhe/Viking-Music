@@ -17,6 +17,13 @@ public class PaymentSummary implements Serializable {
     public PaymentSummary() {
         
     }
+    
+    public PaymentSummary(String id, int numPlays, Date datePaid, double amountPaid) {
+        this.id = id;
+        this.numPlays = numPlays;
+        this.datePaid = datePaid;
+        this.amountPaid = amountPaid;
+    }
 
     public String getId() {
         return id;

@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.UserIdentifier;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +9,7 @@ import java.util.Date;
  * retrieved from the database.
  */
 public class RevenueSummary implements Serializable {
-    User user;
+    UserIdentifier user;
     Payment payment;
     Date datePaid;
     double amountPaid;
@@ -16,12 +17,19 @@ public class RevenueSummary implements Serializable {
     public RevenueSummary() {
         
     }
+    
+    public RevenueSummary(UserIdentifier user, Payment payment, Date datePaid, double amountPaid) {
+        this.user = user;
+        this.payment = payment;
+        this.datePaid = datePaid;
+        this.amountPaid = amountPaid;
+    }
 
-    public User getUser() {
+    public UserIdentifier getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserIdentifier user) {
         this.user = user;
     }
 

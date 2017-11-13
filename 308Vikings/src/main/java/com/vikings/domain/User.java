@@ -4,9 +4,6 @@ import com.vikings.domain.identifier.UserIdentifier;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Represents a standard User in the Spotify system.
- */
 public class User implements Serializable {
     String id;
     String username;

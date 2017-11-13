@@ -46,8 +46,8 @@ public class FileManager {
             bufferedGraphic.drawImage(resizedThumbnail, 0, 0, PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, null);
             bufferedGraphic.dispose();
             
-            String sourceFilepath = System.getProperty("file.Playlist.sourceThumbnailPath") + playlistId + ".jpg";
-            String targetFilepath = System.getProperty("file.Playlist.targetThumbnailPath") + playlistId + ".jpg";
+            String sourceFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Playlist.sourceThumbnailPath") + playlistId + ".jpg";
+            String targetFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Playlist.targetThumbnailPath") + playlistId + ".jpg";
             File sourceImageFile = new File(sourceFilepath);
             File targetImageFile = new File(targetFilepath);
             sourceImageFile.getParentFile().mkdirs();

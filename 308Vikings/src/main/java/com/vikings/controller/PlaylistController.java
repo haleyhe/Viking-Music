@@ -16,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * Controller for Playlist and Playlist Page actions
- * (creating, editing)
- */
 @Controller
 public class PlaylistController {
     

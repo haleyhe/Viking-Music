@@ -7,7 +7,7 @@
         
         <c:url var="home" value="/" scope="request" />
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-         <meta charset="UTF-8" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5, user-scalable=no">
         <link href='http://fonts.googleapis.com/css?family=Julius Sans One:400;300' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type='text/css'>
@@ -83,6 +83,9 @@
                     </div>
                     <div id=user-buttons>
                       <ul>
+                        <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
+                        <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
+                        <li id=user-display-name style="margin-right: 2%;"><a>viking123</a></li>
                         <li>
                         <button class = dropdownbtn><b>></b></button>
 
@@ -96,9 +99,7 @@
                         </div>
 
                         </li>
-                        <li id=user-display-name><a>viking123</a></li>
-                        <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
-                        <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
+
                       </ul>
                     </div>
                   </div>
@@ -435,7 +436,7 @@
 
                   <div class=pages id=indivAlbumPage>
                     <div>
-                      <img style="margin-top: 10px;" class=albumimg src="${home}/css/album/MiGente.jpg"></img>   
+                      <img style="margin: 10px;-top: 10px;" class=albumimg src="${home}/css/album/MiGente.jpg"></img>   
                     </div>
                     <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
                       <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">Mi Gente</h1>

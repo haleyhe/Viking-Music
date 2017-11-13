@@ -75,11 +75,6 @@
         </association>
     </resultMap>
 
-    <resultMap id="songIdentifierMap" type="com.vikings.domain.identifier.SongIdentifier">
-        <id property="id" column="song_id"/>
-        <result property="name" column="song_name"/>
-    </resultMap>
-
     <resultMap id="albumIdentifierMap" type="com.vikings.domain.identifier.AlbumIdentifier">
         <id property="id" column="album_id"/>
         <result property="name" column="album_name"/>

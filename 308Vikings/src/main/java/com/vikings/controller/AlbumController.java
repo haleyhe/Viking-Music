@@ -3,22 +3,16 @@ package com.vikings.controller;
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.requests.AlbumPageResponse;
-import com.vikings.domain.requests.IdRequest;
 import com.vikings.manager.AlbumManager;
-import com.vikings.manager.ArtistManager;
 import com.vikings.manager.UserMusicManager;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * Controller for Album and Album Page actions
- */
 @Controller
 public class AlbumController {
     
@@ -76,7 +70,5 @@ public class AlbumController {
     public @ResponseBody List<AlbumIdentifier> getRecentAlbums() {
         return albumManager.getRecentAlbums();
     }
-    
-    
 
 }

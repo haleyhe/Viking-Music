@@ -3,9 +3,6 @@ package com.vikings.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Represents a song in a specific Playlist.
- */
 public class PlaylistSong extends Song implements Serializable {
     Date dateAdded;
     int playlistTrackNumber;

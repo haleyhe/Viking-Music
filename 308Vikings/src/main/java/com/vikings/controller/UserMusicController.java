@@ -6,7 +6,6 @@ import com.vikings.domain.LibraryPlaylist;
 import com.vikings.domain.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
-import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.requests.IdRequest;
 import com.vikings.domain.requests.JsonResponse;
 import com.vikings.domain.requests.MarkSongAsPlayedForUserRequest;
@@ -84,9 +83,8 @@ public class UserMusicController {
         return user.getUserMusic().getHistory();
     }
     
-
     /**
-     * Validates and registers the given User.
+     * Marks a song as played for the User in the session.
      * @param request
      *  MarkSongAsPlayedForUserRequest object containing:
      *      - the song ID
@@ -241,7 +239,7 @@ public class UserMusicController {
         return json;
     }
     
-        /**
+    /**
      * Removes an artist from an user's library
      * @param idReq
      * json container for the id of the artist that the user will remove from their library
@@ -290,7 +288,7 @@ public class UserMusicController {
         return json;
     }
     
-     /**
+    /**
      * Removes an artist from an user's library
      * @param idReq
      * json container for the id of the artist that the user will remove from their library

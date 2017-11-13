@@ -2,29 +2,41 @@ package com.vikings.dao;
 
 import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.domain.Artist;
+import com.vikings.domain.Name;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * DAO for Artist and Artist Page actions
- */
 @Repository
 public class ArtistDAO {
     
     @Autowired
     ArtistMapper artistMapper;
     
-    /**
-     * Gets information for a single Artist.
-     * @param id
-     *  The Artist ID.
-     * @return 
-     *  The detailed Artist object.
-     */
+    public void updateArtist(Artist artist) {
+        artistMapper.updateArtist(artist);
+    }
+    
+    public void addRelatedName(String artistId, Name name) {
+        artistMapper.addRelatedName(artistId, name);
+    }
+    
+    public void addGenre(String artistId, String genre) {
+        artistMapper.addGenre(artistId, genre);
+    }
+    
     public Artist getArtist(String id) {
         return artistMapper.getArtist(id);
+    }
+    
+    public Artist getArtistAccount(String id, String password) {
+        return artistMapper.getArtistAccount(id, password);
+    }
+    
+    public Set<Artist> getAllArtistsForPayment() {
+        return artistMapper.getAllArtistsForPayment();
     }
     
     /**
@@ -38,6 +50,12 @@ public class ArtistDAO {
      */
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
         return artistMapper.getRelatedArtists(artistId);
+    }
+    
+    public Set<ArtistIdentifier> search(String query) {
+        // search regex for mysql
+        query = "%" + query + "%";
+        return artistMapper.search(query);
     }
     
 }

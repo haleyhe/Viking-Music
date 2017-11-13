@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-/**
- * Manager for User Account actions
- * (e.g. sign up, sign in, edit profile)
- */
 @Service
 public class UserAccountManager {
     
@@ -40,12 +36,9 @@ public class UserAccountManager {
      *  (including unhashed password).
      */
     public void registerUser(User user) {
-        // generate an ID
+        // generate an ID and hash password
         user.setId(java.util.UUID.randomUUID().toString());
-        // hash the password
         user.setPassword(hashPassword(user.getPassword()));
-        
-        // add new User to the database
         userAccountDAO.registerUser(user);
     }
     
@@ -58,9 +51,7 @@ public class UserAccountManager {
      *  The full User object if found, or null if none found.
      */
     public User processLogin(User user) {
-        // hash the password.
         user.setPassword(hashPassword(user.getPassword()));
-        
         return userAccountDAO.processLogin(user);
     }
     
@@ -72,7 +63,7 @@ public class UserAccountManager {
      * @return 
      *  Hashed password as a String
      */
-    private String hashPassword(String password) {
+    public String hashPassword(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
             byte[] passwordBytes = password.getBytes();

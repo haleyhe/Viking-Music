@@ -2,6 +2,10 @@ package com.vikings.dao.mapper;
 
 import com.vikings.domain.Address;
 import com.vikings.domain.Payment;
+import com.vikings.domain.PaymentSummary;
+import com.vikings.domain.RevenueSummary;
+import java.util.Date;
+import java.util.Set;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -16,6 +20,16 @@ public interface PaymentMapper {
     public void addPayment(Payment payment);
     
     public void linkPaymentToUser(@Param("userId") String userId, @Param("cardNumber") String cardNumber);
+    
+    public void recordMonthlyPayments(Set<PaymentSummary> payments);
+    
+    public void recordMonthlyRevenue(Set<RevenueSummary> revenues);
+    
+    public Set<RevenueSummary> getRevenue(Date month);
+    
+    public Set<PaymentSummary> getPayments(Date month);
+    
+    public Set<PaymentSummary> getArtistPayments(@Param("artistId") String artistId, @Param("month") Date month);
     
 }
 

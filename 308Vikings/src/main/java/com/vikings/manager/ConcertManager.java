@@ -8,21 +8,18 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Manager for Album and Album Page actions
- */
 @Service
 public class ConcertManager {
     
     @Autowired
     ConcertDAO concertDAO;
     
-    Map<String, Concert> concertCache;
-    Map<String, List<Concert>> concertsByArtistCache;
+    Map<String, Concert> concerts;
+    Map<String, List<Concert>> concertsByArtist;
     
     public ConcertManager() {
-        this.concertCache = new HashMap<String, Concert>();
-        this.concertsByArtistCache = new HashMap<String, List<Concert>>();
+        this.concerts = new HashMap<String, Concert>();
+        this.concertsByArtist = new HashMap<String, List<Concert>>();
     }
     
     /**
@@ -33,10 +30,10 @@ public class ConcertManager {
      *  Detailed Concert object.
      */
     public Concert getConcert(String id) {
-        Concert concert = concertCache.get(id);
+        Concert concert = concerts.get(id);
         if (concert == null) {
             concert = concertDAO.getConcert(id);
-            concertCache.put(id, concert);
+            concerts.put(id, concert);
         }
         return concert;
     }
@@ -50,12 +47,12 @@ public class ConcertManager {
      *  List of detailed Concert objects.
      */
     public List<Concert> getConcertsForArtist(String id) {
-        List<Concert> concerts = concertsByArtistCache.get(id);
-        if (concerts == null) {
-            concerts = concertDAO.getConcertsForArtist(id);
-            concertsByArtistCache.put(id, concerts);
+        List<Concert> c = concertsByArtist.get(id);
+        if (c == null) {
+            c= concertDAO.getConcertsForArtist(id);
+            concertsByArtist.put(id, c);
         }
-        return concerts;
+        return c;
     }
     
 }

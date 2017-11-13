@@ -2,17 +2,14 @@ package com.vikings.manager;
 
 import com.vikings.dao.AlbumDAO;
 import com.vikings.domain.Album;
-import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Manager for Album and Album Page actions
- */
 @Service
 public class AlbumManager {
     
@@ -57,6 +54,10 @@ public class AlbumManager {
     public AlbumIdentifier getAlbumIdentifier(String id) {
         Album album = getAlbum(id);
         return new AlbumIdentifier(album);
+    }
+    
+    public Set<AlbumIdentifier> search(String query) {
+        return albumDAO.search(query);
     }
     
 }
