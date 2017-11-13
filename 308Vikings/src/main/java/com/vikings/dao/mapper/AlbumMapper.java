@@ -14,6 +14,8 @@ public interface AlbumMapper {
     
     public Album getAlbum(String id);
     
+    public List<AlbumIdentifier> getAllAlbums();
+    
     public List<AlbumIdentifier> getAlbumsForArtist(String id);
     
     public List<AlbumIdentifier> getRecentAlbums();

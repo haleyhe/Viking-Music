@@ -47,7 +47,9 @@ public class AlbumController {
         return new AlbumPageResponse(album, relatedAlbums, saved);
     }
     
-    
+    public @ResponseBody List<AlbumIdentifier> getAllAlbums() {
+        return albumManager.getAllAlbums();
+    }
     
     /**
      * Gets the Album with the given ID.
