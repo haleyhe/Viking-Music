@@ -121,19 +121,17 @@ function submitNewArtistInfo() {
     formData.append("lastName", $("#artist-edit-last-name").val());
     formData.append("genre", $("#artist-edit-genre").val());
     var thumbnailFile = null;
-    if ($("#artist-edit-thumbnail").val() !== "") {
-        thumbnailFile = $("#artist-edit-thumbnail").prop("files")[0];
+    var filesSelected = document.getElementById("artist-edit-thumbnail").files;
+    if (filesSelected.length > 0) {
+        formData.append("thumbnail", filesSelected[0]);
     }
     
     $.ajax({
         type: "POST",
         url: "/308Vikings/ArtistAccount/updateArtist",
-        data: {name : $("#artist-edit-name").val(),
-               bio :  $("#artist-edit-bio").val(),
-               firstName : $("#artist-edit-first-name").val(),
-               lastName : $("#artist-edit-last-name").val(),
-               genre : $("#artist-edit-genre").val(),
-               thumbnail : thumbnailFile},
+        contentType: false,
+        processData: false,
+        data: formData,
         async: true,
         timeout: 100000
     }).done(function(data) {
