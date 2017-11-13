@@ -18,7 +18,6 @@
 });
 
 function signup() {
-    console.log("Calling signup Ajax function...");
     var newUser = {};
     newUser["id"] = null;
     newUser["username"] = $("#signup_username").val();
@@ -39,19 +38,14 @@ function signup() {
         async: true,
         timeout: 100000,
         success: function (data) {
-            console.log("SUCCESS: ", data);
-            
             displaySignupMessage(data);
         },
         error: function (e) {
-            console.log("ERROR: ", e);
             display(e);
         },
         done: function (e) {
-            console.log("DONE");
         }
     });
-
 }
 
 function login() {
@@ -101,7 +95,6 @@ function logout() {
         async: true,
         timeout: 100000,
         success: function (data) {
-            console.log("SUCCESS: ", data);
             window.location.replace("/308Vikings/");
         },
         error: function (e) {
@@ -149,7 +142,6 @@ function getUserInfoFromSession() {
         async: true,
         timeout: 100000,
         success: function (data) {
-            console.log("SUCCESS: ", data);
             displayUserInfo(data);
         },
         error: function (e) {

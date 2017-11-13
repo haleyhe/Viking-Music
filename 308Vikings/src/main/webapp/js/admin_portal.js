@@ -85,6 +85,12 @@
         }
     });
     
+    // Create User Page
+    $("#create-user-form").submit(function (event) {
+        event.preventDefault();
+        createUser();
+    });
+    
     // Monthly Summary Page
     $("#admin-summary-month-picker").submit(function (event) {
         event.preventDefault();
@@ -115,6 +121,36 @@ function logout() {
         } else {
             window.location.replace("/308Vikings/");
         }     
+    });
+}
+
+// Create User Page
+function createUser() {
+    var newUser = {};
+    newUser["id"] = null;
+    newUser["username"] = $("#create-user-username").val();
+    newUser["password"] = $("#create-user-password").val();
+    newUser["email"] = $("#create-user-email").val();
+    newUser["dateOfBirth"] = $("#create-user-dob").val();
+    newUser["zip"] = $("#create-user-zipcode").val();
+    newUser["premium"] = ($("#create-user-premium").is(":checked"));
+    newUser["admin"] = ($("#create-user-admin").is(":checked"));
+    newUser["facebookId"] = null;
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/308Vikings/UserAccount/registerUser",
+        data: JSON.stringify(newUser),
+        dataType: 'json',
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        if (!data.success) {
+            displayErrorMessage(data.error);
+        } else {
+            displaySuccessMessage("Account created.");
+        }
     });
 }
 

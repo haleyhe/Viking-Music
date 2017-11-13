@@ -84,6 +84,26 @@
               </div>
               </div>
             </div>
+                      
+            <div class="pages" id="admin-create-user">
+              <div class='container' style="padding: 20px;">
+              <div>
+                  <h1 style="padding-top: 50px;">Create User</h1>
+                  <div id=signup>
+                        <form id="create-user-form">
+                          <div><input id="create-user-email" placeholder="Email"></div>
+                          <div><input id="create-user-username" placeholder="Username"></div>
+                          <div><input id="create-user-password" type="password" placeholder="Password"></div>
+                          <div><input type ="date" id="create-user-dob" placeholder="Date of Birth"></div>
+                          <div><input id="create-user-zipcode" placeholder="Zipcode"></div>
+                          <div>Premium<input type="checkbox" id="create-user-premium"></div>
+                          <div>Admin<input type="checkbox" id="create-user-admin"></div>
+                          <div><button class=signupbtn type="submit">Create User</button></div>
+                        </form>
+                  </div>
+              </div>    
+              </div>
+            </div>
               
             <div class="pages" id="admin-summary">
               <div class='container' style="padding: 20px;">
