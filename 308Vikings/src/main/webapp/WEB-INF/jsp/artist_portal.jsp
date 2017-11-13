@@ -43,10 +43,9 @@
                       <b>
                       <li class="tab-link" data-tab="menutab-1">Overview</li>
                       <li class="tab-link" data-tab="menutab-2">Edit Info</li>
-                      <li class="tab-link" data-tab="menutab-3">Change Image</li>
-                      <li class="tab-link" data-tab="menutab-4">View Summary</li>
-                      <li class="tab-link" data-tab="menutab-5">Request Song</li>
-                      <li class="tab-link" data-tab="menutab-6">Remove Song</li>
+                      <li class="tab-link" data-tab="menutab-3">View Summary</li>
+                      <li class="tab-link" data-tab="menutab-4">Request Song</li>
+                      <li class="tab-link" data-tab="menutab-5">Remove Song</li>
                       </b>
                     </ul>
                   </div>
@@ -73,22 +72,22 @@
                 </div>
                       
             <div class="pages" id="artist-overview">
-              <div class='container'>
+              <div class='container' style="padding: 20px;">
               <div>
-                <img style="-top: 10px;" class=albumimg src="${home}/css/artist/${artist.id}.jpg">
-                <h1 style="padding-top: 50px;">${artist.name}</h1>
-                <div style="padding: 30px;" class=artistbio>${fn:replace(artist.bio, newLineChar, "<br/>")}</div>
+                <img style="padding: 10px;" class=albumimg src="${home}/css/artist/${artist.id}.jpg">
+                <h1 style="padding-top: 20px;">${artist.name}</h1>
+                <div class=artistbio>${fn:replace(artist.bio, newLineChar, "<br/>")}</div>
               </div>
               </div>
             </div>
               
             <div class="pages" id="artist-edit-info">
-              <div class='container'>
+              <div class='container' style="padding: 20px;">
               <div>
-                <h1 style="padding-top: 50px;">Edit Info</h1>
+                <h1 style="padding-top: 20px;">Edit Info</h1>
                 <form id="artist-edit-form">
                     <div class="signin">
-                    <div><img style="width: 10%; height: 10%" src="${home}/css/artist/${artist.id}.jpg"></div>
+                    <div><img style="width: 300px; height: 300px" src="${home}/css/artist/${artist.id}.jpg"></div>
                     <div>Image:</div>
                     <div><input id="artist-edit-thumbnail" type="file" name="thumbnail" accept=".jpg"/></div>
                     <div>Name:</div>

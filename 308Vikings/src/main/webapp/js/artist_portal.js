@@ -1,6 +1,21 @@
  jQuery(document).ready(function ($) {
     $('.pages').css("display","none");
     $('#artist-overview').show();
+
+    $('.dropdownbtn').click(function() {
+        if ($(this).hasClass('open')) {
+            $('.user-dropdown-menu').css("display", "none");
+            $(this).removeClass('open');
+        } else {
+            $('.user-dropdown-menu').css("display", "block");
+            $(this).addClass('open');
+        }
+    });
+
+    $('.user-dropdown-menu').click(function() {
+        $(this).removeClass('open');
+        $('.user-dropdown-menu').css("display", "none");
+    });
     
     // hide result forms
     $('#artist-monthly-summary-result').css("display", "none");
@@ -46,17 +61,13 @@
         }	
         if($(this).attr('data-tab') == 'menutab-3'){
             $('.pages').css("display","none");
-            $('#artist-change-image').show();
-        }	
-        if($(this).attr('data-tab') == 'menutab-4'){
-            $('.pages').css("display","none");
             $('#artist-summary').show();
         }
-        if($(this).attr('data-tab') == 'menutab-5'){
+        if($(this).attr('data-tab') == 'menutab-4'){
             $('.pages').css("display","none");
             $('#artist-request-song').show();
         }
-        if($(this).attr('data-tab') == 'menutab-6'){
+        if($(this).attr('data-tab') == 'menutab-5'){
             $('.pages').css("display","none");
             $('#artist-remove-song').show();
         }
