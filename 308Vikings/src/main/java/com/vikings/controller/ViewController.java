@@ -29,6 +29,7 @@ public class ViewController {
         ModelAndView model = new ModelAndView();
         if (user == null) {
             model.setViewName("startup");
+            model.addObject("user", user);
         } else {
             model.setViewName("browse");
         }
@@ -45,6 +46,22 @@ public class ViewController {
             model.addObject("artist", artist);
         } else {
             model.setViewName("artist_portal");
+        }
+        return model;
+    }
+    
+    @RequestMapping(value="/adminportal", method=RequestMethod.GET)
+    public ModelAndView getAdminPortal() {
+        User user = userAccountManager.getSessionUser();
+        
+        ModelAndView model = new ModelAndView();
+        if (user == null) {
+            model.setViewName("startup");
+            model.addObject("user", user);
+        } else if (!user.isAdmin()) {
+            model.setViewName("browse");
+        } else {
+            model.setViewName("admin_portal");
         }
         return model;
     }
