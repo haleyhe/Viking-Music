@@ -2,10 +2,10 @@ package com.vikings.manager;
 
 import com.vikings.dao.UserMusicDAO;
 import com.vikings.domain.Album;
-import com.vikings.domain.LibraryArtist;
-import com.vikings.domain.LibraryAlbum;
-import com.vikings.domain.LibraryPlaylist;
-import com.vikings.domain.LibrarySong;
+import com.vikings.domain.library.LibraryArtist;
+import com.vikings.domain.library.LibraryAlbum;
+import com.vikings.domain.library.LibraryPlaylist;
+import com.vikings.domain.library.LibrarySong;
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.Song;

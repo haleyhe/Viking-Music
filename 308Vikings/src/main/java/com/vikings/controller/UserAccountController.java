@@ -1,5 +1,6 @@
 package com.vikings.controller;
 
+import com.vikings.domain.Payment;
 import com.vikings.domain.User;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.LoginRequest;
@@ -111,7 +112,24 @@ public class UserAccountController {
      *  true if success, false otherwise (invalid parameters).
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/updateUserProfile")
-    public @ResponseBody boolean updateUserProfile(@RequestBody User updatedUser) {
-        return (userAccountManager.updateUserProfile(updatedUser));
+    public @ResponseBody JsonResponse updateUserProfile(@RequestBody User updatedUser) {
+        if (userAccountManager.updateUserProfile(updatedUser)) {
+            return new JsonResponse(true);
+        } else {
+            return new JsonResponse (false, System.getProperty("error.UserAccount.profileUpdateFail"));
+        }
+        
+    }
+    
+    /**
+     * Processes the user's credit card and upgrades them to premium
+     * @param payment
+     * User's payment information
+     * @return
+     * 
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/upgrade")
+    public @ResponseBody JsonResponse upgradeToPremium(@RequestBody Payment payment) {
+        return new JsonResponse(false, System.getProperty("error.UserAccount.upgradeFail"));
     }
 }

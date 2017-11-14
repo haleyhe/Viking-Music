@@ -1,4 +1,4 @@
-package com.vikings.domain;
+package com.vikings.domain.library;
 
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.io.Serializable;

@@ -1,5 +1,9 @@
 package com.vikings.domain;
 
+import com.vikings.domain.library.LibrarySong;
+import com.vikings.domain.library.LibraryPlaylist;
+import com.vikings.domain.library.LibraryArtist;
+import com.vikings.domain.library.LibraryAlbum;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;

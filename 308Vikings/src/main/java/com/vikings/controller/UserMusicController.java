@@ -1,9 +1,9 @@
 package com.vikings.controller;
 
-import com.vikings.domain.LibraryArtist;
-import com.vikings.domain.LibraryAlbum;
-import com.vikings.domain.LibraryPlaylist;
-import com.vikings.domain.LibrarySong;
+import com.vikings.domain.library.LibraryArtist;
+import com.vikings.domain.library.LibraryAlbum;
+import com.vikings.domain.library.LibraryPlaylist;
+import com.vikings.domain.library.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
 import com.vikings.domain.request.IdRequest;

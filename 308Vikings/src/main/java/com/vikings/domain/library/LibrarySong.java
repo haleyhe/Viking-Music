@@ -1,5 +1,6 @@
-package com.vikings.domain;
+package com.vikings.domain.library;
 
+import com.vikings.domain.Song;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;

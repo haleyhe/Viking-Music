@@ -1,4 +1,4 @@
-package com.vikings.domain;
+package com.vikings.domain.library;
 
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.io.Serializable;
