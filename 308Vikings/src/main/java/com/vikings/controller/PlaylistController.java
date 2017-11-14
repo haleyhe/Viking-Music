@@ -93,8 +93,8 @@ public class PlaylistController {
     }
     
     
-    @RequestMapping(method=RequestMethod.GET, value="/Playlist/{id}")
-    public @ResponseBody PlaylistPageResponse getAlbumPageDetails(@PathVariable("id") String playlistId) {
+    @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistPageDetails")
+    public @ResponseBody PlaylistPageResponse getPlaylistPageDetails(@RequestParam("id") String playlistId) {
         PlaylistPageResponse playlistPageJson;
         Playlist playlist = playlistManager.getPlaylist(playlistId);
         if (playlist == null) {

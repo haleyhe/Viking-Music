@@ -42,8 +42,8 @@ public class AlbumController {
      * Or null if no Album found.
      *  
      */
-    @RequestMapping(method=RequestMethod.GET, value="/Album/{id}")
-    public @ResponseBody AlbumPageResponse getAlbumPageDetails(@PathVariable("id") String id) {
+    @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbumPageDetails")
+    public @ResponseBody AlbumPageResponse getAlbumPageDetails(@RequestParam("id")  String id) {
         AlbumPageResponse albumPageJson;
         Album album = albumManager.getAlbum(id);
         if (album == null) {
