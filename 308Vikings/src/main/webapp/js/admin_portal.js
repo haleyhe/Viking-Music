@@ -47,39 +47,40 @@
         $(this).addClass('current');
         $("#"+tab_id).addClass('current');
 
-        if($(this).attr('data-tab') == 'menutab-1'){
+        if($(this).attr('data-tab') === 'menutab-1'){
             $('.pages').css("display","none");
             $('#admin-overview').show();
         }
-        if($(this).attr('data-tab') == 'menutab-2'){
+        if($(this).attr('data-tab') === 'menutab-2'){
             $('.pages').css("display","none");
             $('#admin-create-user').show();
         }	
-        if($(this).attr('data-tab') == 'menutab-3'){
+        if($(this).attr('data-tab') === 'menutab-3'){
             $('.pages').css("display","none");
             $('#admin-delete-user').show();
         }
-        if($(this).attr('data-tab') == 'menutab-4'){
+        if($(this).attr('data-tab') === 'menutab-4'){
             $('.pages').css("display","none");
             $('#admin-edit-user').show();
         }
-        if($(this).attr('data-tab') == 'menutab-5'){
+        if($(this).attr('data-tab') === 'menutab-5'){
             $('.pages').css("display","none");
             $('#admin-create-artist').show();
         }
-        if($(this).attr('data-tab') == 'menutab-6'){
+        if($(this).attr('data-tab') === 'menutab-6'){
             $('.pages').css("display","none");
             $('#admin-delete-artist').show();
         }
-        if($(this).attr('data-tab') == 'menutab-7'){
+        if($(this).attr('data-tab') === 'menutab-7'){
             $('.pages').css("display","none");
+            loadArtists();
             $('#admin-edit-artist').show();
         }
-        if($(this).attr('data-tab') == 'menutab-8'){
+        if($(this).attr('data-tab') === 'menutab-8'){
             $('.pages').css("display","none");
             $('#admin-summary').show();
         }
-        if($(this).attr('data-tab') == 'menutab-9'){
+        if($(this).attr('data-tab') === 'menutab-9'){
             $('.pages').css("display","none");
             $('#admin-song-requests').show();
         }
@@ -152,6 +153,36 @@ function createUser() {
             displaySuccessMessage("Account created.");
         }
     });
+}
+
+// Edit Artist Page
+function loadArtists() {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/308Vikings/Artist/getAllArtists",
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        displayArtists(data.artists);
+    });
+}
+
+function displayArtists(artists) {
+    artistListHtml = "";
+    $.each(artists, function() {
+        artistListHtml += createArtistItem(this);
+    });
+    
+    document.getElementById("admin-edit-artist-artist-list").innerHTML = artistListHtml;   
+}
+
+function createArtistItem(artist) {
+    result = "<div id=artistTab data-artist-id=" + artist.id + ">";
+    result += "<img class=artistimg src=/308Vikings/css/artist/" + artist.id + ".jpg></img>";
+    result += "<li class=artistname>" + artist.name + "</li>";
+    result += "</div>";
+    return result;
 }
 
 // Monthly Summary Page

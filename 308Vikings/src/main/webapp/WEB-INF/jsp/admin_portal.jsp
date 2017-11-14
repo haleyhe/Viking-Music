@@ -104,6 +104,16 @@
               </div>    
               </div>
             </div>
+                      
+            <div class="pages" id="admin-edit-artist">
+              <div class='container' style="padding: 50px;">
+              <div>
+                  <h1>Edit Artist</h1>
+                  <div id="admin-edit-artist-artist-list" class=artistitems>
+                  </div>
+              </div>
+              </div>
+            </div>
               
             <div class="pages" id="admin-summary">
               <div class='container' style="padding: 20px;">
