@@ -49,7 +49,6 @@ public class UserAccountDAO {
         if (foundUser != null) {
             // construct the UserMusic
             UserMusic userMusic = new UserMusic();
-            //userMusic.setSavedSongs(new HashSet<LibrarySong>());
             userMusic.setSavedSongs(userMusicMapper.getSavedSongs(foundUser.getId()));
             userMusic.setSavedAlbums(userMusicMapper.getSavedAlbums(foundUser.getId()));
             userMusic.setFollowedArtists(userMusicMapper.getFollowedArtists(foundUser.getId()));
