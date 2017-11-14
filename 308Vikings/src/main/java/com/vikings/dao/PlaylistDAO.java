@@ -31,6 +31,9 @@ public class PlaylistDAO {
     
     public Playlist getPlaylist(String id) {
         Playlist playlist = playlistMapper.getPlaylist(id);
+        if (playlist == null) {
+            return null;
+        }
         List<PlaylistSong> songs = songMapper.getSongsForPlaylist(id);
         Collections.sort(songs);
         playlist.setSongs(songs);

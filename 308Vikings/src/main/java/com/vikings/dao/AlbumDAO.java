@@ -22,6 +22,9 @@ public class AlbumDAO {
     
     public Album getAlbum(String id) {
         Album album = albumMapper.getAlbum(id);
+        if (album == null) {
+            return null;
+        }
         List<Song> songs = songMapper.getSongsForAlbum(id);
         Collections.sort(songs);
         album.setSongs(songs);
