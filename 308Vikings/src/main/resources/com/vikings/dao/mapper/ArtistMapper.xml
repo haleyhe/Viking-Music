@@ -88,13 +88,15 @@
                 uaf.artistId = a.artistId)
             as 'artist_followercount',
             (SELECT
-                SUM(s.numPlays)
+                COUNT(*)
             FROM
+                UserSongsPlayed usp,
                 Songs s,
                 SongArtists sa
             WHERE
+                sa.artistId = a.artistId AND
                 s.songId = sa.songId AND
-                sa.artistId = a.artistId)
+                usp.songId = s.songId)
             as 'artist_playcount',
             ag.genre as 'artist_genre',
             al.albumId as 'album_id',
@@ -136,13 +138,15 @@
                 uaf.artistId = a.artistId)
             as 'artist_followercount',
             (SELECT
-                SUM(s.numPlays)
+                COUNT(*)
             FROM
+                UserSongsPlayed usp,
                 Songs s,
                 SongArtists sa
             WHERE
+                sa.artistId = a.artistId AND
                 s.songId = sa.songId AND
-                sa.artistId = a.artistId)
+                usp.songId = s.songId)
             as 'artist_playcount',
             ag.genre as 'artist_genre',
             al.albumId as 'album_id',
