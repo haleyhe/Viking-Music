@@ -4,7 +4,7 @@ import com.vikings.dao.ArtistDAO;
 import com.vikings.domain.Artist;
 import com.vikings.domain.Name;
 import com.vikings.domain.identifier.ArtistIdentifier;
-import com.vikings.domain.requests.UpdateArtistRequest;
+import com.vikings.domain.request.UpdateArtistRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

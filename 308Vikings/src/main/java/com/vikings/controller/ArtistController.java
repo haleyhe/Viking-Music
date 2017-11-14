@@ -4,7 +4,7 @@ import com.vikings.domain.Artist;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
-import com.vikings.domain.requests.ArtistPageResponse;
+import com.vikings.domain.response.ArtistPageResponse;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.PlaylistManager;

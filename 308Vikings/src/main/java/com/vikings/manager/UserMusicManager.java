@@ -167,6 +167,18 @@ public class UserMusicManager {
         return false;
     }
     
+    public boolean isFollowingPlaylist(String playlistId) {
+        User user = userAccountManager.getSessionUser();
+        if (user != null) {
+            for (LibraryPlaylist libPlaylist : user.getUserMusic().getFollowedPlaylists()) {
+                if (libPlaylist.getPlaylistIdentifier().getId().equals(playlistId)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     public boolean addSongToLibrarySession(User user, String songId, Date dateAdded) {
         Set<LibrarySong> savedSongs = user.getUserMusic().getSavedSongs();
         LibrarySong libSong = new LibrarySong(songManager.getSong(songId), dateAdded);
@@ -219,7 +231,8 @@ public class UserMusicManager {
         return followedPlaylists.remove(libPlaylist);
     }
     
-    public HashMap<String,Boolean> findSavedSongList(Album album, User user) {
+    public HashMap<String,Boolean> findSavedSongList(Album album) {
+        User user = userAccountManager.getSessionUser();
         HashMap<String,Boolean> savedSongs = new HashMap<>();
         List<Song> songList = album.getSongs();
         for (Song s: songList) {
@@ -230,11 +243,13 @@ public class UserMusicManager {
        return savedSongs;
     }
     
-    public HashMap<String,Boolean>findSavedSongList(Playlist playlist, User user) {
+    public HashMap<String,Boolean>findSavedSongList(Playlist playlist) {
+       User user = userAccountManager.getSessionUser();
        HashMap<String,Boolean> savedSongs = new HashMap<>();
        List<PlaylistSong> songList = playlist.getSongs();
        for (PlaylistSong ps: songList) {
-           LibrarySong tempLibSong = new LibrarySong((Song) ps);
+           Song s = new Song (ps.getId());
+           LibrarySong tempLibSong = new LibrarySong(s);
            Boolean saved = user.getUserMusic().getSavedSongs().contains(tempLibSong);
            savedSongs.put(ps.getId(), saved);
        }

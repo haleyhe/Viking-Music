@@ -2,8 +2,8 @@ package com.vikings.controller;
 
 import com.vikings.domain.Artist;
 import com.vikings.domain.Name;
-import com.vikings.domain.requests.JsonResponse;
-import com.vikings.domain.requests.LoginRequest;
+import com.vikings.domain.response.JsonResponse;
+import com.vikings.domain.request.LoginRequest;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.FileManager;
 import javax.servlet.http.HttpSession;

@@ -1,7 +1,7 @@
 /*
  * Generic JSON for a HTTP Response
  */
-package com.vikings.domain.requests;
+package com.vikings.domain.response;
 
 public class JsonResponse {
     private boolean success;

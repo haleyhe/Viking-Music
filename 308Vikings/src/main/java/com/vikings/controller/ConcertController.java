@@ -1,7 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.Concert;
-import com.vikings.domain.requests.ConcertPageResponse;
+import com.vikings.domain.response.ConcertPageResponse;
 import com.vikings.manager.ConcertManager;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

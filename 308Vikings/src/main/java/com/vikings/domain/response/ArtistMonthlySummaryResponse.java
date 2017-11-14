@@ -1,4 +1,4 @@
-package com.vikings.domain.requests;
+package com.vikings.domain.response;
 
 import com.vikings.domain.PaymentSummary;
 import java.util.Set;

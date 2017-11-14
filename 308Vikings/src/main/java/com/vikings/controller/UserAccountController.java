@@ -1,8 +1,8 @@
 package com.vikings.controller;
 
 import com.vikings.domain.User;
-import com.vikings.domain.requests.JsonResponse;
-import com.vikings.domain.requests.LoginRequest;
+import com.vikings.domain.response.JsonResponse;
+import com.vikings.domain.request.LoginRequest;
 import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

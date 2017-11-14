@@ -2,8 +2,8 @@ package com.vikings.controller;
 
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
-import com.vikings.domain.requests.AlbumPageResponse;
-import com.vikings.domain.requests.AlbumsResponse;
+import com.vikings.domain.response.AlbumPageResponse;
+import com.vikings.domain.response.AlbumsResponse;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
@@ -38,7 +38,7 @@ public class AlbumController {
      *  -Album info,
      *  -Related albums,
      *  -Boolean indicating whether the user has saved the Album.
-     * 
+     *  -Map of all of the songs and whether they are saved in the user's library
      * Or null if no Album found.
      *  
      */
@@ -50,7 +50,7 @@ public class AlbumController {
         List<AlbumIdentifier> relatedAlbums = albumManager.getAlbumsForArtist(album.getArtists().get(0).getId());
         relatedAlbums.remove(album.toAlbumIdentifier());
         boolean saved = userMusicManager.hasSavedAlbum(album.toAlbumIdentifier());
-        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(album, userAccountManager.getSessionUser());
+        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(album);
         return new AlbumPageResponse(album, relatedAlbums, saved, savedSongs);
     }
     

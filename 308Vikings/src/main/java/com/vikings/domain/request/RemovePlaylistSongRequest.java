@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.vikings.domain.requests;
+package com.vikings.domain.request;
 
 /**
  *
  * @author HH
  */
-public class AddPlaylistSongRequest {
+public class RemovePlaylistSongRequest {
     String playlistId;
-    String songId;
+    int trackNum;
 
     public String getPlaylistId() {
         return playlistId;
@@ -21,12 +21,12 @@ public class AddPlaylistSongRequest {
         this.playlistId = playlistId;
     }
 
-    public String getSongId() {
-        return songId;
+    public int getTrackNum() {
+        return trackNum;
     }
 
-    public void setSongId(String songId) {
-        this.songId = songId;
+    public void setTrackNum(int trackNum) {
+        this.trackNum = trackNum;
     }
     
     

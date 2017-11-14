@@ -1,4 +1,4 @@
-package com.vikings.domain.requests;
+package com.vikings.domain.request;
 
 /**
  * Object for HTTP markSongAsPlayedForUser request.

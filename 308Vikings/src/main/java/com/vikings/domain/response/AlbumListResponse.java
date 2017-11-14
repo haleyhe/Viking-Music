@@ -1,4 +1,4 @@
-package com.vikings.domain.requests;
+package com.vikings.domain.response;
 
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;

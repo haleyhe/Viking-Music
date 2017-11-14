@@ -1,5 +1,5 @@
 
-package com.vikings.domain.requests;
+package com.vikings.domain.response;
 
 import com.vikings.domain.Concert;
 import java.util.List;

@@ -2,16 +2,19 @@ package com.vikings.controller;
 
 import com.vikings.domain.Playlist;
 import com.vikings.domain.User;
-import com.vikings.domain.requests.AddPlaylistSongRequest;
-import com.vikings.domain.requests.JsonResponse;
-import com.vikings.domain.requests.RemovePlaylistSongRequest;
+import com.vikings.domain.request.AddPlaylistSongRequest;
+import com.vikings.domain.response.JsonResponse;
+import com.vikings.domain.response.PlaylistPageResponse;
+import com.vikings.domain.request.RemovePlaylistSongRequest;
 import com.vikings.manager.FileManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
 import java.util.Date;
+import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -90,6 +93,16 @@ public class PlaylistController {
     }
     
     
+    @RequestMapping(method=RequestMethod.GET, value="/Playlist/{id}")
+    public @ResponseBody PlaylistPageResponse getAlbumPageDetails(@PathVariable("id") String playlistId) {
+        Playlist playlist = playlistManager.getPlaylist(playlistId);
+        if (playlist == null)
+            return null;
+        boolean following = userMusicManager.isFollowingPlaylist(playlistId);
+        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(playlist);
+        return new PlaylistPageResponse(playlist, following, savedSongs);
+    }
+    
     /**
         * Adds a song to an user's created playlist
         * @param addSongReq
@@ -127,18 +140,16 @@ public class PlaylistController {
     }
     
     /**
-     * Edits the information of the User's create
+     * Checks to see if the logged in user is the playlist creator
      * @param playlistId
-     * json container for the playlist info that the creator wants to update
+     * if of the playlist that will be changed
      * @return 
-     * JsonResponse indicating success or error.
+     * True if the logged in user is the creator, false otherwise
      */
     private boolean isUserPlaylistCreator (String playlistId) {
         User user = userAccountManager.getSessionUser();
         Playlist playlist = playlistManager.getPlaylist(playlistId);
         String creatorId = playlist.getCreator().getId();
-        boolean isCreator = creatorId.equals(user.getId());
-        System.out.println(isCreator);
-        return isCreator;
+        return creatorId.equals(user.getId());
     }
 }
