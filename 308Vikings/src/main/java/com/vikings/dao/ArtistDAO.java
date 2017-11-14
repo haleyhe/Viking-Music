@@ -35,6 +35,10 @@ public class ArtistDAO {
         return artistMapper.getArtistAccount(id, password);
     }
     
+    public List<ArtistIdentifier> getAllArtists() {
+        return artistMapper.getAllArtists();
+    }
+    
     public Set<Artist> getAllArtistsForPayment() {
         return artistMapper.getAllArtistsForPayment();
     }

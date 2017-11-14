@@ -5,6 +5,7 @@ import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.response.ArtistPageResponse;
+import com.vikings.domain.response.ArtistsResponse;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.PlaylistManager;
@@ -19,33 +20,39 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ArtistController {
- @Autowired
- ArtistManager artistManager;
+    @Autowired
+    ArtistManager artistManager;
+    
+    @Autowired
+    AlbumManager albumManager;
+    
+    @Autowired
+    PlaylistManager playlistManager;
+    
+    @Autowired
+    SongManager songManager;
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtist")
+    public @ResponseBody Artist getArtist(@RequestParam("id") String id) {
+        return artistManager.getArtist(id);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Artist/getAllArtists")
+    public @ResponseBody ArtistsResponse getAllArtists() {
+        return new ArtistsResponse(artistManager.getAllArtists());
+    }
  
- @Autowired
- AlbumManager albumManager;
- 
- @Autowired
- PlaylistManager playlistManager;
- 
- @Autowired
- SongManager songManager;
- 
- @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtist")
- public @ResponseBody Artist getArtist(@RequestParam("id") String id) {
-  return artistManager.getArtist(id);
- }
- 
- @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtistPageDetails")
- public @ResponseBody ArtistPageResponse getArtistPageDetails(@RequestParam("id") String id){
-  Artist artist = artistManager.getArtist(id);
-  if(artist == null)
-    return null;
-  
-  List<Song> topSongs = songManager.getTopSongsForArtist(id);   
-  List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
-  List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
-  return new ArtistPageResponse(topSongs, relatedArtists, albums);
- }
+    @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtistPageDetails")
+    public @ResponseBody ArtistPageResponse getArtistPageDetails(@RequestParam("id") String id) {
+        Artist artist = artistManager.getArtist(id);
+        if(artist == null) {
+            return null;
+        }
+        
+        List<Song> topSongs = songManager.getTopSongsForArtist(id);   
+        List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
+        List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
+        return new ArtistPageResponse(topSongs, relatedArtists, albums);
+    }
 
 }

@@ -24,6 +24,8 @@ public interface ArtistMapper {
     
     public Artist getArtistAccount(@Param("id") String id, @Param("password") String password);
     
+    public List<ArtistIdentifier> getAllArtists();
+    
     public Set<Artist> getAllArtistsForPayment();
     
     public List<ArtistIdentifier> getRelatedArtists(String id);

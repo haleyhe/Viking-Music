@@ -104,6 +104,40 @@
               </div>    
               </div>
             </div>
+                      
+            <div class="pages" id="admin-edit-artist">
+              <div class='container' style="padding: 50px;">
+              <div>
+                  <h1>Edit Artist</h1>
+                  <div id="admin-edit-artist-artist-list" class=artistitems>
+                  </div>
+                  <form id="artist-edit-form">
+                    <div class="signin">
+                    <div><img id="artist-edit-thumbnail-preview" style="width: 300px; height: 300px" src=""></div>
+                    <div>Image:</div>
+                    <div><input id="artist-edit-thumbnail" type="file" name="thumbnail" accept=".jpg"/></div>
+                    <div>Name:</div>
+                    <div><input id="artist-edit-name" placeholder="Name" value=""></div>
+                    <br/>
+                    <div>Bio:</div>
+                    <div><textarea id="artist-edit-bio"></textarea></div>
+                    <div>Current Related Names:</div>
+                    <div><ul id="artist-related-names">
+                    </ul></div>
+                    <div>Add New Name:</div>
+                    <div><input id="artist-edit-first-name" placeholder="First Name"> <input id="artist-edit-last-name" placeholder="Last Name"></div>
+                    <br/>
+                    <div>Current Genres:</div>
+                    <div><ul id="artist-genres">
+                    </ul></div>
+                    <div>Add New Genre:</div>
+                    <div><input id="artist-edit-genre" placeholder="Genre"></div>
+                    <br/>
+                    <div><button id="artist-edit-submit" class=signupbtn type="submit">Submit Changes</button></div>
+                    </div>
+                </form>
+              </div>     
+            </div>
               
             <div class="pages" id="admin-summary">
               <div class='container' style="padding: 20px;">

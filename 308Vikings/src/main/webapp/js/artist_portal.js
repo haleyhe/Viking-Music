@@ -51,23 +51,23 @@
         $(this).addClass('current');
         $("#"+tab_id).addClass('current');
 
-        if($(this).attr('data-tab') == 'menutab-1'){
+        if($(this).attr('data-tab') === 'menutab-1'){
             $('.pages').css("display","none");
             $('#artist-overview').show();
         }
-        if($(this).attr('data-tab') == 'menutab-2'){
+        if($(this).attr('data-tab') === 'menutab-2'){
             $('.pages').css("display","none");
             $('#artist-edit-info').show();
         }	
-        if($(this).attr('data-tab') == 'menutab-3'){
+        if($(this).attr('data-tab') === 'menutab-3'){
             $('.pages').css("display","none");
             $('#artist-summary').show();
         }
-        if($(this).attr('data-tab') == 'menutab-4'){
+        if($(this).attr('data-tab') === 'menutab-4'){
             $('.pages').css("display","none");
             $('#artist-request-song').show();
         }
-        if($(this).attr('data-tab') == 'menutab-5'){
+        if($(this).attr('data-tab') === 'menutab-5'){
             $('.pages').css("display","none");
             $('#artist-remove-song').show();
         }

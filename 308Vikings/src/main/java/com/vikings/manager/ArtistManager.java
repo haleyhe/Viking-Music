@@ -81,6 +81,15 @@ public class ArtistManager {
         return artists;
     }
     
+    /**
+     * Retrieves an up-to-date, alphabetical list of all the artists.
+     * @return 
+     *  List of artistIdentifiers.
+     */
+    public List<ArtistIdentifier> getAllArtists() {
+        return artistDAO.getAllArtists();
+    }
+    
     public Artist updateArtist(String artistId, String name, String bio, Name relatedName, String genre) {
         Artist artist = getArtist(artistId);
         
