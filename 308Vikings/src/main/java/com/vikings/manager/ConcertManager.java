@@ -14,12 +14,12 @@ public class ConcertManager {
     @Autowired
     ConcertDAO concertDAO;
     
-    Map<String, Concert> concerts;
-    Map<String, List<Concert>> concertsByArtist;
+    Map<String, Concert> concertCache;
+    Map<String, List<Concert>> concertsByArtistCache;
     
     public ConcertManager() {
-        this.concerts = new HashMap<String, Concert>();
-        this.concertsByArtist = new HashMap<String, List<Concert>>();
+        this.concertCache = new HashMap<String, Concert>();
+        this.concertsByArtistCache = new HashMap<String, List<Concert>>();
     }
     
     /**
@@ -30,10 +30,10 @@ public class ConcertManager {
      *  Detailed Concert object.
      */
     public Concert getConcert(String id) {
-        Concert concert = concerts.get(id);
+        Concert concert = concertCache.get(id);
         if (concert == null) {
             concert = concertDAO.getConcert(id);
-            concerts.put(id, concert);
+            concertCache.put(id, concert);
         }
         return concert;
     }
@@ -47,10 +47,10 @@ public class ConcertManager {
      *  List of detailed Concert objects.
      */
     public List<Concert> getConcertsForArtist(String id) {
-        List<Concert> c = concertsByArtist.get(id);
+        List<Concert> c = concertsByArtistCache.get(id);
         if (c == null) {
             c= concertDAO.getConcertsForArtist(id);
-            concertsByArtist.put(id, c);
+            concertsByArtistCache.put(id, c);
         }
         return c;
     }

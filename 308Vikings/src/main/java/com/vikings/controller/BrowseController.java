@@ -53,7 +53,6 @@ public class BrowseController {
             Set<PlaylistIdentifier> playlists = playlistManager.search(query);
             return new SearchResponse(songs, albums, artists, playlists);
         } else {
-            // empty response
             return new SearchResponse();
         }
     }

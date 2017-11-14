@@ -63,7 +63,7 @@ public class UserMusicController {
         return followedArtistList;
     }
     
-    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/playlist")
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/playlists")
     public @ResponseBody List<LibraryPlaylist> getFollowedPlaylist() {
         User user = userAccountManager.getSessionUser();
         List<LibraryPlaylist> followedPlaylistList = new ArrayList(user.getUserMusic().getFollowedPlaylists());

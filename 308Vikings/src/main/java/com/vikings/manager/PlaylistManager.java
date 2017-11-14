@@ -20,6 +20,9 @@ public class PlaylistManager {
     @Autowired
     PlaylistDAO playlistDAO;
     
+    @Autowired
+    SongManager songManager;
+    
     Map<String, Playlist> playlistCache;
     
     public PlaylistManager() {
@@ -81,8 +84,9 @@ public class PlaylistManager {
      * @param song 
      *  The detailed Song object (this should be obtained from SongManager).
      */
-    public void addSongToPlaylist(String playlistId, Song song) {
+    public void addSongToPlaylist(String playlistId, String songId) {
         Playlist playlist = getPlaylist(playlistId);
+        Song song = songManager.getSong(songId);
         PlaylistSong playlistSong = new PlaylistSong(song);
         Date dateAdded = new java.util.Date();
         int playlistTrackNumber = playlist.getSongs().size() + 1;
