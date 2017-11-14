@@ -54,11 +54,7 @@
         </div>
            <div class="error modal">
                <div class="modal-content">
-                   <div>Login Failed</div>
-                   <div>Username or Password is incorrect</div>
-                   <br>
-                   <div>Forgot your password? Click <a>here</a></div>
-                   <br>
+                   <div id="error"></div>
                    <button class="close">CLOSE</button>
                </div>
            </div>

@@ -39,7 +39,8 @@ function signup() {
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            displaySignupMessage(data);
+            $(".error.modal").css("display", "block");
+            $('#error').html(data['error']);
         },
         error: function (e) {
             display(e);
@@ -66,7 +67,8 @@ function login() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             if(!data.success){
-                displayLoginMessage();
+                $(".error.modal").css("display", "block");
+                 $('#error').html(data['error']);
             }
             else{
                 window.location.replace("/308Vikings/");
@@ -112,7 +114,6 @@ function displaySignupMessage(data) {
     document.getElementById("signup").style.display = "none";
     document.getElementById("feedback").style.display = "inline";
     if (data.success) {
-        
         $('#feedback').html("<h4>Signup Successful</h4>");
     } else 
     {
@@ -142,7 +143,7 @@ function getUserInfoFromSession() {
         async: true,
         timeout: 100000,
         success: function (data) {
-            displayUserInfo(data);
+
         },
         error: function (e) {
             console.log("ERROR: ", e);
@@ -152,19 +153,4 @@ function getUserInfoFromSession() {
             console.log("DONE");
         }
     });
-}
-
-function displayUserInfo(data) {
-    // hide login form
-    document.getElementById("signin-form").style.display = "none";
-
-    var profile = "<h1>Vikings - Profile</h1>";
-    profile += "<p><b>User ID:</b> " + data["id"] + "</p>";
-    profile += "<p><b>Username:</b> " + data["username"] + "</p>";
-    profile += "<p><b>Email:</b> " + data["email"] + "</p>";    
-    profile += "<p><b>Date of Birth:</b> " + data["dateOfBirth"] + "</p>";
-    profile += "<p><b>ZIP:</b> " + data["zip"] + "</p>";
-    profile += "<p><b>Premium:</b> " + data["premium"] + "</p>";
-    profile += "<p><b>Admin:</b> " + data["admin"] + "</p>";
-    $('#userInfo').html(profile);
 }

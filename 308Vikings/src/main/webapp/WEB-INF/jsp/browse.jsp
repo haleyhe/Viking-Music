@@ -15,6 +15,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
