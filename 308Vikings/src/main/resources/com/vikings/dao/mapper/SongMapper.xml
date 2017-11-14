@@ -187,13 +187,13 @@
         ON
             a.artistId = sa.artistId
         LEFT JOIN
-            AlbumSongs as
+            AlbumSongs als
         ON
-            as.songId = s.songId
+            als.songId = s.songId
         LEFT JOIN
             Albums al
         ON
-            al.albumId = as.albumId
+            al.albumId = als.albumId
         WHERE
             ps.playlistId = #{id}
     </select>
