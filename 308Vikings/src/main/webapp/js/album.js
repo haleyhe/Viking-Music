@@ -80,14 +80,14 @@ function getSessionUser() {
     });
 }
 
-//var app = angular.module('myApp', []);
-//app.controller('getSession', function($scope, $http) {
-//    $http({
-//        method : "GET",
-//        url : "/308Vikings//UserAccount/getSessionUser"
-//    }).then(function mySuccess(response) {
-//        $scope.name = response.data;
-//    }, function myError(response) {
-//        $scope.name = response.statusText;
-//    });
-//});
+var app = angular.module('myApp', []);
+app.controller('getSession', function($scope, $http) {
+    $http({
+        method : "GET",
+        url : "/308Vikings//UserAccount/getSessionUser"
+    }).then(function mySuccess(response) {
+        $scope.name = response.data;
+    }, function myError(response) {
+        $scope.name = response.statusText;
+    });
+});

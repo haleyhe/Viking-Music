@@ -122,6 +122,6 @@ $('.registerbtn').click(function(){
 	$('.signup.modal').css("display","block");
 });
 
-}
+};
 
 $(document).ready(main);

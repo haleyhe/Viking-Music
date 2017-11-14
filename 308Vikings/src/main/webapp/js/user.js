@@ -38,6 +38,7 @@ function signup() {
         async: true,
         timeout: 100000,
         success: function (data) {
+            console.log("SUCCESS: ", data);
             displaySignupMessage(data);
         },
         error: function (e) {
@@ -64,7 +65,6 @@ function login() {
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            //displayLoginMessage(data);
             if(!data.success){
                 displayLoginMessage();
             }

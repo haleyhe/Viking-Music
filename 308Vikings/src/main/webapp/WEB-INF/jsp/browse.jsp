@@ -15,7 +15,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -69,7 +69,7 @@
                     <img class="playerimg" id = "play" src="${home}/css/play-button.png"></img>
                     <img class="playerimg" id = "next" src="${home}/css/next.png"></img>
                     <img class="playerimg" id = "repeat" src="${home}/css/repeat.png"></img>
-                    <input type="range" class="seek" value="0" max=""/>
+                    <div style="margin-left: 20%; margin-right: 20%;"><input type="range" id="seek" value="0" max=""/></div>
                   </div>
                 </div>
 
@@ -381,8 +381,13 @@
                       <li class="tab-link current" data-tab="tab-1">Overview</li>
                       <li class="tab-link" data-tab="tab-2">View Monthly Summary</li>
                     </ul>
-
+                        <script>
+ 
+                        </script>
                     <div id="tab-1" class="tab-content current">
+                        <div  ng-app="myApp" ng-controller="getSession">
+                            {{name}}
+                        </div>
                       <ul class=userinfo>
                         <li style="font-size: 2em; font-weight: bold">Profile</li>
                         <li id="field">Username</li>
@@ -559,6 +564,7 @@
 
         $(document).on('click', '#play', function(e) {
                         e.preventDefault();
+                        $("#seek").prop("max", song.duration);
                         song.play();
                         $('#play').replaceWith('<img class="playerimg" id="pause" src="${home}/css/pause.png"></img>');
         }); 
@@ -567,6 +573,12 @@
                         song.pause();
                         $('#pause').replaceWith('<img class="playerimg" id="play" src="${home}/css/play-button.png"></img>');
         });
+        $("#seek").bind("change", function() {
+		song.currentTime = $(this).val();
+	});
+        song.addEventListener('timeupdate',function (){
+		$("#seek").prop("value", song.currentTime);
+	});
         
     </script>
 </html>

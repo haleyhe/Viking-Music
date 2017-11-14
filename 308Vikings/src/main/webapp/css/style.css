@@ -464,3 +464,20 @@ hr.style14 {
     text-decoration: none;
     cursor: pointer;
 }
+input[type="range"] {
+    -webkit-appearance: none;
+    border: 1px solid black;
+    position: absolute;
+    display: block;
+    width: 60%;
+    height: 15px;
+ 
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #242323;
+ 
+    -webkit-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+    -moz-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+    box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+}
