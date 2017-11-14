@@ -75,6 +75,7 @@ public class UserAccountManager {
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             return password;
         }
+    }
         
     /**
      * Updates a user's profile based on their input
