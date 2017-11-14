@@ -4,6 +4,7 @@ import com.vikings.domain.Payment;
 import com.vikings.domain.User;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.LoginRequest;
+import com.vikings.manager.PaymentManager;
 import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class UserAccountController {
     @Autowired
     UserAccountManager userAccountManager;
       
+    @Autowired
+    PaymentManager paymentManager;
     /**
      * Validates and registers the given User.
      * @param newUser
@@ -130,6 +133,26 @@ public class UserAccountController {
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/upgrade")
     public @ResponseBody JsonResponse upgradeToPremium(@RequestBody Payment payment) {
-        return new JsonResponse(false, System.getProperty("error.UserAccount.upgradeFail"));
+        User user = userAccountManager.getSessionUser();
+        if (paymentManager.addPaymentForUser(user.getId(), payment)) {
+            userAccountManager.makeUserPremium(user, true);
+            return new JsonResponse(true);
+        } else {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.upgradeFail"));
+        }
     }
+    
+    /**
+     * Downgrades an account from premium to general user
+     * @return
+     * 
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/downgrade")
+    public @ResponseBody JsonResponse upgradeToPremium() {
+        User user = userAccountManager.getSessionUser();
+        userAccountManager.makeUserPremium(user, false);
+        return new JsonResponse(true);
+    }
+    
+    
 }
