@@ -3,8 +3,11 @@ package com.vikings.manager;
 import com.vikings.dao.UserAccountDAO;
 import com.vikings.domain.User;
 import com.vikings.util.InputChecker;
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,14 +64,14 @@ public class UserAccountManager {
     public String hashPassword(String password) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
-            byte[] passwordBytes = password.getBytes();
+            byte[] passwordBytes = password.getBytes("UTF-8");
             byte[] hashedBytes = messageDigest.digest(passwordBytes);
             return new String(hashedBytes);
-        } catch (NoSuchAlgorithmException ex) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             return password;
         }
     }
-
+        
     /**
      * Updates a user's profile based on their input
      *
