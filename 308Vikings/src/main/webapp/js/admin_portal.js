@@ -18,6 +18,7 @@
     });
     
     // hide result forms
+    $('#artist-edit-form').css("display", "none");
     $('#admin-monthly-summary-result').css("display", "none");
     $('#admin-monthly-summary-no-result').css("display", "none");
     
@@ -90,6 +91,12 @@
     $("#create-user-form").submit(function (event) {
         event.preventDefault();
         createUser();
+    });
+    
+    // Edit Artist Page
+    $("#admin-edit-artist-artist-list").on("click", ".edit-artist-bubble", function() {
+        $("#admin-edit-artist-artist-list").css("display","none");
+        loadArtistEditForm($(this).attr("data-artist-id"));
     });
     
     // Monthly Summary Page
@@ -178,11 +185,41 @@ function displayArtists(artists) {
 }
 
 function createArtistItem(artist) {
-    result = "<div id=artistTab data-artist-id=" + artist.id + ">";
+    result = "<div class='edit-artist-bubble' data-artist-id='" + artist.id + "'>";
     result += "<img class=artistimg src=/308Vikings/css/artist/" + artist.id + ".jpg></img>";
     result += "<li class=artistname>" + artist.name + "</li>";
     result += "</div>";
     return result;
+}
+
+function loadArtistEditForm(artistId) {
+    $.ajax({
+        type: "GET",
+        url: "/308Vikings/Artist/getArtist",
+        data: {id: artistId},
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        displayArtistEditForm(data);
+    });
+}
+
+function displayArtistEditForm(artist) {
+    console.log(artist);
+    $("#artist-edit-thumbnail-preview").attr("src","/308Vikings/css/artist/" + artist.id + ".jpg");
+    $("#artist-edit-name").attr("value", artist.name);
+    $("#artist-edit-bio").val(artist.bio);
+    var nameList = "";
+    $.each(artist.relatedNames, function() {
+        nameList += "<li>" + this.firstName + " " + this.lastName + "</li>";
+    });
+    $("#artist-related-names").innerHTML = nameList;
+    var genreList = "";
+    $.each(artist.genres, function() {
+        genreList += "<li>" + this + "</li>";
+    });  
+    $("#artist-genres").innerHTML = genreList;
+    $('#artist-edit-form').show();
 }
 
 // Monthly Summary Page
