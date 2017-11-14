@@ -21,7 +21,7 @@
         </collection>
     </resultMap>
 
-    <resultMap id="librarySongMap" type="com.vikings.domain.LibrarySong">
+    <resultMap id="librarySongMap" type="com.vikings.domain.library.LibrarySong">
         <result property="dateAdded" column="song_date_saved"/>
         <association property="song" javaType="com.vikings.domain.Song">
             <id property="id" column="song_id" />
@@ -43,7 +43,7 @@
         </association>
     </resultMap>
 
-    <resultMap id="libraryAlbumMap" type="com.vikings.domain.LibraryAlbum">
+    <resultMap id="libraryAlbumMap" type="com.vikings.domain.library.LibraryAlbum">
         <id property="dateAdded" column="album_date_added"/>
         <association property="albumIdentifier" javaType="com.vikings.domain.identifier.AlbumIdentifier">
             <id property="id" column="album_id"/>
@@ -55,7 +55,7 @@
         </association>
     </resultMap>
 
-    <resultMap id="libraryArtistMap" type="com.vikings.domain.LibraryArtist">
+    <resultMap id="libraryArtistMap" type="com.vikings.domain.library.LibraryArtist">
         <id property="dateAdded" column="artist_date_added"/>
         <association property="artistIdentifier" javaType="com.vikings.domain.identifier.ArtistIdentifier">
             <id property="id" column="artist_id"/>
@@ -63,7 +63,7 @@
         </association>
     </resultMap>
 
-    <resultMap id="libraryPlaylistMap" type="com.vikings.domain.LibraryPlaylist">
+    <resultMap id="libraryPlaylistMap" type="com.vikings.domain.library.LibraryPlaylist">
         <id property="dateAdded" column="album_date_added"/>
         <association property="playlistIdentifier" javaType="com.vikings.domain.identifier.PlaylistIdentifier">
             <id property="id" column="playlist_id"/>
