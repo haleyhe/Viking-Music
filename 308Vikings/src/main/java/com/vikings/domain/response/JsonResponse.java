@@ -8,7 +8,6 @@ public class JsonResponse {
     private String error;
     
     public JsonResponse() {
-        
     }
     
     public JsonResponse(boolean success) {

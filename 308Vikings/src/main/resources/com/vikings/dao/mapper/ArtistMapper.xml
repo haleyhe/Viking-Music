@@ -189,6 +189,16 @@
             an.artistId = a.artistId
     </select>
 
+    <select id="getAllArtists" parameterType="String" resultMap="artistIdentifierMap">
+        SELECT
+            a.artistId as 'artist_id',
+            a.name as 'artist_name'
+        FROM
+            Artists a
+        ORDER BY
+            a.name ASC
+    </select>
+
     <select id="getRelatedArtists" parameterType="String" resultMap="artistIdentifierMap">
         SELECT
             a.artistId as artist_id,

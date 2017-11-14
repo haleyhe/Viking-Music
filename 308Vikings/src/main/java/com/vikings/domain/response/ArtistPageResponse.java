@@ -11,41 +11,41 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
 
 public class ArtistPageResponse {
- List<Song> topSongs;
- List<ArtistIdentifier> relatedArtists;
- List<AlbumIdentifier> albums;
+    List<Song> topSongs;
+    List<ArtistIdentifier> relatedArtists;
+    List<AlbumIdentifier> albums;
  
- public ArtistPageResponse(){
- }
+    public ArtistPageResponse() {
+    }
  
- public ArtistPageResponse(List<Song> topSongs, List<ArtistIdentifier> 
-         relatedArtists,List<AlbumIdentifier> albums){
-  this.topSongs = topSongs;
-  this.relatedArtists = relatedArtists;
-  this.albums = albums;
- }
+    public ArtistPageResponse(List<Song> topSongs, List<ArtistIdentifier> 
+        relatedArtists,List<AlbumIdentifier> albums) {
+        this.topSongs = topSongs;
+        this.relatedArtists = relatedArtists;
+        this.albums = albums;
+    }
+    
+    public List<Song> getTopSongs(){
+        return topSongs;
+    }
  
- public List<Song> getTopSongs(){
-  return topSongs;
- }
+    public void setTopSongs(List<Song> topSongs) {
+        this.topSongs = topSongs;
+    }
  
- public void setTopSongs(List<Song> topSongs){
-  this.topSongs = topSongs;
- }
+    public List<ArtistIdentifier> getRelatedArtists() {
+        return relatedArtists;
+    }
  
- public List<ArtistIdentifier> getRelatedArtists(){
-  return relatedArtists;
- }
+    public void setRelatedArtists(List<ArtistIdentifier> relatedArtists) {
+        this.relatedArtists = relatedArtists;
+    }
  
- public void setRelatedArtists(List<ArtistIdentifier> relatedArtists){
-  this.relatedArtists = relatedArtists;
- }
+    public List<AlbumIdentifier> getAlbums() {
+        return albums;
+    }
  
- public List<AlbumIdentifier> getAlbums(){
-  return albums;
- }
- 
- public void setAlbums(List<AlbumIdentifier> albums){
-  this.albums = albums;
- }
+    public void setAlbums(List<AlbumIdentifier> albums) {
+        this.albums = albums;
+    }
 }

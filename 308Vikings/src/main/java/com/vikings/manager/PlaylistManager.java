@@ -81,8 +81,8 @@ public class PlaylistManager {
      * Appends the given song to the end of the Playlist with the given ID.
      * @param playlistId
      *  The ID of the desired Playlist.
-     * @param song 
-     *  The detailed Song object (this should be obtained from SongManager).
+     * @param songId 
+     *  ID of the Song.
      */
     public void addSongToPlaylist(String playlistId, String songId) {
         Playlist playlist = getPlaylist(playlistId);
