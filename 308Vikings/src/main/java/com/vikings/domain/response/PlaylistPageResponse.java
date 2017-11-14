@@ -20,9 +20,8 @@ public class PlaylistPageResponse extends PageResponse {
     public PlaylistPageResponse() {
     }
     
-    public PlaylistPageResponse(Playlist playlist, boolean following) {
-        this.playlist = playlist;
-        this.following = following;
+    public PlaylistPageResponse(String error) {
+        super(error);
     }
     
     public PlaylistPageResponse(Playlist playlist, boolean following, HashMap<String, Boolean> savedSongs) {

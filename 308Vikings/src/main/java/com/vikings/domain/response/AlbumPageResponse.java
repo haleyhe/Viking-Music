@@ -12,7 +12,7 @@ public class AlbumPageResponse extends PageResponse{
     
     public AlbumPageResponse() {
     }
-    
+      
     public AlbumPageResponse(Album album, List<AlbumIdentifier> relatedAlbums, boolean saved) {
         this.album = album;
         this.relatedAlbums = relatedAlbums;
@@ -24,6 +24,10 @@ public class AlbumPageResponse extends PageResponse{
         this.album = album;
         this.relatedAlbums = relatedAlbums;
         this.saved = saved;
+    }
+
+    public AlbumPageResponse(String error) {
+        super(error);
     }
 
     public Album getAlbum() {

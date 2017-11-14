@@ -95,12 +95,15 @@ public class PlaylistController {
     
     @RequestMapping(method=RequestMethod.GET, value="/Playlist/{id}")
     public @ResponseBody PlaylistPageResponse getAlbumPageDetails(@PathVariable("id") String playlistId) {
+        PlaylistPageResponse playlistPageJson;
         Playlist playlist = playlistManager.getPlaylist(playlistId);
-        if (playlist == null)
-            return null;
+        if (playlist == null) {
+             playlistPageJson = new PlaylistPageResponse(System.getProperty("error.Playlist.noSuchPlaylist"));
+        }
         boolean following = userMusicManager.isFollowingPlaylist(playlistId);
         HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(playlist);
-        return new PlaylistPageResponse(playlist, following, savedSongs);
+        playlistPageJson = new PlaylistPageResponse(playlist, following, savedSongs);
+        return playlistPageJson;
     }
     
     /**
