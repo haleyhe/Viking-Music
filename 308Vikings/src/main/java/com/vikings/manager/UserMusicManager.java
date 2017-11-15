@@ -234,6 +234,9 @@ public class UserMusicManager {
     public HashMap<String,Boolean> findSavedSongList(Album album) {
         User user = userAccountManager.getSessionUser();
         HashMap<String,Boolean> savedSongs = new HashMap<>();
+        if (user == null) {
+           return null;
+       }
         List<Song> songList = album.getSongs();
         for (Song s: songList) {
            LibrarySong tempLibSong = new LibrarySong(s);
@@ -247,6 +250,9 @@ public class UserMusicManager {
        User user = userAccountManager.getSessionUser();
        HashMap<String,Boolean> savedSongs = new HashMap<>();
        List<PlaylistSong> songList = playlist.getSongs();
+       if (user == null) {
+           return null;
+       }
        for (PlaylistSong ps: songList) {
            Song s = new Song (ps.getId());
            LibrarySong tempLibSong = new LibrarySong(s);

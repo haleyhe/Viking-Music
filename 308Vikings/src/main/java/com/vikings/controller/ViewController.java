@@ -36,6 +36,13 @@ public class ViewController {
 	return model;
     }
     
+    @RequestMapping(value = {"/test"}, method = RequestMethod.GET)
+    public ModelAndView getTestPage() {  
+        ModelAndView model = new ModelAndView();
+        model.setViewName("test");
+	return model;
+    }
+    
     @RequestMapping(value="/artistportal", method=RequestMethod.GET)
     public ModelAndView getArtistPortal() {
         Artist artist = artistManager.getSessionArtist();
