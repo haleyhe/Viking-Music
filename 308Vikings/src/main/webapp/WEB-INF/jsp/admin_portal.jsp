@@ -80,7 +80,9 @@
             <div class="pages" id="admin-overview">
               <div class='container' style="padding: 50px;">
               <div>
-                  <h1>TODO ADMIN PORTAL</h1>
+                  <h1>Welcome, admin!</h1>
+                  <br />
+                  <p>Select an action from the left menu.</p>
               </div>
               </div>
             </div>
@@ -122,14 +124,12 @@
                     <div>Bio:</div>
                     <div><textarea id="artist-edit-bio"></textarea></div>
                     <div>Current Related Names:</div>
-                    <div><ul id="artist-related-names">
-                    </ul></div>
+                    <div id="artist-related-names"></div>
                     <div>Add New Name:</div>
                     <div><input id="artist-edit-first-name" placeholder="First Name"> <input id="artist-edit-last-name" placeholder="Last Name"></div>
                     <br/>
                     <div>Current Genres:</div>
-                    <div><ul id="artist-genres">
-                    </ul></div>
+                    <div id="artist-genres"></div>
                     <div>Add New Genre:</div>
                     <div><input id="artist-edit-genre" placeholder="Genre"></div>
                     <br/>
@@ -137,6 +137,7 @@
                     </div>
                 </form>
               </div>     
+            </div>
             </div>
               
             <div class="pages" id="admin-summary">

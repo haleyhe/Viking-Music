@@ -2,10 +2,12 @@ package com.vikings.controller;
 
 import com.vikings.domain.Artist;
 import com.vikings.domain.Name;
+import com.vikings.domain.User;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.LoginRequest;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.FileManager;
+import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,9 @@ public class ArtistAccountController {
     
     @Autowired
     ArtistManager artistManager;
+    
+    @Autowired
+    UserAccountManager userAccountManager;
     
     @Autowired
     FileManager fileManager;
@@ -82,8 +87,7 @@ public class ArtistAccountController {
         // check for nulls and account for empty/invalid parameters
         if (sessionArtist == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
-        }
-        
+        }  
         Name newName = new Name(firstName, lastName);
         if (name.trim().isEmpty()) {
             return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
@@ -104,8 +108,66 @@ public class ArtistAccountController {
         }
         
         Artist resultArtist = artistManager.updateArtist(sessionArtist.getId(), name, bio, newName, genre);
-        artistManager.setSessionArtist(resultArtist);
+        artistManager.setSessionArtist(resultArtist); 
+        return new JsonResponse(true); 
+    }
+    
+    /**
+     * Updates the Artist with the given ID with new given bio and name, and adds
+     * genre or name if provided.
+     * @param id
+     *  Artist ID.
+     * @param thumbnail
+     *  New artist image (optional)
+     * @param name
+     *  Artist name
+     * @param bio
+     *  Artist bio
+     * @param firstName
+     *  First name of new Related Name
+     * @param lastName
+     *  Last name of new Related Name
+     * @param genre
+     *  New associated genre
+     * @return 
+     *  JsonResponse indicating success or fail.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/ArtistAccount/updateArtistForAdmin")
+    public @ResponseBody JsonResponse updateArtistForAdmin(
+            @RequestParam(value="thumbnail", required=false) MultipartFile thumbnail,
+            @RequestParam(value="id") String id,
+            @RequestParam(value="name") String name,
+            @RequestParam(value="bio") String bio,
+            @RequestParam(value="firstName") String firstName,
+            @RequestParam(value="lastName") String lastName,
+            @RequestParam(value="genre") String genre) {
         
+        User sessionUser = userAccountManager.getSessionUser();
+        
+        // check for nulls and account for empty/invalid parameters
+        if (sessionUser == null | !sessionUser.isAdmin()) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+        Name newName = new Name(firstName, lastName);
+        if (name.trim().isEmpty()) {
+            return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
+        }
+        if (firstName.trim().isEmpty()
+            || lastName.trim().isEmpty()) {
+            newName = null;
+        }
+        if (genre.trim().isEmpty()) {
+            genre = null;
+        }
+        
+        if (thumbnail != null) {
+            boolean result = fileManager.uploadArtistThumbnail(thumbnail, id);
+            if (result == false) {
+                return new JsonResponse(false, System.getProperty("error.Artist.thumbnailUploadFail"));
+            }
+        }
+        
+        artistManager.updateArtist(id, name, bio, newName, genre);
         return new JsonResponse(true); 
     }
        

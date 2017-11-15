@@ -99,6 +99,11 @@
         loadArtistEditForm($(this).attr("data-artist-id"));
     });
     
+    $("#artist-edit-form").submit(function (event) {
+        event.preventDefault();
+        submitArtistEdit();
+    });
+    
     // Monthly Summary Page
     $("#admin-summary-month-picker").submit(function (event) {
         event.preventDefault();
@@ -205,21 +210,72 @@ function loadArtistEditForm(artistId) {
 }
 
 function displayArtistEditForm(artist) {
-    console.log(artist);
+    $("#artist-edit-form").attr("artistId", artist.id);
     $("#artist-edit-thumbnail-preview").attr("src","/308Vikings/css/artist/" + artist.id + ".jpg");
     $("#artist-edit-name").attr("value", artist.name);
     $("#artist-edit-bio").val(artist.bio);
-    var nameList = "";
+    var nameList = "<ul>";
     $.each(artist.relatedNames, function() {
         nameList += "<li>" + this.firstName + " " + this.lastName + "</li>";
     });
-    $("#artist-related-names").innerHTML = nameList;
-    var genreList = "";
+    nameList += "</ul>";
+    document.getElementById("artist-related-names").innerHTML = nameList;
+    var genreList = "<ul>";
     $.each(artist.genres, function() {
         genreList += "<li>" + this + "</li>";
-    });  
-    $("#artist-genres").innerHTML = genreList;
+    });
+    genreList += "</ul>";
+    document.getElementById("artist-genres").innerHTML = genreList;
     $('#artist-edit-form').show();
+}
+
+function submitArtistEdit() {
+    if ($("#artist-edit-name").val().length === 0) {
+        displayErrorMessage("Name cannot be blank.");
+        return;
+    }
+    if ($("#artist-edit-first-name").val().length === 0) {
+        if ($("#artist-edit-last-name").val().length > 0) {
+            displayErrorMessage("First name required.");
+            return;
+        }
+    }
+    if ($("#artist-edit-last-name").val().length === 0) {
+        if ($("#artist-edit-first-name").val().length > 0) {
+            displayErrorMessage("Last name required.");
+            return;
+        }
+    }
+    
+    var formData = new FormData();
+    formData.append("id", $("#artist-edit-form").attr("artistId"));
+    formData.append("name", $("#artist-edit-name").val());
+    formData.append("bio", $("#artist-edit-bio").val());
+    formData.append("firstName", $("#artist-edit-first-name").val());
+    formData.append("lastName", $("#artist-edit-last-name").val());
+    formData.append("genre", $("#artist-edit-genre").val());
+    var thumbnailFile = null;
+    var filesSelected = document.getElementById("artist-edit-thumbnail").files;
+    if (filesSelected.length > 0) {
+        formData.append("thumbnail", filesSelected[0]);
+    }
+    
+    $.ajax({
+        type: "POST",
+        url: "/308Vikings/ArtistAccount/updateArtistForAdmin",
+        contentType: false,
+        processData: false,
+        data: formData,
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        if (!data.success) {
+            displayErrorMessage(data.error);
+        } else {
+            displaySuccessMessage("Changes successfully saved.");
+        }
+    });
+    
 }
 
 // Monthly Summary Page
