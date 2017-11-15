@@ -2,11 +2,11 @@ package com.vikings.controller;
 
 import com.vikings.domain.Name;
 import com.vikings.domain.User;
+import com.vikings.domain.request.IdRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.FileManager;
 import com.vikings.manager.UserAccountManager;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,6 +59,30 @@ public class AdminController {
         } else {
             return new JsonResponse (false, System.getProperty("error.UserAccount.profileUpdateFail"));
         }  
+    }
+    
+    /**
+     * Deletes the User with the given ID, including all of their preferences
+     * and playlists.
+     * @param idRequest
+     *  Request with ID of the user to delete.
+     * @return 
+     *  true if success, false otherwise (invalid session).
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/Admin/deleteUser")
+    public @ResponseBody JsonResponse deleteUserForAdmin(@RequestBody IdRequest idRequest) {
+        User sessionUser = userAccountManager.getSessionUser();
+        if (sessionUser == null | !sessionUser.isAdmin()) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+        
+        System.out.println("Deleting user with ID " + idRequest.getId());
+        
+        userAccountManager.deleteUser(idRequest.getId());
+        if (sessionUser.getId().equals(idRequest.getId())) {
+            userAccountManager.setSessionUser(null);
+        }
+        return new JsonResponse(true);
     }
     
     /**

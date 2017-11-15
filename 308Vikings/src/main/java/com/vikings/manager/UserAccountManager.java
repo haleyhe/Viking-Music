@@ -94,6 +94,16 @@ public class UserAccountManager {
             return true;
         }
     }
+    
+    /**
+     * Deletes the User, their preferences, and their playlists with the
+     * given ID.
+     * @param userId 
+     *  User ID to delete.
+     */
+    public void deleteUser(String userId) {
+        userAccountDAO.deleteUser(userId);
+    }
 
     /**
      * Helper method to validate the user info that the user entered

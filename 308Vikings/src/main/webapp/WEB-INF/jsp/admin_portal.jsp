@@ -42,13 +42,11 @@
                       <b>
                       <li class="tab-link" data-tab="menutab-1">Overview</li>
                       <li class="tab-link" data-tab="menutab-2">Create User</li>
-                      <li class="tab-link" data-tab="menutab-3">Delete User</li>
-                      <li class="tab-link" data-tab="menutab-4">Edit User</li>
-                      <li class="tab-link" data-tab="menutab-5">Create Artist</li>
-                      <li class="tab-link" data-tab="menutab-6">Delete Artist</li>
-                      <li class="tab-link" data-tab="menutab-7">Edit Artist</li>
-                      <li class="tab-link" data-tab="menutab-8">View Monthly Summary</li>
-                      <li class="tab-link" data-tab="menutab-9">Manage Song Requests</li>
+                      <li class="tab-link" data-tab="menutab-3">Edit User</li>
+                      <li class="tab-link" data-tab="menutab-4">Create Artist</li>
+                      <li class="tab-link" data-tab="menutab-5">Edit Artist</li>
+                      <li class="tab-link" data-tab="menutab-6">View Monthly Summary</li>
+                      <li class="tab-link" data-tab="menutab-7">Manage Song Requests</li>
                       </b>
                     </ul>
                   </div>
@@ -131,6 +129,9 @@
                           <div>Premium<input type="checkbox" id="edit-user-premium"></div>
                           <div>Admin<input type="checkbox" id="edit-user-admin"></div>
                           <div><button class=signupbtn type="submit">Update User</button></div>
+                        </form>
+                        <form id="delete-user-form">
+                          <div><button class=deletebutton type="submit">Delete User</button></div>
                         </form>
                   </div>
                   </div>

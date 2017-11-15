@@ -22,6 +22,8 @@ public interface UserAccountMapper {
     
     public void updateUser(User user);
     
+    public void deleteUser(String id);
+    
     public Set<User> getPremiumUsersForMonthlyRevenue();
     
 }

@@ -77,6 +77,12 @@ hr.style15 {
   background-color: #3b5998;
 }
 
+.deletebutton{
+  color: white;
+  border-color: #cc0000;
+  background-color: #ff4d4d;
+}
+
 #signup{
 }
 

@@ -78,6 +78,10 @@ public class UserAccountDAO {
         userAccountMapper.updateUser(user);
     }
     
+    public void deleteUser(String id) {
+        userAccountMapper.deleteUser(id);
+    }
+    
     public Set<User> getPremiumUsersForMonthlyRevenue() {
         return userAccountMapper.getPremiumUsersForMonthlyRevenue();
     }

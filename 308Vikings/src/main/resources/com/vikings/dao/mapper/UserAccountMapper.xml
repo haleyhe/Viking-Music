@@ -143,9 +143,38 @@
             u.premium = #{premium},
             u.admin = #{admin} 
         WHERE
-            u.userId = #{id}
-        
+            u.userId = #{id}     
     </update>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE
+            u, up, uss, uas, uaf, upf, p, ps
+        FROM
+            Users u
+        LEFT JOIN
+            UserPayments up
+            ON up.userId = u.userId
+        LEFT JOIN
+            UserSongsSaved uss
+            ON uss.userId = u.userId
+        LEFT JOIN
+            UserAlbumsSaved uas
+            ON uas.userId = u.userId
+        LEFT JOIN
+            UserArtistsFollowed uaf
+            ON uaf.userId = u.userId
+        LEFT JOIN
+            UserPlaylistsFollowed upf
+            ON upf.userId = u.userId
+        LEFT JOIN
+            Playlists p
+            ON p.creatorId = u.userId
+        LEFT JOIN
+            PlaylistSongs ps
+            ON ps.playlistId = p.playlistId
+        WHERE
+            u.userId= #{id};    
+    </delete>
 
     <select id="getPremiumUsersForMonthlyRevenue" resultMap="userPaymentMap">
         SELECT

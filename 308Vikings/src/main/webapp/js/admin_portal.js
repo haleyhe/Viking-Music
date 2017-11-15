@@ -59,30 +59,22 @@
         }	
         if($(this).attr('data-tab') === 'menutab-3'){
             $('.pages').css("display","none");
-            $('#admin-delete-user').show();
+            $('#admin-edit-user').show();
         }
         if($(this).attr('data-tab') === 'menutab-4'){
             $('.pages').css("display","none");
-            $('#admin-edit-user').show();
-        }
-        if($(this).attr('data-tab') === 'menutab-5'){
-            $('.pages').css("display","none");
             $('#admin-create-artist').show();
         }
-        if($(this).attr('data-tab') === 'menutab-6'){
-            $('.pages').css("display","none");
-            $('#admin-delete-artist').show();
-        }
-        if($(this).attr('data-tab') === 'menutab-7'){
+        if($(this).attr('data-tab') === 'menutab-5'){
             $('.pages').css("display","none");
             loadArtists();
             $('#admin-edit-artist').show();
         }
-        if($(this).attr('data-tab') === 'menutab-8'){
+        if($(this).attr('data-tab') === 'menutab-6'){
             $('.pages').css("display","none");
             $('#admin-summary').show();
         }
-        if($(this).attr('data-tab') === 'menutab-9'){
+        if($(this).attr('data-tab') === 'menutab-7'){
             $('.pages').css("display","none");
             $('#admin-song-requests').show();
         }
@@ -98,6 +90,11 @@
     $("#edit-user-prompt").submit(function (event) {
         event.preventDefault();
         getUserForEdit();
+    });
+    
+    $("#delete-user-form").submit(function (event) {
+        event.preventDefault();
+        deleteUser();
     });
     
     // Edit Artist Page
@@ -208,10 +205,9 @@ function getUserForEdit() {
 }
 
 function displayEditUserForm(user) {
-    console.log(user);
     document.getElementById("edit-user-form-header").innerHTML = "Edit User " + user.id;
     $("#edit-user-prompt").css("display", "none");
-    $("#edit-user-form").attr("id", user.id);
+    $("#edit-user-form").attr("userId", user.id);
     $("#edit-user-username").attr("value", user.username);
     $("#edit-user-email").attr("value", user.email);
     var dob = new Date(user.dateOfBirth);
@@ -219,7 +215,30 @@ function displayEditUserForm(user) {
     $("#edit-user-zipcode").attr("value", user.zip);
     document.getElementById("edit-user-premium").checked = user.premium;
     document.getElementById("edit-user-admin").checked = user.admin;
+    $("#delete-user-form").attr("userId", user.id);
     $("#edit-user-form-div").show();
+}
+
+function deleteUser() {
+    var idRequest = {};
+    idRequest['id'] = $("#delete-user-form").attr("userId");
+    showLoading();
+    $.ajax({
+        type: "POST",
+        url: "/308Vikings/Admin/deleteUser",
+        contentType: "application/json",
+        data: JSON.stringify(idRequest),
+        dataType: 'json',
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        hideLoading();
+        if (!data.success) {
+            displayErrorMessage(data.error);
+        } else {
+            displaySuccessMessage("User deleted.");
+        }
+    });
 }
 
 // Edit Artist Page
