@@ -107,6 +107,37 @@
               </div>
             </div>
                       
+            <div class="pages" id="admin-edit-user">
+              <div class='container' style="padding: 20px;">
+              <div>
+                  <h1 style="padding-top: 50px;">Edit User</h1>
+                  <div id="edit-user-prompt">
+                      <div id="signup">
+                      <form id="edit-user-prompt">
+                          <div><input id="edit-user-prompt-username" placeholder="Username"></div>
+                          <div><button class=signupbtn type="submit">Get User</button></div>
+                      </form>
+                      </div>
+                  </div>
+                  <div id="signup">
+                  <div id="edit-user-form-div">
+                      <div id="edit-user-form-header"></div>
+                        <form id="edit-user-form">
+                           <div><input id="edit-user-username" placeholder="Username"></div>
+                          <div><input id="edit-user-email" placeholder="Email"></div>
+                          <div><input type="date" id="edit-user-dob" placeholder="Date of Birth"></div>
+                          <div><input id="edit-user-zipcode" placeholder="Zipcode"></div>
+                          <div><input id="edit-user-password" type="password" placeholder="New Password (optional)"></div>
+                          <div>Premium<input type="checkbox" id="edit-user-premium"></div>
+                          <div>Admin<input type="checkbox" id="edit-user-admin"></div>
+                          <div><button class=signupbtn type="submit">Update User</button></div>
+                        </form>
+                  </div>
+                  </div>
+              </div>    
+              </div>
+            </div>
+                      
             <div class="pages" id="admin-edit-artist">
               <div class='container' style="padding: 50px;">
               <div>

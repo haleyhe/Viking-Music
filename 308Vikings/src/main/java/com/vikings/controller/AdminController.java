@@ -9,12 +9,11 @@ import com.vikings.manager.UserAccountManager;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -28,6 +27,39 @@ public class AdminController {
     
     @Autowired
     FileManager fileManager;
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Admin/getUserByUsername")
+    public @ResponseBody User getUserByUsername(@RequestParam("username") String username) {
+        User sessionUser = userAccountManager.getSessionUser();
+        if (sessionUser == null | !sessionUser.isAdmin()) {
+            return null;
+        }
+        
+        return userAccountManager.getUserByUsername(username);
+    }
+    
+    /**
+     * Updates the User with the given ID with any non-null
+     * attributes in the given User object.
+     * @param updatedUser
+     *  User object containing the correct ID and
+     *  attributes to update.
+     * @return 
+     *  true if success, false otherwise (invalid parameters).
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/Admin/updateUser")
+    public @ResponseBody JsonResponse updateUserForAdmin(@RequestBody User updatedUser) {
+        User sessionUser = userAccountManager.getSessionUser();
+        if (sessionUser == null | !sessionUser.isAdmin()) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+        
+        if (userAccountManager.updateUserProfile(updatedUser)) {
+            return new JsonResponse(true);
+        } else {
+            return new JsonResponse (false, System.getProperty("error.UserAccount.profileUpdateFail"));
+        }  
+    }
     
     /**
      * Updates the Artist with the given ID with new given bio and name, and adds

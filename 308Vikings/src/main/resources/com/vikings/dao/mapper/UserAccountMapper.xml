@@ -50,6 +50,18 @@
             u.username = #{username} OR
             u.emailAddress = #{email}
     </select>
+
+    <select id="isValidUpdate" parameterType="com.vikings.domain.User" resultType="boolean">
+        SELECT
+            CASE WHEN COUNT(*) > 0 THEN 0 ELSE 1 END
+        FROM
+            Users u
+        WHERE
+            (u.username = #{username} OR
+            u.emailAddress = #{email})
+            AND
+            NOT(u.userId = #{id})
+    </select>
     
     <insert id="registerUser" parameterType="com.vikings.domain.User">
         INSERT IGNORE INTO Users (
@@ -88,6 +100,22 @@
         WHERE
             u.username = #{username} AND
             u.hashedPassword = #{password}
+    </select>
+
+    <select id="getUserByUsername" parameterType="com.vikings.domain.User" resultMap="userMap">
+        SELECT
+            u.userId as 'user_id',
+            u.username as 'user_username',
+            u.emailAddress as 'user_email',
+            u.zip as 'user_zip',
+            u.birthDate as 'user_birth',
+            u.premium as 'user_premium',
+            u.admin as 'user_admin',
+            u.facebookId as 'user_facebook'
+        FROM
+            Users u
+        WHERE
+            u.username = #{username}
     </select>
     
     <update id="updateUser" parameterType="com.vikings.domain.User">

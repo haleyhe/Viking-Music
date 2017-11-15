@@ -18,6 +18,7 @@
     });
     
     // hide result forms
+    $("#edit-user-form-div").css("display", "none");
     $('#artist-edit-form').css("display", "none");
     $('#admin-monthly-summary-result').css("display", "none");
     $('#admin-monthly-summary-no-result').css("display", "none");
@@ -93,6 +94,12 @@
         createUser();
     });
     
+    // Edit User Page
+    $("#edit-user-prompt").submit(function (event) {
+        event.preventDefault();
+        getUserForEdit();
+    });
+    
     // Edit Artist Page
     $("#admin-edit-artist-artist-list").on("click", ".edit-artist-bubble", function() {
         $("#admin-edit-artist-artist-list").css("display","none");
@@ -165,6 +172,40 @@ function createUser() {
             displaySuccessMessage("Account created.");
         }
     });
+}
+
+// Edit User Page
+function getUserForEdit() {
+    var username = $("#edit-user-prompt-username").val();
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/308Vikings/Admin/getUserByUsername",
+        data: {username: username},
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        if (data) {
+            displayEditUserForm(data);
+        } else {
+            displayErrorMessage("User not found.");
+        }
+    });
+}
+
+function displayEditUserForm(user) {
+    console.log(user);
+    document.getElementById("edit-user-form-header").innerHTML = "Edit User " + user.id;
+    $("#edit-user-prompt").css("display", "none");
+    $("#edit-user-form").attr("id", user.id);
+    $("#edit-user-username").attr("value", user.username);
+    $("#edit-user-email").attr("value", user.email);
+    var dob = new Date(user.dateOfBirth);
+    document.getElementById("edit-user-dob").valueAsDate = dob;
+    $("#edit-user-zipcode").attr("value", user.zip);
+    document.getElementById("edit-user-premium").checked = user.premium;
+    document.getElementById("edit-user-admin").checked = user.admin;
+    $("#edit-user-form-div").show();
 }
 
 // Edit Artist Page

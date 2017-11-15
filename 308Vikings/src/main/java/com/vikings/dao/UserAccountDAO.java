@@ -60,6 +60,14 @@ public class UserAccountDAO {
         return foundUser;
     }
     
+    public User getUserByUsername(String username) {
+        return userAccountMapper.getUserByUsername(username);
+    }
+    
+    public boolean isValidUpdate(User user) {
+        return userAccountMapper.isValidUpdate(user);
+    }
+    
     /**
      * Updates the basic information of the User with the given ID.
      * !!! Make sure the password is hashed before updating !!!

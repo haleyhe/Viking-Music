@@ -116,12 +116,25 @@ public class UserAccountController {
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/updateUserProfile")
     public @ResponseBody JsonResponse updateUserProfile(@RequestBody User updatedUser) {
+        User sessionUser = userAccountManager.getSessionUser();
+        if (sessionUser == null | !sessionUser.getId().equals(updatedUser.getId())) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
         if (userAccountManager.updateUserProfile(updatedUser)) {
+            if (updatedUser.getUsername() != null)
+                sessionUser.setUsername(updatedUser.getUsername());
+            if (updatedUser.getEmail() != null)
+                sessionUser.setEmail(updatedUser.getEmail());
+            if (updatedUser.getDateOfBirth() != null)
+                sessionUser.setDateOfBirth(updatedUser.getDateOfBirth());
+            if (updatedUser.getZip() != null)
+                sessionUser.setZip(updatedUser.getZip());
+            if (updatedUser.getFacebookId() != null)
+                sessionUser.setFacebookId(updatedUser.getFacebookId());
             return new JsonResponse(true);
         } else {
             return new JsonResponse (false, System.getProperty("error.UserAccount.profileUpdateFail"));
-        }
-        
+        }  
     }
     
     /**
@@ -134,8 +147,13 @@ public class UserAccountController {
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/upgrade")
     public @ResponseBody JsonResponse upgradeToPremium(@RequestBody Payment payment) {
         User user = userAccountManager.getSessionUser();
+        if (user == null) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+        
         if (paymentManager.addPaymentForUser(user.getId(), payment)) {
             userAccountManager.makeUserPremium(user, true);
+            user.setPremium(true);
             return new JsonResponse(true);
         } else {
             return new JsonResponse(false, System.getProperty("error.UserAccount.upgradeFail"));

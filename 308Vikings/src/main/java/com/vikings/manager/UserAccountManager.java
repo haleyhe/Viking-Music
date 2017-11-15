@@ -6,8 +6,6 @@ import com.vikings.util.InputChecker;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,6 +69,10 @@ public class UserAccountManager {
             return password;
         }
     }
+    
+    public User getUserByUsername(String username) {
+        return userAccountDAO.getUserByUsername(username);
+    }
         
     /**
      * Updates a user's profile based on their input
@@ -81,9 +83,13 @@ public class UserAccountManager {
      * through. False otherwise
      */
     public boolean updateUserProfile(User updatedUser) {
-        if (!hasValidUserParameters(updatedUser)) {
+        if (!hasValidUserParameters(updatedUser) | !userAccountDAO.isValidUpdate(updatedUser)) {
             return false;
         } else {
+            if (updatedUser.getPassword() != null && !updatedUser.getPassword().equals("")) {
+                String hashedPassword = hashPassword(updatedUser.getPassword());
+                updatedUser.setPassword(hashedPassword);
+            }
             userAccountDAO.updateUser(updatedUser);
             return true;
         }
