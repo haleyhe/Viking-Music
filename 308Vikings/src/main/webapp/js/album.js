@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 jQuery(document).ready(function ($) {
 });
 
@@ -20,9 +15,11 @@ app.controller('getSession', function($scope, $http) {
 });
 
 app.controller("getDetailAlbum", function ($scope, $http) {
-    console.log("called");
+    //console.log("called");
     $scope.getAlbumJson = function (event) {
-    console.log(event);
+        $('.pages').css("display","none");
+        $("#loading").css("display", "block");
+    //console.log(event);
     $http({
       method: 'GET',
       url: '/308Vikings/Album/getAlbumPageDetails',
@@ -30,6 +27,8 @@ app.controller("getDetailAlbum", function ($scope, $http) {
       params: {id: event.target.id}
     }).then(function successCallback(response) {
       $scope.albumdata = response.data;
+      $('#indivAlbumPage').show();
+      $("#loading").css("display", "none");
       console.log("SONG:" , response.data);
     }, function errorCallback(response) {});
   }

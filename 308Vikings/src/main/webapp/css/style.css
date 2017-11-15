@@ -290,7 +290,6 @@ div.menutabs li.current{
   -webkit-flex-flow: row wrap;
   justify-content: space-around;
   margin-bottom: 150px;
-  cursor: pointer;
 }
 
 .albumimg, .concertdateimg, .playlistimg{
@@ -298,6 +297,7 @@ div.menutabs li.current{
   margin-bottom: 5px;
   width: 200px;
   float: left;
+  cursor:pointer;
 }
 .artistimg{
   margin: 50px;
@@ -479,20 +479,34 @@ hr.style14 {
     text-decoration: none;
     cursor: pointer;
 }
-input[type="range"] {
+
+input[type=range]{
     -webkit-appearance: none;
-    border: 1px solid black;
-    position: absolute;
-    display: block;
-    width: 60%;
-    height: 15px;
- 
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
-    background-color: #242323;
- 
-    -webkit-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
-    -moz-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
-    box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+    width: 700px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 500px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
 }

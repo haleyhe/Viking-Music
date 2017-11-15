@@ -1,5 +1,4 @@
-var main = function() {
-
+$(document).ready(function () {
 $('#user-display-name a').click(function(){
 	$('.pages').css("display","none");
     $('#profilepage').show();
@@ -71,9 +70,9 @@ $('.newPlaylist').click(function(){
     $('#playListPage').show();
 });
 
-$('.albumitems').click(function(){
-	$('.pages').css("display","none");
-    $('#indivAlbumPage').show();
+$('.albumimg').click(function(e){
+     e.stopPropagation();
+
 
 });
 
@@ -122,6 +121,4 @@ $('.registerbtn').click(function(){
 	$('.signup.modal').css("display","block");
 });
 
-};
-
-$(document).ready(main);
+});

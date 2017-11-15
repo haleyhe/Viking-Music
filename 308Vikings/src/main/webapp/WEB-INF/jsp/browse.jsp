@@ -224,9 +224,15 @@
                   </div>
 
                   <!--Album Pages-->
+                 
                   <div ng-controller="getAllAlbum" >
                   <div ng-controller="getDetailAlbum">
                   <div class=pages id=albumpage>
+                    <div id='loading' class="error modal">
+                        <div class="loading-modal-content">
+                            <img src=${home}/css/loading.gif></img>
+                        </div>
+                    </div>
                     <div class="container">
                       <div id="menutab-3" class="menutab-content">
                       <h2>Albums</h2>
@@ -244,15 +250,15 @@
                   </div>
                           
                     <div class=pages id=indivAlbumPage>                    
-                        <div>
-                            <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>   
-                        </div>
-                    
-                        <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">                      
+                        
+                        <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">  
+                            <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>                                                     
                             <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>                      
                             <div ng-repeat="detailAlbumartist in albumdata.album.artists">
-                                <h3>{{detailAlbumartist.name}}</h3>
+                                <div>{{detailAlbumartist.name}}</div>
                             </div>
+                            <div><br>Release Date: </div>
+                            <div>{{albumdata.album.releaseDate |  date:'d MMMM yyyy'}}</div>
                             
                             <p style="margin-bottom: 120px;">
                                 <button>Play</button>
@@ -271,7 +277,7 @@
                       <tr ng-repeat="song in albumdata.album.songs">
                         <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
                         <td>{{song.name}}</td>
-                        <td>{{song.artists[0].name}}</td>
+                        <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
                         <td>3:08</td>
                       </tr>
                     </table>
