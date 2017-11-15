@@ -48,6 +48,7 @@ public class AlbumController {
         Album album = albumManager.getAlbum(id);
         if (album == null) {
             albumPageJson = new AlbumPageResponse(System.getProperty("error.Album.noSuchAlbum"));
+            return albumPageJson;
         }
         List<AlbumIdentifier> relatedAlbums = albumManager.getAlbumsForArtist(album.getArtists().get(0).getId());
         relatedAlbums.remove(album.toAlbumIdentifier());
