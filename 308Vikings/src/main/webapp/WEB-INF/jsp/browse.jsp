@@ -233,7 +233,7 @@
                       <hr class="style14">
                         <div class=albumitems>
                           <div ng-repeat="album in data.albums">
-                          <a ng-click="getAlbumJson($event)"><img class=albumimg src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
+                          <a ng-click="getAlbumJson($event)"><img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
                           <li class=albumname><a id="{{album.id}}" ng-click="getAlbumJson($event)">{{album.name}}</a></li>
                           <li class=albumartist>{{album.artists[0].name}}</li>
                           </div>
@@ -245,7 +245,7 @@
                           
                     <div class=pages id=indivAlbumPage>                    
                         <div>
-                            <img style="margin: 10px;-top: 10px;" class=albumimg src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>   
+                            <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>   
                         </div>
                     
                         <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">                      
@@ -279,7 +279,7 @@
                     <hr class="style14" style="width:70%">
                         <div class=albumitems>
                           <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
-                          <a ng-click="getAlbumJson($event)"><img class=albumimg src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
+                          <a ng-click="getAlbumJson($event)"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
                           <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson($event)">{{relatedAlbums.name}}</li>
                           <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>     
                           </div>
