@@ -35,21 +35,18 @@ public class FileManager {
         if (file.getSize() > MAX_IMAGE_SIZE_BYTES) {
             return false;
         }
-        
         try {
             BufferedImage thumbnail = ImageIO.read(file.getInputStream());
             BufferedImage resizedThumbnail = resizeImage(thumbnail, PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT);
             
             String sourceFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Playlist.sourceThumbnailPath") + playlistId + ".jpg";
-            String targetFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Playlist.targetThumbnailPath") + playlistId + ".jpg";
-            
+            String targetFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Playlist.targetThumbnailPath") + playlistId + ".jpg"; 
             writeImage(resizedThumbnail, sourceFilepath);
-            writeImage(resizedThumbnail, targetFilepath);            
+            writeImage(resizedThumbnail, targetFilepath);   
+            return true;
         } catch (IOException e) {
             return false;
         }
-        
-        return true;
     }
     
     /**
@@ -64,22 +61,19 @@ public class FileManager {
     public boolean uploadArtistThumbnail(MultipartFile file, String artistId) {
         if (file.getSize() > MAX_IMAGE_SIZE_BYTES) {
             return false;
-        }
-        
+        } 
         try {
             BufferedImage thumbnail = ImageIO.read(file.getInputStream());
             BufferedImage resizedThumbnail = resizeImage(thumbnail, ARTIST_THUMBNAIL_WIDTH, ARTIST_THUMBNAIL_HEIGHT);
             
             String sourceFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Artist.sourceThumbnailPath") + artistId + ".jpg";
             String targetFilepath = System.getProperty("file.rootFilePath") + System.getProperty("file.Artist.targetThumbnailPath") + artistId + ".jpg";
-            
             writeImage(resizedThumbnail, sourceFilepath);
-            writeImage(resizedThumbnail, targetFilepath);            
+            writeImage(resizedThumbnail, targetFilepath); 
+            return true;
         } catch (IOException e) {
             return false;
         }
-        
-        return true;
     }
     
     private BufferedImage resizeImage(BufferedImage image, int width, int height) {
@@ -87,11 +81,10 @@ public class FileManager {
         // The resized image has to be redrawn onto a new BufferedImage.
         // Resizing converts the BufferedImage to an Image, but only BufferedImages
         // can be written using ImageIO.
-        BufferedImage bufferedResizedThumbnail = new BufferedImage(PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, BufferedImage.TYPE_INT_RGB);
+        BufferedImage bufferedResizedThumbnail = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D bufferedGraphic = bufferedResizedThumbnail.createGraphics();
-        bufferedGraphic.drawImage(resizedThumbnail, 0, 0, PLAYLIST_THUMBNAIL_WIDTH, PLAYLIST_THUMBNAIL_HEIGHT, null);
+        bufferedGraphic.drawImage(resizedThumbnail, 0, 0, width, height, null);
         bufferedGraphic.dispose();
-        
         return bufferedResizedThumbnail;
     }
     

@@ -43,15 +43,6 @@ public class ArtistDAO {
         return artistMapper.getAllArtistsForPayment();
     }
     
-    /**
-     * Returns a list of Artist who have overlapping genres with the given Artist.
-     * The list is ordered by number of overlapping genres (first in list =
-     * most "related")
-     * @param artistId
-     *  ID of the Artist to get related Artists for.
-     * @return 
-     *  An ordered list of related ArtistIdentifiers.
-     */
     public List<ArtistIdentifier> getRelatedArtists(String artistId) {
         return artistMapper.getRelatedArtists(artistId);
     }

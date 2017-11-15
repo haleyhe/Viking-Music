@@ -97,11 +97,11 @@ public class AdminController {
      * @param bio
      *  Artist bio
      * @param firstName
-     *  First name of new Related Name
+     *  First name of new Related Name (optional)
      * @param lastName
-     *  Last name of new Related Name
+     *  Last name of new Related Name (optional)
      * @param genre
-     *  New associated genre
+     *  New associated genre (optional)
      * @return 
      *  JsonResponse indicating success or fail.
      */
@@ -116,17 +116,14 @@ public class AdminController {
             @RequestParam(value="genre") String genre) {
         
         User sessionUser = userAccountManager.getSessionUser();
-        
-        // check for nulls and account for empty/invalid parameters
         if (sessionUser == null | !sessionUser.isAdmin()) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
-        Name newName = new Name(firstName, lastName);
         if (name.trim().isEmpty()) {
             return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
         }
-        if (firstName.trim().isEmpty()
-            || lastName.trim().isEmpty()) {
+        Name newName = new Name(firstName, lastName);
+        if (firstName.trim().isEmpty() || lastName.trim().isEmpty()) {
             newName = null;
         }
         if (genre.trim().isEmpty()) {
