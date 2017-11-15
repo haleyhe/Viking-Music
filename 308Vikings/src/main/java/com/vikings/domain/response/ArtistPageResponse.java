@@ -1,28 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vikings.domain.response;
 
+import com.vikings.domain.Concert;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
 
 public class ArtistPageResponse {
+    String bio;
     List<Song> topSongs;
     List<ArtistIdentifier> relatedArtists;
     List<AlbumIdentifier> albums;
+    List<Concert> concerts;
  
     public ArtistPageResponse() {
     }
  
-    public ArtistPageResponse(List<Song> topSongs, List<ArtistIdentifier> 
-        relatedArtists,List<AlbumIdentifier> albums) {
+    public ArtistPageResponse(String bio, List<Song> topSongs, List<ArtistIdentifier> 
+        relatedArtists,List<AlbumIdentifier> albums, List<Concert> concerts) {
+        this.bio = bio;
         this.topSongs = topSongs;
         this.relatedArtists = relatedArtists;
         this.albums = albums;
+        this.concerts = concerts;
+    }
+
+    public String getBio(){
+        return bio;
+    }
+
+    public void setBio(String bio){
+        this.bio = bio;
     }
     
     public List<Song> getTopSongs(){
@@ -47,5 +55,13 @@ public class ArtistPageResponse {
  
     public void setAlbums(List<AlbumIdentifier> albums) {
         this.albums = albums;
+    }
+
+    public List<Concert> getConcerts(){
+        return concerts;
+    }
+
+    public void setConcerts(List<Concert> concerts){
+        this.concerts = concerts;
     }
 }
