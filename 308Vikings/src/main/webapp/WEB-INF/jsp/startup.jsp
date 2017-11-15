@@ -54,7 +54,7 @@
         </div>
            <div class="error modal">
                <div class="modal-content">
-                   <div id="error"></div>
+                   <div id="message"></div>
                    <button class="close">CLOSE</button>
                </div>
            </div>

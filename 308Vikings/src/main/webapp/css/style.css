@@ -285,12 +285,11 @@ div.menutabs li.current{
   justify-content: space-around;
   margin-bottom: 150px;
   cursor: pointer;
-
 }
 
 .albumimg, .concertdateimg, .playlistimg{
   margin: 50px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
   width: 200px;
   float: left;
 }
@@ -311,6 +310,8 @@ div.menutabs li.current{
 
 .albumname, .albumartist, .artistname, .songnumber{
   text-align: center;
+  width: 300px;
+  text-overflow: ellipsis;
 }
 .albumtab{
   width: 100%;

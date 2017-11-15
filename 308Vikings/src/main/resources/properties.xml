@@ -35,7 +35,7 @@
             -->
             
             <!-- Error messages -->
-            <prop key="error.UserAccount.userExists">Username already taken.</prop>
+            <prop key="error.UserAccount.userExists">Username or Email already taken.</prop>
             <prop key="error.UserAccount.invalidLogin">Invalid username and password combination.</prop>
             <prop key="error.UserAccount.sessionExpired">User session expired. Please log in again.</prop>
             <prop key="error.UserAccount.profileUpdateFail">Failed to update user profile</prop>

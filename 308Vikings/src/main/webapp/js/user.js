@@ -40,7 +40,13 @@ function signup() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             $(".error.modal").css("display", "block");
-            $('#error').html(data['error']);
+            if(!data.sucess){
+                $('#message').html(data['error']);
+            }
+            else{
+                $('#message').html("You have successfully sign up");    
+            }
+            
         },
         error: function (e) {
             display(e);
@@ -68,7 +74,7 @@ function login() {
             console.log("SUCCESS: ", data);
             if(!data.success){
                 $(".error.modal").css("display", "block");
-                 $('#error').html(data['error']);
+                 $('#message').html(data['error']);
             }
             else{
                 window.location.replace("/308Vikings/");

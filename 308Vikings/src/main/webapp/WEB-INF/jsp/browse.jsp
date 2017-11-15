@@ -24,7 +24,7 @@
     <body>
         
              <div id='feedback'>
-              <div id=appPage> 
+                <div id=appPage ng-app="myApp"> 
                 <div class=menu>
 
                   <!--Top Menu Logo and Browse-->
@@ -224,34 +224,69 @@
                   </div>
 
                   <!--Album Pages-->
+                  <div ng-controller="getAllAlbum" >
+                  <div ng-controller="getDetailAlbum">
                   <div class=pages id=albumpage>
                     <div class="container">
                       <div id="menutab-3" class="menutab-content">
                       <h2>Albums</h2>
                       <hr class="style14">
                         <div class=albumitems>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/MiGente.jpg"></img>
-                          <li class=albumname>Mi Gente Feat. Beyonce</li>
-                          <li class=albumartist>J Balvin, Willy William</li>     
+                          <div ng-repeat="album in data.albums">
+                          <a ng-click="getAlbumJson($event)"><img class=albumimg src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
+                          <li class=albumname><a id="{{album.id}}" ng-click="getAlbumJson($event)">{{album.name}}</a></li>
+                          <li class=albumartist>{{album.artists[0].name}}</li>
                           </div>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/TellMeYouLoveMe.png"></img>
-                          <li class=albumname>Tell Me You Love Me</li>
-                          <li class=albumartist>Demi Lovato</li>     
-                          </div>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/TheBiggerArtist.jpg"></img>
-                          <li class=albumname>The Bigger Artist</li>
-                          <li class=albumartist>A Boogie Wit da Hoodie</li>     
-                          </div>
-                          <div>  
-                          </div>          
                         </div>    
                       </div>
 
                     </div>
                   </div>
+                          
+                    <div class=pages id=indivAlbumPage>                    
+                        <div>
+                            <img style="margin: 10px;-top: 10px;" class=albumimg src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>   
+                        </div>
+                    
+                        <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">                      
+                            <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>                      
+                            <div ng-repeat="detailAlbumartist in albumdata.album.artists">
+                                <h3>{{detailAlbumartist.name}}</h3>
+                            </div>
+                            
+                            <p style="margin-bottom: 120px;">
+                                <button>Play</button>
+                                <button>Save</button>
+                            </p>
+                            <hr class="style14" style="width:70%">
+                        </div>
+
+                    <table class=songtable>
+                      <tr>
+                        <td></td>
+                        <td>Title</td>
+                        <td>Artist</td>
+                        <td>Duration</td>
+                      </tr>
+                      <tr ng-repeat="song in albumdata.album.songs">
+                        <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
+                        <td>{{song.name}}</td>
+                        <td>{{song.artists[0].name}}</td>
+                        <td>3:08</td>
+                      </tr>
+                    </table>
+                    <h3>More by J Balvin</h3>
+                    <hr class="style14" style="width:70%">
+                        <div class=albumitems>
+                          <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
+                          <a ng-click="getAlbumJson($event)"><img class=albumimg src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
+                          <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson($event)">{{relatedAlbums.name}}</li>
+                          <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>     
+                          </div>
+                      </div>
+                  </div>
+                  </div>   
+                </div>
 
                   <!--Artist Pages-->
                   <div class=pages id=artistpage>
@@ -386,9 +421,6 @@
  
                         </script>
                     <div id="tab-1" class="tab-content current">
-                        <div  ng-app="myApp" ng-controller="getSession">
-                            {{name}}
-                        </div>
                       <ul class=userinfo>
                         <li style="font-size: 2em; font-weight: bold">Profile</li>
                         <li id="field">Username</li>
@@ -438,79 +470,7 @@
                         <td>09/29/2017</td>
                       </tr>
                     </table>
-                  </div>
-
-                  <div class=pages id=indivAlbumPage>
-                    <div>
-                      <img style="margin: 10px;-top: 10px;" class=albumimg src="${home}/css/album/MiGente.jpg"></img>   
-                    </div>
-                    <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
-                      <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">Mi Gente</h1>
-                      <h3>By J Balvin</h3>
-                      <p style="margin-bottom: 120px;">
-                      <button>Play</button>
-                      <button>Save</button>
-                      </p>
-                      <hr class="style14" style="width:70%">
-                    </div>
-
-                    <table class=songtable>
-                      <tr>
-                        <td></td>
-                        <td>Title</td>
-                        <td>Artist</td>
-                        <td>Duration</td>
-                      </tr>
-                      <tr>
-                        <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
-                        <td>Mi Gente</td>
-                        <td>J Balvin, Willy William</td>
-                        <td>3:08</td>
-                      </tr>
-                      <tr>
-                        <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
-                        <td>Sorry Not Sorry</td>
-                        <td>J Balvin</td>
-                        <td>4:03</td>
-                      </tr>
-                      <tr>
-                        <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
-                        <td>Tell Me You Love Me</td>
-                        <td>J Balvin</td>
-                        <td>3:31</td>
-                      </tr>
-                        <td><img  class='play-btn' src=${home}/css/play-button-1.png></img></td>
-                        <td>No Promises</td>
-                        <td>J Balvin</td>
-                        <td>3:59</td>
-                      </tr>
-
-                    </table>
-                    <h3>More by J Balvin</h3>
-                    <hr class="style14" style="width:70%">
-                      <div class=albumitems>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/energia.jpg"></img>
-                          <li class=albumname>Energia Lado B</li>
-                          <li class=albumartist>J Balvin</li>     
-                          </div>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/energia.jpg"></img>
-                          <li class=albumname>Energia</li>
-                          <li class=albumartist>J Balvin</li>     
-                          </div>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/lafamilia.jpg"></img>
-                          <li class=albumname>La Familia B Sides</li>
-                          <li class=albumartist>J Balvin</li>     
-                          </div>
-                          <div>
-                          <img class=albumimg src="${home}/css/album/lafamilia.jpg"></img>
-                          <li class=albumname>La Familia</li>
-                          <li class=albumartist>J Balvin</li>     
-                          </div>
-                      </div>
-                  </div>        
+                  </div>    
 
                   <div class=pages id=libindivArtistPage>
                     <div>

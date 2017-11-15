@@ -4,83 +4,10 @@
  * and open the template in the editor.
  */
 jQuery(document).ready(function ($) {
-    getAllAlbum();
-    getSessionUser();
 });
 
-function getAllAlbum() {
-    console.log("Calling login Ajax function...");
-    
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "/308Vikings/Album/getAllAlbums",
-        data: "",
-        dataType: 'json',
-        async: true,
-        timeout: 100000,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-            console.log(data['albums'][0]['id']);
-            getAlbum(data['albums'][0]['id']);
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
-    });
-}
-
-
-function getAlbum(id) {
-    console.log("Calling login Ajax function...");
-    
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "/308Vikings//Album/" + id,
-        data: "",
-        dataType: 'json',
-        async: true,
-        timeout: 100000,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
-    });
-}
-
-function getSessionUser() {
-    console.log("Calling login Ajax function...");
-    
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "/308Vikings//UserAccount/getSessionUser",
-        data: "",
-        dataType: 'json',
-        async: true,
-        timeout: 100000,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
-    });
-}
-
 var app = angular.module('myApp', []);
+
 app.controller('getSession', function($scope, $http) {
     $http({
         method : "GET",
@@ -90,4 +17,30 @@ app.controller('getSession', function($scope, $http) {
     }, function myError(response) {
         $scope.name = response.statusText;
     });
+});
+
+app.controller("getDetailAlbum", function ($scope, $http) {
+    console.log("called");
+    $scope.getAlbumJson = function (event) {
+    console.log(event);
+    $http({
+      method: 'GET',
+      url: '/308Vikings/Album/getAlbumPageDetails',
+      headers: {'Content-Type': 'application/json'},
+      params: {id: event.target.id}
+    }).then(function successCallback(response) {
+      $scope.albumdata = response.data;
+      console.log("SONG:" , response.data);
+    }, function errorCallback(response) {});
+  }
+});
+
+app.controller("getAllAlbum", function ($scope, $http) {
+    $http({
+      method: 'GET',
+      url: '/308Vikings/Album/getAllAlbums',
+    }).then(function successCallback(response) {
+      $scope.data = response.data;
+      console.log(response.data);
+    }, function errorCallback(response) {});
 });

@@ -33,6 +33,7 @@
               var app = angular.module("myApp", []);
               app.controller("myCtrl", function ($scope, $http) {
                 $scope.getAlbumJson = function (event) {
+                  console.log(event);
                   $http({
                     method: 'GET',
                     url: '/308Vikings/Album/getAlbumPageDetails',
