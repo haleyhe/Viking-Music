@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,11 +37,6 @@ public class PlaylistController {
     UserMusicManager userMusicManager;
     
     /**
-     * !!! THIS WILL LITERALLY ONLY WORK ON BRYAN'S MACHINE      !!!
-     * !!! DUE TO FILEPATH SHENANIGANS THAT I HAVEN'T SOLVED YET !!!
-     * !!! The playlist will create in the database correctly,   !!!
-     * !!! but image saving will have issues.                    !!!
-     * 
      * Makes a new Playlist with the given parameters
      * (created by the User in the current session),
      * marks the Creator as a follower,
