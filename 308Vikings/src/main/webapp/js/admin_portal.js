@@ -134,7 +134,7 @@ function hideLoading() {
 }
 
 function logout() {
-    displayLoading();
+    showLoading();
     $.ajax({
         type: "GET",
         contentType: "application/json",
