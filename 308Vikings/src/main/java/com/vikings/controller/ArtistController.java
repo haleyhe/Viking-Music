@@ -1,6 +1,7 @@
 package com.vikings.controller;
 
 import com.vikings.domain.Artist;
+import com.vikings.domain.Concert;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
@@ -8,6 +9,7 @@ import com.vikings.domain.response.ArtistPageResponse;
 import com.vikings.domain.response.ArtistsResponse;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.AlbumManager;
+import com.vikings.manager.ConcertManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
 import java.util.List;
@@ -32,6 +34,9 @@ public class ArtistController {
     @Autowired
     SongManager songManager;
     
+    @Autowired
+    ConcertManager concertManager;
+    
     @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtist")
     public @ResponseBody Artist getArtist(@RequestParam("id") String id) {
         return artistManager.getArtist(id);
@@ -48,11 +53,12 @@ public class ArtistController {
         if(artist == null) {
             return null;
         }
-        
+        String bio = artist.getBio();
         List<Song> topSongs = songManager.getTopSongsForArtist(id);   
         List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
         List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
-        return new ArtistPageResponse(topSongs, relatedArtists, albums);
+        List<Concert> concerts = concertManager.getConcertsForArtist(id);
+        return new ArtistPageResponse(bio, topSongs, relatedArtists, albums, concerts);
     }
-
+    
 }
