@@ -19,7 +19,6 @@
 
 function signup() {
     var newUser = {};
-    newUser["id"] = null;
     newUser["username"] = $("#signup_username").val();
     newUser["password"] = $("#signup_password").val();
     newUser["email"] = $("#email").val();
@@ -27,7 +26,6 @@ function signup() {
     newUser["zip"] = $("#zipcode").val();
     newUser["premium"] = false;
     newUser["admin"] = false;
-    newUser["facebookId"] = null;
 
     $.ajax({
         type: "POST",
@@ -36,28 +34,19 @@ function signup() {
         data: JSON.stringify(newUser),
         dataType: 'json',
         async: true,
-        timeout: 100000,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-            $(".error.modal").css("display", "block");
-            if(!data.sucess){
-                $('#message').html(data['error']);
-            }
-            else{
-                $('#message').html("You have successfully sign up");    
-            }
-            
-        },
-        error: function (e) {
-            display(e);
-        },
-        done: function (e) {
+        timeout: 100000
+    }).done(function(data) {
+        $(".error.modal").css("display", "block");
+        if(!data.sucess){
+            $('#message').html(data['error']);
         }
+        else{
+            $('#message').html("You have successfully signed up.");    
+        }   
     });
 }
 
 function login() {
-    console.log("Calling login Ajax function...");
     var loginRequest = {};
     loginRequest["username"] = $("#login-username").val();
     loginRequest["password"] = $("#login-password").val();
@@ -69,24 +58,14 @@ function login() {
         data: JSON.stringify(loginRequest),
         dataType: 'json',
         async: true,
-        timeout: 100000,
-        success: function (data) {
-            console.log("SUCCESS: ", data);
-            if(!data.success){
-                $(".error.modal").css("display", "block");
-                 $('#message').html(data['error']);
-            }
-            else{
-                window.location.replace("/308Vikings/");
-            }
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-            display(e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
+        timeout: 100000
+    }).done(function(data) {
+        if(!data.success) {
+            $(".error.modal").css("display", "block");
+             $('#message').html(data['error']);
+        } else {
+            window.location.replace("/308Vikings/");
+        } 
     });
 
 }
@@ -101,19 +80,10 @@ function logout() {
         data: "",
         dataType: 'json',
         async: true,
-        timeout: 100000,
-        success: function (data) {
-            window.location.replace("/308Vikings/");
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-            display(e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
+        timeout: 100000
+    }).done(function(data) {
+        window.location.replace("/308Vikings/");
     });
-
 }
 
 function displaySignupMessage(data) {
@@ -138,25 +108,13 @@ function displayLoginMessage() {
 }
 
 function getUserInfoFromSession() {
-    console.log("Calling User from session Ajax function...");
-
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "/308Vikings/UserAccount/getSessionUser",
-        data: {},
-        dataType: 'json',
         async: true,
-        timeout: 100000,
-        success: function (data) {
-
-        },
-        error: function (e) {
-            console.log("ERROR: ", e);
-            display(e);
-        },
-        done: function (e) {
-            console.log("DONE");
-        }
+        timeout: 100000
+    }).done(function(data) {
+        window.location.replace("/308Vikings/");
     });
 }
