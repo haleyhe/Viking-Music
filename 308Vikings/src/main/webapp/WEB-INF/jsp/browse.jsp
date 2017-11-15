@@ -275,7 +275,7 @@
                         <td>3:08</td>
                       </tr>
                     </table>
-                    <h3>More by J Balvin</h3>
+                    <h3>More by {{albumdata.album.artists[0].name}}</h3>
                     <hr class="style14" style="width:70%">
                         <div class=albumitems>
                           <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
