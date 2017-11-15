@@ -70,7 +70,7 @@ public class AlbumController {
      * @return 
      *  Album object if found, null otherwise.
      */
-    @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbum/{id}")
+    @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbum")
     public @ResponseBody Album getAlbum(@RequestParam("id") String id) {
         Album album = albumManager.getAlbum(id);
         return album;
