@@ -262,7 +262,7 @@ function submitArtistEdit() {
     
     $.ajax({
         type: "POST",
-        url: "/308Vikings/ArtistAccount/updateArtistForAdmin",
+        url: "/308Vikings/Admin/updateArtist",
         contentType: false,
         processData: false,
         data: formData,
