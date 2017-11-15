@@ -452,6 +452,15 @@ hr.style14 {
     text-align: center;
 }
 
+.loading-modal-content img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    display: block;
+    width: 5%;
+}
+
 /* The Close Button */
 .close {
     color: #aaa;

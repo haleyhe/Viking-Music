@@ -128,7 +128,16 @@ function displaySuccessMessage(message) {
     $(".success.modal").css("display", "block");
 }
 
+function showLoading() {
+    $("#loading").css("display", "block");
+}
+
+function hideLoading() {
+    $("#loading").css("display", "none");
+}
+
 function logout() {
+    displayLoading();
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -137,6 +146,7 @@ function logout() {
         timeout: 100000
     }).done(function(data) {
         if (!data.success) {
+            hideLoading();
             displayErrorMessage(data.error);
         } else {
             window.location.replace("/308Vikings/");
@@ -156,7 +166,8 @@ function createUser() {
     newUser["premium"] = ($("#create-user-premium").is(":checked"));
     newUser["admin"] = ($("#create-user-admin").is(":checked"));
     newUser["facebookId"] = null;
-
+    
+    showLoading();
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -166,6 +177,7 @@ function createUser() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if (!data.success) {
             displayErrorMessage(data.error);
         } else {
@@ -177,6 +189,7 @@ function createUser() {
 // Edit User Page
 function getUserForEdit() {
     var username = $("#edit-user-prompt-username").val();
+    showLoading();
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -185,6 +198,7 @@ function getUserForEdit() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if (data) {
             displayEditUserForm(data);
         } else {
@@ -210,6 +224,7 @@ function displayEditUserForm(user) {
 
 // Edit Artist Page
 function loadArtists() {
+    showLoading();
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -217,6 +232,7 @@ function loadArtists() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         displayArtists(data.artists);
     });
 }
@@ -239,6 +255,7 @@ function createArtistItem(artist) {
 }
 
 function loadArtistEditForm(artistId) {
+    showLoading();
     $.ajax({
         type: "GET",
         url: "/308Vikings/Artist/getArtist",
@@ -246,6 +263,7 @@ function loadArtistEditForm(artistId) {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         displayArtistEditForm(data);
     });
 }
@@ -300,7 +318,7 @@ function submitArtistEdit() {
     if (filesSelected.length > 0) {
         formData.append("thumbnail", filesSelected[0]);
     }
-    
+    showLoading();
     $.ajax({
         type: "POST",
         url: "/308Vikings/Admin/updateArtist",
@@ -310,6 +328,7 @@ function submitArtistEdit() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if (!data.success) {
             displayErrorMessage(data.error);
         } else {
