@@ -83,7 +83,7 @@ public class UserAccountManager {
      * through. False otherwise
      */
     public boolean updateUserProfile(User updatedUser) {
-        if (!hasValidUserParameters(updatedUser) | !userAccountDAO.isValidUpdate(updatedUser)) {
+        if (!userAccountDAO.isValidUpdate(updatedUser)) {
             return false;
         } else {
             if (updatedUser.getPassword() != null && !updatedUser.getPassword().equals("")) {
