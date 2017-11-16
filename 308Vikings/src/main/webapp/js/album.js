@@ -26,7 +26,7 @@ app.controller("getDetailAlbum", function ($scope, $http) {
       $scope.albumdata = response.data;
       $('#indivAlbumPage').show();
       $("#loading").css("display", "none");
-      console.log("SONG:" , response.data);
+      //console.log("SONG:" , response.data);
     }, function errorCallback(response) {});
   }
 });
