@@ -93,7 +93,7 @@ public class PlaylistController {
         if (playlist == null) {
              return new PlaylistPageResponse(System.getProperty("error.Playlist.noSuchPlaylist"));
         }
-        boolean following = userMusicManager.isFollowingPlaylist(playlistId);
+        boolean following = userMusicManager.isFollowingPlaylist(playlist);
         HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(playlist);
         return new PlaylistPageResponse(playlist, following, savedSongs);
     }

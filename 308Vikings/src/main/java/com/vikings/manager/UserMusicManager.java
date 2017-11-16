@@ -138,11 +138,8 @@ public class UserMusicManager {
     public boolean hasSavedAlbum(AlbumIdentifier albumIdentifier) {
         User user = userAccountManager.getSessionUser();
         if (user != null) {
-            for (LibraryAlbum album : user.getUserMusic().getSavedAlbums()) {
-                if (album.getAlbumIdentifier().equals(albumIdentifier)) {
-                    return true;
-                }
-            }
+           LibraryAlbum libAlbum = new LibraryAlbum(albumIdentifier);
+           return user.getUserMusic().getSavedAlbums().contains(libAlbum);
         }
         return false;
     }
@@ -219,14 +216,12 @@ public class UserMusicManager {
         return followedPlaylists.remove(libPlaylist);
     }
     
-    public boolean isFollowingPlaylist(String playlistId) {
+    public boolean isFollowingPlaylist(Playlist playlist) {
         User user = userAccountManager.getSessionUser();
         if (user != null) {
-            for (LibraryPlaylist libPlaylist : user.getUserMusic().getFollowedPlaylists()) {
-                if (libPlaylist.getPlaylistIdentifier().getId().equals(playlistId)) {
-                    return true;
-                }
-            }
+            PlaylistIdentifier playlistIdent = new PlaylistIdentifier(playlist);
+            LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdent);
+           return user.getUserMusic().getFollowedPlaylists().contains(libPlaylist);
         }
         return false;
     }
