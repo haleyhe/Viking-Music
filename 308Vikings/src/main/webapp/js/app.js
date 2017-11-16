@@ -1,8 +1,4 @@
 $(document).ready(function () {
-    $('#user-display-name a').click(function(){
-        $('.pages').css("display","none");
-        $('#profilepage').show();
-    });
     
     $('ul.musictabs li').click(function(){
         var tab_id = $(this).attr('data-tab');
@@ -24,11 +20,6 @@ $(document).ready(function () {
         $("#"+tab_id).addClass('current');
     });
 
-    $('#browserTabs li').click(function(){
-        $('.pages').css("display","none");
-        $('#musicpage').show();
-    });
-    
     $('div.menutabs li').click(function(){
         var tab_id = $(this).attr('data-tab');
         $('div.menutabs li').removeClass('current');
@@ -68,23 +59,9 @@ $(document).ready(function () {
         $('#playListPage').show();
     });
 
-    $('.albumimg').click(function(e){
-        e.stopPropagation();
-    });
-
-    $('.viewFullAlbum').click(function(){
-        $('.pages').css("display","none");
-        $('#indivAlbumPage').show();
-    });
-
     $('.artistitems').click(function(){
         $('.pages').css("display","none");
         $('#libindivArtistPage').show();
-    });
-
-    $('.viewFullArtist').click(function(){
-        $('.pages').css("display","none");
-        $('#indivArtistPage').show();
     });
 
     $('.concerttable').click(function(){
@@ -93,7 +70,7 @@ $(document).ready(function () {
     });
 
 
-    $('.dropdownbtn').click(function(){
+    $('#dropdownbtn').click(function(){
         if($(this).hasClass('open')){
             $('.user-dropdown-menu').css("display", "none");
             $(this).removeClass('open');

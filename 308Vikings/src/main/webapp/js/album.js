@@ -1,8 +1,5 @@
 jQuery(document).ready(function ($) {
 });
-
-var app = angular.module('myApp', []);
-
 app.controller('getSession', function($scope, $http) {
     $http({
         method : "GET",
@@ -40,6 +37,6 @@ app.controller("getAllAlbum", function ($scope, $http) {
       url: '/308Vikings/Album/getAllAlbums',
     }).then(function successCallback(response) {
       $scope.data = response.data;
-      console.log(response.data);
+      //console.log(response.data);
     }, function errorCallback(response) {});
 });
