@@ -66,7 +66,7 @@
                <td><img class='play-btn' src=${home}css/play-button-1.png></img></td>
                <div>
                    <td>
-                       <img class='play-btn' src="${home}css/plus.png" ng-show="albumdata.savedSongs[song.id]" >
+                       <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
                        <img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]">
                    </td>
                </div>
