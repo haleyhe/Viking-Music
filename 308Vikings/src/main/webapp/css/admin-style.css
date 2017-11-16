@@ -154,19 +154,10 @@ hr.style15 {
   z-index: 98;
 }
 
-#search-bar input{
-  font-family: 'Raleway', sans-serif;
-  float: left;
-  height: 30px;
-  border-radius: 5px;
-  outline: none;
-  margin: 5px;
-  width: 12%;
-  padding-left: 1%;
-}
-
 #user-buttons ul{
   font-family: 'Raleway', sans-serif;
+  float: right;
+  width: 300px;
 }
 
 #user-buttons li{

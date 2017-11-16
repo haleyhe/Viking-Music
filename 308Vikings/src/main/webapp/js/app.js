@@ -69,17 +69,6 @@ $(document).ready(function () {
         $('#indivConcertPage').show();
     });
 
-
-    $('#dropdownbtn').click(function(){
-        if($(this).hasClass('open')){
-            $('.user-dropdown-menu').css("display", "none");
-            $(this).removeClass('open');
-        } else {
-            $('.user-dropdown-menu').css("display", "block");
-            $(this).addClass('open');
-        }
-    });
-
     $('.user-dropdown-menu').click(
         function(){
         $(this).removeClass('open');

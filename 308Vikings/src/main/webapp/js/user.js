@@ -34,7 +34,7 @@ function signup() {
         timeout: 100000
     }).done(function(data) {
         $(".error.modal").css("display", "block");
-        if(!data.sucess){
+        if(!data.success){
             $('#message').html(data['error']);
         }
         else{
@@ -59,8 +59,9 @@ function login() {
     }).done(function(data) {
         if(!data.success) {
             $(".error.modal").css("display", "block");
-             $('#message').html(data['error']);
+            $('#message').html(data['error']);
         } else {
+            
             window.location.replace("/308Vikings/");
         } 
     });
@@ -77,36 +78,6 @@ function logout() {
         window.location.replace("/308Vikings/");
     });
 }
-
-function displaySignupMessage(data) {
-    document.getElementById("signup").style.display = "none";
-    document.getElementById("feedback").style.display = "inline";
-    if (data.success) {
-        $('#feedback').html("<h4>Signup Successful</h4>");
-    } else 
-    {
-        $('#feedback').html("<h4>Signup Failed. Username or Email taken.</h4>");
-    }
-}
-
-function display(data) {
-    var json = "<h4>Ajax Response</h4><pre>"
-            + JSON.stringify(data, null, 4) + "</pre>";
-    $('#feedback').html(json);
-}
-
 function displayLoginMessage() {
     $(".error.modal").css("display", "block");
-}
-
-function getUserInfoFromSession() {
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "/308Vikings/UserAccount/getSessionUser",
-        async: true,
-        timeout: 100000
-    }).done(function(data) {
-        window.location.replace("/308Vikings/");
-    });
 }
