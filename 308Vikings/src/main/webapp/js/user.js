@@ -34,7 +34,7 @@ function signup() {
         timeout: 100000
     }).done(function(data) {
         $(".error.modal").css("display", "block");
-        if(!data.sucess){
+        if(!data.success){
             $('#message').html(data['error']);
         }
         else{
@@ -59,8 +59,9 @@ function login() {
     }).done(function(data) {
         if(!data.success) {
             $(".error.modal").css("display", "block");
-             $('#message').html(data['error']);
+            $('#message').html(data['error']);
         } else {
+            
             window.location.replace("/308Vikings/");
         } 
     });
