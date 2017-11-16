@@ -86,13 +86,20 @@
                       <ul>
                         <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
                         <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
-                        <li id=user-display-name style="margin-right: 2%;"><a>viking123</a></li>
+                        <li id=user-display-name style="margin-right: 2%;"><a>${user.username}</a></li>
                         <li>
                         <button class = dropdownbtn><b>></b></button>
 
                         <div class=user-dropdown-menu>
                           <a><button>Account Information</button></a>
                           <a><button>Billing</button></a>
+                          <c:choose>
+                            <c:when test="${user.admin}">
+                                <form id="to-admin-portal-form">
+                                    <a><button>To Admin Portal</button></a>
+                                </form>
+                            </c:when>
+                          </c:choose>
                           <form id="signout-form">
                               <a><button>Logout</button></a>
                           </form>
