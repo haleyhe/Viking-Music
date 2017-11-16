@@ -48,8 +48,8 @@
                    <div>{{albumdata.album.releaseDate |  date:'d MMMM yyyy'}}</div>
 
                    <p style="margin-bottom: 120px;">
-                       <button>Play</button>
-                       <button>Save</button>
+                       <button class="pageButton">Play</button>
+                       <button class="pageButton">Save</button>
                    </p>
                    <hr class="style14" style="width:70%">
                </div>
@@ -63,8 +63,11 @@
                <td>Duration</td>
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
-               <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
-               <td><img class=''></td>
+               <td><img class='play-btn' src=${home}css/play-button-1.png></img></td>
+               <div ng-repeat="(savedSongkey, savedSongdata) in albumdata.savedSongs">
+                   <td><img class='play-btn' src="${home}css/plus.png"></td>
+               </div>
+               
                <td>{{song.name}}</td>
                <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
                <td>3:08</td>

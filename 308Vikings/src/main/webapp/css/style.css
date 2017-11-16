@@ -124,7 +124,6 @@ hr.style15 {
   font-family: 'Julius Sans';
   padding: 100%;
   width: 100%;
-  z-index: 9999999;
 }
 
 #dropdownbtn.open{
@@ -194,6 +193,15 @@ hr.style15 {
   margin-top: -5px;
   font-size: 20px;
   padding: 0px;
+}
+.pageButton{
+  overflow: hidden;
+  outline:none;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 30px;
 }
 
 #user-buttons li img{ 
