@@ -1,17 +1,14 @@
  jQuery(document).ready(function ($) {
     $("#signup-form").submit(function (event) {
-        // Prevent the form from submitting via the browser.
         event.preventDefault();
         signup();
     });
     $("#signin-form").submit(function (event) {
-        // Prevent the form from submitting via the browser.
         event.preventDefault();
         login();
     });
     
-    $("#signout-form").submit(function (event) {
-        // Prevent the form from submitting via the browser.
+    $("#signout-form").click(function (event) {
         event.preventDefault();
         logout();
     });
@@ -71,14 +68,9 @@ function login() {
 }
 
 function logout() {
-    console.log("Calling logout Ajax function...");
-
     $.ajax({
         type: "GET",
-        contentType: "application/json",
         url: "/308Vikings/UserAccount/logout",
-        data: "",
-        dataType: 'json',
         async: true,
         timeout: 100000
     }).done(function(data) {
