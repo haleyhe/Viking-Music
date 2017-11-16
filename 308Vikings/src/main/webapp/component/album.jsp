@@ -64,7 +64,7 @@
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
                <td><img class='play-btn' src=${home}/css/play-button-1.png></img></td>
-               <td></td>
+               <td><img class=''></td>
                <td>{{song.name}}</td>
                <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
                <td>3:08</td>

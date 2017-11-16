@@ -15,6 +15,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>        
@@ -76,11 +77,11 @@
                     <ul>
                       <h4>YOUR LIBRARY</h4>
                       <b>
-                        <li class="tab-link" data-tab="menutab-1"><a href="#!recentlyplayed">Recently Played</a></li>
-                        <li class="tab-link" data-tab="menutab-2"><a href="#!songs">Songs</a></li>
-                        <li class="tab-link" data-tab="menutab-3"><a href="#!album">Albums</a></li>
-                        <li class="tab-link" data-tab="menutab-4"><a href="#!artists">Artists</a></li>
-                        <li class="tab-link" data-tab="menutab-5"><a href="#!concert">Concert</a></li>
+                        <a href="#!recentlyplayed"> <li class="tab-link" data-tab="menutab">Recently Played</li></a>
+                        <a href="#!songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
+                        <a href="#!album"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
+                        <a href="#!artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
+                        <a href="#!concert"><li class="tab-link" data-tab="menutab-5">Concert</li></a>
                       </b>
                     </ul>
                   </div>

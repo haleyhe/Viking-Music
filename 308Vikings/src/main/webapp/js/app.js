@@ -69,8 +69,8 @@ $(document).ready(function () {
         $('#indivConcertPage').show();
     });
 
-
-    $('#dropdownbtn').click(function(){
+    $('#dropdownbtn').click(function(e){
+        e.preventDefault();
         if($(this).hasClass('open')){
             $('.user-dropdown-menu').css("display", "none");
             $(this).removeClass('open');

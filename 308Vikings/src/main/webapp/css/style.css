@@ -124,6 +124,7 @@ hr.style15 {
   font-family: 'Julius Sans';
   padding: 100%;
   width: 100%;
+  z-index: 9999999;
 }
 
 #dropdownbtn.open{
