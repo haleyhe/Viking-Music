@@ -1,3 +1,4 @@
+
 package com.vikings.domain.request;
 
 /**

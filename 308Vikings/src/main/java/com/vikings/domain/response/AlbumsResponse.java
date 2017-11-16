@@ -1,6 +1,5 @@
 package com.vikings.domain.response;
 
-import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.List;
 

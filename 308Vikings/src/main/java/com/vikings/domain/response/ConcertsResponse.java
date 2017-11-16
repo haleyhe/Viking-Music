@@ -1,4 +1,3 @@
-
 package com.vikings.domain.response;
 
 import com.vikings.domain.Concert;
