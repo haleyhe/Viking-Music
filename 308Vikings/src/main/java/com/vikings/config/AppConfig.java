@@ -20,7 +20,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @EnableScheduling
 @ComponentScan(basePackages = "com.vikings")
-@ImportResource("classpath:properties.xml")
+@ImportResource("classpath:com/vikings/config/properties.xml")
 public class AppConfig extends WebMvcConfigurerAdapter {
     
     @Bean
