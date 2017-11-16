@@ -233,32 +233,32 @@ public class UserMusicManager {
     
     public HashMap<String,Boolean> findSavedSongList(Album album) {
         User user = userAccountManager.getSessionUser();
-        HashMap<String,Boolean> savedSongs = new HashMap<>();
         if (user == null) {
            return null;
-       }
-        List<Song> songList = album.getSongs();
-        for (Song s: songList) {
-           LibrarySong tempLibSong = new LibrarySong(s);
-           Boolean saved = user.getUserMusic().getSavedSongs().contains(tempLibSong);
+        }
+        HashMap<String,Boolean> savedSongs = new HashMap<>();
+        List<Song> songs = album.getSongs();
+        for (Song s: songs) {
+           LibrarySong librarySong = new LibrarySong(s);
+           Boolean saved = user.getUserMusic().getSavedSongs().contains(librarySong);
            savedSongs.put(s.getId(), saved);
-       }
-       return savedSongs;
+        }
+        return savedSongs;
     }
     
     public HashMap<String,Boolean>findSavedSongList(Playlist playlist) {
-       User user = userAccountManager.getSessionUser();
-       HashMap<String,Boolean> savedSongs = new HashMap<>();
-       List<PlaylistSong> songList = playlist.getSongs();
-       if (user == null) {
-           return null;
-       }
-       for (PlaylistSong ps: songList) {
-           Song s = new Song (ps.getId());
-           LibrarySong tempLibSong = new LibrarySong(s);
-           Boolean saved = user.getUserMusic().getSavedSongs().contains(tempLibSong);
-           savedSongs.put(ps.getId(), saved);
-       }
-       return savedSongs;
+        User user = userAccountManager.getSessionUser();
+        HashMap<String,Boolean> savedSongs = new HashMap<>();
+        List<PlaylistSong> songList = playlist.getSongs();
+        if (user == null) {
+            return null;
+        }
+        for (PlaylistSong ps: songList) {
+            Song s = new Song (ps.getId());
+            LibrarySong librarySong = new LibrarySong(s);
+            Boolean saved = user.getUserMusic().getSavedSongs().contains(librarySong);
+            savedSongs.put(ps.getId(), saved);
+        }
+        return savedSongs;
     }
 }

@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,8 +38,7 @@ public class AlbumController {
      *  -Related albums,
      *  -Boolean indicating whether the user has saved the Album.
      *  -Map of all of the songs and whether they are saved in the user's library
-     * Or null if no Album found.
-     *  
+     *  Or error message if no album found.
      */
     @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbumPageDetails")
     public @ResponseBody AlbumPageResponse getAlbumPageDetails(@RequestParam("id")  String id) {
