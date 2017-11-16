@@ -64,8 +64,11 @@
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
                <td><img class='play-btn' src=${home}css/play-button-1.png></img></td>
-               <div ng-repeat="(savedSongkey, savedSongdata) in albumdata.savedSongs">
-                   <td><img class='play-btn' src="${home}css/plus.png"></td>
+               <div>
+                   <td>
+                       <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
+                       <img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]">
+                   </td>
                </div>
                
                <td>{{song.name}}</td>
