@@ -76,8 +76,6 @@ public class AdminController {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
         
-        System.out.println("Deleting user with ID " + idRequest.getId());
-        
         userAccountManager.deleteUser(idRequest.getId());
         if (sessionUser.getId().equals(idRequest.getId())) {
             userAccountManager.setSessionUser(null);

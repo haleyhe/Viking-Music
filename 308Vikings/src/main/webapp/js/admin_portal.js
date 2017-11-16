@@ -92,6 +92,11 @@
         getUserForEdit();
     });
     
+    $("#edit-user-form").submit(function (event) {
+        event.preventDefault();
+        submitUserEdit();
+    });
+    
     $("#delete-user-form").submit(function (event) {
         event.preventDefault();
         deleteUser();
@@ -131,6 +136,7 @@ function showLoading() {
 
 function hideLoading() {
     $("#loading").css("display", "none");
+    $("#admin-error").css("display", "none");
 }
 
 function logout() {
@@ -154,7 +160,6 @@ function logout() {
 // Create User Page
 function createUser() {
     var newUser = {};
-    newUser["id"] = null;
     newUser["username"] = $("#create-user-username").val();
     newUser["password"] = $("#create-user-password").val();
     newUser["email"] = $("#create-user-email").val();
@@ -162,7 +167,6 @@ function createUser() {
     newUser["zip"] = $("#create-user-zipcode").val();
     newUser["premium"] = ($("#create-user-premium").is(":checked"));
     newUser["admin"] = ($("#create-user-admin").is(":checked"));
-    newUser["facebookId"] = null;
     
     showLoading();
     $.ajax({
@@ -217,6 +221,36 @@ function displayEditUserForm(user) {
     document.getElementById("edit-user-admin").checked = user.admin;
     $("#delete-user-form").attr("userId", user.id);
     $("#edit-user-form-div").show();
+}
+
+function submitUserEdit() {
+    var updatedUser = {};
+    updatedUser["id"] = $("#edit-user-form").attr("userId");
+    updatedUser["username"] = $("#edit-user-username").val();
+    updatedUser["password"] = $("#edit-user-password").val();
+    updatedUser["email"] = $("#edit-user-email").val();
+    updatedUser["dateOfBirth"] = $("#edit-user-dob").val();
+    updatedUser["zip"] = $("#edit-user-zipcode").val();
+    updatedUser["premium"] = ($("#edit-user-premium").is(":checked"));
+    updatedUser["admin"] = ($("#edit-user-admin").is(":checked"));
+    
+    showLoading();
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/308Vikings/Admin/updateUser",
+        data: JSON.stringify(updatedUser),
+        dataType: 'json',
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        hideLoading();
+        if (!data.success) {
+            displayErrorMessage(data.error);
+        } else {
+            displaySuccessMessage("Account updated.");
+        }
+    });
 }
 
 function deleteUser() {
