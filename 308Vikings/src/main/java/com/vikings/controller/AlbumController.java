@@ -42,24 +42,20 @@ public class AlbumController {
      */
     @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbumPageDetails")
     public @ResponseBody AlbumPageResponse getAlbumPageDetails(@RequestParam("id")  String id) {
-        AlbumPageResponse albumPageJson;
         Album album = albumManager.getAlbum(id);
         if (album == null) {
-            albumPageJson = new AlbumPageResponse(System.getProperty("error.Album.noSuchAlbum"));
-            return albumPageJson;
+            return new AlbumPageResponse(System.getProperty("error.Album.noSuchAlbum"));
         }
         List<AlbumIdentifier> relatedAlbums = albumManager.getAlbumsForArtist(album.getArtists().get(0).getId());
         relatedAlbums.remove(album.toAlbumIdentifier());
         boolean saved = userMusicManager.hasSavedAlbum(album.toAlbumIdentifier());
         HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(album);
-        albumPageJson = new AlbumPageResponse(album, relatedAlbums, saved, savedSongs);
-        return albumPageJson;
+        return new AlbumPageResponse(album, relatedAlbums, saved, savedSongs);
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/Album/getAllAlbums")
     public @ResponseBody AlbumsResponse getAllAlbums() {
-        AlbumsResponse allAlbums = new AlbumsResponse(albumManager.getAllAlbums());
-        return allAlbums;
+        return new AlbumsResponse(albumManager.getAllAlbums()); 
     }
     
     /**
@@ -71,8 +67,7 @@ public class AlbumController {
      */
     @RequestMapping(method=RequestMethod.GET, value="/Album/getAlbum")
     public @ResponseBody Album getAlbum(@RequestParam("id") String id) {
-        Album album = albumManager.getAlbum(id);
-        return album;
+        return albumManager.getAlbum(id);
     }
     
     /**
@@ -82,8 +77,7 @@ public class AlbumController {
      */
     @RequestMapping(method=RequestMethod.GET, value="/Album/getRecentAlbums")
     public @ResponseBody List<AlbumIdentifier> getRecentAlbums() {
-        List<AlbumIdentifier> recentAlbums = albumManager.getRecentAlbums();
-        return recentAlbums;
+        return albumManager.getRecentAlbums();
     }
 
 }

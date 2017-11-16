@@ -10,6 +10,7 @@ import com.vikings.domain.PaymentSummary;
 import com.vikings.domain.RevenueSummary;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
+import com.vikings.util.InputChecker;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
@@ -68,21 +69,27 @@ public class PaymentManager {
      *  true if valid, false otherwise.
      */
     private boolean isValidPayment(Payment payment) {
-        if (payment == null)
+        if (payment == null) {
             return false;
+        } 
         
-        if (payment.getCardNumber() == null)
+        if (payment.getExpirationDate() == null || payment.getExpirationDate().before(new java.util.Date())) {
             return false;
+        }
         
-        if (payment.getExpirationDate().before(new java.util.Date()))
+        String cardNum = payment.getCardNumber();
+        if (cardNum == null || !InputChecker.isValidCreditCard(cardNum)) {
             return false;
-        
-        // luhn algorithm check
+        }
+       return checkForLuhn(cardNum);
+    }
+    
+    private boolean checkForLuhn (String cardNum) {
         int sum = 0;
-        int numDigits = payment.getCardNumber().length();
+        int numDigits = cardNum.length();
         boolean parity = false;
         for (int i = numDigits -1; i >= 0; i--) {
-            int digit = Character.getNumericValue(payment.getCardNumber().charAt(i));
+            int digit = Character.getNumericValue(cardNum.charAt(i));
             if (parity) {
                 digit *= 2;
                 if (digit > 9) {

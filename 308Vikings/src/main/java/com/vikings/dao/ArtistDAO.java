@@ -48,7 +48,6 @@ public class ArtistDAO {
     }
     
     public Set<ArtistIdentifier> search(String query) {
-        // search regex for mysql
         query = "%" + query + "%";
         return artistMapper.search(query);
     }

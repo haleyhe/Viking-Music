@@ -112,7 +112,6 @@ public class PlaylistDAO {
     }
     
     public Set<PlaylistIdentifier> search(String query) {
-        // search regex for mysql
         query = "%" + query + "%";
         return playlistMapper.search(query);
     }

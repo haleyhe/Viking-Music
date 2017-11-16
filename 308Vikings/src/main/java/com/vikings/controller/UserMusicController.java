@@ -99,14 +99,12 @@ public class UserMusicController {
         
         if (user != null) {
             Song song = songManager.getSong(request.getSongId());
-            // update the history saved in the session
-            if (request.isClicked())
+            if (request.isClicked()) {
                 user.getUserMusic().getRecentlyPlayed().add(song);
-            
+            }
             user.getUserMusic().getHistory().add(song);
             
             userMusicManager.markSongAsPlayedForUser(user.getId(), request.getSongId(), request.isClicked());
-            
             return new JsonResponse(true);
         } else {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));

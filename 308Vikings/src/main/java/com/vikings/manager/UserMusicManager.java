@@ -74,6 +74,12 @@ public class UserMusicManager {
 
     }
     
+    public boolean addSongToLibrarySession(User user, String songId, Date dateAdded) {
+        Set<LibrarySong> savedSongs = user.getUserMusic().getSavedSongs();
+        LibrarySong libSong = new LibrarySong(songManager.getSong(songId), dateAdded);
+        return savedSongs.add(libSong);
+    }
+    
     /**
      * Marks the given Song as unsaved for the given User.
      * @param userId
@@ -83,6 +89,13 @@ public class UserMusicManager {
      */
     public void unsaveSong(String userId, String songId) {
         userMusicDAO.unsaveSong(userId, songId);
+    }
+       
+    public boolean removeSongFromLibrarySession(User user, String songId) {
+        Set<LibrarySong> savedSongs = user.getUserMusic().getSavedSongs();
+        Song song = new Song(songId);
+        LibrarySong libSong = new LibrarySong(song);
+        return savedSongs.remove(libSong);
     }
     
     /**
@@ -98,6 +111,12 @@ public class UserMusicManager {
         userMusicDAO.saveAlbum(userId, albumId, dateAdded);
     }
     
+    public boolean addAlbumToLibrarySession(User user, String albumId, Date dateAdded) {
+        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
+        LibraryAlbum libAlbum = new LibraryAlbum(albumManager.getAlbumIdentifier(albumId), dateAdded);
+        return savedAlbums.add(libAlbum);
+    }
+    
     /**
      * Marks the given Album as unsaved for the given User.
      * @param userId
@@ -107,6 +126,25 @@ public class UserMusicManager {
      */
     public void unsaveAlbum(String userId, String albumId) {
         userMusicDAO.unsaveAlbum(userId, albumId);
+    }
+    
+    public boolean removeAlbumFromLibrarySession(User user, String albumId) {
+        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
+        AlbumIdentifier albumIdentifier = new AlbumIdentifier(albumId);
+        LibraryAlbum libAlbum = new LibraryAlbum(albumIdentifier);
+        return savedAlbums.remove(libAlbum);
+    }
+    
+    public boolean hasSavedAlbum(AlbumIdentifier albumIdentifier) {
+        User user = userAccountManager.getSessionUser();
+        if (user != null) {
+            for (LibraryAlbum album : user.getUserMusic().getSavedAlbums()) {
+                if (album.getAlbumIdentifier().equals(albumIdentifier)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     /**
@@ -122,6 +160,12 @@ public class UserMusicManager {
         userMusicDAO.followArtist(userId, artistId, dateAdded);
     }
     
+    public boolean addArtistToLibrarySession(User user, String artistId, Date dateAdded) {
+        Set<LibraryArtist> followedArtists = user.getUserMusic().getFollowedArtists();
+        LibraryArtist libArtist = new LibraryArtist(artistManager.getArtistIdentifier(artistId), dateAdded);
+        return followedArtists.add(libArtist);
+    }
+
     /**
      * Marks the given Artist as unfollowed for the given User.
      * @param userId
@@ -131,6 +175,13 @@ public class UserMusicManager {
      */
     public void unfollowArtist(String userId, String artistId) {
         userMusicDAO.unfollowArtist(userId, artistId);
+    }
+    
+    public boolean removeArtistFromLibrarySession(User user, String artistId) {
+        Set<LibraryArtist> followedArtists = user.getUserMusic().getFollowedArtists();
+        ArtistIdentifier artistIdentifier = new ArtistIdentifier(artistId);
+        LibraryArtist libArtist = new LibraryArtist(artistIdentifier);
+        return followedArtists.remove(libArtist);
     }
     
     /**
@@ -144,6 +195,12 @@ public class UserMusicManager {
         userMusicDAO.followPlaylist(userId, playlistId, dateAdded);
     }
     
+    public boolean addPlaylistToLibrarySession(User user, String playlistId, Date dateAdded) {
+        Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
+        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistManager.getPlaylistIdentifier(playlistId), dateAdded);
+        return followedPlaylists.add(libPlaylist);
+    }
+    
     /**
      * Marks the given Playlist as unfollowed for the given User.
      * @param userId
@@ -155,16 +212,11 @@ public class UserMusicManager {
         userMusicDAO.unfollowPlaylist(userId, playlistId);
     }
     
-    public boolean hasSavedAlbum(AlbumIdentifier albumIdentifier) {
-        User user = userAccountManager.getSessionUser();
-        if (user != null) {
-            for (LibraryAlbum album : user.getUserMusic().getSavedAlbums()) {
-                if (album.getAlbumIdentifier().equals(albumIdentifier)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean removePlaylistFromLibrarySession(User user, String playlistId) {
+        Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
+        PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
+        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
+        return followedPlaylists.remove(libPlaylist);
     }
     
     public boolean isFollowingPlaylist(String playlistId) {
@@ -177,58 +229,6 @@ public class UserMusicManager {
             }
         }
         return false;
-    }
-    
-    public boolean addSongToLibrarySession(User user, String songId, Date dateAdded) {
-        Set<LibrarySong> savedSongs = user.getUserMusic().getSavedSongs();
-        LibrarySong libSong = new LibrarySong(songManager.getSong(songId), dateAdded);
-        return savedSongs.add(libSong);
-    }
-    
-    public boolean removeSongFromLibrarySession(User user, String songId) {
-        Set<LibrarySong> savedSongs = user.getUserMusic().getSavedSongs();
-        Song song = new Song(songId);
-        LibrarySong libSong = new LibrarySong(song);
-        return savedSongs.remove(libSong);
-    }
-
-    public boolean addAlbumToLibrarySession(User user, String albumId, Date dateAdded) {
-        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
-        LibraryAlbum libAlbum = new LibraryAlbum(albumManager.getAlbumIdentifier(albumId), dateAdded);
-        return savedAlbums.add(libAlbum);
-    }
-
-    public boolean removeAlbumFromLibrarySession(User user, String albumId) {
-        Set<LibraryAlbum> savedAlbums = user.getUserMusic().getSavedAlbums();
-        AlbumIdentifier albumIdentifier = new AlbumIdentifier(albumId);
-        LibraryAlbum libAlbum = new LibraryAlbum(albumIdentifier);
-        return savedAlbums.remove(libAlbum);
-    }
-
-    public boolean addArtistToLibrarySession(User user, String artistId, Date dateAdded) {
-        Set<LibraryArtist> followedArtists = user.getUserMusic().getFollowedArtists();
-        LibraryArtist libArtist = new LibraryArtist(artistManager.getArtistIdentifier(artistId), dateAdded);
-        return followedArtists.add(libArtist);
-    }
-
-    public boolean removeArtistFromLibrarySession(User user, String artistId) {
-        Set<LibraryArtist> followedArtists = user.getUserMusic().getFollowedArtists();
-        ArtistIdentifier artistIdentifier = new ArtistIdentifier(artistId);
-        LibraryArtist libArtist = new LibraryArtist(artistIdentifier);
-        return followedArtists.remove(libArtist);
-    }
-
-    public boolean addPlaylistToLibrarySession(User user, String playlistId, Date dateAdded) {
-        Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
-        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistManager.getPlaylistIdentifier(playlistId), dateAdded);
-        return followedPlaylists.add(libPlaylist);
-    }
-
-    public boolean removePlaylistFromLibrarySession(User user, String playlistId) {
-        Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
-        PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
-        LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
-        return followedPlaylists.remove(libPlaylist);
     }
     
     public HashMap<String,Boolean> findSavedSongList(Album album) {

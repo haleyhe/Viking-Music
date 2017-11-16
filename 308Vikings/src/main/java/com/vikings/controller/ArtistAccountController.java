@@ -79,7 +79,6 @@ public class ArtistAccountController {
         
         Artist sessionArtist = artistManager.getSessionArtist();
         
-        // check for nulls and account for empty/invalid parameters
         if (sessionArtist == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }  
@@ -87,8 +86,7 @@ public class ArtistAccountController {
         if (name.trim().isEmpty()) {
             return new JsonResponse(false, System.getProperty("error.Form.invalidParameters"));
         }
-        if (firstName.trim().isEmpty()
-            || lastName.trim().isEmpty()) {
+        if (firstName.trim().isEmpty() || lastName.trim().isEmpty()) {
             newName = null;
         }
         if (genre.trim().isEmpty()) {

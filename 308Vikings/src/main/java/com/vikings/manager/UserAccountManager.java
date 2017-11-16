@@ -35,7 +35,6 @@ public class UserAccountManager {
      * unhashed password).
      */
     public void registerUser(User user) {
-        // generate an ID and hash password
         user.setId(java.util.UUID.randomUUID().toString());
         user.setPassword(hashPassword(user.getPassword()));
         userAccountDAO.registerUser(user);

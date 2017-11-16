@@ -44,7 +44,6 @@ public class AlbumDAO {
     }
     
     public Set<AlbumIdentifier> search(String query) {
-        // search regex for mysql
         query = "%" + query + "%";
         return albumMapper.search(query);
     }

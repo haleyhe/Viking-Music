@@ -50,9 +50,7 @@ public class PlaylistManager {
         playlist.setSongs(new ArrayList<PlaylistSong>());
         
         playlistDAO.createPlaylist(playlist);
-        
         playlistCache.put(id, playlist);
-        
         return id;
     }
     

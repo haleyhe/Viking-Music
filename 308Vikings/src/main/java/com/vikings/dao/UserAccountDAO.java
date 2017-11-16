@@ -47,7 +47,6 @@ public class UserAccountDAO {
     public User processLogin(User user) {
         User foundUser = userAccountMapper.processLogin(user);
         if (foundUser != null) {
-            // construct the UserMusic
             UserMusic userMusic = new UserMusic();
             userMusic.setSavedSongs(userMusicMapper.getSavedSongs(foundUser.getId()));
             userMusic.setSavedAlbums(userMusicMapper.getSavedAlbums(foundUser.getId()));

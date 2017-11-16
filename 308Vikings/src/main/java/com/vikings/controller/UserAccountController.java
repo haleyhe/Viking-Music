@@ -24,6 +24,7 @@ public class UserAccountController {
       
     @Autowired
     PaymentManager paymentManager;
+    
     /**
      * Validates and registers the given User.
      * @param newUser
@@ -33,18 +34,13 @@ public class UserAccountController {
      */
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/registerUser")
     public @ResponseBody JsonResponse registerUser(@RequestBody User newUser) {
-        // check if the user exists
         boolean exists = userAccountManager.userExists(newUser);
-        
-        JsonResponse json = new JsonResponse();
         if (!exists) {
             userAccountManager.registerUser(newUser);
-            json.setSuccess(true);  
+            return new JsonResponse(true); 
         } else {
-            json.setSuccess(false);
-            json.setError(System.getProperty("error.UserAccount.userExists"));
+            return new JsonResponse(false, System.getProperty("error.UserAccount.userExists"));
         }
-        return json;
     }
     
     /**
@@ -61,18 +57,13 @@ public class UserAccountController {
         loginUser.setUsername(loginRequest.getUsername());
         loginUser.setPassword(loginRequest.getPassword());
         
-        // see if we get a User
         User user = userAccountManager.processLogin(loginUser);
-        
-        JsonResponse json = new JsonResponse();
         if (user != null) {
             userAccountManager.setSessionUser(user);
-            json.setSuccess(true);
+            return new JsonResponse(true);
         } else {
-            json.setSuccess(false);
-            json.setError(System.getProperty("error.UserAccount.invalidLogin"));
+            return new JsonResponse(false, System.getProperty("error.UserAccount.invalidLogin"));
         }
-        return json;
     }
     
     /**
@@ -85,7 +76,6 @@ public class UserAccountController {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
         User user = (User) session.getAttribute("user");
-        
         return user;
     }
        
@@ -99,10 +89,7 @@ public class UserAccountController {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
         session.invalidate();
-        
-        JsonResponse json = new JsonResponse();
-        json.setSuccess(true);
-        return json;
+        return new JsonResponse(true);
     }
     
     /**

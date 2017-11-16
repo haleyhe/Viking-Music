@@ -78,9 +78,6 @@ public class FileManager {
     
     private BufferedImage resizeImage(BufferedImage image, int width, int height) {
         Image resizedThumbnail = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        // The resized image has to be redrawn onto a new BufferedImage.
-        // Resizing converts the BufferedImage to an Image, but only BufferedImages
-        // can be written using ImageIO.
         BufferedImage bufferedResizedThumbnail = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D bufferedGraphic = bufferedResizedThumbnail.createGraphics();
         bufferedGraphic.drawImage(resizedThumbnail, 0, 0, width, height, null);

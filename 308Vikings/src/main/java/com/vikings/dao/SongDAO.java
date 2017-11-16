@@ -34,7 +34,6 @@ public class SongDAO {
     }
     
     public Set<Song> search(String query) {
-        // search regex for mysql
         query = "%" + query + "%";
         return songMapper.search(query);
     }
