@@ -1,15 +1,19 @@
 package com.vikings.controller;
 
+import com.vikings.domain.Concert;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
+import com.vikings.domain.response.ConcertsResponse;
 import com.vikings.domain.response.SearchResponse;
 import com.vikings.domain.response.SongsResponse;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.ArtistManager;
+import com.vikings.manager.ConcertManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
+import com.vikings.manager.UserMusicManager;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +41,12 @@ public class BrowseController {
     
     @Autowired
     PlaylistManager playlistManager;
+    
+    @Autowired
+    UserMusicManager userMusicManager;
+    
+    @Autowired
+    ConcertManager concertManager;
     
     /**
      * Returns search results for the given query.
@@ -71,5 +81,16 @@ public class BrowseController {
     public @ResponseBody SongsResponse getTopSongs() {
         return new SongsResponse(songManager.getTopSongs());
     }
-
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendedConcerts")
+    public @ResponseBody ConcertsResponse getRecommendedConcerts() {
+        Set<ArtistIdentifier> favoriteArtists = userMusicManager.getFavoriteArtistsForSessionUser();
+        if (favoriteArtists != null) {
+            if (favoriteArtists.size() > 0) {
+                List<Concert> concerts = concertManager.getConcertsForArtists(favoriteArtists);
+                return new ConcertsResponse(concerts);
+            }
+        }
+        return new ConcertsResponse();
+    }
 }

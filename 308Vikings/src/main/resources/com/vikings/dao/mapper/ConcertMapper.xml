@@ -16,8 +16,9 @@
                     <result property="state" column="venue_address_state"/>
             </association>
         </association>
-        <collection property="artists" ofType="com.vikings.domain.Artist">
+        <collection property="artists" ofType="com.vikings.domain.identifier.ArtistIdentifier">
             <id property="id" column="artist_id"/>
+            <result property="name" column="artist_name"/>
         </collection>
     </resultMap>
     
@@ -32,7 +33,8 @@
             a.city as 'venue_address_city',
             a.state as 'venue_address_state',
             a.zip as 'venue_address_zip',
-            ar.artistId as 'artist_id'
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
         FROM
             Concerts c
         LEFT JOIN
@@ -67,7 +69,8 @@
             a.city as 'venue_address_city',
             a.state as 'venue_address_state',
             a.zip as 'venue_address_zip',
-            ar.artistId as 'artist_id'
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
         FROM
             ConcertArtists ca
         LEFT JOIN
@@ -89,6 +92,47 @@
             ca.artistId = ar.artistId
         WHERE
             ca.artistId = #{id}
+        ORDER BY
+            c.concertDate ASC
+    </select>
+
+    <select id="getConcertsForArtists" parameterType="java.util.Set" resultMap="concertMap">
+        SELECT
+            c.concertId as 'concert_id',
+            c.concertDate as 'concert_date',
+            c.ticketingUrl as 'concert_ticketing_url',
+            v.venueId as 'venue_id',
+            v.name as 'venue_name',
+            a.street as 'venue_address_street',
+            a.city as 'venue_address_city',
+            a.state as 'venue_address_state',
+            a.zip as 'venue_address_zip',
+            ar.artistId as 'artist_id',
+            ar.name as 'artist_name'
+        FROM
+            ConcertArtists ca
+        LEFT JOIN
+            Concerts c
+        ON
+            c.concertId = ca.concertId
+        LEFT JOIN
+            ConcertVenues v
+        ON
+            c.venueId = v.venueId
+        LEFT JOIN
+            Addresses a
+        ON
+            a.street = v.street AND
+            a.zip = v.zip
+        LEFT JOIN
+            Artists ar
+        ON
+            ca.artistId = ar.artistId
+        WHERE
+            ca.artistId IN
+            <foreach collection="artists" item="artist" open="(" separator="," close=")">
+                #{artist.id}
+            </foreach>
         ORDER BY
             c.concertDate ASC
     </select>
