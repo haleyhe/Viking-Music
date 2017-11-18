@@ -179,7 +179,7 @@
             u.admin = 1
     </select>
 
-    <select id="search" resultMap="playlistIdentifierMap">
+    <select id="search" parameterType="Map" resultMap="playlistIdentifierMap">
         SELECT
             p.playlistId as 'playlist_id',
             p.name as 'playlist_name',
@@ -200,6 +200,12 @@
             (
                 p.creatorId = u.userId
             )
+        GROUP BY
+            p.playlistId
+        <if test="limit != null">
+            LIMIT
+                #{limit}
+        </if>
     </select>
     
 </mapper>

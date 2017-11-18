@@ -4,9 +4,8 @@ import com.vikings.dao.AlbumDAO;
 import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -60,8 +59,8 @@ public class AlbumManager {
         return new AlbumIdentifier(album);
     }
     
-    public Set<AlbumIdentifier> search(String query) {
-        return albumDAO.search(query);
+    public List<AlbumIdentifier> search(String query, Integer limit) {
+        return albumDAO.search(query, limit);
     }
     
 }

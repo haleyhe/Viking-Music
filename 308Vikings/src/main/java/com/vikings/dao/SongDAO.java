@@ -33,9 +33,9 @@ public class SongDAO {
         return songMapper.getTopSongsForArtist(id);
     }
     
-    public Set<Song> search(String query) {
+    public List<Song> search(String query, Integer limit) {
         query = "%" + query + "%";
-        return songMapper.search(query);
+        return songMapper.search(query, limit);
     }
     
     public Set<Song> getArtistSongsForPayment(String id, Date startDate, Date endDate) {

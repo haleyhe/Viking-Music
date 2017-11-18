@@ -9,6 +9,7 @@ import com.vikings.manager.AlbumManager;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
+import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,17 +41,20 @@ public class BrowseController {
      * Returns search results for the given query.
      * @param query
      *  Search query.
+     * @param limit
+     *  Number of results to return per type (optional).
      * @return 
      *  Response object containing songs, albums, artists, and playlists that match
      *  the given query.
      */
     @RequestMapping(method=RequestMethod.GET, value="/Browse/search")
-    public @ResponseBody SearchResponse search(@RequestParam("query") String query) {
+    public @ResponseBody SearchResponse search(@RequestParam("query") String query,
+                                               @RequestParam(value="limit", required=false) Integer limit) {
         if (query.replaceAll("\\s","").length() > 0) {
-            Set<Song> songs = songManager.search(query);
-            Set<AlbumIdentifier> albums = albumManager.search(query);
-            Set<ArtistIdentifier> artists = artistManager.search(query);
-            Set<PlaylistIdentifier> playlists = playlistManager.search(query);
+            List<Song> songs = songManager.search(query, limit);
+            List<AlbumIdentifier> albums = albumManager.search(query, limit);
+            List<ArtistIdentifier> artists = artistManager.search(query, limit);
+            List<PlaylistIdentifier> playlists = playlistManager.search(query, limit);
             return new SearchResponse(songs, albums, artists, playlists);
         } else {
             return new SearchResponse();

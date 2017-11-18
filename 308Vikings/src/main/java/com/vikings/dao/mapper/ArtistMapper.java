@@ -30,7 +30,7 @@ public interface ArtistMapper {
     
     public List<ArtistIdentifier> getRelatedArtists(String id);
     
-    public Set<ArtistIdentifier> search(String query);
+    public List<ArtistIdentifier> search(@Param("query") String query, @Param("limit") Integer limit);
     
 }
 

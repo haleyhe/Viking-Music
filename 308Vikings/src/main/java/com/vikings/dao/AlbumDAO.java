@@ -7,7 +7,6 @@ import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -43,8 +42,8 @@ public class AlbumDAO {
         return albumMapper.getRecentAlbums();
     }
     
-    public Set<AlbumIdentifier> search(String query) {
+    public List<AlbumIdentifier> search(String query, Integer limit) {
         query = "%" + query + "%";
-        return albumMapper.search(query);
+        return albumMapper.search(query, limit);
     }
 }

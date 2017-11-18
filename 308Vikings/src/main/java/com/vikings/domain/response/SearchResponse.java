@@ -4,53 +4,53 @@ import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
-import java.util.Set;
+import java.util.List;
 
 public class SearchResponse {
-    Set<Song> songs;
-    Set<AlbumIdentifier> albums;
-    Set<ArtistIdentifier> artists;
-    Set<PlaylistIdentifier> playlists;
+    List<Song> songs;
+    List<AlbumIdentifier> albums;
+    List<ArtistIdentifier> artists;
+    List<PlaylistIdentifier> playlists;
     
     public SearchResponse() {
     }
 
-    public SearchResponse(Set<Song> songs, Set<AlbumIdentifier> albums, Set<ArtistIdentifier> artists, Set<PlaylistIdentifier> playlists) {
+    public SearchResponse(List<Song> songs, List<AlbumIdentifier> albums, List<ArtistIdentifier> artists, List<PlaylistIdentifier> playlists) {
         this.songs = songs;
         this.albums = albums;
         this.artists = artists;
         this.playlists = playlists;
     }
 
-    public Set<Song> getSongs() {
+    public List<Song> getSongs() {
         return songs;
     }
 
-    public void setSongs(Set<Song> songs) {
+    public void setSongs(List<Song> songs) {
         this.songs = songs;
     }
 
-    public Set<AlbumIdentifier> getAlbums() {
+    public List<AlbumIdentifier> getAlbums() {
         return albums;
     }
 
-    public void setAlbums(Set<AlbumIdentifier> albums) {
+    public void setAlbums(List<AlbumIdentifier> albums) {
         this.albums = albums;
     }
 
-    public Set<ArtistIdentifier> getArtists() {
+    public List<ArtistIdentifier> getArtists() {
         return artists;
     }
 
-    public void setArtists(Set<ArtistIdentifier> artists) {
+    public void setArtists(List<ArtistIdentifier> artists) {
         this.artists = artists;
     }
 
-    public Set<PlaylistIdentifier> getPlaylists() {
+    public List<PlaylistIdentifier> getPlaylists() {
         return playlists;
     }
 
-    public void setPlaylists(Set<PlaylistIdentifier> playlists) {
+    public void setPlaylists(List<PlaylistIdentifier> playlists) {
         this.playlists = playlists;
     }
     

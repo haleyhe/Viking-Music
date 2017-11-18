@@ -288,7 +288,7 @@
             s.songId
     </select>
 
-    <select id="search" parameterType="String" resultMap="songMap">
+    <select id="search" parameterType="Map" resultMap="songMap">
         SELECT
             s.songId as 'song_id',
             s.name as 'song_name',
@@ -340,6 +340,12 @@
                 AND
                 a2.artistId = ala.artistId
             )
+        GROUP BY
+            s.songId
+        <if test="limit != null">
+            LIMIT
+                #{limit}
+        </if>
     </select>
     
 </mapper>

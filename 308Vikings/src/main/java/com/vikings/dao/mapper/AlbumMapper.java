@@ -4,6 +4,7 @@ import com.vikings.domain.Album;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import java.util.List;
 import java.util.Set;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Mapper class for AlbumDAO.
@@ -20,6 +21,6 @@ public interface AlbumMapper {
     
     public List<AlbumIdentifier> getRecentAlbums();
     
-    public Set<AlbumIdentifier> search(String query);   
+    public List<AlbumIdentifier> search(@Param("query") String query, @Param("limit") Integer limit);   
 }
 

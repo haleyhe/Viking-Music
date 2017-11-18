@@ -4,7 +4,6 @@ import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.List;
-import java.util.Set;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -32,6 +31,6 @@ public interface PlaylistMapper {
     
     public List<Playlist> getAdminCuratedPlaylists();
     
-    public Set<PlaylistIdentifier> search(String query);
+    public List<PlaylistIdentifier> search(@Param("query") String query, @Param("limit") Integer limit);
 }
 
