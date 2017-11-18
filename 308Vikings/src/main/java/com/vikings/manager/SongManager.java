@@ -36,6 +36,10 @@ public class SongManager {
         return song;
     }
     
+    public List<Song> getTopSongs() {
+        return songDAO.getTopSongs();
+    }
+    
     /**
      * Gets the Songs for the Artist, sorted by play count.
      * @param id

@@ -22,6 +22,10 @@ public class SongDAO {
         return songMapper.getSong(id);
     }
     
+    public List<Song> getTopSongs() {
+        return songMapper.getTopSongs();
+    }
+    
     /**
      * Gets the Songs for the Artist, sorted by play count.
      * @param id

@@ -5,6 +5,7 @@ import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.response.SearchResponse;
+import com.vikings.domain.response.SongsResponse;
 import com.vikings.manager.AlbumManager;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.PlaylistManager;
@@ -59,6 +60,16 @@ public class BrowseController {
         } else {
             return new SearchResponse();
         }
+    }
+    
+    /**
+     * Returns an ordered list of the most-played songs on the service.
+     * @return 
+     *  SongsReponse containing a list of songs.
+     */
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/getTopSongs")
+    public @ResponseBody SongsResponse getTopSongs() {
+        return new SongsResponse(songManager.getTopSongs());
     }
 
 }
