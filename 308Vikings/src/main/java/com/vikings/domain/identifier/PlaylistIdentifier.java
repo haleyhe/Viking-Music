@@ -12,7 +12,8 @@ public class PlaylistIdentifier implements Serializable {
     String id;
     String name;
     UserIdentifier creator;
-
+    int numFollowers;
+    
     public PlaylistIdentifier() {
     }
     
@@ -20,16 +21,18 @@ public class PlaylistIdentifier implements Serializable {
         this.id = id;
     }
     
-    public PlaylistIdentifier(String id, String name, UserIdentifier creator) {
+    public PlaylistIdentifier(String id, String name, UserIdentifier creator, int numFollowers) {
         this.id = id;
         this.name = name;
         this.creator = creator;
+        this.numFollowers = numFollowers;
     }
 
     public PlaylistIdentifier(Playlist playlist) {
         this.id = playlist.getId();
         this.name = playlist.getName();
         this.creator = playlist.getCreator();
+        this.numFollowers = playlist.getNumFollowers();
     }
     
     public String getId() {
@@ -54,6 +57,14 @@ public class PlaylistIdentifier implements Serializable {
 
     public void setCreator(UserIdentifier creator) {
         this.creator = creator;
+    }
+
+    public int getNumFollowers() {
+        return numFollowers;
+    }
+
+    public void setNumFollowers(int numFollowers) {
+        this.numFollowers = numFollowers;
     }
 
     @Override

@@ -113,7 +113,7 @@ public class Playlist implements Serializable {
     }
     
     public PlaylistIdentifier toPlaylistIdentifier() {
-        return new PlaylistIdentifier(this.id, this.name, this.creator);
+        return new PlaylistIdentifier(this.id, this.name, this.creator, this.numFollowers);
     }
     
 }
