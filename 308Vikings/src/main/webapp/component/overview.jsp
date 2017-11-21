@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
         <c:url var="home" value="/" scope="request" />
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <title>Viking - Browse</title>

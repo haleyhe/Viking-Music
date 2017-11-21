@@ -4,17 +4,6 @@
                 window.location.reload();
             }
         };
-
-        $('#dropdownbtn').click(function(e){
-            e.preventDefault();
-            if($(this).hasClass('open')){
-                $('.user-dropdown-menu').css("display", "none");
-                $(this).removeClass('open');
-            } else {
-                $('.user-dropdown-menu').css("display", "block");
-                $(this).addClass('open');
-            }
-        });
  
         song = new Audio(home + '/download/AlanWalker-Fade.mp3');
         duration = song.duration;
