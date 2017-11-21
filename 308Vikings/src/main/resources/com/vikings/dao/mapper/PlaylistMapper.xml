@@ -18,6 +18,7 @@
     <resultMap id="playlistIdentifierMap" type="com.vikings.domain.identifier.PlaylistIdentifier">
         <id property="id" column="playlist_id" />
         <result property="name" column="playlist_name"/>
+        <result property="numFollowers" column="playlist_num_followers"/>
         <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
             <id property="id" column="playlist_creator_id"/>
             <result property="name" column="playlist_creator_name"/>
@@ -184,7 +185,14 @@
             p.playlistId as 'playlist_id',
             p.name as 'playlist_name',
             u.userId as 'playlist_creator_id',
-            u.username as 'playlist_creator_name'
+            (SELECT
+                COUNT(*)
+            FROM
+                UserPlaylistsFollowed upf
+            WHERE
+                upf.playlistId = #{id}
+            )
+            as 'playlist_num_followers'
         FROM
             Playlists p,
             Users u
