@@ -167,7 +167,7 @@
             FROM
                 UserPlaylistsFollowed upf
             WHERE
-                upf.playlistId = #{id}
+                upf.playlistId = p.playlistId
             )
             as 'playlist_num_followers'
         FROM
@@ -190,7 +190,7 @@
             FROM
                 UserPlaylistsFollowed upf
             WHERE
-                upf.playlistId = #{id}
+                upf.playlistId = p.playlistId
             )
             as 'playlist_num_followers'
         FROM
