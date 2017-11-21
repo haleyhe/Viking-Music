@@ -64,7 +64,7 @@
     </resultMap>
 
     <resultMap id="libraryPlaylistMap" type="com.vikings.domain.library.LibraryPlaylist">
-        <id property="dateAdded" column="album_date_added"/>
+        <id property="dateAdded" column="playlist_date_added"/>
         <association property="playlistIdentifier" javaType="com.vikings.domain.identifier.PlaylistIdentifier">
             <id property="id" column="playlist_id"/>
             <result property="name" column="playlist_name"/>
