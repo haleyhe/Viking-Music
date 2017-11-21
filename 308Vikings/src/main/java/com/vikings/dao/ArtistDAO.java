@@ -47,9 +47,9 @@ public class ArtistDAO {
         return artistMapper.getRelatedArtists(artistId);
     }
     
-    public Set<ArtistIdentifier> search(String query) {
+    public List<ArtistIdentifier> search(String query, Integer limit) {
         query = "%" + query + "%";
-        return artistMapper.search(query);
+        return artistMapper.search(query, limit);
     }
     
 }

@@ -219,7 +219,7 @@
             shared_genres DESC
     </select>
 
-    <select id="search" parameterType="String" resultMap="artistIdentifierMap">
+    <select id="search" parameterType="Map" resultMap="artistIdentifierMap">
         SELECT
             a.artistId as 'artist_id',
             a.name as 'artist_name'
@@ -251,6 +251,10 @@
             )
         GROUP BY
             a.artistId
+        <if test="limit != null">
+            LIMIT
+                #{limit}
+        </if>
     </select>
     
 </mapper>

@@ -1,6 +1,7 @@
 package com.vikings.domain.response;
 
 import com.vikings.domain.Concert;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -8,6 +9,7 @@ public class ConcertsResponse {
     List<Concert> concerts;
     
     public ConcertsResponse() {
+        concerts = new ArrayList();
     }
     
     public ConcertsResponse(List<Concert> concerts) {

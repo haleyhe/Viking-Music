@@ -5,7 +5,6 @@ import com.vikings.domain.Song;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +36,10 @@ public class SongManager {
         return song;
     }
     
+    public List<Song> getTopSongs() {
+        return songDAO.getTopSongs();
+    }
+    
     /**
      * Gets the Songs for the Artist, sorted by play count.
      * @param id
@@ -48,8 +51,8 @@ public class SongManager {
         return songDAO.getTopSongsForArtist(id);
     }
     
-    public Set<Song> search(String query) {
-        return songDAO.search(query);
+    public List<Song> search(String query, Integer limit) {
+        return songDAO.search(query, limit);
     }
     
 }

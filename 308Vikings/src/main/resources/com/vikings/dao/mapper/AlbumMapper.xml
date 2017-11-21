@@ -109,7 +109,7 @@
             al.releaseDate DESC
     </select>
 
-    <select id="search" parameterType="String" resultMap="albumIdentifierMap">
+    <select id="search" parameterType="Map" resultMap="albumIdentifierMap">
         SELECT
             al.albumId as 'album_id',
             al.name as 'album_name',
@@ -132,6 +132,12 @@
                 AND
                 ar.artistId = aa.artistId
             )
+        GROUP BY
+            al.albumId
+        <if test="limit != null">
+            LIMIT
+                #{limit}
+        </if>
     </select>
     
 </mapper>

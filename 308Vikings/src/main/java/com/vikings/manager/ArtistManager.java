@@ -7,7 +7,6 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -111,8 +110,8 @@ public class ArtistManager {
         return new ArtistIdentifier(artist);
     }
     
-    public Set<ArtistIdentifier> search(String query) {
-        return artistDAO.search(query);
+    public List<ArtistIdentifier> search(String query, Integer limit) {
+        return artistDAO.search(query, limit);
     }
     
     /**

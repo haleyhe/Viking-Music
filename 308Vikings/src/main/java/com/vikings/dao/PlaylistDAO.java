@@ -7,7 +7,6 @@ import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -111,9 +110,9 @@ public class PlaylistDAO {
         return playlistMapper.getAdminCuratedPlaylists();
     }
     
-    public Set<PlaylistIdentifier> search(String query) {
+    public List<PlaylistIdentifier> search(String query, Integer limit) {
         query = "%" + query + "%";
-        return playlistMapper.search(query);
+        return playlistMapper.search(query, limit);
     }
     
 }

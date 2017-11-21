@@ -15,6 +15,7 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -255,5 +256,19 @@ public class UserMusicManager {
             savedSongs.put(ps.getId(), saved);
         }
         return savedSongs;
+    }
+    
+    public Set<ArtistIdentifier> getFavoriteArtistsForSessionUser() {
+        User user = userAccountManager.getSessionUser();
+        if (user == null)
+            return null;
+        Set<ArtistIdentifier> artists = new HashSet();
+        for (LibraryArtist artist : user.getUserMusic().getFollowedArtists()) {
+            artists.add(artist.getArtistIdentifier());
+        }
+        for (LibrarySong song : user.getUserMusic().getSavedSongs()) {
+            artists.addAll(song.getSong().getArtists());
+        }
+        return artists;
     }
 }

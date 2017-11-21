@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -9,7 +10,7 @@ public class Concert implements Serializable {
     Date date;
     Venue venue;
     String ticketingUrl;
-    List<Artist> artists;
+    List<ArtistIdentifier> artists;
     
     public Concert() {
         
@@ -51,11 +52,11 @@ public class Concert implements Serializable {
         this.ticketingUrl = ticketingUrl;
     }
 
-    public List<Artist> getArtists() {
+    public List<ArtistIdentifier> getArtists() {
         return artists;
     }
 
-    public void setArtists(List<Artist> artists) {
+    public void setArtists(List<ArtistIdentifier> artists) {
         this.artists = artists;
     }
     

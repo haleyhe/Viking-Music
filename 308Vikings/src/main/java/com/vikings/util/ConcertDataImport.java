@@ -62,9 +62,9 @@ public class ConcertDataImport {
                 resultConcert.setDate(concertDate);
                 resultConcert.setTicketingUrl(concert.get("ticketingUrl").asText());
                 // make dummy artist objects with IDs
-                List<Artist> artists = new ArrayList<Artist>();
+                List<ArtistIdentifier> artists = new ArrayList<ArtistIdentifier>();
                 for (JsonNode artist : concert.get("artists")) {
-                    Artist artistDummy = new Artist();
+                    ArtistIdentifier artistDummy = new ArtistIdentifier();
                     artistDummy.setId(artist.asText());
                     artists.add(artistDummy);
                 } 

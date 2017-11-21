@@ -20,10 +20,12 @@ public interface SongMapper {
     
     public List<PlaylistSong> getSongsForPlaylist(String id);
     
+    public List<Song> getTopSongs();
+    
     public List<Song> getTopSongsForArtist(String id);
     
     public Set<Song> getArtistSongsForPayment(@Param("id") String id, @Param("startDate") Date startDate, @Param("endDate") Date endDate);
     
-    public Set<Song> search(String query);
+    public List<Song> search(@Param("query") String query, @Param("limit") Integer limit);
 }
 

@@ -4,8 +4,10 @@ import com.vikings.dao.mapper.ArtistMapper;
 import com.vikings.dao.mapper.ConcertMapper;
 import com.vikings.domain.Artist;
 import com.vikings.domain.Concert;
+import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,14 +30,6 @@ public class ConcertDAO {
     public Concert getConcert(String id) {
         Concert concert = concertMapper.getConcert(id);
         
-        // ConcertMapper returns dummy Artist objects with just the IDs.
-        // Make calls to artistMapper for detailed Artist info.
-        List<Artist> detailedArtists = new ArrayList<>();
-        for (Artist artist : concert.getArtists()) {
-            Artist detailedArtist = artistMapper.getArtist(artist.getId());
-            detailedArtists.add(detailedArtist);
-        }
-        concert.setArtists(detailedArtists);
         return concert;
     }
     
@@ -49,19 +43,11 @@ public class ConcertDAO {
     public List<Concert> getConcertsForArtist(String id) {
         List<Concert> concerts = concertMapper.getConcertsForArtist(id);
         
-        for (Concert concert : concerts) {
-            // ConcertMapper returns dummy Artist objects with just the IDs.
-            // Make calls to artistMapper for detailed Artist info.
-            // (this is cached so don't worry about the repeat calls)
-            List<Artist> detailedArtists = new ArrayList<>();
-            for (Artist artist : concert.getArtists()) {
-                Artist detailedArtist = artistMapper.getArtist(artist.getId());
-                detailedArtists.add(detailedArtist);
-            }
-            concert.setArtists(detailedArtists);
-        }
-        
         return concerts;
+    }
+    
+    public List<Concert> getConcertsForArtists(Set<ArtistIdentifier> artists) {
+        return concertMapper.getConcertsForArtists(artists);
     }
     
 }

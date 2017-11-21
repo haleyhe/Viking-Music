@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -171,8 +170,8 @@ public class PlaylistManager {
         return playlistDAO.getAdminCuratedPlaylists();
     }
     
-    public Set<PlaylistIdentifier> search(String query) {
-        return playlistDAO.search(query);
+    public List<PlaylistIdentifier> search(String query, Integer limit) {
+        return playlistDAO.search(query, limit);
     }
     
 }
