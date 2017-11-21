@@ -2,16 +2,20 @@ package com.vikings.controller;
 
 import com.vikings.domain.Playlist;
 import com.vikings.domain.User;
+import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.request.AddPlaylistSongRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.response.PlaylistPageResponse;
 import com.vikings.domain.request.RemovePlaylistSongRequest;
+import com.vikings.domain.response.PlaylistsResponse;
 import com.vikings.manager.FileManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -86,6 +90,13 @@ public class PlaylistController {
         }
     }
     
+    /* Fake method to test shit */
+    @RequestMapping(method=RequestMethod.GET, value="/Playlist/getAllPlaylists")
+    public @ResponseBody PlaylistsResponse getAllPlaylists() {
+        List<PlaylistIdentifier> playlistIdents= new ArrayList();
+        playlistIdents.add(playlistManager.getPlaylistIdentifier("c793668a-6c14-4188-8f51-b34c96ace7af"));
+        return new PlaylistsResponse(playlistIdents); 
+    }
     
     @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistPageDetails")
     public @ResponseBody PlaylistPageResponse getPlaylistPageDetails(@RequestParam("id") String playlistId) {
@@ -95,7 +106,9 @@ public class PlaylistController {
         }
         boolean following = userMusicManager.isFollowingPlaylist(playlist);
         HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(playlist);
-        return new PlaylistPageResponse(playlist, following, savedSongs);
+        int totalDuration = playlistManager.getPlaylistDuration(playlist);
+        int numSongs = playlist.getSongs().size();
+        return new PlaylistPageResponse(playlist, following, savedSongs, numSongs, totalDuration);
     }
     
     /**

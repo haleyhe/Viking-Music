@@ -5,8 +5,8 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 a{
@@ -19,14 +19,14 @@ a{
   text-decoration: none;
 }
 
-hr.style15 { 
-  border: 0; 
-  height: 1px; 
+hr.style15 {
+  border: 0;
+  height: 1px;
   margin-bottom: 10%;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 
 .startUpPage {
@@ -101,7 +101,7 @@ hr.style15 {
   font-family: 'Raleway', sans-serif;
   height: 50px;
   width: 80%;
-   
+
 }
 
 #appPage{
@@ -137,7 +137,7 @@ hr.style15 {
   display: block;
 }
 
-.user-dropdown-menu{    
+.user-dropdown-menu{
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -204,7 +204,7 @@ hr.style15 {
   line-height: 30px;
 }
 
-#user-buttons li img{ 
+#user-buttons li img{
   width: 30px;
   margin-top: -5px;
   margin-right:5px;
@@ -319,7 +319,7 @@ div.menutabs li.current{
   margin-bottom: 0px;
   width: 200px;
   height: 200px;
-  border-radius: 50%;  
+  border-radius: 50%;
 }
 
 .artistbio {
@@ -329,7 +329,7 @@ div.menutabs li.current{
     margin-bottom: 0px;
 }
 
-.albumname, .albumartist, .artistname, .songnumber{
+.albumname, .albumartist, .artistname, .songnumber, .playlistname, .playlistfollowers{
   text-align: center;
   width: 300px;
   text-overflow: ellipsis;
@@ -406,7 +406,8 @@ ul.tabs li.current , ul.musictabs li.current{
   margin-top: 3%;
 }
 
-#playListPage, #libindivArtistPage, #libindivAlbumPage, #indivAlbumPage, #indivConcertPage{
+#playListPage, #libindivArtistPage, #libindivAlbumPage, #indivAlbumPage, #indivConcertPage,
+#indivPlaylistPage{
   display: none;
 }
 
@@ -429,19 +430,23 @@ ul.tabs li.current , ul.musictabs li.current{
   cursor: pointer;
 }
 
+.songtable td {
+  max-width: 150px;
+}
+
 .play-btn{
   width: 20px;
 }
 .concert-btn{
   width: 50px;
 }
-hr.style14 { 
-  border: 0; 
-  height: 1px; 
+hr.style14 {
+  border: 0;
+  height: 1px;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
   width: 50%;
 }
 

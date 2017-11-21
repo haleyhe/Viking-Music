@@ -174,4 +174,11 @@ public class PlaylistManager {
         return playlistDAO.search(query, limit);
     }
     
+    public int getPlaylistDuration (Playlist playlist) {
+        int totalDuration = 0;
+        for (Song s : playlist.getSongs()) {
+            totalDuration += s.getDuration();
+        }
+        return totalDuration;
+    }
 }

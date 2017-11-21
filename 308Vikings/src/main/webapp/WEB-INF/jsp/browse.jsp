@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <c:url var="home" value="/" scope="request" />
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta charset="UTF-8" />
@@ -13,51 +13,56 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type='text/css'>
         <link href="<c:url value="/css/style.css" />" rel="stylesheet">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>        
+        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
         <script>
-        var app = angular.module("myApp", ["ngRoute"]);
-          app.config(function($routeProvider) {
-              $routeProvider
-              .when("/", {
-                  templateUrl : "${home}component/overview.jsp"
-              })
-              .when("/recentlyplayed", {
-                  templateUrl : "${home}component/recentlyPlayed.jsp"
-              })
-              .when("/songs", {
-                  templateUrl : "${home}component/songs.jsp"
-              })
-              .when("/album", {
-                  templateUrl : "${home}component/album.jsp"
-              })
-              .when("/artists", {
-                  templateUrl : "${home}component/artists.jsp"
-              })
-              .when("/concert", {
-                  templateUrl : "${home}component/concert.jsp"
-              })
-              .when("/profile", {
-                  templateUrl : "${home}component/profile.jsp"
-              })         
-              .otherwise({
-                  redirectTo: "/"
-              }); 
-          });
+            var app = angular.module("myApp", ["ngRoute"]);
+              app.config(function($routeProvider) {
+                  $routeProvider
+                  .when("/", {
+                      templateUrl : "${home}component/overview.jsp"
+                  })
+                  .when("/recentlyplayed", {
+                      templateUrl : "${home}component/recentlyPlayed.jsp"
+                  })
+                  .when("/songs", {
+                      templateUrl : "${home}component/songs.jsp"
+                  })
+                  .when("/album", {
+                      templateUrl : "${home}component/album.jsp"
+                  })
+                  .when("/artists", {
+                      templateUrl : "${home}component/artists.jsp"
+                  })
+                  .when("/concert", {
+                      templateUrl : "${home}component/concert.jsp"
+                  })
+                  .when("/profile", {
+                      templateUrl : "${home}component/profile.jsp"
+                  })
+                  .when("/playlist", {
+                      templateUrl : "${home}component/playlist.jsp",
+                      controller: "playlistController"
+                  })
+                  .otherwise({
+                      redirectTo: "/"
+                  });
+              });
         </script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
     </head>
     <body ng-app="myApp">
-        
+
              <div id='feedback'>
-                <div id=appPage > 
+                <div id=appPage >
                 <div class=menu>
 
                   <!--Top Menu Logo and Browse-->
@@ -65,10 +70,10 @@
                     <ul>
                       <li>
                         <img id=logo src=${home}/css/viking.png></img>
-                      </li> 
+                      </li>
                       <b>
                       <li><a href="#/!">Browse</a></li>
-                      </b>       
+                      </b>
                     </ul>
                   </div>
 
@@ -81,7 +86,8 @@
                         <a href="#!songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
                         <a href="#!album"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
                         <a href="#!artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
-                        <a href="#!concert"><li class="tab-link" data-tab="menutab-5">Concert</li></a>
+                        <!--<a href="#!concert"><li class="tab-link" data-tab="menutab-5">Concert</li></a> -->
+                        <a href="#!playlist"><li class="tab-link" data-tab="menutab-5">Playlist</li></a>
                       </b>
                     </ul>
                   </div>
@@ -90,7 +96,7 @@
                   <div id=playlistTabs>
                     <ul>
                       <li>PLAYLISTS</li>
-                      <li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">New Playlist</li> 
+                      <li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">New Playlist</li>
                     </ul>
                   </div>
                 </div>
@@ -121,7 +127,7 @@
                         <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
                         <li id=user-display-name style="margin-right: 2%;"><a href="#!profile">${user.username}</a></li>
                         <li><button id = dropdownbtn><b>></b></button>
-                        
+
                         <div class=user-dropdown-menu>
                           <a><button>Account Information</button></a>
                           <a><button>Billing</button></a>
@@ -135,7 +141,7 @@
                           <form id="signout-form">
                               <a><button>Logout</button></a>
                           </form>
-                          
+
                         </div>
                        </li>
                       </ul>
@@ -157,8 +163,8 @@
                 localStorage.setItem("justOnce", "true");
                 window.location.reload();
             }
-        }
-        
+        };
+
         $('#dropdownbtn').click(function(e){
             e.preventDefault();
             if($(this).hasClass('open')){
@@ -169,7 +175,7 @@
                 $(this).addClass('open');
             }
         });
-        
+
         song = new Audio('${home}/download/AlanWalker-Fade.mp3');
         duration = song.duration;
 
@@ -178,7 +184,7 @@
                         $("#seek").prop("max", song.duration);
                         song.play();
                         $('#play').replaceWith('<img class="playerimg" id="pause" src="${home}/css/pause.png"></img>');
-        }); 
+        });
         $(document).on('click','#pause', function(e) {
                         e.preventDefault();
                         song.pause();
@@ -193,5 +199,5 @@
 
     </script>
 
-    
+
 </html>
