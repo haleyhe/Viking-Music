@@ -9,15 +9,8 @@
     <title>Viking - Playlist</title>
   </head>
   <body>
-    <!-- Loading Module -->
-    <div id='loading' class="error modal">
-      <div class="loading-modal-content">
-        <img src=${home}/css/loading.gif></img>
-      </div>
-    </div>
-
     <!-- Show all playlists -->
-    <div class="pages" id="playlistpage">
+    <div class="pages" id="playlistPage">
       <div class="container">
         <div id="menutab-5" class="menutab-content">
           <h2>Playlists</h2>

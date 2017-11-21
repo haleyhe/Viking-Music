@@ -2,11 +2,15 @@
 
 app.controller("playlistController", function($scope, $http) {
   $scope.getAllPlaylists = function () {
+    $('.pages').css("display", "none");
+    $("#loading").css("display", "block");
     $http({
       method: 'GET',
       url: '/308Vikings/Playlist/getAllPlaylists',
     }).then(function successCallback(response) {
       $scope.data = response.data;
+      $('#playlistPage').show();
+      $("#loading").css("display", "none");
     }, function errorCallback(response) {});
   };
 

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <c:url var="home" value="/" scope="request" />
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <title>Viking - Album</title>
@@ -13,14 +13,9 @@
         <!--Album Pages-->
          <div ng-controller="getAllAlbum" >
          <div ng-controller="getDetailAlbum">
-           <div id='loading' class="error modal">
-               <div class="loading-modal-content">
-                   <img src=${home}/css/loading.gif></img>
-               </div>
-           </div>
              <div class=pages id=albumpage>
 
-        
+
            <div class="container">
              <div id="menutab-3" class="menutab-content">
              <h2>Albums</h2>
@@ -31,16 +26,16 @@
                  <li class=albumname><a id="{{album.id}}" ng-click="getAlbumJson($event)">{{album.name}}</a></li>
                  <li class=albumartist>{{album.artists[0].name}}</li>
                  </div>
-               </div>    
+               </div>
 
            </div>
          </div>
        </div>
-           <div class="pages" id=indivAlbumPage>                    
+           <div class="pages" id=indivAlbumPage>
 
-               <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">  
-                   <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>                                                     
-                   <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>                      
+               <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
+                   <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>
+                   <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>
                    <div ng-repeat="detailAlbumartist in albumdata.album.artists">
                        <div>{{detailAlbumartist.name}}</div>
                    </div>
@@ -70,7 +65,7 @@
                        <img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]">
                    </td>
                </div>
-               
+
                <td>{{song.name}}</td>
                <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
                <td>3:08</td>
@@ -82,10 +77,10 @@
                  <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
                  <a ng-click="getAlbumJson($event)"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
                  <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson($event)">{{relatedAlbums.name}}</li>
-                 <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>     
+                 <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>
                  </div>
              </div>
-         </div> 
+         </div>
 
     </body>
 </html>

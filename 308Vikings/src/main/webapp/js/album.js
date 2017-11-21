@@ -30,10 +30,14 @@ app.controller("getDetailAlbum", function ($scope, $http) {
 });
 
 app.controller("getAllAlbum", function ($scope, $http) {
+  $('.pages').css("display","none");
+  $("#loading").css("display", "block");
     $http({
       method: 'GET',
       url: '/308Vikings/Album/getAllAlbums',
     }).then(function successCallback(response) {
+      $('#albumpage').show();
+      $("#loading").css("display", "none");
       $scope.data = response.data;
     }, function errorCallback(response) {});
 });

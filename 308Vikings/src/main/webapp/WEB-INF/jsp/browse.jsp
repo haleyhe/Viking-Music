@@ -156,6 +156,11 @@
                   <div ng-view></div>
                 </div>
                 </div>
+                <div id='loading' class="error modal">
+                    <div class="loading-modal-content">
+                        <img src=${home}/css/loading.gif></img>
+                    </div>
+                </div>
     </body>
     <script>
         window.onload = function () {
