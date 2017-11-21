@@ -82,4 +82,5 @@ $(document).ready(function () {
     $('#to-admin-portal-form').click(function() {
         window.location.replace("/308Vikings/adminportal");
     });
+    
 });
