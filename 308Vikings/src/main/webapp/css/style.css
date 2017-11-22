@@ -418,6 +418,9 @@ ul.tabs li.current , ul.musictabs li.current{
   margin-left: 5%;
 }
 
+.unfollow-button:hover span {display:none}
+.unfollow-button:hover:after {content:"Unfollow"}
+
 .songtable, .concerttable{
   list-style: none;
   margin-left: 5%;

@@ -196,6 +196,7 @@ public class UserMusicManager {
     public boolean addPlaylistToLibrarySession(User user, String playlistId, Date dateAdded) {
         Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
         LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistManager.getPlaylistIdentifier(playlistId), dateAdded);
+        playlistManager.followPlaylist(playlistId);
         return followedPlaylists.add(libPlaylist);
     }
     
@@ -214,6 +215,7 @@ public class UserMusicManager {
         Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
         PlaylistIdentifier playlistIdentifier = new PlaylistIdentifier(playlistId);
         LibraryPlaylist libPlaylist = new LibraryPlaylist(playlistIdentifier);
+        playlistManager.unfollowPlaylist(playlistId);
         return followedPlaylists.remove(libPlaylist);
     }
     

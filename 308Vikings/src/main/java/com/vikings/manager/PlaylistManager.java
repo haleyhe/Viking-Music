@@ -181,4 +181,14 @@ public class PlaylistManager {
         }
         return totalDuration;
     }
+    
+   public void followPlaylist (String playlistId) {
+       Playlist playlist = getPlaylist(playlistId);
+       playlist.setNumFollowers(playlist.getNumFollowers()+1);
+   }
+   
+    public void unfollowPlaylist (String playlistId) {
+       Playlist playlist = getPlaylist(playlistId);
+       playlist.setNumFollowers(playlist.getNumFollowers()-1);
+   }
 }

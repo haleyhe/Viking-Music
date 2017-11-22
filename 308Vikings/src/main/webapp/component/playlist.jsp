@@ -5,7 +5,6 @@
 <html>
   <head>
     <c:url var="home" value="/" scope="request"/>
-    <script type="text/javascript" src="<c:url value=" /js/app.js" />"></script>
     <title>Viking - Playlist</title>
   </head>
   <body>
@@ -24,7 +23,7 @@
                 <li class="playlistname">
                   <a id="{{playlist.id}}" ng-click="getPlaylistJson($event)">{{playlist.name}}</a>
                 </li>
-                <li class="playlistfollowers">{{playlist.id}}</li>
+                <li class="playlistfollowers">{{playlist.numFollowers}} Followers</li>
               </div>
             </div>
           </div>
@@ -54,7 +53,9 @@
             <p style="margin-bottom: 120px;">
               <button class="pageButton">Play</button>
               <button class="pageButton">Queue</button>
-              <button class="pageButton">{{playlistdata.following ? 'Following' : 'Follow'}}</button>
+              <button class="pageButton unfollow-button" ng-if="playlistdata.following" ng-click="unfollowPlaylist()"><span>Following<span></button>
+              <button class="pageButton" ng-if="!playlistdata.following" ng-click="followPlaylist()">Follow</button>
+              <button class="pageButton" ng-click="showEditPlaylistForm()">Edit</button>
             </p>
             <hr class="style14" style="width:70%"></div>
 
@@ -87,5 +88,35 @@
                     <td>{{song.duration  | date:'HH:mm'}}</td>
                   </table>
                 </div>
+
+                <!-- Edit Playlist Form -->
+                <div id="editPlaylistModal">
+                    <div class="signup modal">
+                        <div class=modal-content>
+                            <div>Edit Playlist Details</div>
+                            <hr class="style15" style="width:70%">
+                            <form id="edit-playlist-form">
+                                <div>
+                                  Playlist Name:
+                                  <input id="edit-playlist-name" ng-model="editPlaylist.name" type="text">
+                                </div> <br>
+                                <div>
+                                  Playlist Description: <br>
+                                  <textarea id="edit-playlist-description" ng-model="editPlaylist.description" rows=5 cols=40> </textarea>
+                                </div> <br>
+                                <div>
+                                  Upload thumbnail Image: <br>
+                                  <input id="edit-playlist-thumbnail" type="file" name="thumbnail" accept=".jpg"/> <br>
+                                  <img id="edit-thumbnail-preview" src="${home}/css/playlist/{{playlistdata.playlist.id}}.jpg" height="150px"/>
+                                </div> <br>
+                                <div>
+                                  <button type="submit" class="pageButton" ng-click="updatePlaylist()">Edit</button>
+                                  <button class="pageButton" ng-click="closeEditPlaylistForm()">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
               </body>
             </html>
