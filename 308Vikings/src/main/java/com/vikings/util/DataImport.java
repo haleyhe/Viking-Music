@@ -36,21 +36,36 @@ public class DataImport {
     // start app and visit this URL to run the import
     @GetMapping("/util/runDataImport")
     public String runDataImport(Model model) {
-        createArtists();
-        createAlbums();
-        createSongs();
-        System.out.println("Done.");
+        System.out.println("RUNNING ARTISTS PART 1");
+        createArtists("artists1.json");
+        System.out.println("RUNNING ARTISTS PART 2");
+        createArtists("artists2.json");
+        System.out.println("RUNNING ARTISTS PART 3");
+        createArtists("artists3.json");
+        System.out.println("RUNNING ALBUMS PART 1");
+        createAlbums("albums1.json");
+        System.out.println("RUNNING ALBUMS PART 2");
+        createAlbums("albums2.json");
+        System.out.println("RUNNING ALBUMS PART 3");
+        createAlbums("albums3.json");
+        System.out.println("RUNNING SONGS PART 1");
+        createSongs("songs1.json");
+        System.out.println("RUNNING SONGS PART 2");
+        createSongs("songs2.json");
+        System.out.println("RUNNING SONGS PART 3");
+        createSongs("songs3.json");
+        System.out.println("DATA IMPORT DONE.");
         return "index";
     }
     
-    private void createArtists() {
+    private void createArtists(String filename) {
         try {
-            File artistFile = new File(getClass().getResource("artists.json").getFile());
+            File artistFile = new File(getClass().getResource(filename).getFile());
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode root = objectMapper.readTree(artistFile);
             JsonNode artists = root.get("artists");
+            List<Artist> artistsToWrite = new ArrayList<>();
             for (JsonNode artist : artists) {
-                System.out.println("Got artist " + artist.get("name").asText());
                 Artist resultArtist = new Artist();
                 resultArtist.setId(artist.get("id").asText());
                 resultArtist.setBio(artist.get("bio").asText());
@@ -61,10 +76,23 @@ public class DataImport {
                 }
                 resultArtist.setGenres(genres);
                 
-                // artist object complete, send to DB
-                dataImportMapper.createArtist(resultArtist);
-                dataImportMapper.createArtistGenres(resultArtist);
+                artistsToWrite.add(resultArtist);
+                System.out.println("\t\tProcessed Artist " + resultArtist.getName());
+                if (artistsToWrite.size() == 10) {
+                    System.out.println("BATCH WRITING ARTISTS");
+                    dataImportMapper.createArtist(artistsToWrite);
+                    System.out.println("BATCH WRITING ARTIST GENRES");
+                    dataImportMapper.createArtistGenres(artistsToWrite);
+                    artistsToWrite.clear();
+                }
                 
+            }
+            if (artistsToWrite.size() > 0) {
+                System.out.println("BATCH WRITING ARTISTS");
+                dataImportMapper.createArtist(artistsToWrite);
+                System.out.println("BATCH WRITING ARTIST GENRES");
+                dataImportMapper.createArtistGenres(artistsToWrite);
+                artistsToWrite.clear();
             }
         } catch(Exception e) {
             e.printStackTrace();
@@ -72,14 +100,14 @@ public class DataImport {
         
     }
     
-    private void createAlbums() {
+    private void createAlbums(String filename) {
         try {
-            File albumFile = new File(getClass().getResource("albums.json").getFile());
+            File albumFile = new File(getClass().getResource(filename).getFile());
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode root = objectMapper.readTree(albumFile);
             JsonNode albums = root.get("albums");
+            List<Album> albumsToWrite = new ArrayList<>();
             for (JsonNode album : albums) {
-                System.out.println("Got album " + album.get("name").asText());
                 Album resultAlbum = new Album();
                 resultAlbum.setId(album.get("id").asText());
                 resultAlbum.setName(album.get("name").asText());
@@ -97,9 +125,22 @@ public class DataImport {
                 // save the songs for later
                 
                 // album object complete, send to DB
-                dataImportMapper.createAlbum(resultAlbum);
-                dataImportMapper.createAlbumArtists(resultAlbum);
+                albumsToWrite.add(resultAlbum);
+                System.out.println("\t\tProcessed Album " + resultAlbum.getName());
+                if (albumsToWrite.size() == 50) {
+                    System.out.println("BATCH WRITING ALBUMS");
+                    dataImportMapper.createAlbum(albumsToWrite);
+                    System.out.println("BATCH WRITING ALBUM ARTISTS");
+                    dataImportMapper.createAlbumArtists(albumsToWrite);
+                    albumsToWrite.clear();
+                }
                 
+            }
+            if (albumsToWrite.size() > 0) {
+                    System.out.println("BATCH WRITING ALBUMS");
+                    dataImportMapper.createAlbum(albumsToWrite);
+                    System.out.println("BATCH WRITING ALBUM ARTISTS");
+                    dataImportMapper.createAlbumArtists(albumsToWrite);
             }
         } catch(Exception e) {
             e.printStackTrace();
@@ -107,14 +148,14 @@ public class DataImport {
         
     }
     
-    private void createSongs() {
+    private void createSongs(String filename) {
         try {
-            File songFile = new File(getClass().getResource("songs.json").getFile());
+            File songFile = new File(getClass().getResource(filename).getFile());
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode root = objectMapper.readTree(songFile);
             JsonNode songs = root.get("songs");
+            List<Song> songsToWrite = new ArrayList<>();
             for (JsonNode song : songs) {
-                System.out.println("Got song " + song.get("name").asText());
                 Song resultSong = new Song();
                 resultSong.setId(song.get("id").asText());
                 resultSong.setName(song.get("name").asText());
@@ -137,10 +178,27 @@ public class DataImport {
                 resultSong.setAlbum(albumIdentifier);
                 
                 // song object complete, send to DB
-                dataImportMapper.createSong(resultSong);
-                dataImportMapper.createSongAlbum(resultSong);
-                dataImportMapper.createSongArtists(resultSong);
+                System.out.println("\t\tProcessed Song " + resultSong.getName());
+                songsToWrite.add(resultSong); 
+                if (songsToWrite.size() == 50) {
+                    System.out.println("BATCH WRITING SONGS");
+                    dataImportMapper.createSong(songsToWrite);
+                    System.out.println("BATCH WRITING SONG ALBUM");
+                    dataImportMapper.createSongAlbum(songsToWrite);
+                    System.out.println("BATCH WRITING SONG ARTISTS");
+                    dataImportMapper.createSongArtists(songsToWrite);
+                    songsToWrite.clear();
+                }
                 
+            }
+            if (songsToWrite.size() > 0) {
+                System.out.println("BATCH WRITING SONGS");
+                dataImportMapper.createSong(songsToWrite);
+                System.out.println("BATCH WRITING SONG ALBUM");
+                dataImportMapper.createSongAlbum(songsToWrite);
+                System.out.println("BATCH WRITING SONG ARTISTS");
+                dataImportMapper.createSongArtists(songsToWrite);
+                songsToWrite.clear();
             }
         } catch(Exception e) {
             e.printStackTrace();

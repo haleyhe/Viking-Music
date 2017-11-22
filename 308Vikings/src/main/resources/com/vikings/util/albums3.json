@@ -1,0 +1,669 @@
+{
+    "albums": [
+        {
+            "artists": [
+                "6g0Wah2YFtb1rFgKhUktlo"
+            ], 
+            "copyrights": "(P) 2010, 2011 Sony Music Entertainment", 
+            "id": "26orrccGqNXm1m6mr9OO91", 
+            "image_filepath": "./album/images/26orrccGqNXm1m6mr9OO91.jpg", 
+            "image_url": "https://i.scdn.co/image/717b3a7df4686fd2b73c72702468fb16b95facbc", 
+            "name": "Stone Rollin'", 
+            "release_date": "2011-03-25"
+        }, 
+        {
+            "artists": [
+                "6g0Wah2YFtb1rFgKhUktlo"
+            ], 
+            "copyrights": "(P) 2008 SONY BMG Music Entertainment", 
+            "id": "4pZGQstlWtYIPjDMX79HDB", 
+            "image_filepath": "./album/images/4pZGQstlWtYIPjDMX79HDB.jpg", 
+            "image_url": "https://i.scdn.co/image/68e7f769a1c136e718fdd2f377b9c04a57decdd2", 
+            "name": "The Way I See It", 
+            "release_date": "2008-09-12"
+        }, 
+        {
+            "artists": [
+                "6g0Wah2YFtb1rFgKhUktlo"
+            ], 
+            "copyrights": "(C) 2004 Pookie Entertainment", 
+            "id": "1sV8tljpDaqszWG0BfTTgl", 
+            "image_filepath": "./album/images/1sV8tljpDaqszWG0BfTTgl.jpg", 
+            "image_url": "https://i.scdn.co/image/62bc4e4fac0c093ac61dab937c103cf69f436960", 
+            "name": "Ray Ray", 
+            "release_date": "2004-12-30"
+        }, 
+        {
+            "artists": [
+                "6g0Wah2YFtb1rFgKhUktlo"
+            ], 
+            "copyrights": "(C) 2002 Universal Records, a Division of UMG Recordings, Inc.", 
+            "id": "2Dfk3iSj303wZD28aXq5ov", 
+            "image_filepath": "./album/images/2Dfk3iSj303wZD28aXq5ov.jpg", 
+            "image_url": "https://i.scdn.co/image/82daaaf9d039d985ed9a437546d0dfb8686ffd6a", 
+            "name": "Instant Vintage", 
+            "release_date": "2002-01-01"
+        }, 
+        {
+            "artists": [
+                "6AVLthptCPhfrxlHadOBJD"
+            ], 
+            "copyrights": "2015 Blues Babe Records, LLC. Manufactured and distributed by Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States.", 
+            "id": "6qTd2uORfBAOVIS7mzDfLS", 
+            "image_filepath": "./album/images/6qTd2uORfBAOVIS7mzDfLS.jpg", 
+            "image_url": "https://i.scdn.co/image/3e61d37182cd5cd48f4ff05167c2d7251258f713", 
+            "name": "Woman", 
+            "release_date": "2015-07-24"
+        }, 
+        {
+            "artists": [
+                "6AVLthptCPhfrxlHadOBJD"
+            ], 
+            "copyrights": "\u00a9 2015 Hidden Beach Records", 
+            "id": "0IOugRNQAom3bgba4aDvAS", 
+            "image_filepath": "./album/images/0IOugRNQAom3bgba4aDvAS.jpg", 
+            "image_url": "https://i.scdn.co/image/87f3b8b82a9548f125076ad10d8f5e05f6583ec1", 
+            "name": "Golden Moments", 
+            "release_date": "2015-01-01"
+        }, 
+        {
+            "artists": [
+                "6AVLthptCPhfrxlHadOBJD"
+            ], 
+            "copyrights": "2011 Blues Babe Records, LLC licensed exclusively to Warner Bros. Records Inc.", 
+            "id": "52UuhKOKOB1PWL1DVAC3os", 
+            "image_filepath": "./album/images/52UuhKOKOB1PWL1DVAC3os.jpg", 
+            "image_url": "https://i.scdn.co/image/fe9d14de41038d874094ca6d1dd7ab18aee6c15d", 
+            "name": "The Light Of The Sun", 
+            "release_date": "2011-06-21"
+        }, 
+        {
+            "artists": [
+                "6AVLthptCPhfrxlHadOBJD"
+            ], 
+            "copyrights": "\u00a9 2007 Hidden Beach Records", 
+            "id": "3OUq3A9AOpYzd0qPSGU2hQ", 
+            "image_filepath": "./album/images/3OUq3A9AOpYzd0qPSGU2hQ.jpg", 
+            "image_url": "https://i.scdn.co/image/c8fcd023e6696d045e88262dcf549463fe2618fc", 
+            "name": "The Real Thing - Words & Sounds, Vol. 3", 
+            "release_date": "2007-09-25"
+        }, 
+        {
+            "artists": [
+                "6xTk3EK5T9UzudENVvu9YB"
+            ], 
+            "copyrights": "2013 Epitaph", 
+            "id": "7eP4TXdwO68vnivfDxs6fg", 
+            "image_filepath": "./album/images/7eP4TXdwO68vnivfDxs6fg.jpg", 
+            "image_url": "https://i.scdn.co/image/da14d50fd9f6e01522ca2ff5400a690ce03d1cc9", 
+            "name": "Indestructible", 
+            "release_date": "2003-08-19"
+        }, 
+        {
+            "artists": [
+                "6xTk3EK5T9UzudENVvu9YB"
+            ], 
+            "copyrights": "2000 Hellcat", 
+            "id": "0mAo7j2DjyboBbRC7mG2uw", 
+            "image_filepath": "./album/images/0mAo7j2DjyboBbRC7mG2uw.jpg", 
+            "image_url": "https://i.scdn.co/image/ac56e2148afe62d55b5678fe4100e5c15d58088b", 
+            "name": "Rancid (5)", 
+            "release_date": "2000-08-01"
+        }, 
+        {
+            "artists": [
+                "6xTk3EK5T9UzudENVvu9YB"
+            ], 
+            "copyrights": "1998 Epitaph", 
+            "id": "410JU10vru3pFk7f7vA94E", 
+            "image_filepath": "./album/images/410JU10vru3pFk7f7vA94E.jpg", 
+            "image_url": "https://i.scdn.co/image/292b36de48e4e596b8f9e645b1738f4729856e58", 
+            "name": "Life Won't Wait", 
+            "release_date": "1998-06-30"
+        }, 
+        {
+            "artists": [
+                "6xTk3EK5T9UzudENVvu9YB"
+            ], 
+            "copyrights": "1995 Epitaph", 
+            "id": "1HisV3ZKLs9It3KlGcPki5", 
+            "image_filepath": "./album/images/1HisV3ZKLs9It3KlGcPki5.jpg", 
+            "image_url": "https://i.scdn.co/image/4763809d82f4f280c91e0e7265da86efaebe8e0c", 
+            "name": "...And Out Come The Wolves", 
+            "release_date": "1995-08-15"
+        }, 
+        {
+            "artists": [
+                "1oVj9JmPUPg4SQ2uerV2xc"
+            ], 
+            "copyrights": "(C) 2006 RL Entertainment", 
+            "id": "0Gm1JBgQzsiLKIiLuP7x8w", 
+            "image_filepath": "./album/images/0Gm1JBgQzsiLKIiLuP7x8w.jpg", 
+            "image_url": "https://i.scdn.co/image/e0ea37bd82bc25795344ebe22319ad64278f165d", 
+            "name": "I & I Survived - Dub", 
+            "release_date": "2002-10-22"
+        }, 
+        {
+            "artists": [
+                "1oVj9JmPUPg4SQ2uerV2xc"
+            ], 
+            "copyrights": "(C) 1996 Caroline Records, Inc.", 
+            "id": "6xhmQ9CwgYxj5NiTkNovbu", 
+            "image_filepath": "./album/images/6xhmQ9CwgYxj5NiTkNovbu.jpg", 
+            "image_url": "https://i.scdn.co/image/5456dca791af0f3d15238ca869cb715f3c348d29", 
+            "name": "Black Dots", 
+            "release_date": "1996-01-01"
+        }, 
+        {
+            "artists": [
+                "1oVj9JmPUPg4SQ2uerV2xc"
+            ], 
+            "copyrights": "1995 Maverick Recording Company", 
+            "id": "4qeyjV02AhO0BMH61DFcQT", 
+            "image_filepath": "./album/images/4qeyjV02AhO0BMH61DFcQT.jpg", 
+            "image_url": "https://i.scdn.co/image/08b09637031cd845745a97080d29962709026d2b", 
+            "name": "God Of Love", 
+            "release_date": "1995-05-05"
+        }, 
+        {
+            "artists": [
+                "1oVj9JmPUPg4SQ2uerV2xc"
+            ], 
+            "copyrights": "(P) 1993 SONY BMG MUSIC ENTERTAINMENT", 
+            "id": "2yMIGCi0xU0QaiS1pXISTI", 
+            "image_filepath": "./album/images/2yMIGCi0xU0QaiS1pXISTI.jpg", 
+            "image_url": "https://i.scdn.co/image/8d017a36b9bc171a1f6bb01db81fc69db1139fd6", 
+            "name": "RISE", 
+            "release_date": "1993-08-17"
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "copyrights": "2014 Tribal Seeds Music", 
+            "id": "24Nm4WqbpFrtAsgE5Ba3ab", 
+            "image_filepath": "./album/images/24Nm4WqbpFrtAsgE5Ba3ab.jpg", 
+            "image_url": "https://i.scdn.co/image/13ce29d22db7cf9bcd088f935b614e6e3e5261ab", 
+            "name": "Representing", 
+            "release_date": "2014-05-13"
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "copyrights": "(C) 2009 Tribal Seeds Music", 
+            "id": "06tfjVe3cjac8Z8ZEBfUyF", 
+            "image_filepath": "./album/images/06tfjVe3cjac8Z8ZEBfUyF.jpg", 
+            "image_url": "https://i.scdn.co/image/94b99cd2efe96cbfbecad90c06ba0c203ddd4013", 
+            "name": "The Harvest", 
+            "release_date": "2009-05-26"
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "copyrights": "2008 Tribal Seeds Music", 
+            "id": "6wmbkqwaT1z87mPMKxxhfN", 
+            "image_filepath": "./album/images/6wmbkqwaT1z87mPMKxxhfN.jpg", 
+            "image_url": "https://i.scdn.co/image/fc99d46331e618ec32df939a53325d21d67862e3", 
+            "name": "Tribal Seeds", 
+            "release_date": "2008-01-01"
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "copyrights": "(C) 2005 Tribal Seeds", 
+            "id": "5AdpW5SHZtcmEcycOWNmH1", 
+            "image_filepath": "./album/images/5AdpW5SHZtcmEcycOWNmH1.jpg", 
+            "image_url": "https://i.scdn.co/image/a0eab0c6fab04f79b1763a69d0ec2c4ef65c7787", 
+            "name": "Youth Rebellion", 
+            "release_date": "2005-01-01"
+        }, 
+        {
+            "artists": [
+                "2QsynagSdAqZj3U9HgDzjD"
+            ], 
+            "copyrights": "\u00a9 2017 Island Records Inc., a division of UMG Recordings Inc.", 
+            "id": "1ndzu6K9JqEVg6afSoyIz2", 
+            "image_filepath": "./album/images/1ndzu6K9JqEVg6afSoyIz2.jpg", 
+            "image_url": "https://i.scdn.co/image/537b687804bc402e696d069481cb05900fe94370", 
+            "name": "Exodus 40", 
+            "release_date": "2017-06-02"
+        }, 
+        {
+            "artists": [
+                "2QsynagSdAqZj3U9HgDzjD"
+            ], 
+            "copyrights": "\u00a9 2015 The Island Def Jam Music Group", 
+            "id": "3DZmcdIS8JlZwYFhbN9Pbc", 
+            "image_filepath": "./album/images/3DZmcdIS8JlZwYFhbN9Pbc.jpg", 
+            "image_url": "https://i.scdn.co/image/bdb3fa11a419f41b905c6194c52c421ce5fcdf60", 
+            "name": "Easy Skanking In Boston '78", 
+            "release_date": "2015-02-03"
+        }, 
+        {
+            "artists": [
+                "2QsynagSdAqZj3U9HgDzjD"
+            ], 
+            "copyrights": "\u00a9 2009 The Island Def Jam Music Group", 
+            "id": "0ArknBQ3J2GkWaz31JIIhf", 
+            "image_filepath": "./album/images/0ArknBQ3J2GkWaz31JIIhf.jpg", 
+            "image_url": "https://i.scdn.co/image/216b53f8c9182ccd06d27463e7f59807f145ef61", 
+            "name": "B Is For Bob", 
+            "release_date": "2009-01-01"
+        }, 
+        {
+            "artists": [
+                "2QsynagSdAqZj3U9HgDzjD"
+            ], 
+            "copyrights": "(C) 1999 The Island Def Jam Music Group A Universal Company", 
+            "id": "4hV6TxaUkzEi4wUN6Fd0s7", 
+            "image_filepath": "./album/images/4hV6TxaUkzEi4wUN6Fd0s7.jpg", 
+            "image_url": "https://i.scdn.co/image/33ffb7f4b2ad4e05a79eaca8fcaafdb73e61c089", 
+            "name": "Chant Down Babylon", 
+            "release_date": "1999-01-01"
+        }, 
+        {
+            "artists": [
+                "2JX4h8xm0hNxCB0aNBWzyi"
+            ], 
+            "copyrights": "2017 KS Digital", 
+            "id": "6PciNddraerac61ORERLe2", 
+            "image_filepath": "./album/images/6PciNddraerac61ORERLe2.jpg", 
+            "image_url": "https://i.scdn.co/image/3cb9d5a2f022cdf024e92c480248278e0e727446", 
+            "name": "Dancehall Vol.1", 
+            "release_date": "2017-06-02"
+        }, 
+        {
+            "artists": [
+                "2JX4h8xm0hNxCB0aNBWzyi", 
+                "3HQIkVkhoARQMb0XlvyUKL"
+            ], 
+            "copyrights": "Kingston Records", 
+            "id": "3XaYN9LSJKih636DSOKQwJ", 
+            "image_filepath": "./album/images/3XaYN9LSJKih636DSOKQwJ.jpg", 
+            "image_url": "https://i.scdn.co/image/7cef6f81137ed259d7b61af4ef44b2c8c6ba2017", 
+            "name": "Gyptian & I Wayne Defending the Roots", 
+            "release_date": "2016-10-21"
+        }, 
+        {
+            "artists": [
+                "2JX4h8xm0hNxCB0aNBWzyi"
+            ], 
+            "copyrights": "2016, VP Music Group Inc", 
+            "id": "1ZLEvwU8pfQ58uTLSf4rXX", 
+            "image_filepath": "./album/images/1ZLEvwU8pfQ58uTLSf4rXX.jpg", 
+            "image_url": "https://i.scdn.co/image/537e920fb5707206f36ca6386833b8fb88b93a53", 
+            "name": "Hold You Remixes", 
+            "release_date": "2016-08-19"
+        }, 
+        {
+            "artists": [
+                "2JX4h8xm0hNxCB0aNBWzyi"
+            ], 
+            "copyrights": "2015 Hammer Musik", 
+            "id": "4EK36IMLzV31MrVp3DRoe3", 
+            "image_filepath": "./album/images/4EK36IMLzV31MrVp3DRoe3.jpg", 
+            "image_url": "https://i.scdn.co/image/b0b9fea6fa5fa556a39bee0c46fdad683018bd58", 
+            "name": "Gyptian Consciousness \u200e", 
+            "release_date": "2016-04-08"
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "copyrights": "(P) 2015 RCA Records, a division of Sony Music Entertainment", 
+            "id": "05GcLcffb84BOLzo7BMz9W", 
+            "image_filepath": "./album/images/05GcLcffb84BOLzo7BMz9W.jpg", 
+            "image_url": "https://i.scdn.co/image/ee2826cff487c16fc2b5e01b52c180c4c0fa9dde", 
+            "name": "Born To Play Guitar", 
+            "release_date": "2015-07-31"
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "copyrights": "(P) 2013 RCA Records, a division of Sony Music Entertainment", 
+            "id": "5IyOwYWSw2m1mwD4OEpFeM", 
+            "image_filepath": "./album/images/5IyOwYWSw2m1mwD4OEpFeM.jpg", 
+            "image_url": "https://i.scdn.co/image/a8d065a032e19e5b2ba68cb65f3ecd40db7c2317", 
+            "name": "Rhythm & Blues", 
+            "release_date": "2013-07-26"
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0", 
+                "78CBFzwo7wwNaaTYVP5btK", 
+                "1KTUh4AYegM2fSdac5xqPb"
+            ], 
+            "copyrights": "\u00a9 2011 The Verve Music Group, a Division of UMG Recordings, Inc.", 
+            "id": "3Ffq2zUrqdT3yf2jt5l5Vs", 
+            "image_filepath": "./album/images/3Ffq2zUrqdT3yf2jt5l5Vs.jpg", 
+            "image_url": "https://i.scdn.co/image/ccfc834e8d599166f238a2e8d5403107018775f0", 
+            "name": "Buddy And The Juniors", 
+            "release_date": "2011-01-01"
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "copyrights": "(P) 2010 JIVE Records, a unit of Sony Music Entertainment", 
+            "id": "4G9uuVJr2HKndziyWh6wPu", 
+            "image_filepath": "./album/images/4G9uuVJr2HKndziyWh6wPu.jpg", 
+            "image_url": "https://i.scdn.co/image/685dfc9ba59ffec846101f2192dde098a0223feb", 
+            "name": "Living Proof", 
+            "release_date": "2010-10-25"
+        }, 
+        {
+            "artists": [
+                "1yAwtBaoHLEDWAnWR87hBT"
+            ], 
+            "copyrights": "(P) 2015 Epic Records, a division of Sony Music Entertainment", 
+            "id": "6iKqPv9C5oU29LR82N8lJf", 
+            "image_filepath": "./album/images/6iKqPv9C5oU29LR82N8lJf.jpg", 
+            "image_url": "https://i.scdn.co/image/fb0817f8a8c0926ce85872e03263d5f828ddaf6c", 
+            "name": "Strangers to Ourselves", 
+            "release_date": "2015-03-13"
+        }, 
+        {
+            "artists": [
+                "1yAwtBaoHLEDWAnWR87hBT"
+            ], 
+            "copyrights": "(P) 2007 SONY BMG MUSIC ENTERTAINMENT", 
+            "id": "2lXBCL76UL5PCPbfAqKBkz", 
+            "image_filepath": "./album/images/2lXBCL76UL5PCPbfAqKBkz.jpg", 
+            "image_url": "https://i.scdn.co/image/c4a4f4103ee0b41a6d21c64a6f967daed16cfbf5", 
+            "name": "We Were Dead Before The Ship Even Sank", 
+            "release_date": "2007-03-20"
+        }, 
+        {
+            "artists": [
+                "1yAwtBaoHLEDWAnWR87hBT"
+            ], 
+            "copyrights": "(P) 2004 Sony Music Entertainment Inc.", 
+            "id": "1jSTXHarvMPAUDuNCC8B9H", 
+            "image_filepath": "./album/images/1jSTXHarvMPAUDuNCC8B9H.jpg", 
+            "image_url": "https://i.scdn.co/image/baf3906e9f093397cde0aa068731e899032d6a70", 
+            "name": "Baron Von Bullshit Rides Again", 
+            "release_date": "2004-04-06"
+        }, 
+        {
+            "artists": [
+                "5cIc3SBFuBLVxJz58W2tU9"
+            ], 
+            "copyrights": "\u00a9 2017 Island Records, a division of Universal Music Operations Limited", 
+            "id": "2P63KJNeC3DwaLpw8KHYqE", 
+            "image_filepath": "./album/images/2P63KJNeC3DwaLpw8KHYqE.jpg", 
+            "image_url": "https://i.scdn.co/image/49f3eb71a36cf66494603356598d64218a556df4", 
+            "name": "Ultralife", 
+            "release_date": "2017-07-14"
+        }, 
+        {
+            "artists": [
+                "5cIc3SBFuBLVxJz58W2tU9"
+            ], 
+            "copyrights": "\u00a9 2015 Josephine Vander Gucht And Anthony West", 
+            "id": "37ABUtLPqktcopsBJ7jmXT", 
+            "image_filepath": "./album/images/37ABUtLPqktcopsBJ7jmXT.jpg", 
+            "image_url": "https://i.scdn.co/image/cd839866b4c24908255525c42f001f5be9d33cdc", 
+            "name": "Oh Wonder", 
+            "release_date": "2015-09-04"
+        }, 
+        {
+            "artists": [
+                "4LG4Bs1Gadht7TCrMytQUO"
+            ], 
+            "copyrights": "(P) 2016, 2017 Columbia Records, a Division of Sony Music Entertainment", 
+            "id": "51q9Mkz5BVwTRYsMlLASVZ", 
+            "image_filepath": "./album/images/51q9Mkz5BVwTRYsMlLASVZ.jpg", 
+            "image_url": "https://i.scdn.co/image/7ad414fb75d7bbcecf972e67e3a95aa00da2313d", 
+            "name": "Heartworms", 
+            "release_date": "2017-03-10"
+        }, 
+        {
+            "artists": [
+                "4LG4Bs1Gadht7TCrMytQUO"
+            ], 
+            "copyrights": "(P) 2012 Columbia Records, a Division of Sony Music Entertainment", 
+            "id": "4ZTcGoOrNro2aCAStXEjZi", 
+            "image_filepath": "./album/images/4ZTcGoOrNro2aCAStXEjZi.jpg", 
+            "image_url": "https://i.scdn.co/image/c6532a8174e4ee5235d2a5fd7679167fab80941d", 
+            "name": "Port Of Morrow", 
+            "release_date": "2012-03-16"
+        }, 
+        {
+            "artists": [
+                "4LG4Bs1Gadht7TCrMytQUO"
+            ], 
+            "copyrights": "Sub Pop Records", 
+            "id": "7f5IY1tuyC4yEardrzrxwe", 
+            "image_filepath": "./album/images/7f5IY1tuyC4yEardrzrxwe.jpg", 
+            "image_url": "https://i.scdn.co/image/351381691eb5fb6c47e2a1f715922e7a0cb622f2", 
+            "name": "Wincing The Night Away", 
+            "release_date": "2007-01-23"
+        }, 
+        {
+            "artists": [
+                "4LG4Bs1Gadht7TCrMytQUO"
+            ], 
+            "copyrights": "Sub Pop Records", 
+            "id": "6VVLUOWDHodYKY3jDh8Sck", 
+            "image_filepath": "./album/images/6VVLUOWDHodYKY3jDh8Sck.jpg", 
+            "image_url": "https://i.scdn.co/image/30efe0338f28122fe84269794b48fc36192e8ea6", 
+            "name": "Chutes Too Narrow", 
+            "release_date": "2003-10-21"
+        }, 
+        {
+            "artists": [
+                "1RyvyyTE3xzB2ZywiAwp0i", 
+                "50co4Is1HCEo8bhOyUWKpn"
+            ], 
+            "copyrights": "(P) 2017 Epic Records, a division of Sony Music Entertainment. With 300 Entertainment/Atlantic Recordings Corporation.", 
+            "id": "187UNqZ7MX3neMYkkevmdm", 
+            "image_filepath": "./album/images/187UNqZ7MX3neMYkkevmdm.jpg", 
+            "image_url": "https://i.scdn.co/image/ca82e702649e2e578f2810d2725e0eced791b27e", 
+            "name": "SUPER SLIMEY", 
+            "release_date": "2017-10-20"
+        }, 
+        {
+            "artists": [
+                "1RyvyyTE3xzB2ZywiAwp0i"
+            ], 
+            "copyrights": "(P) 2017 Epic Records, a division of Sony Music Entertainment with A1 / Freebandz", 
+            "id": "7K6OykPbezfgKgBufihn6X", 
+            "image_filepath": "./album/images/7K6OykPbezfgKgBufihn6X.jpg", 
+            "image_url": "https://i.scdn.co/image/9f4f496a8656c3420d0962d8a81cad76b5426277", 
+            "name": "HNDRXX", 
+            "release_date": "2017-07-27"
+        }, 
+        {
+            "artists": [
+                "50co4Is1HCEo8bhOyUWKpn"
+            ], 
+            "copyrights": "2017 300 Entertainment / Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States. A Warner Music Group Company", 
+            "id": "51KZKzPd3OQT1r46a55VTt", 
+            "image_filepath": "./album/images/51KZKzPd3OQT1r46a55VTt.jpg", 
+            "image_url": "https://i.scdn.co/image/3b7d4c283e6144754479cc84320bf1341e803219", 
+            "name": "Beautiful Thugger Girls", 
+            "release_date": "2017-06-16"
+        }, 
+        {
+            "artists": [
+                "50co4Is1HCEo8bhOyUWKpn"
+            ], 
+            "copyrights": "2017 300 Entertainment / Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States. A Warner Music Group Company", 
+            "id": "7EpUpNUkkEGnaCvkcn1j4H", 
+            "image_filepath": "./album/images/7EpUpNUkkEGnaCvkcn1j4H.jpg", 
+            "image_url": "https://i.scdn.co/image/962c51ca74944e60cccf0f39d10bee03666b0467", 
+            "name": "JEFFERY", 
+            "release_date": "2016-08-26"
+        }, 
+        {
+            "artists": [
+                "50co4Is1HCEo8bhOyUWKpn"
+            ], 
+            "copyrights": "2016 300 Entertainment / Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States. A Warner Music Group Company", 
+            "id": "2z4c8M8aVzl7CTobIp36KF", 
+            "image_filepath": "./album/images/2z4c8M8aVzl7CTobIp36KF.jpg", 
+            "image_url": "https://i.scdn.co/image/71128c075b9a68b8866c62df68d6fe39973fb7dd", 
+            "name": "Slime Season 3", 
+            "release_date": "2016-03-25"
+        }, 
+        {
+            "artists": [
+                "50co4Is1HCEo8bhOyUWKpn"
+            ], 
+            "copyrights": "2016 300 Entertainment / Atlantic Recording Corporation for the United States and WEA International Inc. for the world outside of the United States. A Warner Music Group Company", 
+            "id": "4sAB9WulPpnAcig7alDGTg", 
+            "image_filepath": "./album/images/4sAB9WulPpnAcig7alDGTg.jpg", 
+            "image_url": "https://i.scdn.co/image/75fc15957e406afbb2340c349438c6671278d7a9", 
+            "name": "I'm Up", 
+            "release_date": "2016-02-05"
+        }, 
+        {
+            "artists": [
+                "57ylwQTnFnIhJh4nu4rxCs"
+            ], 
+            "copyrights": "2016 Eleven Seven Music", 
+            "id": "65sRfjCFFqSrVYY7YjYe6y", 
+            "image_filepath": "./album/images/65sRfjCFFqSrVYY7YjYe6y.jpg", 
+            "image_url": "https://i.scdn.co/image/3d78806e54f231859de1b1bc627126c41f57e8b6", 
+            "name": "Battles", 
+            "release_date": "2016-11-11"
+        }, 
+        {
+            "artists": [
+                "57ylwQTnFnIhJh4nu4rxCs"
+            ], 
+            "copyrights": "(P) 2014 Sony Music Entertainment Germany GmbH. Released under exclusive license from IF Music Ekonomisk F\u00f6rening", 
+            "id": "56aOAKw8w6xDzANjNhWasX", 
+            "image_filepath": "./album/images/56aOAKw8w6xDzANjNhWasX.jpg", 
+            "image_url": "https://i.scdn.co/image/e54a6b42b29b3f70139d67a8ff8a3f340283410d", 
+            "name": "Siren Charms", 
+            "release_date": "2014-09-05"
+        }, 
+        {
+            "artists": [
+                "57ylwQTnFnIhJh4nu4rxCs"
+            ], 
+            "copyrights": "(P) 2011 Century Media Records Ltd. under exclusive license from IF Music", 
+            "id": "5sntGYi5etQESPeKSa89JR", 
+            "image_filepath": "./album/images/5sntGYi5etQESPeKSa89JR.jpg", 
+            "image_url": "https://i.scdn.co/image/202fb21200a4a388b35659ea1322739db5c8bf21", 
+            "name": "Sounds of a Playground Fading", 
+            "release_date": "2011-01-01"
+        }, 
+        {
+            "artists": [
+                "57ylwQTnFnIhJh4nu4rxCs"
+            ], 
+            "copyrights": "2008 Koch Records", 
+            "id": "0mRXnequSfldJ0BE28Sn4m", 
+            "image_filepath": "./album/images/0mRXnequSfldJ0BE28Sn4m.jpg", 
+            "image_url": "https://i.scdn.co/image/b383921f06c27760af34341f587cd67610469c61", 
+            "name": "A Sense Of Purpose", 
+            "release_date": "2008-04-01"
+        }, 
+        {
+            "artists": [
+                "5t28BP42x2axFnqOOMg3CM"
+            ], 
+            "copyrights": "2015 Prospect Park", 
+            "id": "6qWWoMoUsPzP0Wvt3giiD6", 
+            "image_filepath": "./album/images/6qWWoMoUsPzP0Wvt3giiD6.jpg", 
+            "image_url": "https://i.scdn.co/image/ef674140becd36869f59ec3b2a822f3a70d6c16f", 
+            "name": "Got Your Six", 
+            "release_date": "2015-09-04"
+        }, 
+        {
+            "artists": [
+                "5t28BP42x2axFnqOOMg3CM"
+            ], 
+            "copyrights": "2013 PROSPECT PARK", 
+            "id": "4mVpAroqu9X0T4Y8pYZoD2", 
+            "image_filepath": "./album/images/4mVpAroqu9X0T4Y8pYZoD2.jpg", 
+            "image_url": "https://i.scdn.co/image/9d5f6e899e41db9efcf2fa5cf367b51b98539cb6", 
+            "name": "The Wrong Side of Heaven and the Righteous Side of Hell, Vol. 1", 
+            "release_date": "2013-07-30"
+        }, 
+        {
+            "artists": [
+                "3dRfiJ2650SZu6GbydcHNb"
+            ], 
+            "copyrights": "(P) 1991 Sony Music Entertainment/(P) 1995 Sony Music Entertainment/(P) 2017 Amblin Entertainment, Inc. and Marjer Productions Inc. Under exclusive license to Sony Music Entertainment", 
+            "id": "2K9laKccwpVMQf2lJoVJVg", 
+            "image_filepath": "./album/images/2K9laKccwpVMQf2lJoVJVg.jpg", 
+            "image_url": "https://i.scdn.co/image/e22eb72cae2fc825ab485e5c2ca58f144cfec259", 
+            "name": "John Williams & Steven Spielberg: The Ultimate Collection", 
+            "release_date": "2017-03-17"
+        }, 
+        {
+            "artists": [
+                "3dRfiJ2650SZu6GbydcHNb"
+            ], 
+            "copyrights": "\u00a9 2016 Storyteller Distribution Co., LLC and Disney Enterprises, Inc. and Walden Media", 
+            "id": "2FI7i6CqLl8DuLczpvaulm", 
+            "image_filepath": "./album/images/2FI7i6CqLl8DuLczpvaulm.jpg", 
+            "image_url": "https://i.scdn.co/image/212b1f7302790b3237dc89c2fb42de628e24f595", 
+            "name": "The BFG (Original Motion Picture Soundtrack)", 
+            "release_date": "2016-07-01"
+        }, 
+        {
+            "artists": [
+                "3dRfiJ2650SZu6GbydcHNb"
+            ], 
+            "copyrights": "\u00a9 2015 Lucasfilm Ltd.", 
+            "id": "3fUKGTsiYL1kSroBWBLmmR", 
+            "image_filepath": "./album/images/3fUKGTsiYL1kSroBWBLmmR.jpg", 
+            "image_url": "https://i.scdn.co/image/cc5e0c2b07782e10495244a7bf8be95b120e9697", 
+            "name": "Star Wars: The Force Awakens (Original Motion Picture Soundtrack)", 
+            "release_date": "2015-12-18"
+        }, 
+        {
+            "artists": [
+                "7CIcEIOiWaZcEH35cpsdZq", 
+                "3dRfiJ2650SZu6GbydcHNb"
+            ], 
+            "copyrights": "\u00a9 2015 Decca Music Group Limited", 
+            "id": "7zzBcrBcrVDEnBcokERvze", 
+            "image_filepath": "./album/images/7zzBcrBcrVDEnBcokERvze.jpg", 
+            "image_url": "https://i.scdn.co/image/576b58f493a1198bbb9428097baf0ae79cb76e5c", 
+            "name": "John Williams Conducts Music From Star Wars", 
+            "release_date": "2015-11-01"
+        }, 
+        {
+            "artists": [
+                "1EI0NtLHoh9KBziYCeN1vM"
+            ], 
+            "copyrights": "2017 Nonesuch Records Inc.", 
+            "id": "1CVuPxNHwY5ORJ8MhjD0UB", 
+            "image_filepath": "./album/images/1CVuPxNHwY5ORJ8MhjD0UB.jpg", 
+            "image_url": "https://i.scdn.co/image/78b1cbfe9f5e59a43f81a3f8ec19926a2cf68abd", 
+            "name": "Freedom Highway", 
+            "release_date": "2017-02-24"
+        }, 
+        {
+            "artists": [
+                "1EI0NtLHoh9KBziYCeN1vM"
+            ], 
+            "copyrights": "2014 Nonesuch Records Inc.", 
+            "id": "2dHKdmxoivYnUBg01aPGDg", 
+            "image_filepath": "./album/images/2dHKdmxoivYnUBg01aPGDg.jpg", 
+            "image_url": "https://i.scdn.co/image/e34901a2274959f389b16561d12462edca2baae0", 
+            "name": "Tomorrow Is My Turn", 
+            "release_date": "2015-02-06"
+        }, 
+        {
+            "artists": [
+                "1EI0NtLHoh9KBziYCeN1vM"
+            ], 
+            "copyrights": "(C) 2009 Elftones Productions", 
+            "id": "785hdKcmv9twCrQkKUElTV", 
+            "image_filepath": "./album/images/785hdKcmv9twCrQkKUElTV.jpg", 
+            "image_url": "https://i.scdn.co/image/79459e5262b5585bed142743c933402fd86acf5d", 
+            "name": "All The Pretty Horses", 
+            "release_date": "2009-02-04"
+        }
+    ]
+}

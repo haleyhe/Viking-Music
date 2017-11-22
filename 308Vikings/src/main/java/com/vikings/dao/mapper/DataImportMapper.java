@@ -16,19 +16,19 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface DataImportMapper {
     
-    public void createArtist(Artist artist);
+    public void createArtist(List<Artist> artists);
     
-    public void createArtistGenres(Artist artist);
+    public void createArtistGenres(List<Artist> artists);
     
-    public void createAlbum(Album album);
+    public void createAlbum(List<Album> albums);
     
-    public void createAlbumArtists(Album album);
+    public void createAlbumArtists(List<Album> albums);
     
-    public void createSong(Song song);
+    public void createSong(List<Song> songs);
     
-    public void createSongArtists(Song song);
+    public void createSongArtists(List<Song> songs);
     
-    public void createSongAlbum(Song song);
+    public void createSongAlbum(List<Song> songs);
     
     public void createAddress(Address address);
     

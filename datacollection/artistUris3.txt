@@ -1,0 +1,20 @@
+# Contains URIs for all Artists we wish to collect data for.
+# You can get the URI from the Spotify Artist Page.
+# !!! ELEMENTS ARE SEPARATED BY TABS WITH NO SPACES !!!
+spotify:artist:6g0Wah2YFtb1rFgKhUktlo	Raphael Saadiq	https://www.songkick.com/artists/197888-raphael-saadiq/calendar
+spotify:artist:6AVLthptCPhfrxlHadOBJD	Jill Scott	N/A
+spotify:artist:6xTk3EK5T9UzudENVvu9YB	Rancid	https://www.songkick.com/artists/559565-rancid/calendar
+spotify:artist:1oVj9JmPUPg4SQ2uerV2xc	Bad Brains	https://www.songkick.com/artists/99608-bad-brains/calendar
+spotify:artist:7jgZFR40bWjwOrRCOZFB02	Tribal Seeds	https://www.songkick.com/artists/538550-tribal-seeds/calendar
+spotify:artist:2QsynagSdAqZj3U9HgDzjD	Bob Marley	N/A
+spotify:artist:2JX4h8xm0hNxCB0aNBWzyi	Gyptian	https://www.songkick.com/artists/245691-gyptian/calendar
+spotify:artist:2gCsNOpiBaMNh20jQ5prf0	Buddy Guy	https://www.songkick.com/artists/183162-buddy-guy/calendar
+spotify:artist:1yAwtBaoHLEDWAnWR87hBT	Modest Mouse	N/A
+spotify:artist:5cIc3SBFuBLVxJz58W2tU9	Oh Wonder	https://www.songkick.com/artists/8418168-oh-wonder/calendar
+spotify:artist:4LG4Bs1Gadht7TCrMytQUO	The Shins	https://www.songkick.com/artists/497029-shins/calendar
+spotify:artist:1RyvyyTE3xzB2ZywiAwp0i	Future	https://www.songkick.com/artists/178809-future/calendar
+spotify:artist:50co4Is1HCEo8bhOyUWKpn	Young Thug	https://www.songkick.com/artists/6761084-young-thug/calendar
+spotify:artist:57ylwQTnFnIhJh4nu4rxCs	In Flames	https://www.songkick.com/artists/494866-in-flames/calendar
+spotify:artist:5t28BP42x2axFnqOOMg3CM	Five Finger Death Punch	https://www.songkick.com/artists/577269-five-finger-death-punch/calendar
+spotify:artist:3dRfiJ2650SZu6GbydcHNb	John Williams	N/A
+spotify:artist:1EI0NtLHoh9KBziYCeN1vM	Rhiannon Giddens	N/A

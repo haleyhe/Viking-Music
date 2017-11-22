@@ -2,53 +2,57 @@
 <mapper namespace="com.vikings.dao.mapper.DataImportMapper">
     <cache />
     
-    <insert id="createArtist" parameterType="com.vikings.domain.Artist">
+    <insert id="createArtist" parameterType="java.util.List">
         INSERT IGNORE INTO Artists (
             artistId,
             name,
             bio
-        ) VALUES (
-            #{id},
-            #{name},
-            #{bio}
-        );
+        ) VALUES
+            <foreach item="artist" collection="list" open="(" separator="),("  close=")">
+                #{artist.id},
+                #{artist.name},
+                #{artist.bio}
+            </foreach>
     </insert>
     
-    <insert id="createArtistGenres" parameterType="com.vikings.domain.Artist">
+    <insert id="createArtistGenres" parameterType="java.util.List">
         INSERT IGNORE INTO ArtistGenres (
             artistId,
             genre
         ) VALUES
-            <foreach item="genre" collection="genres" separator=",">
-                (#{id}, #{genre})
+            <foreach item="artist" collection="list" separator=",">
+                <foreach item="genre" collection="artist.genres" separator=",">
+                    (#{artist.id}, #{genre})
+                </foreach>
             </foreach>
-        ;
     </insert>
     
-    <insert id="createAlbum" parameterType="com.vikings.domain.Album">
+    <insert id="createAlbum" parameterType="java.util.List">
         INSERT IGNORE INTO Albums (
             albumId,
             name,
             releaseDate
-        ) VALUES (
-            #{id},
-            #{name},
-            #{releaseDate}
-        );
+        ) VALUES
+            <foreach item="album" collection="list" open="(" separator="),("  close=")">
+                #{album.id},
+                #{album.name},
+                #{album.releaseDate}
+            </foreach>
     </insert>
     
-    <insert id="createAlbumArtists" parameterType="com.vikings.domain.Album">
+    <insert id="createAlbumArtists" parameterType="java.util.List">
         INSERT IGNORE INTO AlbumArtists (
             albumId,
             artistId
         ) VALUES
-            <foreach item="artist" collection="artists" separator=",">
-                (#{id}, #{artist.id})
+            <foreach item="album" collection="list" separator=",">
+                <foreach item="artist" collection="album.artists" separator=",">
+                    (#{album.id}, #{artist.id})
+                </foreach>
             </foreach>
-        ;
     </insert>
     
-    <insert id="createSong" parameterType="com.vikings.domain.Song">
+    <insert id="createSong" parameterType="java.util.List">
         INSERT IGNORE INTO Songs (
             songId,
             name,
@@ -57,36 +61,38 @@
             discNumber,
             trackNumber,
             lyrics
-        ) VALUES (
-            #{id},
-            #{name},
-            #{duration},
-            #{explicit},
-            #{discNumber},
-            #{trackNumber},
-            #{lyrics}
-        );
+        ) VALUES
+            <foreach item="song" collection="list" separator=",">
+                (#{song.id},
+                #{song.name},
+                #{song.duration},
+                #{song.explicit},
+                #{song.discNumber},
+                #{song.trackNumber},
+                #{song.lyrics})
+            </foreach>
     </insert>
     
-    <insert id="createSongArtists" parameterType="com.vikings.domain.Song">
+    <insert id="createSongArtists" parameterType="java.util.List">
         INSERT IGNORE INTO SongArtists (
             songId,
             artistId
         ) VALUES
-            <foreach item="artist" collection="artists" separator=",">
-                (#{id}, #{artist.id})
+            <foreach item="song" collection="list" separator=",">
+                <foreach item="artist" collection="song.artists" separator=",">
+                    (#{song.id}, #{artist.id})
+                </foreach>
             </foreach>
-        ;
     </insert>
     
-    <insert id="createSongAlbum" parameterType="com.vikings.domain.Song">
+    <insert id="createSongAlbum" parameterType="java.util.List">
         INSERT IGNORE INTO AlbumSongs (
             songId,
             albumId
-        ) VALUES (
-            #{id},
-            #{album.id}
-        );
+        ) VALUES
+        <foreach item="song" collection="list" separator=",">
+            (#{song.id}, #{song.album.id})
+        </foreach>
     </insert>
 
     <insert id="createAddress" parameterType="com.vikings.domain.Address">

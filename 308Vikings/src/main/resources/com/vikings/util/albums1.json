@@ -1,0 +1,765 @@
+{
+    "albums": [
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "copyrights": "2017 Weezer under exclusive license to Crush Music / Atlantic Recording Corporation for the United States and Crush Music / WEA International Inc. for the world excluding the United States. A Warner Music Company.", 
+            "id": "3EwfQtjvyRAXsPWAKO5FDP", 
+            "image_filepath": "./album/images/3EwfQtjvyRAXsPWAKO5FDP.jpg", 
+            "image_url": "https://i.scdn.co/image/0074e12e5155e33f46285b7ba5ed5f0b297d94e0", 
+            "name": "Pacific Daydream", 
+            "release_date": "2017-10-27"
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "copyrights": "2016 Weezer under exclusive license to Crush Music / Atlantic Recording Corporation for the United States and Crush Music / WEA International Inc. for the world excluding the United States. A Warner Music Company.", 
+            "id": "6StNTJJ7Yq3Hf121kLvPBz", 
+            "image_filepath": "./album/images/6StNTJJ7Yq3Hf121kLvPBz.jpg", 
+            "image_url": "https://i.scdn.co/image/5d276368417c6afd3d783a1cce985d2b686a8745", 
+            "name": "Weezer (White Album)", 
+            "release_date": "2016-04-01"
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "copyrights": "\u00a9 2014 Republic Records, a division of UMG Recordings, Inc.", 
+            "id": "5bwoCpDhski3iIxwsdgPTM", 
+            "image_filepath": "./album/images/5bwoCpDhski3iIxwsdgPTM.jpg", 
+            "image_url": "https://i.scdn.co/image/755e8da4e52dc33b25382678a1e86881b9229ef7", 
+            "name": "Everything Will Be Alright In The End", 
+            "release_date": "2014-10-07"
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "copyrights": "2010 Weezer Under Exclusive License To Epitaph", 
+            "id": "1vhQIBznzVjSCQw26WlMsB", 
+            "image_filepath": "./album/images/1vhQIBznzVjSCQw26WlMsB.jpg", 
+            "image_url": "https://i.scdn.co/image/4053eab06aee5e1fdcf0f289b1e86a198cbb27dd", 
+            "name": "Hurley", 
+            "release_date": "2010-09-14"
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y", 
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "copyrights": "2017 Matador Records Limited", 
+            "id": "3gvo4nvimDdqA9c3y7Bptc", 
+            "image_filepath": "./album/images/3gvo4nvimDdqA9c3y7Bptc.jpg", 
+            "image_url": "https://i.scdn.co/image/441f6808d94843a41a79e348129163ad771be232", 
+            "name": "Lotta Sea Lice", 
+            "release_date": "2017-10-13"
+        }, 
+        {
+            "artists": [
+                "4OOlG5eBXSkSAAEeKjJb5Y"
+            ], 
+            "copyrights": "(C) 2015 Marathon Artists under exclusive license to Mom+Pop", 
+            "id": "1WBps8cIMT6LYVq5rYh5ze", 
+            "image_filepath": "./album/images/1WBps8cIMT6LYVq5rYh5ze.jpg", 
+            "image_url": "https://i.scdn.co/image/92232e18155ddedd32b027dd9631d02f7879f632", 
+            "name": "Sometimes I Sit and Think, And Sometimes I Just Sit", 
+            "release_date": "2015-03-23"
+        }, 
+        {
+            "artists": [
+                "3kzwYV3OCB010YfXMF0Avt"
+            ], 
+            "copyrights": "2017 Polyvinyl Record Co.", 
+            "id": "7CCwkPweMxKq8yWkVerH6T", 
+            "image_filepath": "./album/images/7CCwkPweMxKq8yWkVerH6T.jpg", 
+            "image_url": "https://i.scdn.co/image/d5c92b6ae5dbbd53cb4dacf1b23cca55fd2a8d85", 
+            "name": "Antisocialites", 
+            "release_date": "2017-09-08"
+        }, 
+        {
+            "artists": [
+                "3kzwYV3OCB010YfXMF0Avt"
+            ], 
+            "copyrights": "2014 Polyvinyl Records", 
+            "id": "4PrBMzWzzoMOwm55Bfo3dt", 
+            "image_filepath": "./album/images/4PrBMzWzzoMOwm55Bfo3dt.jpg", 
+            "image_url": "https://i.scdn.co/image/31139b26c62c6a4714e7a4ac4e830fbbd44b6d8d", 
+            "name": "Alvvays", 
+            "release_date": "2014-07-18"
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "copyrights": "2017 4AD Ltd", 
+            "id": "6zG9PHw8dlMLIyRE9TEGGk", 
+            "image_filepath": "./album/images/6zG9PHw8dlMLIyRE9TEGGk.jpg", 
+            "image_url": "https://i.scdn.co/image/d2efe4a0f3e05f9900b3865dce98d10fbeaba0b7", 
+            "name": "Sleep Well Beast", 
+            "release_date": "2017-09-08"
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "copyrights": "2013 4AD Ltd", 
+            "id": "2JhR4tjuc3MIKa8v2JaKze", 
+            "image_filepath": "./album/images/2JhR4tjuc3MIKa8v2JaKze.jpg", 
+            "image_url": "https://i.scdn.co/image/f76c15133710b5ef4ccf37039c57382ced66c262", 
+            "name": "Trouble Will Find Me", 
+            "release_date": "2013-05-27"
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "copyrights": "2010 4AD Ltd.", 
+            "id": "59gXPxZ8CwFaeknPxtxXHZ", 
+            "image_filepath": "./album/images/59gXPxZ8CwFaeknPxtxXHZ.jpg", 
+            "image_url": "https://i.scdn.co/image/dab2703d8e0c0c91a7658668801a0aa3685c8eeb", 
+            "name": "High Violet", 
+            "release_date": "2010-05-11"
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "copyrights": "2007 Beggars Banquet Ltd", 
+            "id": "3hvjTC9OSOrf6SFQmfqLNX", 
+            "image_filepath": "./album/images/3hvjTC9OSOrf6SFQmfqLNX.jpg", 
+            "image_url": "https://i.scdn.co/image/4c2463e87018e17684321fe3f81e5c18a9e9f1c9", 
+            "name": "Boxer", 
+            "release_date": "2007-05-22"
+        }, 
+        {
+            "artists": [
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "copyrights": "2015 Matador Records Limited", 
+            "id": "2uRTsStAmo7Z2UwCIvuwMv", 
+            "image_filepath": "./album/images/2uRTsStAmo7Z2UwCIvuwMv.jpg", 
+            "image_url": "https://i.scdn.co/image/c36c180e1f533ef50c42f570cb4efc691b8493b9", 
+            "name": "b'lieve i'm goin down...", 
+            "release_date": "2015-09-25"
+        }, 
+        {
+            "artists": [
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "copyrights": "2013 Matador Records Limited", 
+            "id": "6M12kruSQieaz3cnRWkAaI", 
+            "image_filepath": "./album/images/6M12kruSQieaz3cnRWkAaI.jpg", 
+            "image_url": "https://i.scdn.co/image/8520038205f8d0ca1d02fde7b8602cb27ddb5577", 
+            "name": "\"it's a big world out there (and i am scared)\"", 
+            "release_date": "2013-11-18"
+        }, 
+        {
+            "artists": [
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "copyrights": "2013 Matador Records Limited", 
+            "id": "2imxOfDIDk2voAYCZP88u2", 
+            "image_filepath": "./album/images/2imxOfDIDk2voAYCZP88u2.jpg", 
+            "image_url": "https://i.scdn.co/image/716dd2620539069811f0f75ff25a0ef0fdea96dc", 
+            "name": "Wakin On A Pretty Daze", 
+            "release_date": "2013-04-08"
+        }, 
+        {
+            "artists": [
+                "5gspAQIAH8nJUrMYgXjCJ2"
+            ], 
+            "copyrights": "2011 Matador Records Limited", 
+            "id": "3az5R3aa0a6ZfNcKVRK4lB", 
+            "image_filepath": "./album/images/3az5R3aa0a6ZfNcKVRK4lB.jpg", 
+            "image_url": "https://i.scdn.co/image/ad99ead5c72e23369db39d27b585620f9d4b7140", 
+            "name": "So Outta Reach", 
+            "release_date": "2011-11-07"
+        }, 
+        {
+            "artists": [
+                "4wLIbcoqmqI4WZHDiBxeCB"
+            ], 
+            "copyrights": "2015 Sub Pop Records", 
+            "id": "1l7gMbzE7RRAdYddJSfM5B", 
+            "image_filepath": "./album/images/1l7gMbzE7RRAdYddJSfM5B.jpg", 
+            "image_url": "https://i.scdn.co/image/8945376ae511836deb3e1e4bd994d8f40e0db652", 
+            "name": "No Cities to Love", 
+            "release_date": "2015-01-20"
+        }, 
+        {
+            "artists": [
+                "4wLIbcoqmqI4WZHDiBxeCB"
+            ], 
+            "copyrights": "Sub Pop Records", 
+            "id": "0U6Z6EVDwVMqwmr2zEcH4L", 
+            "image_filepath": "./album/images/0U6Z6EVDwVMqwmr2zEcH4L.jpg", 
+            "image_url": "https://i.scdn.co/image/1d282c294cf9230b55539ce70667bcc23f1afeba", 
+            "name": "The Woods", 
+            "release_date": "2005-06-24"
+        }, 
+        {
+            "artists": [
+                "53XhwfbYqKCa1cC15pYq2q"
+            ], 
+            "copyrights": "\u00a9 2017 KIDinaKORNER/Interscope Records", 
+            "id": "51s30K7a36ORx6AAaPBRRY", 
+            "image_filepath": "./album/images/51s30K7a36ORx6AAaPBRRY.jpg", 
+            "image_url": "https://i.scdn.co/image/84989ed4cca6518fa540bb3c8a7a73127695e937", 
+            "name": "Evolve", 
+            "release_date": "2017-06-23"
+        }, 
+        {
+            "artists": [
+                "53XhwfbYqKCa1cC15pYq2q"
+            ], 
+            "copyrights": "\u00a9 2014 KIDinaKORNER/Interscope Records", 
+            "id": "0gmsXcmrcnxdZBrD5EyJEL", 
+            "image_filepath": "./album/images/0gmsXcmrcnxdZBrD5EyJEL.jpg", 
+            "image_url": "https://i.scdn.co/image/d5772acb478bfa8539240d9c2f28073d9bb59133", 
+            "name": "Smoke + Mirrors", 
+            "release_date": "2014-09-18"
+        }, 
+        {
+            "artists": [
+                "53XhwfbYqKCa1cC15pYq2q"
+            ], 
+            "copyrights": "\u00a9 2012 KIDinaKORNER/Interscope Records", 
+            "id": "6htgf3qv7vGcsdxLCDxKp8", 
+            "image_filepath": "./album/images/6htgf3qv7vGcsdxLCDxKp8.jpg", 
+            "image_url": "https://i.scdn.co/image/443609cd35e43c7bdb272b3d1d9e80290e128bc5", 
+            "name": "Night Visions", 
+            "release_date": "2012-01-01"
+        }, 
+        {
+            "artists": [
+                "5Pwc4xIPtQLFEnJriah9YJ"
+            ], 
+            "copyrights": "\u00a9 2016 Mosley Music/Interscope Records", 
+            "id": "3sABlBpkGohgVYOVN23q8m", 
+            "image_filepath": "./album/images/3sABlBpkGohgVYOVN23q8m.jpg", 
+            "image_url": "https://i.scdn.co/image/06d0d473758a1e1a7208423b8971d5328a623fd7", 
+            "name": "Oh My My", 
+            "release_date": "2016-12-03"
+        }, 
+        {
+            "artists": [
+                "5Pwc4xIPtQLFEnJriah9YJ"
+            ], 
+            "copyrights": "\u00a9 2016 Mosley Music/Interscope Records", 
+            "id": "30Ni9qg2MBeeZXybsMOQ7m", 
+            "image_filepath": "./album/images/30Ni9qg2MBeeZXybsMOQ7m.jpg", 
+            "image_url": "https://i.scdn.co/image/3af30ea172ff0db16edfcbcc7b2256896f365460", 
+            "name": "Oh My My", 
+            "release_date": "2016-12-02"
+        }, 
+        {
+            "artists": [
+                "5Pwc4xIPtQLFEnJriah9YJ"
+            ], 
+            "copyrights": "\u00a9 2014 Mosley Music/Interscope Records", 
+            "id": "2bbhW5ifCwOYM8DMkqoYBF", 
+            "image_filepath": "./album/images/2bbhW5ifCwOYM8DMkqoYBF.jpg", 
+            "image_url": "https://i.scdn.co/image/8b6238186da6c5c9b0ff756065883aa1a8fbd339", 
+            "name": "Native", 
+            "release_date": "2014-01-01"
+        }, 
+        {
+            "artists": [
+                "5Pwc4xIPtQLFEnJriah9YJ"
+            ], 
+            "copyrights": "\u00a9 2009 Mosley Music/Interscope Records", 
+            "id": "2pLAOZiilrhOrTQNqrF8qr", 
+            "image_filepath": "./album/images/2pLAOZiilrhOrTQNqrF8qr.jpg", 
+            "image_url": "https://i.scdn.co/image/63db8aefac988824ad66f6e3d36a9bea386c0521", 
+            "name": "Waking Up", 
+            "release_date": "2009-01-01"
+        },  
+        {
+            "artists": [
+                "5WUlDfRSoLAfcVSX1WnrxN"
+            ], 
+            "copyrights": "(P) 2010 Monkey Puzzle under exclusive license to Sony Music Entertainment UK Limited", 
+            "id": "2sefE1XYR7ox1JTKCPerSI", 
+            "image_filepath": "./album/images/2sefE1XYR7ox1JTKCPerSI.jpg", 
+            "image_url": "https://i.scdn.co/image/4e189ad61863e496d446b119046bf2bbf41c1b0d", 
+            "name": "We Are Born", 
+            "release_date": "2010-06-18"
+        }, 
+        {
+            "artists": [
+                "5WUlDfRSoLAfcVSX1WnrxN"
+            ], 
+            "copyrights": "\u00a9 2008 Monkey Puzzle Records Ltd. Under exclusive license to StarCon, LLC", 
+            "id": "5LLfszqKA9xMdnqMKyn11i", 
+            "image_filepath": "./album/images/5LLfszqKA9xMdnqMKyn11i.jpg", 
+            "image_url": "https://i.scdn.co/image/f6bb38b8b2bd5498490d259a3524a747230d632b", 
+            "name": "Some People Have REAL Problems", 
+            "release_date": "2008-01-01"
+        }, 
+        {
+            "artists": [
+                "5WUlDfRSoLAfcVSX1WnrxN"
+            ], 
+            "copyrights": "(C) 2007 Monkey Puzzle Records", 
+            "id": "2XoZQbBBJYMzMCQIcILe00", 
+            "image_filepath": "./album/images/2XoZQbBBJYMzMCQIcILe00.jpg", 
+            "image_url": "https://i.scdn.co/image/f4854026e25e9ce279747d9a23d37665540b6afb", 
+            "name": "Some People Have Real Problems", 
+            "release_date": "2008-01-07"
+        }, 
+        {
+            "artists": [
+                "07YZf4WDAMNwqr4jfgOZ8y"
+            ], 
+            "copyrights": "2015 Warner Bros. Records Inc.", 
+            "id": "59eUYETmE1zi31ESb3SUkI", 
+            "image_filepath": "./album/images/59eUYETmE1zi31ESb3SUkI.jpg", 
+            "image_url": "https://i.scdn.co/image/d4e179cf14800ae015c18029aa7f6b35a3c1a29a", 
+            "name": "Everything Is 4", 
+            "release_date": "2015-05-29"
+        },  
+        {
+            "artists": [
+                "07YZf4WDAMNwqr4jfgOZ8y"
+            ], 
+            "copyrights": "2014 Warner Bros. Records Inc.", 
+            "id": "4PeZu0It7qVrTG40t3HM9A", 
+            "image_filepath": "./album/images/4PeZu0It7qVrTG40t3HM9A.jpg", 
+            "image_url": "https://i.scdn.co/image/679472c6c90c259f3ed625bfa495b5a202d60e66", 
+            "name": "Talk Dirty", 
+            "release_date": "2013-09-10"
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "copyrights": "\u00a9 2013 Interscope Records", 
+            "id": "705K6lFN9wm3bifelyuQS4", 
+            "image_filepath": "./album/images/705K6lFN9wm3bifelyuQS4.jpg", 
+            "image_url": "https://i.scdn.co/image/177f7b652248e78724022f3fd5cece51f197fbd5", 
+            "name": "ARTPOP", 
+            "release_date": "2013-01-01"
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "copyrights": "\u00a9 2011 Interscope Records", 
+            "id": "2KkMVsxymoNR7hRmBcMttd", 
+            "image_filepath": "./album/images/2KkMVsxymoNR7hRmBcMttd.jpg", 
+            "image_url": "https://i.scdn.co/image/668042cff597d03d90667a97bc3c1ab3fbcf145c", 
+            "name": "Born This Way", 
+            "release_date": "2011-01-01"
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "copyrights": "\u00a9 2010 Interscope Records", 
+            "id": "7H4ZbSDmdzFNTrkNKDUXMC", 
+            "image_filepath": "./album/images/7H4ZbSDmdzFNTrkNKDUXMC.jpg", 
+            "image_url": "https://i.scdn.co/image/62e774decad684e49467983c9dceeafdf095cf47", 
+            "name": "The Fame Monster", 
+            "release_date": "2010-01-01"
+        }, 
+        {
+            "artists": [
+                "06HL4z0CvFAxyc27GXpf02"
+            ], 
+            "copyrights": "\u00a9 2014 Big Machine Records, LLC.", 
+            "id": "2QJmrSgbdM35R67eoGQo4j", 
+            "image_filepath": "./album/images/2QJmrSgbdM35R67eoGQo4j.jpg", 
+            "image_url": "https://i.scdn.co/image/22d30ca92618d5c5b09ab6cf526c1b77f2518b07", 
+            "name": "1989", 
+            "release_date": "2014-10-27"
+        }, 
+        {
+            "artists": [
+                "06HL4z0CvFAxyc27GXpf02"
+            ], 
+            "copyrights": "\u00a9 2012 Big Machine Records, LLC.", 
+            "id": "1EoDsNmgTLtmwe1BDAVxV5", 
+            "image_filepath": "./album/images/1EoDsNmgTLtmwe1BDAVxV5.jpg", 
+            "image_url": "https://i.scdn.co/image/3e4af6ca77398a23be157e884a1576f8b8e3d075", 
+            "name": "Red", 
+            "release_date": "2012-01-01"
+        }, 
+        {
+            "artists": [
+                "5YGY8feqx7naU7z4HrwZM6"
+            ], 
+            "copyrights": "(P) 2017 RCA Records, a division of Sony Music Entertainment", 
+            "id": "5xG9gJcs9ut3qDWezHUlsX", 
+            "image_filepath": "./album/images/5xG9gJcs9ut3qDWezHUlsX.jpg", 
+            "image_url": "https://i.scdn.co/image/a1fa7f590996868ebd1248aab3233e793db22fd7", 
+            "name": "Younger Now", 
+            "release_date": "2017-09-29"
+        }, 
+        {
+            "artists": [
+                "5YGY8feqx7naU7z4HrwZM6"
+            ], 
+            "copyrights": "(P) 2015 RCA Records, a division of Sony Music Entertainment", 
+            "id": "6cfcdjtSR9ARnpnpwtEGaS", 
+            "image_filepath": "./album/images/6cfcdjtSR9ARnpnpwtEGaS.jpg", 
+            "image_url": "https://i.scdn.co/image/b92f0b2f0ed0efe516ab53c5e7d15ba814330ce3", 
+            "name": "Miley Cyrus & Her Dead Petz", 
+            "release_date": "2015-08-30"
+        }, 
+        {
+            "artists": [
+                "5YGY8feqx7naU7z4HrwZM6"
+            ], 
+            "copyrights": "\u00a9 2010 Hollywood Records, Inc.", 
+            "id": "69Pf9ExxwjhVFyosKsKWQu", 
+            "image_filepath": "./album/images/69Pf9ExxwjhVFyosKsKWQu.jpg", 
+            "image_url": "https://i.scdn.co/image/a1ebd203ee9b24820e54f5e8a936e3983b3d4597", 
+            "name": "Can't Be Tamed", 
+            "release_date": "2010-01-01"
+        }, 
+        {
+            "artists": [
+                "5YGY8feqx7naU7z4HrwZM6"
+            ], 
+            "copyrights": "\u00a9 2008 Hollywood Records", 
+            "id": "0Yu3czJNOQ68fZgkvpjuHL", 
+            "image_filepath": "./album/images/0Yu3czJNOQ68fZgkvpjuHL.jpg", 
+            "image_url": "https://i.scdn.co/image/fd6b525706b88a378b713b3b43e47b90e083294e", 
+            "name": "Breakout", 
+            "release_date": "2008-01-01"
+        }, 
+        {
+            "artists": [
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
+            ], 
+            "copyrights": "(P) 2017 Simco Ltd. under exclusive license to Epic Records, a division of Sony Music Entertainment", 
+            "id": "506tSgFO28YCEALMLihVPB", 
+            "image_filepath": "./album/images/506tSgFO28YCEALMLihVPB.jpg", 
+            "image_url": "https://i.scdn.co/image/8cf4f6c08dee45b2c2006cc9a5027cfe17274461", 
+            "name": "Fifth Harmony", 
+            "release_date": "2017-10-29"
+        }, 
+        {
+            "artists": [
+                "32vWCbZh0xZ4o9gkz4PsEU"
+            ], 
+            "copyrights": "(P) 2017 Dolly Records, LLC, under exclusive license to Sony Music Entertainment", 
+            "id": "3J9P845yuZgfvHjORh2E6D", 
+            "image_filepath": "./album/images/3J9P845yuZgfvHjORh2E6D.jpg", 
+            "image_url": "https://i.scdn.co/image/4fecc33dbf3b1d7b93ae6db0d10126c2a7abc459", 
+            "name": "I Believe in You", 
+            "release_date": "2017-09-29"
+        }, 
+        {
+            "artists": [
+                "32vWCbZh0xZ4o9gkz4PsEU"
+            ], 
+            "copyrights": "(P) 2016 Dolly Records, LLC, under exclusive license to Sony Music Entertainment", 
+            "id": "09xuqHRVpQp8AI5Pz9Oq9M", 
+            "image_filepath": "./album/images/09xuqHRVpQp8AI5Pz9Oq9M.jpg", 
+            "image_url": "https://i.scdn.co/image/774b0a10f3a8d040954fbda7be47ce96737413d0", 
+            "name": "Pure & Simple", 
+            "release_date": "2016-08-19"
+        }, 
+        {
+            "artists": [
+                "4PcLkq6IefIYiRWLXOfwKA", 
+                "32vWCbZh0xZ4o9gkz4PsEU"
+            ], 
+            "copyrights": "This compilation (P) 2015 Sony Music Entertainment", 
+            "id": "6HsMsuo7HXXwZPk3lIr850", 
+            "image_filepath": "./album/images/6HsMsuo7HXXwZPk3lIr850.jpg", 
+            "image_url": "https://i.scdn.co/image/292267cbfa18ed1dccc5a9ddd424c04b7b007052", 
+            "name": "The Essential Porter Wagoner & Dolly Parton", 
+            "release_date": "2015-10-02"
+        }, 
+        {
+            "artists": [
+                "32vWCbZh0xZ4o9gkz4PsEU"
+            ], 
+            "copyrights": "(P) 2014 Dolly Records, LLC under exclusive license to Sony Music Entertainment / (P) 2013 Warner Music Nashville LLC and WEA International Inc. for the world outside the U.S. / (P) 2013 Sony Music Entertainment", 
+            "id": "3rriCqkMGvgZl6mDPbxj40", 
+            "image_filepath": "./album/images/3rriCqkMGvgZl6mDPbxj40.jpg", 
+            "image_url": "https://i.scdn.co/image/eb9609184b4008d89399d46ab5aa6d5b0e41f511", 
+            "name": "Blue Smoke", 
+            "release_date": "2014-05-09"
+        }, 
+        {
+            "artists": [
+                "6kACVPfCOnqzgfEF5ryl0x"
+            ], 
+            "copyrights": "(P) 2014 Sony Music Entertainment", 
+            "id": "33jUyJOx4j6BWJ7VkzWoth", 
+            "image_filepath": "./album/images/33jUyJOx4j6BWJ7VkzWoth.jpg", 
+            "image_url": "https://i.scdn.co/image/b9b0bec32236836bba4c072b42e73e4fde74f554", 
+            "name": "Out Among The Stars", 
+            "release_date": "2014-03-21"
+        }, 
+        {
+            "artists": [
+                "6kACVPfCOnqzgfEF5ryl0x"
+            ], 
+            "copyrights": "\u00a9 2010 American Recordings, LLC & The Island Def Jam Music Group", 
+            "id": "5PhCQ5zV8DEsMBnyiZbwKd", 
+            "image_filepath": "./album/images/5PhCQ5zV8DEsMBnyiZbwKd.jpg", 
+            "image_url": "https://i.scdn.co/image/54357b3c1d9d9912b3dcf94444c2d398a92a4682", 
+            "name": "American VI: Ain't No Grave", 
+            "release_date": "2010-01-01"
+        }, 
+        {
+            "artists": [
+                "6kACVPfCOnqzgfEF5ryl0x"
+            ], 
+            "copyrights": "\u00a9 2007 The Island Def Jam Music Group", 
+            "id": "3dE4eOntaYteXaF7fzjLze", 
+            "image_filepath": "./album/images/3dE4eOntaYteXaF7fzjLze.jpg", 
+            "image_url": "https://i.scdn.co/image/8888a1fe19b8806715c244c51ef198d513a4efa3", 
+            "name": "The Great Lost Performance", 
+            "release_date": "2007-01-01"
+        }, 
+        {
+            "artists": [
+                "4xFUf1FHVy696Q1JQZMTRj"
+            ], 
+            "copyrights": "(P) 2015 19 Recordings Limited, under exclusive license to Sony Music Nashville, a division of Sony Music Entertainment", 
+            "id": "4q3SkZWPYJtKno1RbnrjL4", 
+            "image_filepath": "./album/images/4q3SkZWPYJtKno1RbnrjL4.jpg", 
+            "image_url": "https://i.scdn.co/image/bdf589913b67462ad4711e248fb745f6b0ab6dfb", 
+            "name": "Storyteller", 
+            "release_date": "2015-10-23"
+        }, 
+        {
+            "artists": [
+                "4xFUf1FHVy696Q1JQZMTRj"
+            ], 
+            "copyrights": "(P) 2014 19 Recordings Limited, under exclusive license to Sony Music Nashville, under exclusive license to Sony Music Entertainment.", 
+            "id": "3TqvvuCMcTpSjFvAToQT8A", 
+            "image_filepath": "./album/images/3TqvvuCMcTpSjFvAToQT8A.jpg", 
+            "image_url": "https://i.scdn.co/image/9aee2eca5d77408db113e00013ced1d73a4998e1", 
+            "name": "Greatest Hits: Decade #1", 
+            "release_date": "2014-12-09"
+        }, 
+        {
+            "artists": [
+                "4xFUf1FHVy696Q1JQZMTRj"
+            ], 
+            "copyrights": "(P)2012 19 Recordings Limited, under exclusive license to Sony Music Nashville, a division of Sony Music Entertainment", 
+            "id": "7atJn49QvtOLiFxhQd2hp9", 
+            "image_filepath": "./album/images/7atJn49QvtOLiFxhQd2hp9.jpg", 
+            "image_url": "https://i.scdn.co/image/80c82eb02bdce48f11aa1d3c64e3412756b23575", 
+            "name": "Blown Away", 
+            "release_date": "2012-05-01"
+        }, 
+        {
+            "artists": [
+                "2bA6fzP0lMAQ4kz6CF61w8"
+            ], 
+            "copyrights": "(C) 2017 Show Dog, LLC", 
+            "id": "3aGsuhn4aMZ4M6PpvmVJvT", 
+            "image_filepath": "./album/images/3aGsuhn4aMZ4M6PpvmVJvT.jpg", 
+            "image_url": "https://i.scdn.co/image/16eecb5f8df152a77989dc9366d6317de0e645ba", 
+            "name": "The Bus Songs", 
+            "release_date": "2017-09-08"
+        }, 
+        {
+            "artists": [
+                "2bA6fzP0lMAQ4kz6CF61w8"
+            ], 
+            "copyrights": "\u00a9 2015 Show Dog, LLC", 
+            "id": "4O3DGdPIH75Wg33BA7GrXh", 
+            "image_filepath": "./album/images/4O3DGdPIH75Wg33BA7GrXh.jpg", 
+            "image_url": "https://i.scdn.co/image/f55144e784325099428cb4f0fe514b09844e69b8", 
+            "name": "35 mph Town", 
+            "release_date": "2015-10-09"
+        }, 
+        {
+            "artists": [
+                "2bA6fzP0lMAQ4kz6CF61w8"
+            ], 
+            "copyrights": "\u00a9 2013 Show Dog \u2013 Universal Music, LLC", 
+            "id": "2ELFflau7bfaZLwsLaBL2u", 
+            "image_filepath": "./album/images/2ELFflau7bfaZLwsLaBL2u.jpg", 
+            "image_url": "https://i.scdn.co/image/72ccb01ef0bd16573f81f7b25ba75071ba926013", 
+            "name": "Drinks After Work", 
+            "release_date": "2013-01-01"
+        }, 
+        {
+            "artists": [
+                "2bA6fzP0lMAQ4kz6CF61w8"
+            ], 
+            "copyrights": "\u00a9 2012 Show Dog \u2013 Universal Music, LLC", 
+            "id": "5bUXo80wq5ev9BDu2iWdMu", 
+            "image_filepath": "./album/images/5bUXo80wq5ev9BDu2iWdMu.jpg", 
+            "image_url": "https://i.scdn.co/image/a32a2b8b93179de2766171a19f42c6298cdf7f7c", 
+            "name": "Hope On The Rocks", 
+            "release_date": "2012-01-01"
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "copyrights": "\u00a9 2002 Mercury Records, a Division of UMG Recordings, Inc.", 
+            "id": "0dXnuPLFLPT9fnj6vIUa1G", 
+            "image_filepath": "./album/images/0dXnuPLFLPT9fnj6vIUa1G.jpg", 
+            "image_url": "https://i.scdn.co/image/82dd2acc43485a7faf8e5e46b15cc2f51977f699", 
+            "name": "Up!", 
+            "release_date": "2002-01-01"
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "copyrights": "\u00a9 2002 Mercury Records, a Division of UMG Recordings, Inc.", 
+            "id": "0VB5ymCq0odyXi4YWuoNB0", 
+            "image_filepath": "./album/images/0VB5ymCq0odyXi4YWuoNB0.jpg", 
+            "image_url": "https://i.scdn.co/image/c1677bfc5512dd4f241dc4fde855116d307463eb", 
+            "name": "Up! (Red and Blue Versions)", 
+            "release_date": "2002-01-01"
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "copyrights": "\u00a9 2017 Big Machine Label Group, LLC", 
+            "id": "4w5Jvreahp3yvLqc4vCr9I", 
+            "image_filepath": "./album/images/4w5Jvreahp3yvLqc4vCr9I.jpg", 
+            "image_url": "https://i.scdn.co/image/1090f87e1e23cfcafd5a4b513e3fa08f63862c3d", 
+            "name": "Life Changes", 
+            "release_date": "2017-09-08"
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "copyrights": "\u00a9 2015 The Valory Music Co., LLC", 
+            "id": "4ykbJPI8MPscFzROE8dqLy", 
+            "image_filepath": "./album/images/4ykbJPI8MPscFzROE8dqLy.jpg", 
+            "image_url": "https://i.scdn.co/image/04ff24682bc24c49708307586bc30b3431aa6988", 
+            "name": "Tangled Up", 
+            "release_date": "2015-09-25"
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "copyrights": "\u00a9 2013 The Valory Music Co., LLC", 
+            "id": "2ZHYOFW5giX6a4n5eqTnUB", 
+            "image_filepath": "./album/images/2ZHYOFW5giX6a4n5eqTnUB.jpg", 
+            "image_url": "https://i.scdn.co/image/6692c1926e753a1096473c9b87c9c8b46e870257", 
+            "name": "It Goes Like This", 
+            "release_date": "2013-01-01"
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "copyrights": "2017 Ten Point Productions, Inc. under exclusive license to Warner Bros. Records Inc. for the U.S. and WEA International Inc. for the world outside the U.S.", 
+            "id": "1Kc7TpYwJQ0mzVAssuWbB0", 
+            "image_filepath": "./album/images/1Kc7TpYwJQ0mzVAssuWbB0.jpg", 
+            "image_url": "https://i.scdn.co/image/8be6315afb106956aa751e3db636b9c83c046f89", 
+            "name": "Texoma Shore", 
+            "release_date": "2017-11-03"
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "copyrights": "2016 Ten Point Productions, Inc. under exclusive license to Warner Bros. Records Inc. for the U.S. and WEA International Inc. for the world outside the U.S.", 
+            "id": "4JmphteFDt5gNZbgraR9Dc", 
+            "image_filepath": "./album/images/4JmphteFDt5gNZbgraR9Dc.jpg", 
+            "image_url": "https://i.scdn.co/image/92e7908d9957ee72f94cd170fd194b8e24d34f25", 
+            "name": "If I'm Honest", 
+            "release_date": "2016-05-20"
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "copyrights": "2015 Ten Point Productions, Inc. under exclusive license to Warner Bros. Records Inc.", 
+            "id": "0ujKXmDetsmfjNvmwW546y", 
+            "image_filepath": "./album/images/0ujKXmDetsmfjNvmwW546y.jpg", 
+            "image_url": "https://i.scdn.co/image/e5e8b2881e48101328ad553cc3b52c5c3177834c", 
+            "name": "Reloaded: 20 #1 Hits", 
+            "release_date": "2015-10-23"
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "copyrights": "2014 Ten Point Productions, Inc. under exclusive license to Warner Bros. Records Inc. for the U.S. and WEA International Inc. for the world outside the U.S.", 
+            "id": "0daIqjuhsQqXoeII3pBSeT", 
+            "image_filepath": "./album/images/0daIqjuhsQqXoeII3pBSeT.jpg", 
+            "image_url": "https://i.scdn.co/image/f993bf17231f829bdeafed577b0354023a7db938", 
+            "name": "BRINGING BACK THE SUNSHINE", 
+            "release_date": "2014-09-30"
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "copyrights": "(P) 2017 Roswell Records, Inc. under license to RCA Records, a unit of Sony Music Entertainment", 
+            "id": "6KMkuqIwKkwUhUYRPL6dUc", 
+            "image_filepath": "./album/images/6KMkuqIwKkwUhUYRPL6dUc.jpg", 
+            "image_url": "https://i.scdn.co/image/5840a2e94030104a5f34ecbd3d79541040566a97", 
+            "name": "Concrete and Gold", 
+            "release_date": "2017-09-15"
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "copyrights": "(P) 2014 Roswell Records, Inc. under license to RCA Records, a unit of Sony Music Entertainment", 
+            "id": "2qwN15acAl3sm3Idce5vK9", 
+            "image_filepath": "./album/images/2qwN15acAl3sm3Idce5vK9.jpg", 
+            "image_url": "https://i.scdn.co/image/657c3f0ca4c89237ec6dcde06027369f05094e2f", 
+            "name": "Sonic Highways", 
+            "release_date": "2014-11-10"
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "copyrights": "(P) 2011 Roswell Records, Inc. under license to RCA Records, a unit of Sony Music Entertainment", 
+            "id": "5lnQLEUiVDkLbFJHXHQu9m", 
+            "image_filepath": "./album/images/5lnQLEUiVDkLbFJHXHQu9m.jpg", 
+            "image_url": "https://i.scdn.co/image/13b3c650142254a1c9191a5cdda961ab051a2659", 
+            "name": "Wasting Light", 
+            "release_date": "2011-04-12"
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "copyrights": "(P) 2007 Roswell Records, Inc.", 
+            "id": "3ilXDEG0xiajK8AbqboeJz", 
+            "image_filepath": "./album/images/3ilXDEG0xiajK8AbqboeJz.jpg", 
+            "image_url": "https://i.scdn.co/image/190e4ea6551fdb5025d216d65b7c3799f49893d7", 
+            "name": "Echoes, Silence, Patience & Grace", 
+            "release_date": "2007-09-25"
+        }, 
+        {
+            "artists": [
+                "7oPftvlwr6VrsViSDV7fJY"
+            ], 
+            "copyrights": "2016 Reprise Records", 
+            "id": "5a3LqvNt2nv1B4aRKXmgOV", 
+            "image_filepath": "./album/images/5a3LqvNt2nv1B4aRKXmgOV.jpg", 
+            "image_url": "https://i.scdn.co/image/f8aebe68df82729ac2d4c63fd2749ceaa316cff3", 
+            "name": "Revolution Radio", 
+            "release_date": "2016-10-07"
+        }, 
+        {
+            "artists": [
+                "7oPftvlwr6VrsViSDV7fJY"
+            ], 
+            "copyrights": "2014 Reprise Records", 
+            "id": "7prfPBMbgDyhq7kdpM0R9v", 
+            "image_filepath": "./album/images/7prfPBMbgDyhq7kdpM0R9v.jpg", 
+            "image_url": "https://i.scdn.co/image/b5b4a6f82e94f5756c225b7df748d6ca7456b8ee", 
+            "name": "Demolicious", 
+            "release_date": "2014-04-19"
+        }
+    ]
+}

@@ -7,3 +7,20 @@ spotify:artist:3kzwYV3OCB010YfXMF0Avt	Alvvays	https://www.songkick.com/artists/6
 spotify:artist:2cCUtGK9sDU2EoElnk0GNB	The National	https://www.songkick.com/artists/405285-national/calendar
 spotify:artist:5gspAQIAH8nJUrMYgXjCJ2	Kurt Vile	https://www.songkick.com/artists/4294851-kurt-vile/calendar
 spotify:artist:4wLIbcoqmqI4WZHDiBxeCB	Sleater-Kinney	N/A
+spotify:artist:53XhwfbYqKCa1cC15pYq2q	Imagine Dragons	https://www.songkick.com/artists/2506696-imagine-dragons/calendar
+spotify:artist:5Pwc4xIPtQLFEnJriah9YJ	OneRepublic	N/A
+spotify:artist:5WUlDfRSoLAfcVSX1WnrxN	Sia	https://www.songkick.com/artists/235779-sia/calendar
+spotify:artist:07YZf4WDAMNwqr4jfgOZ8y	Jason Derulo	https://www.songkick.com/artists/1055942-jason-derulo/calendar
+spotify:artist:1HY2Jd0NmPuamShAr6KMms	Lady Gaga	https://www.songkick.com/artists/974908-lady-gaga/calendar
+spotify:artist:06HL4z0CvFAxyc27GXpf02	Taylor Swift	https://www.songkick.com/artists/217815-taylor-swift/calendar
+spotify:artist:5YGY8feqx7naU7z4HrwZM6	Miley Cyrus	N/A
+spotify:artist:1l8Fu6IkuTP0U5QetQJ5Xt	Fifth Harmony	https://www.songkick.com/artists/6393799-fifth-harmony/calendar
+spotify:artist:32vWCbZh0xZ4o9gkz4PsEU	Dolly Parton	N/A
+spotify:artist:6kACVPfCOnqzgfEF5ryl0x	Johnny Cash	N/A
+spotify:artist:4xFUf1FHVy696Q1JQZMTRj	Carrie Underwood	https://www.songkick.com/artists/208604-carrie-underwood/calendar
+spotify:artist:2bA6fzP0lMAQ4kz6CF61w8	Toby Keith	https://www.songkick.com/artists/328846-toby-keith/calendar
+spotify:artist:5e4Dhzv426EvQe3aDb64jL	Shania Twain	https://www.songkick.com/artists/440190-shania-twain/calendar
+spotify:artist:6x2LnllRG5uGarZMsD4iO8	Thomas Rhett	https://www.songkick.com/artists/4254071-thomas-rhett/calendar
+spotify:artist:1UTPBmNbXNTittyMJrNkvw	Blake Shelton	https://www.songkick.com/artists/565207-blake-shelton/calendar
+spotify:artist:7jy3rLJdDQY21OgRLCZ9sD	Foo Fighters	https://www.songkick.com/artists/29315-foo-fighters/calendar
+spotify:artist:7oPftvlwr6VrsViSDV7fJY	Green Day	https://www.songkick.com/artists/269937-green-day/calendar

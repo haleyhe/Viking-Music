@@ -1,0 +1,20 @@
+# Contains URIs for all Artists we wish to collect data for.
+# You can get the URI from the Spotify Artist Page.
+# !!! ELEMENTS ARE SEPARATED BY TABS WITH NO SPACES !!!
+spotify:artist:2S5hlvw4CMtMGswFtfdK15	Royal Blood	https://www.songkick.com/artists/1421389-royal-blood/calendar
+spotify:artist:2ye2Wgw4gimLv2eAKyk1NB	Metallica	https://www.songkick.com/artists/331163-metallica/calendar
+spotify:artist:2qk9voo8llSGYcZ6xrBzKx	Kings of Leon	https://www.songkick.com/artists/331163-metallica/calendar
+spotify:artist:5y2Xq6xcjJb2jVM54GHK3t	John Legend	https://www.songkick.com/artists/421338-john-legend/calendar
+spotify:artist:46CH1Gp8l8QVly8bpG9JFG	Anita Baker	N/A
+spotify:artist:2AOt5htsbtyaHd5Eq3kl3j	Maxwell	N/A
+spotify:artist:4qwGe91Bz9K2T8jXTZ815W	Janet Jackson	https://www.songkick.com/artists/410449-janet-jackson/calendar
+spotify:artist:3DiDSECUqqY1AuBP8qtaIa	Alicia Keys	N/A
+spotify:artist:23zg3TcAtWQy7J6upgbUnj	Usher	N/A
+spotify:artist:6vWDO969PvNqNYHIOW5v0m	Beyonce	N/A
+spotify:artist:21E3waRsmPlU7jZsS13rcj	Ne-Yo	N/A
+spotify:artist:64KEffDW9EtZ1y2vBYgq8T	Marshmello	https://www.songkick.com/artists/8613384-marshmello/calendar
+spotify:artist:5he5w2lnU9x7JFhnwcekXX	Skrillex	N/A
+spotify:artist:1V3VTM7VspiQjcmRhC010n	Quintino	https://www.songkick.com/artists/1066226-quintino/calendar
+spotify:artist:2Kx7MNY7cI1ENniW7vT30N	Norah Jones	N/A
+spotify:artist:5olDKSsFhhmwh8UCWwKtpq	Chick Corea	https://www.songkick.com/artists/206143-chick-corea/calendar
+spotify:artist:2hGh5VOeeqimQFxqXvfCUf	John Coltrane	N/A

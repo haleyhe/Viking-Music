@@ -1,0 +1,537 @@
+{
+    "albums": [
+        {
+            "artists": [
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "copyrights": "2017 Imperial Galactic Limited t/a Black Mammoth under exclusive licence to Warner Music UK Limited", 
+            "id": "3Rz6kF8eGqrDOEteo5YsBj", 
+            "image_filepath": "./album/images/3Rz6kF8eGqrDOEteo5YsBj.jpg", 
+            "image_url": "https://i.scdn.co/image/9ccf4a8669fcd328d7288d4232518cf0cc0747f8", 
+            "name": "How Did We Get So Dark?", 
+            "release_date": "2017-06-16"
+        }, 
+        {
+            "artists": [
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "copyrights": "2014 Imperial Galactic Limited t/a Black Mammoth under exclusive licence to Warner Music UK Limited", 
+            "id": "76fT51C9WtCgCcRJlt3PnG", 
+            "image_filepath": "./album/images/76fT51C9WtCgCcRJlt3PnG.jpg", 
+            "image_url": "https://i.scdn.co/image/677b1f3ec3ca3dd72fb67cdb642fc27c34d0b3f1", 
+            "name": "Royal Blood", 
+            "release_date": "2014-08-25"
+        }, 
+        {
+            "artists": [
+                "2ye2Wgw4gimLv2eAKyk1NB"
+            ], 
+            "copyrights": "2016 Blackened Recordings", 
+            "id": "4kizef5du9TgAGfNhWbKmt", 
+            "image_filepath": "./album/images/4kizef5du9TgAGfNhWbKmt.jpg", 
+            "image_url": "https://i.scdn.co/image/93b28cf6d938563ab2ea6a130aa63a16710eb455", 
+            "name": "Hardwired\u2026To Self-Destruct", 
+            "release_date": "2016-11-18"
+        }, 
+        {
+            "artists": [
+                "2ye2Wgw4gimLv2eAKyk1NB"
+            ], 
+            "copyrights": "2013 Blackened Recordings", 
+            "id": "72grIwGP38Iy2S1jxt1Gjd", 
+            "image_filepath": "./album/images/72grIwGP38Iy2S1jxt1Gjd.jpg", 
+            "image_url": "https://i.scdn.co/image/1362a06f43c913c2ab376b78755a2c8cccc51362", 
+            "name": "Metallica Through The Never (Music from the Motion Picture)", 
+            "release_date": "2013-09-24"
+        }, 
+        {
+            "artists": [
+                "42TFhl7WlMRXiNqzSrnzPL", 
+                "2ye2Wgw4gimLv2eAKyk1NB"
+            ], 
+            "copyrights": "2011 Sister Ray Enterprises Inc./We're Only In It For The Music under exclusive license to Warner Bros. Records Inc. in the U.S. and Canada.", 
+            "id": "3FgLMfp5o2h2rAny7S6h57", 
+            "image_filepath": "./album/images/3FgLMfp5o2h2rAny7S6h57.jpg", 
+            "image_url": "https://i.scdn.co/image/6c951f3f334e05ffacf598e168aed321f5b8ffc3", 
+            "name": "Lulu", 
+            "release_date": "2011-11-01"
+        }, 
+        {
+            "artists": [
+                "2ye2Wgw4gimLv2eAKyk1NB"
+            ], 
+            "copyrights": "1988 Blackened Recordings", 
+            "id": "7CNQl7thCP0pDllX1lehLM", 
+            "image_filepath": "./album/images/7CNQl7thCP0pDllX1lehLM.jpg", 
+            "image_url": "https://i.scdn.co/image/9b39d31f336ac340c84fa756cee19bb589020865", 
+            "name": "...And Justice For All", 
+            "release_date": "1988-08-25"
+        }, 
+        {
+            "artists": [
+                "2qk9voo8llSGYcZ6xrBzKx"
+            ], 
+            "copyrights": "(P) 2016 RCA Records, a division of Sony Music Entertainment", 
+            "id": "08ibdX8K0GETv20UEku3sm", 
+            "image_filepath": "./album/images/08ibdX8K0GETv20UEku3sm.jpg", 
+            "image_url": "https://i.scdn.co/image/2fa0efbdb8fb12cfcdbcc876925ccf926232be5b", 
+            "name": "WALLS", 
+            "release_date": "2016-10-14"
+        }, 
+        {
+            "artists": [
+                "2qk9voo8llSGYcZ6xrBzKx"
+            ], 
+            "copyrights": "(P) 2010 RCA Records, a unit of Sony Music Entertainment", 
+            "id": "3GQy3QdRfl7RZUix1rhLtB", 
+            "image_filepath": "./album/images/3GQy3QdRfl7RZUix1rhLtB.jpg", 
+            "image_url": "https://i.scdn.co/image/68def583290f962f191ff420e5cc85539c4c266a", 
+            "name": "Come Around Sundown", 
+            "release_date": "2010-10-19"
+        }, 
+        {
+            "artists": [
+                "2qk9voo8llSGYcZ6xrBzKx"
+            ], 
+            "copyrights": "(P) 2008 RCA Records, a unit of SONY BMG MUSIC ENTERTAINMENT", 
+            "id": "5CZR6ljD0x9fTiS4mh9wMp", 
+            "image_filepath": "./album/images/5CZR6ljD0x9fTiS4mh9wMp.jpg", 
+            "image_url": "https://i.scdn.co/image/8efb25315084d6a01748deb0af455fa154775bda", 
+            "name": "Only By The Night", 
+            "release_date": "2008-09-23"
+        }, 
+        {
+            "artists": [
+                "2qk9voo8llSGYcZ6xrBzKx"
+            ], 
+            "copyrights": "(P) 2007 RCA/JIVE Label Group, a unit of Sony Music Entertainment", 
+            "id": "2oqYhFDdwd65MHfHKdlkua", 
+            "image_filepath": "./album/images/2oqYhFDdwd65MHfHKdlkua.jpg", 
+            "image_url": "https://i.scdn.co/image/6516785b2cd43bb173645935902e599b8fe98488", 
+            "name": "Because Of The Times", 
+            "release_date": "2007-04-03"
+        }, 
+        {
+            "artists": [
+                "5y2Xq6xcjJb2jVM54GHK3t"
+            ], 
+            "copyrights": "(P) 2016 John Legend Music, Inc. and Columbia Records, a Division of Sony Music Entertainment", 
+            "id": "7xMjYDrgPLp1ReFGAOyS1O", 
+            "image_filepath": "./album/images/7xMjYDrgPLp1ReFGAOyS1O.jpg", 
+            "image_url": "https://i.scdn.co/image/22248fae33b313b763220f98b7b693c328db95e7", 
+            "name": "DARKNESS AND LIGHT", 
+            "release_date": "2016-12-02"
+        }, 
+        {
+            "artists": [
+                "5y2Xq6xcjJb2jVM54GHK3t"
+            ], 
+            "copyrights": "(P) 2013 Getting Out Our Dreams and Columbia Records, a Division of Sony Music Entertainment", 
+            "id": "4OTAx9un4e6NfoHuVRiOrC", 
+            "image_filepath": "./album/images/4OTAx9un4e6NfoHuVRiOrC.jpg", 
+            "image_url": "https://i.scdn.co/image/b3d079a2e81e76d5f4f7f570a91a54a1f09dd93d", 
+            "name": "Love In The Future", 
+            "release_date": "2013-08-30"
+        }, 
+        {
+            "artists": [
+                "5y2Xq6xcjJb2jVM54GHK3t", 
+                "78xUyw6FkVZrRAtziFdtdu"
+            ], 
+            "copyrights": "(P) 2010 Getting Out Our Dreams and Sony Music Entertainment", 
+            "id": "06UOP7uyZN8AIYH6U20VkP", 
+            "image_filepath": "./album/images/06UOP7uyZN8AIYH6U20VkP.jpg", 
+            "image_url": "https://i.scdn.co/image/efd94a71076d828d80e98132f94d2442490453fa", 
+            "name": "Wake Up!", 
+            "release_date": "2010-09-17"
+        }, 
+        {
+            "artists": [
+                "5y2Xq6xcjJb2jVM54GHK3t"
+            ], 
+            "copyrights": "(P) 2008 Getting Out Our Dreams and Sony Music Entertainment", 
+            "id": "11sKu4dBGvmEZTuVw9EC9A", 
+            "image_filepath": "./album/images/11sKu4dBGvmEZTuVw9EC9A.jpg", 
+            "image_url": "https://i.scdn.co/image/e800b4216a504d74aeb54940dff8c5dc52f4c3df", 
+            "name": "Evolver", 
+            "release_date": "2008-10-27"
+        }, 
+        {
+            "artists": [
+                "2AOt5htsbtyaHd5Eq3kl3j"
+            ], 
+            "copyrights": "(P) 2016 Columbia Records, a division of Sony Music Entertainment", 
+            "id": "6pjoIUNpMtQaSJvRUmsnSh", 
+            "image_filepath": "./album/images/6pjoIUNpMtQaSJvRUmsnSh.jpg", 
+            "image_url": "https://i.scdn.co/image/a9cf1d7f079b7cb82f11efb99a935340784f8e37", 
+            "name": "blackSUMMERS'night (2016)", 
+            "release_date": "2016-07-01"
+        }, 
+        {
+            "artists": [
+                "2AOt5htsbtyaHd5Eq3kl3j"
+            ], 
+            "copyrights": "(P) 2009 Sony Music Entertainment", 
+            "id": "1cXFSOdjxmS13cOTtnNQAo", 
+            "image_filepath": "./album/images/1cXFSOdjxmS13cOTtnNQAo.jpg", 
+            "image_url": "https://i.scdn.co/image/a367282c1c807b38d1a14312f4682be596da1027", 
+            "name": "BLACKsummers'night (2009)", 
+            "release_date": "2009-07-07"
+        }, 
+        {
+            "artists": [
+                "2AOt5htsbtyaHd5Eq3kl3j"
+            ], 
+            "copyrights": "2001 Sony Music Entertainment Inc.", 
+            "id": "3Ul8Nyuzr2AEwE8iSrQepC", 
+            "image_filepath": "./album/images/3Ul8Nyuzr2AEwE8iSrQepC.jpg", 
+            "image_url": "https://i.scdn.co/image/6cb1fd29fad4fc2a5ad5a61f1520ef91c9a33bcf", 
+            "name": "Now", 
+            "release_date": "2001-08-21"
+        }, 
+        {
+            "artists": [
+                "2AOt5htsbtyaHd5Eq3kl3j"
+            ], 
+            "copyrights": "(P) 1998 Sony Music Entertainment Inc. WARNING: All Rights Reserved. Unauthorized duplication is a violation of applicable laws.", 
+            "id": "1nOGYTmQGy5hTwu5cKku7E", 
+            "image_filepath": "./album/images/1nOGYTmQGy5hTwu5cKku7E.jpg", 
+            "image_url": "https://i.scdn.co/image/770aa11f56c76b8beeaefb581517fafa0b471cef", 
+            "name": "Embrya", 
+            "release_date": "1998-06-30"
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "copyrights": "2015 Black Doll, Inc. under exclusive license to BMG Rights Management (US) LLC", 
+            "id": "7vV1dJHLotbXfBsPtSW72u", 
+            "image_filepath": "./album/images/7vV1dJHLotbXfBsPtSW72u.jpg", 
+            "image_url": "https://i.scdn.co/image/a9b9135bfb3a5482e2e2d031572e221137d09b55", 
+            "name": "Unbreakable", 
+            "release_date": "2015-10-02"
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "copyrights": "(C) 2008 The Island Def Jam Music Group", 
+            "id": "5hDjUyxqB0g8uwn3M0g9MM", 
+            "image_filepath": "./album/images/5hDjUyxqB0g8uwn3M0g9MM.jpg", 
+            "image_url": "https://i.scdn.co/image/8c4a5a22a036b63a1c159cb72126b9fe253c21e9", 
+            "name": "Discipline", 
+            "release_date": "2008-02-26"
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "copyrights": "(C) 2006 Virgin Records America, Inc.", 
+            "id": "0mRIaVhwnvAblQaRkvGJBA", 
+            "image_filepath": "./album/images/0mRIaVhwnvAblQaRkvGJBA.jpg", 
+            "image_url": "https://i.scdn.co/image/c3b1d7a68f079341b1dd7e88c00c81b0ed05cd75", 
+            "name": "20 Y.O.", 
+            "release_date": "2006-09-26"
+        }, 
+        {
+            "artists": [
+                "3DiDSECUqqY1AuBP8qtaIa"
+            ], 
+            "copyrights": "(P) 2016 RCA Records, a division of Sony Music Entertainment", 
+            "id": "4vB1dPaiTS27jTQZTGirRU", 
+            "image_filepath": "./album/images/4vB1dPaiTS27jTQZTGirRU.jpg", 
+            "image_url": "https://i.scdn.co/image/4d70d62e96630009e8f05c4b52a4fd3d03d0fb50", 
+            "name": "HERE", 
+            "release_date": "2016-11-04"
+        }, 
+        {
+            "artists": [
+                "3DiDSECUqqY1AuBP8qtaIa"
+            ], 
+            "copyrights": "(P) 2012 RCA Records, a division of Sony Music Entertainment", 
+            "id": "3qqhNVbjLFNdLviBFrFwCa", 
+            "image_filepath": "./album/images/3qqhNVbjLFNdLviBFrFwCa.jpg", 
+            "image_url": "https://i.scdn.co/image/b25d12930e181e043491cb4c404f040bb797dbc9", 
+            "name": "Girl On Fire", 
+            "release_date": "2012-11-23"
+        }, 
+        {
+            "artists": [
+                "3DiDSECUqqY1AuBP8qtaIa"
+            ], 
+            "copyrights": "(P) 2009 RCA/Jive Label Group, a unit of Sony Music Entertainment", 
+            "id": "0Rxab8t0y7GlaTJTHX2wEN", 
+            "image_filepath": "./album/images/0Rxab8t0y7GlaTJTHX2wEN.jpg", 
+            "image_url": "https://i.scdn.co/image/4648b19822339825b9299b923150976fda553bfc", 
+            "name": "The Element Of Freedom", 
+            "release_date": "2009-12-11"
+        }, 
+        {
+            "artists": [
+                "23zg3TcAtWQy7J6upgbUnj"
+            ], 
+            "copyrights": "(P) 2016 RCA Records, a division of Sony Music Entertainment", 
+            "id": "2EUjg7TQrlmE4C29dLsZAZ", 
+            "image_filepath": "./album/images/2EUjg7TQrlmE4C29dLsZAZ.jpg", 
+            "image_url": "https://i.scdn.co/image/f0b0c966e1e3c5fea0d6aa302cd70417e0e16694", 
+            "name": "Hard II Love", 
+            "release_date": "2016-09-16"
+        }, 
+        {
+            "artists": [
+                "23zg3TcAtWQy7J6upgbUnj"
+            ], 
+            "copyrights": "(P) 2010 Sony Music Entertainment", 
+            "id": "4fAPBaqOwmUp5jS6yr5kq0", 
+            "image_filepath": "./album/images/4fAPBaqOwmUp5jS6yr5kq0.jpg", 
+            "image_url": "https://i.scdn.co/image/6e8308c2894eab4a48727a28daef1d7eb873d6bf", 
+            "name": "12\" Masters - The Essential Mixes", 
+            "release_date": "2010-09-17"
+        }, 
+        {
+            "artists": [
+                "23zg3TcAtWQy7J6upgbUnj"
+            ], 
+            "copyrights": "(P) 2008 LaFace Records", 
+            "id": "2peB0xKYHSlIWc5boFA6PW", 
+            "image_filepath": "./album/images/2peB0xKYHSlIWc5boFA6PW.jpg", 
+            "image_url": "https://i.scdn.co/image/084583c856d9e5ce51926d9135fbad49522f9730", 
+            "name": "Here I Stand", 
+            "release_date": "2008-05-23"
+        }, 
+        {
+            "artists": [
+                "6vWDO969PvNqNYHIOW5v0m"
+            ], 
+            "copyrights": "(P) 2011, 2012 Columbia Records, a Division of Sony Music Entertainment", 
+            "id": "1gIC63gC3B7o7FfpPACZQJ", 
+            "image_filepath": "./album/images/1gIC63gC3B7o7FfpPACZQJ.jpg", 
+            "image_url": "https://i.scdn.co/image/03f017a0243f8700181a566c8201a0ee992a9e91", 
+            "name": "4", 
+            "release_date": "2011-01-01"
+        }, 
+        {
+            "artists": [
+                "6vWDO969PvNqNYHIOW5v0m"
+            ], 
+            "copyrights": "(P) 2009 Sony Music Entertainment", 
+            "id": "7sJrStyxsdgeQOUlBszizA", 
+            "image_filepath": "./album/images/7sJrStyxsdgeQOUlBszizA.jpg", 
+            "image_url": "https://i.scdn.co/image/64d6720f222eee638b21b4ed9dbd6f576a512519", 
+            "name": "Above And Beyonc\u00e9 Dance Mixes", 
+            "release_date": "2009-06-16"
+        }, 
+        {
+            "artists": [
+                "6vWDO969PvNqNYHIOW5v0m"
+            ], 
+            "copyrights": "(P) 2008 Sony Music Entertainment", 
+            "id": "23Y5wdyP5byMFktZf8AcWU", 
+            "image_filepath": "./album/images/23Y5wdyP5byMFktZf8AcWU.jpg", 
+            "image_url": "https://i.scdn.co/image/e2a1248d8590c15f5290f0580228918dba52302a", 
+            "name": "I AM...SASHA FIERCE", 
+            "release_date": "2008-11-14"
+        }, 
+        {
+            "artists": [
+                "6vWDO969PvNqNYHIOW5v0m"
+            ], 
+            "copyrights": "(P) 2008 Sony Music Entertainment", 
+            "id": "39P7VD7qlg3Z0ltq60eHp7", 
+            "image_filepath": "./album/images/39P7VD7qlg3Z0ltq60eHp7.jpg", 
+            "image_url": "https://i.scdn.co/image/272c8679a23e1c92b17c176f5470e9c2eca3e4bc", 
+            "name": "I AM...SASHA FIERCE", 
+            "release_date": "2008-11-14"
+        }, 
+        {
+            "artists": [
+                "21E3waRsmPlU7jZsS13rcj"
+            ], 
+            "copyrights": "(C) 2015 Motown Records, a Division of UMG Recordings, Inc.", 
+            "id": "3DJStICzZmEZTpr3pjWIjt", 
+            "image_filepath": "./album/images/3DJStICzZmEZTpr3pjWIjt.jpg", 
+            "image_url": "https://i.scdn.co/image/ba24607787b6de18458c2a58f3eb64c33e923e7c", 
+            "name": "Non-Fiction", 
+            "release_date": "2015-01-20"
+        }, 
+        {
+            "artists": [
+                "21E3waRsmPlU7jZsS13rcj"
+            ], 
+            "copyrights": "(C) 2012 Motown Records, a Division of UMG Recordings, Inc.", 
+            "id": "2KLTq8xoGS4zzv1WFDo6DT", 
+            "image_filepath": "./album/images/2KLTq8xoGS4zzv1WFDo6DT.jpg", 
+            "image_url": "https://i.scdn.co/image/b57ee9244445e4fbde9a3f4ac212fbfbaa806370", 
+            "name": "R.E.D.", 
+            "release_date": "2012-11-06"
+        }, 
+        {
+            "artists": [
+                "21E3waRsmPlU7jZsS13rcj"
+            ], 
+            "copyrights": "\u00a9 2010 The Island Def Jam Music Group", 
+            "id": "2qqB7RaEdn2Lkte4St3Ban", 
+            "image_filepath": "./album/images/2qqB7RaEdn2Lkte4St3Ban.jpg", 
+            "image_url": "https://i.scdn.co/image/7b15b5f4fc863d2a48df6e0d938617413c49cb2e", 
+            "name": "Libra Scale", 
+            "release_date": "2010-01-01"
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "copyrights": "2016 Joytime Collective", 
+            "id": "6opKASPALOkPwCfHvqIS9H", 
+            "image_filepath": "./album/images/6opKASPALOkPwCfHvqIS9H.jpg", 
+            "image_url": "https://i.scdn.co/image/b644a5bdfadc8a70e0ee4142fd5b0e60b0485fd5", 
+            "name": "Joytime", 
+            "release_date": "2016-01-08"
+        }, 
+        {
+            "artists": [
+                "1HxJeLhIuegM3KgvPn8sTa", 
+                "5he5w2lnU9x7JFhnwcekXX", 
+                "5fMUXHkw8R8eOP2RNVYEZX"
+            ], 
+            "copyrights": "2015 Atlantic Recording Corporation for the US and WEA International for the world outside the United States. A Warner Music Group Company", 
+            "id": "6bfkwBrGYKJFk6Z4QVyjxd", 
+            "image_filepath": "./album/images/6bfkwBrGYKJFk6Z4QVyjxd.jpg", 
+            "image_url": "https://i.scdn.co/image/b962d9c0353ef080806b5599cd6618ef0b266880", 
+            "name": "Skrillex and Diplo present Jack \u00dc", 
+            "release_date": "2015-02-24"
+        }, 
+        {
+            "artists": [
+                "5he5w2lnU9x7JFhnwcekXX"
+            ], 
+            "copyrights": "2014 OWSLA/Big Beat Records, Inc. for the United States and WEA International Inc. for the world outside of the United States.", 
+            "id": "7rf1qZJ6hGSlPN7K9ShsVV", 
+            "image_filepath": "./album/images/7rf1qZJ6hGSlPN7K9ShsVV.jpg", 
+            "image_url": "https://i.scdn.co/image/0ad0af9170f6d17f07eff2cbf6137ad3d409c3fe", 
+            "name": "Recess", 
+            "release_date": "2014-03-14"
+        }, 
+        {
+            "artists": [
+                "2Kx7MNY7cI1ENniW7vT30N"
+            ], 
+            "copyrights": "\u00a9 2016 Blue Note Records", 
+            "id": "7ampUMuhfCx0briKjYNKRQ", 
+            "image_filepath": "./album/images/7ampUMuhfCx0briKjYNKRQ.jpg", 
+            "image_url": "https://i.scdn.co/image/8af302a9a6927664f30b840575a118830e3d4530", 
+            "name": "Day Breaks", 
+            "release_date": "2016-10-07"
+        }, 
+        {
+            "artists": [
+                "1MrEurzLcL8ugfP1PrUPWG", 
+                "2Kx7MNY7cI1ENniW7vT30N"
+            ], 
+            "copyrights": "2013 Reprise Records", 
+            "id": "7lkScvsKOs3isiwn8bXFos", 
+            "image_filepath": "./album/images/7lkScvsKOs3isiwn8bXFos.jpg", 
+            "image_url": "https://i.scdn.co/image/8bc940e127aa113255cc453ccad6f86ed949b7ca", 
+            "name": "Foreverly", 
+            "release_date": "2013-11-22"
+        }, 
+        {
+            "artists": [
+                "2Kx7MNY7cI1ENniW7vT30N"
+            ], 
+            "copyrights": "(C) 2012 Blue Note Records", 
+            "id": "3N9ECfsk4OUDKhmhPT3OPX", 
+            "image_filepath": "./album/images/3N9ECfsk4OUDKhmhPT3OPX.jpg", 
+            "image_url": "https://i.scdn.co/image/1671bd6757248fff66e964b3ac4d99a38f4584a5", 
+            "name": "Little Broken Hearts", 
+            "release_date": "2012-04-27"
+        }, 
+        {
+            "artists": [
+                "5olDKSsFhhmwh8UCWwKtpq"
+            ], 
+            "copyrights": "(C) 2016 Stretch Records, a division of Concord Music Group, Inc.", 
+            "id": "269LRvjjNzU2dY9sj8wSW2", 
+            "image_filepath": "./album/images/269LRvjjNzU2dY9sj8wSW2.jpg", 
+            "image_url": "https://i.scdn.co/image/b8907255365b3d56698a83f9ae9022e3cdf8ef83", 
+            "name": "From Nothing: Solo Piano", 
+            "release_date": "2016-04-22"
+        }, 
+        {
+            "artists": [
+                "5olDKSsFhhmwh8UCWwKtpq"
+            ], 
+            "copyrights": "2014 U-5", 
+            "id": "5k7c63mQUUEJvikCxCTDSi", 
+            "image_filepath": "./album/images/5k7c63mQUUEJvikCxCTDSi.jpg", 
+            "image_url": "https://i.scdn.co/image/bc043a749c87edb227e069be5bea3a16ffe9b60f", 
+            "name": "History", 
+            "release_date": "2014-04-02"
+        }, 
+        {
+            "artists": [
+                "5olDKSsFhhmwh8UCWwKtpq"
+            ], 
+            "copyrights": "(C) 2013 Chick Corea Productions, Inc. Under exclusive license to Concord Music Group, Inc.", 
+            "id": "3iY3CkPpFNDEeNvmOkHKii", 
+            "image_filepath": "./album/images/3iY3CkPpFNDEeNvmOkHKii.jpg", 
+            "image_url": "https://i.scdn.co/image/2a89da5af838c645d0b0fab6f79ee28be4dfc77e", 
+            "name": "The Vigil", 
+            "release_date": "2013-01-01"
+        }, 
+        {
+            "artists": [
+                "5olDKSsFhhmwh8UCWwKtpq"
+            ], 
+            "copyrights": "2012 Dance Plant #1", 
+            "id": "0Hr6LODgdccpdL3K59tE8g", 
+            "image_filepath": "./album/images/0Hr6LODgdccpdL3K59tE8g.jpg", 
+            "image_url": "https://i.scdn.co/image/70ffd6d4555861147861c12c837f430c6221341e", 
+            "name": "Come Rain or Shine", 
+            "release_date": "2012-06-05"
+        }, 
+        {
+            "artists": [
+                "2hGh5VOeeqimQFxqXvfCUf"
+            ], 
+            "copyrights": "\u00a9 2017 UMG Recordings, Inc.", 
+            "id": "512DYgzyJJoTQ4tK21BroO", 
+            "image_filepath": "./album/images/512DYgzyJJoTQ4tK21BroO.jpg", 
+            "image_url": "https://i.scdn.co/image/667139ae5fb65b7edc38a28fd75bf74edf72634b", 
+            "name": "John Coltrane: Ken Burns's Jazz", 
+            "release_date": "2000-11-07"
+        }, 
+        {
+            "artists": [
+                "2hGh5VOeeqimQFxqXvfCUf"
+            ], 
+            "copyrights": "\u00a9 1998 GRP Records Inc.", 
+            "id": "4VfwIglkIBIVoi3VeoYxB4", 
+            "image_filepath": "./album/images/4VfwIglkIBIVoi3VeoYxB4.jpg", 
+            "image_url": "https://i.scdn.co/image/f149f31877cf1606c31cf3ee48a4a6fccc1e3611", 
+            "name": "Living Space", 
+            "release_date": "1998-01-01"
+        }, 
+        {
+            "artists": [
+                "2hGh5VOeeqimQFxqXvfCUf"
+            ], 
+            "copyrights": "\u00a9 1997 GRP Records Inc.", 
+            "id": "544roYIZZDLFtbAxE8Ti6y", 
+            "image_filepath": "./album/images/544roYIZZDLFtbAxE8Ti6y.jpg", 
+            "image_url": "https://i.scdn.co/image/13fbdeaf7f85eb60f274ade12acb701279be1166", 
+            "name": "The Complete 1961 Village Vanguard Recordings", 
+            "release_date": "1997-01-01"
+        }, 
+        {
+            "artists": [
+                "2hGh5VOeeqimQFxqXvfCUf"
+            ], 
+            "copyrights": "\u00a9 1995 GRP Records Inc.", 
+            "id": "7mRUsJqMx3abxYEVch43bI", 
+            "image_filepath": "./album/images/7mRUsJqMx3abxYEVch43bI.jpg", 
+            "image_url": "https://i.scdn.co/image/8f2785e691074a9832479a17e7bf9d54f3516715", 
+            "name": "Stellar Regions", 
+            "release_date": "1995-01-01"
+        }
+    ]
+}

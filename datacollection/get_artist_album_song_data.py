@@ -19,16 +19,16 @@ import requests
 from bs4 import BeautifulSoup
 
 # Filepath constants
-ARTISTS_FILEPATH = './'
+ARTISTS_FILEPATH = './artist/'
 ARTISTS_IMAGES_FILEPATH = ARTISTS_FILEPATH + 'images/'
 ARTISTS_JSON_FILEPATH = ARTISTS_FILEPATH + 'artists.json'
-ALBUMS_FILEPATH = './'
+ALBUMS_FILEPATH = './album/'
 ALBUMS_IMAGES_FILEPATH = ALBUMS_FILEPATH + 'images/'
 ALBUMS_JSON_FILEPATH = ALBUMS_FILEPATH + 'albums.json'
 SONGS_FILEPATH = './'
 SONGS_MP3_FILEPATH = SONGS_FILEPATH + 'mp3/'
 SONGS_JSON_FILEPATH = SONGS_FILEPATH + 'songs.json'
-GENRES_FILEPATH = './'
+GENRES_FILEPATH = './genres/'
 GENRES_JSON_FILEPATH = GENRES_FILEPATH + 'genres.json'
 
 # Spotify API authentication credentials -- replace with your own
@@ -40,7 +40,7 @@ SPOTIFY_REDIRECT_URI = 'http://example.com/callback/'
 
 # LastFM API authentication credentials
 LASTFM_USERNAME = 'bryankoelbel'
-LASTFM_PASSWORD = pylast.md5('INSERT PASSWORD HERE!!!!!!!!!!!!!!!')
+LASTFM_PASSWORD = pylast.md5('INSERT PASSWORD HERE!!!!!!!!!!!')
 LASTFM_API_KEY = 'd78627185599686b29173497e4c3a777'
 LASTFM_API_SECRET = 'cf3998c95df000233de80d2f12ac21a6'
 
@@ -275,16 +275,17 @@ lastfm = setupLastFmApi()
 makeDirs()
 
 # for each artist in the list, get the Artist info, Album info, and Songs for all Albums
-with open('artistUris.txt') as f:
+with open('artistUris3.txt') as f:
     for line in f:
         line = line.rstrip()
         # skip empty lines or comments
         if line[0] == '#' or len(line) == 0:
             continue
+        name = line.split('\t')[1]
         line = line.split('\t')[0]
         line = line.split(':')[2]
         # Process the Artist
-        print('Processing Artist ' + line + '...')
+        print('Processing Artist ' + line + '(' + name + ')...')
         processArtist(line)
         # Process all the Albums/Songs
         processAlbumsForArtist(line)
