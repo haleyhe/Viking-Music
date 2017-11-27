@@ -4,7 +4,6 @@ import com.vikings.domain.Playlist;
 import com.vikings.domain.User;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.request.AddPlaylistSongRequest;
-import com.vikings.domain.request.EditPlaylistRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.response.PlaylistPageResponse;
 import com.vikings.domain.request.RemovePlaylistSongRequest;
