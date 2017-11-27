@@ -49,6 +49,7 @@
             <prop key="error.Playlist.thumbnailUploadFail">Playlist created, but thumbnail could not be uploaded.</prop>
             <prop key="error.Playlist.notCreator">You cannot edit the playlist because you are not the playlist owner.</prop>
             <prop key="error.Playlist.noSuchPlaylist">Playlist does not exist.</prop>
+            <prop key="error.Playlist.badPlaylistUpdate">You have entered invalid playlist information. Playlist was not updated. </prop>
             
             <prop key="error.Album.noSuchAlbum">Album does not exist.</prop>
 
@@ -59,7 +60,7 @@
             <prop key="cron.Payment.generatePayments">0 0 0 1 * *</prop> 
 
             <!-- Filepaths -->
-            <prop key="file.rootFilePath">/Users/bryankoelbel/CSE308/308Vikings/</prop>
+            <prop key="file.rootFilePath">C:/Users/HH/Desktop/308/308Vikings/</prop>
             <prop key="file.Playlist.sourceThumbnailPath">src/main/webapp/css/playlist/</prop>
             <prop key="file.Playlist.targetThumbnailPath">target/308Vikings-1.0-SNAPSHOT/css/playlist/</prop>
             <prop key="file.Album.sourceThumbnailPath">src/main/webapp/css/album/</prop>

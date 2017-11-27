@@ -18,6 +18,12 @@ public class Playlist implements Serializable {
     
     public Playlist() {
     }
+
+    public Playlist(String id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
     
     public Playlist(String id) {
         this.id = id;

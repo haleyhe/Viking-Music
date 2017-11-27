@@ -146,17 +146,22 @@ public class PlaylistManager {
      *  or not, so make sure this is set to the desired state:
      *  - PubliclyVisible
      */
-    public void updatePlaylist(Playlist playlist) {
-        if (playlistCache.get(playlist.getId()) != null) {
-            Playlist oldPlaylist = playlistCache.get(playlist.getId());
+    public boolean updatePlaylist(Playlist playlist) {
+        if (!isValidPlaylistUpdate(playlist)) {
+            return false;
+        }
+        Playlist oldPlaylist = getPlaylist(playlist.getId());
+        if (oldPlaylist == null) {
+            return false;
+        } else {
             if (playlist.getName() != null)
                 oldPlaylist.setName(playlist.getName());
             if (playlist.getDescription() != null)
-                oldPlaylist.setDescription(playlist.getDescription());
-                
+                oldPlaylist.setDescription(playlist.getDescription());    
             oldPlaylist.setPubliclyVisible(playlist.isPubliclyVisible());
+            playlistDAO.updatePlaylist(playlist);
+            return true;
         }
-        playlistDAO.updatePlaylist(playlist);
     }
     
     /**
@@ -190,5 +195,12 @@ public class PlaylistManager {
     public void unfollowPlaylist (String playlistId) {
        Playlist playlist = getPlaylist(playlistId);
        playlist.setNumFollowers(playlist.getNumFollowers()-1);
+   }
+    
+   private boolean isValidPlaylistUpdate (Playlist playlist) {
+       if (playlist.getName().trim().length() == 0) {
+           return false;
+       }
+       return true;
    }
 }

@@ -4,6 +4,7 @@ import com.vikings.domain.Playlist;
 import com.vikings.domain.User;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.request.AddPlaylistSongRequest;
+import com.vikings.domain.request.EditPlaylistRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.response.PlaylistPageResponse;
 import com.vikings.domain.request.RemovePlaylistSongRequest;
@@ -27,19 +28,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class PlaylistController {
-    
+
     @Autowired
     PlaylistManager playlistManager;
-    
+
     @Autowired
     FileManager fileManager;
-    
+
     @Autowired
     UserAccountManager userAccountManager;
-    
+
     @Autowired
     UserMusicManager userMusicManager;
-    
+
     /**
      * Makes a new Playlist with the given parameters
      * (created by the User in the current session),
@@ -53,35 +54,35 @@ public class PlaylistController {
      *  Whether the playlist should be visible to others besides creator
      * @param thumbnail
      *  Thumbnail image file.
-     * @return 
+     * @return
      *  JsonResponse object indicating success or failure.
      */
     @RequestMapping(method=RequestMethod.POST, value="/Playlist/createPlaylist")
     public @ResponseBody JsonResponse createPlaylist(
-            @RequestParam("thumbnail") MultipartFile thumbnail,
+            @RequestParam(value="thumbnail", required= false) MultipartFile thumbnail,
             @RequestParam("name") String name,
             @RequestParam("description") String description,
             @RequestParam("publiclyVisible") boolean publiclyVisible) {
         User sessionUser = userAccountManager.getSessionUser();
-        
+
         if (sessionUser == null) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
-        
+
         // create the playlist
         Playlist playlist = new Playlist();
         playlist.setName(name);
         playlist.setDescription(description);
         playlist.setPubliclyVisible(publiclyVisible);
         playlist.setCreator(sessionUser.toUserIdentifier());
-        
+
         String playlistId = playlistManager.createPlaylist(playlist);
-        
+
         // mark the creator as a follower
         Date creationDate = new java.util.Date();
         userMusicManager.followPlaylist(sessionUser.getId(), playlistId, creationDate);
         userMusicManager.addPlaylistToLibrarySession(sessionUser, playlistId, creationDate);
-        
+
         // attempt to upload the thumbnail
         if (fileManager.uploadPlaylistThumbnail(thumbnail, playlistId)) {
             return new JsonResponse(true);
@@ -89,15 +90,43 @@ public class PlaylistController {
             return new JsonResponse(false, System.getProperty("error.Playlist.thumbnailUploadFail"));
         }
     }
-    
+
+    @RequestMapping(method=RequestMethod.POST, value="/Playlist/updatePlaylist", consumes = {"multipart/form-data"})
+    public @ResponseBody JsonResponse updatePlaylist(
+            @RequestParam(value="thumbnail", required = false) MultipartFile thumbnail,
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("id") String id) {
+        User sessionUser = userAccountManager.getSessionUser();
+        if (sessionUser == null) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
+        }
+
+        Playlist playlist = new Playlist(id, name, description);
+        playlist.setPubliclyVisible(true);
+        if (!playlistManager.updatePlaylist(playlist)) {
+             return new JsonResponse(false, System.getProperty("error.Playlist.badPlaylistUpdate"));
+        }
+        if (thumbnail != null) {
+            System.out.println("Detected a new thumbnail");
+            if (!fileManager.uploadPlaylistThumbnail(thumbnail, id)) {
+                return new JsonResponse(false, System.getProperty("error.Playlist.thumbnailUploadFail"));
+            }
+        } else {
+            System.out.println("No thumbnail");
+        }
+     
+        return new JsonResponse(true);
+    }
+
     /* Fake method to test shit */
     @RequestMapping(method=RequestMethod.GET, value="/Playlist/getAllPlaylists")
     public @ResponseBody PlaylistsResponse getAllPlaylists() {
         List<PlaylistIdentifier> playlistIdents= new ArrayList();
         playlistIdents.add(playlistManager.getPlaylistIdentifier("c793668a-6c14-4188-8f51-b34c96ace7af"));
-        return new PlaylistsResponse(playlistIdents); 
+        return new PlaylistsResponse(playlistIdents);
     }
-    
+
     @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistPageDetails")
     public @ResponseBody PlaylistPageResponse getPlaylistPageDetails(@RequestParam("id") String playlistId) {
         Playlist playlist = playlistManager.getPlaylist(playlistId);
@@ -110,12 +139,12 @@ public class PlaylistController {
         int numSongs = playlist.getSongs().size();
         return new PlaylistPageResponse(playlist, following, savedSongs, numSongs, totalDuration);
     }
-    
+
     /**
         * Adds a song to an user's created playlist
         * @param addSongReq
         * json container for the song and playlist IDs
-        * @return 
+        * @return
         *  JsonResponse indicating success or error.
      */
     @RequestMapping(method=RequestMethod.POST, value="/Playlist/addSong", consumes="application/json")
@@ -124,16 +153,16 @@ public class PlaylistController {
         String songId = addSongReq.getSongId();
         if (!isUserPlaylistCreator(playlistId)) {
             return new JsonResponse (false,System.getProperty("error.Playlist.notCreator"));
-        } 
+        }
         playlistManager.addSongToPlaylist(playlistId, songId);
         return new JsonResponse(true);
     }
-    
+
     /**
         * Removes a song from an user's created playlist
         * @param remSongReq
         * json container for the playlist id and the track number of the song the creator wants to remove
-        * @return 
+        * @return
         *  JsonResponse indicating success or error.
      */
     @RequestMapping(method=RequestMethod.POST, value="/Playlist/removeSong", consumes="application/json")
@@ -142,16 +171,16 @@ public class PlaylistController {
         int trackNum = remSongReq.getTrackNum();
         if (!isUserPlaylistCreator(playlistId)) {
             return new JsonResponse (false,System.getProperty("error.Playlist.notCreator"));
-        } 
+        }
         playlistManager.removeSongFromPlaylist(playlistId, trackNum);
         return new JsonResponse(true);
     }
-    
+
     /**
      * Checks to see if the logged in user is the playlist creator
      * @param playlistId
      * if of the playlist that will be changed
-     * @return 
+     * @return
      * True if the logged in user is the creator, false otherwise
      */
     private boolean isUserPlaylistCreator (String playlistId) {
