@@ -7,6 +7,7 @@
 
         <c:url var="home" value="/" scope="request" />
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <title>Viking - Album</title>
     </head>
     <body>
@@ -58,7 +59,7 @@
                <td>Duration</td>
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
-               <td><img class='play-btn' src=${home}css/play-button-1.png></img></td>
+                 <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
                <div>
                    <td>
                        <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
@@ -68,7 +69,7 @@
 
                <td>{{song.name}}</td>
                <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
-               <td>3:08</td>
+               <td>{{song.duration | convertMilSec}}</td>
              </tr>
            </table>
            <h3>More by {{albumdata.album.artists[0].name}}</h3>
