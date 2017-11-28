@@ -529,7 +529,7 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -4px;
 }
 input[id=volume]::-webkit-slider-thumb {
-    background: #21144f;
+    background: #E7EDED;
 }
 
 input[type=range]:focus {
