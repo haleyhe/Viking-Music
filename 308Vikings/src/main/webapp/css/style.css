@@ -502,9 +502,13 @@ hr.style14 {
     cursor: pointer;
 }
 
-input[type=range]{
+input[id=seek]{
     -webkit-appearance: none;
     width: 700px;
+}
+input[id=volume]{
+    -webkit-appearance: none;
+    width: 100px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -523,6 +527,9 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 50%;
     background: goldenrod;
     margin-top: -4px;
+}
+input[id=volume]::-webkit-slider-thumb {
+    background: #21144f;
 }
 
 input[type=range]:focus {

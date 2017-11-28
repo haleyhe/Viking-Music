@@ -114,11 +114,15 @@
                     </div>
                   </div>
                   <div class=player style="width: 50%">
-                    <img class="playerimg" id = "back" src="${home}/css/back.png"></img>
-                    <img class="playerimg" id = "play" src="${home}/css/play-button.png"></img>
-                    <img class="playerimg" id = "next" src="${home}/css/next.png"></img>
-                    <img class="playerimg" id = "repeat" src="${home}/css/repeat.png"></img>
-                    <img class="playerimg" id = "shuffle" src="${home}/css/shuffle.png"></img>
+                    <div>
+                      <img class="playerimg" id = "back" src="${home}/css/back.png"></img>
+                      <img class="playerimg" id = "play" src="${home}/css/play-button.png"></img>
+                      <img class="playerimg" id = "next" src="${home}/css/next.png"></img>
+                      <img class="playerimg" id = "repeat" src="${home}/css/repeat.png"></img>
+                      <img class="playerimg" id = "shuffle" src="${home}/css/shuffle.png"></img>
+                      <img class="playerimg" id = "volumebtn" src="${home}/css/speaker-5.png" style="margin-right: 0px"></img>
+                      <input type="range" style="vertical-align: top; margin-top: 25px" id="volume">
+                    </div>
                     <div ><input type="range" id="seek" value="0" max=""/></div>
                   </div>
                   <div style="width: 25%">
