@@ -314,6 +314,17 @@ div.menutabs li.current{
   float: left;
   cursor:pointer;
 }
+
+.artistIndivimg{
+  margin: 50px;
+  margin-bottom: 5px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  float: left;
+  cursor:pointer; 
+}
+
 .artistimg{
   margin: 50px;
   margin-bottom: 0px;
@@ -407,7 +418,7 @@ ul.tabs li.current , ul.musictabs li.current{
 }
 
 #playListPage, #libindivArtistPage, #libindivAlbumPage, #indivAlbumPage, #indivConcertPage,
-#indivPlaylistPage{
+#indivPlaylistPage, #artistOverview, #artistBio, #artistConcerts{
   display: none;
 }
 
@@ -417,6 +428,7 @@ ul.tabs li.current , ul.musictabs li.current{
 .pages h2, h3{
   margin-left: 5%;
 }
+
 
 .unfollow-button:hover span {display:none}
 .unfollow-button:hover:after {content:"Unfollow"}

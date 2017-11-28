@@ -1,5 +1,4 @@
-jQuery(document).ready(function ($) {
-});
+
 app.controller('getSession', function($scope, $http) {
     $http({
         method : "GET",
@@ -48,4 +47,20 @@ app.filter("convertMilSec", function(){
        var seconds = ((input % 60000) / 1000).toFixed(0);
        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
    }
+ });
+app.controller("getDetailAlbums", function ($scope, $http, $location) {
+    $scope.getAlbumJsons = function (event) {
+    $location.path("/album");
+    $("#albumpage").css("display", "none");
+    $("#albumpage").css("display", "block");
+
+    $http({
+      method: 'GET',
+      url: '/308Vikings/Album/getAlbumPageDetails',
+      headers: {'Content-Type': 'application/json'},
+      params: {id: event.target.id}
+    }).then(function successCallback(response) {
+      $scope.albumdata = response.data;
+    }, function errorCallback(response) {});
+  }
 });

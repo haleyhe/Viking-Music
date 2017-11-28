@@ -7,6 +7,8 @@ import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
 
 public class ArtistPageResponse {
+    String id;
+    String name;
     String bio;
     List<Song> topSongs;
     List<ArtistIdentifier> relatedArtists;
@@ -16,13 +18,31 @@ public class ArtistPageResponse {
     public ArtistPageResponse() {
     }
  
-    public ArtistPageResponse(String bio, List<Song> topSongs, List<ArtistIdentifier> 
+    public ArtistPageResponse(String id, String name, String bio, List<Song> topSongs, List<ArtistIdentifier> 
         relatedArtists,List<AlbumIdentifier> albums, List<Concert> concerts) {
+        this.id = id;
+        this.name = name;
         this.bio = bio;
         this.topSongs = topSongs;
         this.relatedArtists = relatedArtists;
         this.albums = albums;
         this.concerts = concerts;
+    }
+
+    public String getId(){
+        return id;
+    }
+    
+    public void setId(){
+        this.id= id;
+    }
+    
+    public String getName(){
+        return name;
+    }
+
+    public void setName(){
+        this.name = name;
     }
 
     public String getBio(){

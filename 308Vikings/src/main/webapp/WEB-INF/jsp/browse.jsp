@@ -57,6 +57,7 @@
         </script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
