@@ -273,4 +273,18 @@ public class UserMusicManager {
         }
         return artists;
     }
+    
+    public HashMap<String,Boolean> findSavedSongList(List<Song> songs) {
+        User user = userAccountManager.getSessionUser();
+        if (user == null) {
+           return null;
+        }
+        HashMap<String,Boolean> savedSongs = new HashMap<>();
+        for (Song s: songs) {
+           LibrarySong librarySong = new LibrarySong(s);
+           Boolean saved = user.getUserMusic().getSavedSongs().contains(librarySong);
+           savedSongs.put(s.getId(), saved);
+        }
+        return savedSongs;
+    }
 }

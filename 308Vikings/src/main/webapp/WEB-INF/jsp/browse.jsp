@@ -28,11 +28,13 @@
                   .when("/", {
                       templateUrl : "${home}component/overview.jsp"
                   })
-                  .when("/recentlyplayed", {
-                      templateUrl : "${home}component/recentlyPlayed.jsp"
+                  .when("/history", {
+                      templateUrl : "${home}component/history.jsp",
+                      controller: "historyController"
                   })
                   .when("/songs", {
-                      templateUrl : "${home}component/songs.jsp"
+                      templateUrl : "${home}component/librarysongs.jsp",
+                      controller: "librarySongsController"
                   })
                   .when("/album", {
                       templateUrl : "${home}component/album.jsp"
@@ -58,6 +60,7 @@
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/library.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -85,7 +88,7 @@
                     <ul>
                       <h4>YOUR LIBRARY</h4>
                       <b>
-                        <a href="#!recentlyplayed"> <li class="tab-link" data-tab="menutab">Recently Played</li></a>
+                        <a href="#!history"> <li class="tab-link" data-tab="menutab">History</li></a>
                         <a href="#!songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
                         <a href="#!album"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
                         <a href="#!artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
@@ -109,7 +112,7 @@
                   <div style="width: 25%">
                     <ul>
                     <img src="${home}/css/album/05GcLcffb84BOLzo7BMz9W.jpg" style="width:55px; float:left">
-                    <div style="margin-left: 60px">Artist Name 
+                    <div style="margin-left: 60px">Artist Name
                         <br/>Song Name
                     </p>
                     </div>
@@ -179,7 +182,7 @@
                     </div>
                 </div>
     </body>
-    <script>      
+    <script>
         $('#dropdownbtn').click(function(e){
             e.preventDefault();
             if($(this).hasClass('open')){

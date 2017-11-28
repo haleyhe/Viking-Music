@@ -9,13 +9,17 @@ import com.vikings.domain.User;
 import com.vikings.domain.request.IdRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.MarkSongAsPlayedForUserRequest;
+import com.vikings.domain.response.HistoryResponse;
+import com.vikings.domain.response.LibrarySongResponse;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,11 +44,11 @@ public class UserMusicController {
     UserAccountManager userAccountManager;
     
     @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/songs")
-    public @ResponseBody List<LibrarySong> getLibrarySongs() {
+    public @ResponseBody LibrarySongResponse getLibrarySongs() {
         User user = userAccountManager.getSessionUser();
         List<LibrarySong> savedSongList = new ArrayList(user.getUserMusic().getSavedSongs());
         Collections.sort(savedSongList);
-        return savedSongList;
+        return new LibrarySongResponse(savedSongList);
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/albums")
@@ -78,9 +82,11 @@ public class UserMusicController {
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/UserMusic/history")
-    public @ResponseBody List<Song> getHistory() {
+    public @ResponseBody HistoryResponse getHistory() {
         User user = userAccountManager.getSessionUser();
-        return user.getUserMusic().getHistory();
+        List<Song> history = user.getUserMusic().getHistory();
+        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(history);
+        return new HistoryResponse(history, savedSongs);
     }
     
     /**

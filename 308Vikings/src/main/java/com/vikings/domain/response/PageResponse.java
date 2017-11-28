@@ -1,9 +1,9 @@
 package com.vikings.domain.response;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public abstract class PageResponse {
-    HashMap<String,Boolean> savedSongs;
+    Map<String,Boolean> savedSongs;
     String error;
     
     public PageResponse() {
@@ -13,11 +13,11 @@ public abstract class PageResponse {
         this.error = error;
     }
     
-    public HashMap<String, Boolean> getSavedSongs() {
+    public Map<String, Boolean> getSavedSongs() {
         return savedSongs;
     }
 
-    public void setSavedSongs(HashMap<String, Boolean> savedSongs) {
+    public void setSavedSongs(Map<String, Boolean> savedSongs) {
         this.savedSongs = savedSongs;
     }
 
