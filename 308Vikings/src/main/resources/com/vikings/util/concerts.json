@@ -2,6 +2,202 @@
     "concerts": [
         {
             "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-12-08", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218694-lady-gaga-at-american-airlines-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22745649", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "American Airlines Center", 
+                "state": "TX", 
+                "street": "2500 Victory Avenue", 
+                "zip": "75201"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2017-11-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/30578629-walker-hayes-at-xcel-energy-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23651404", 
+            "venue": {
+                "city": "St. Paul", 
+                "name": "Xcel Energy Center", 
+                "state": "MN", 
+                "street": "175 Kellogg Blvd. W.", 
+                "zip": "55102"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2018-04-20", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764259-carly-pearce-at-dailys-place", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281799", 
+            "venue": {
+                "city": "Jacksonville", 
+                "name": "Daily's Place", 
+                "street": "1 EverBank Field",
+                "state": "FL", 
+                "zip": "32202"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2018-06-27", 
+            "songkickUrl": "https://www.songkick.com/concerts/31797844-weezer-at-starplex-pavilion", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24301634", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "Starplex Pavilion", 
+                "state": "TX", 
+                "street": "3839 S. Fitzhugh Ave.", 
+                "zip": "75210"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu", 
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "date": "2017-12-09", 
+            "songkickUrl": "https://www.songkick.com/festivals/6351-kroq-almost-acoustic-christmas/id/31636179-kroq-almost-acoustic-christmas-2017", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24211824", 
+            "venue": {
+                "city": "Inglewood", 
+                "name": "The Forum", 
+                "state": "CA", 
+                "street": "3900 W. Manchester Blvd.", 
+                "zip": "90305"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2017-12-31", 
+            "songkickUrl": "https://www.songkick.com/concerts/31457094-marshmello-at-intrigue-nightclub", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24119454", 
+            "venue": {
+                "city": "Las Vegas", 
+                "name": "Intrigue Nightclub", 
+                "state": "NV", 
+                "street": "3121 Las Vegas Blvd S", 
+                "zip": "89109"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-05-16", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064719-shania-twain-at-denny-sanford-premier-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923664", 
+            "venue": {
+                "city": "Sioux Falls", 
+                "name": "Denny Sanford Premier Center", 
+                "state": "SD", 
+                "street": "1201 N West Ave", 
+                "zip": "57104"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-03-17", 
+            "songkickUrl": "https://www.songkick.com/concerts/30907189-buddy-guy-at-paramount-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23842554", 
+            "venue": {
+                "city": "Oakland", 
+                "name": "Paramount Theatre", 
+                "state": "CA", 
+                "street": "2025 Broadway", 
+                "zip": "94612"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-03-02", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764049-trace-adkins-at-american-airlines-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281619", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "American Airlines Center", 
+                "state": "TX", 
+                "street": "2500 Victory Avenue", 
+                "zip": "75201"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2017-12-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/31815619-marshmello-at-xs-nightclub-the-wynn", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24312144", 
+            "venue": {
+                "city": "Las Vegas", 
+                "name": "XS Nightclub, the Wynn", 
+                "state": "NV", 
+                "street": "3131 Las Vegas Blvd. S.", 
+                "zip": "89109"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-04-11", 
+            "songkickUrl": "https://www.songkick.com/concerts/32037154-buddy-guy-at-taft-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24464504", 
+            "venue": {
+                "city": "Cincinnati", 
+                "name": "Taft Theatre", 
+                "state": "OH", 
+                "street": "317 East 5th Street", 
+                "zip": "45202"
+            }
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-11-30", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218639-lady-gaga-at-americanairlines-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22745619", 
+            "venue": {
+                "city": "Miami", 
+                "name": "AmericanAirlines Arena", 
+                "state": "FL", 
+                "street": "601 Biscayne Blvd.", 
+                "zip": "33131"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2018-01-18", 
+            "songkickUrl": "https://www.songkick.com/concerts/31643694-marshmello-at-mardi-gras-world", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24214064", 
+            "venue": {
+                "city": "New Orleans", 
+                "name": "Mardi Gras World", 
+                "state": "LA", 
+                "street": "1380 Port of New Orleans Place", 
+                "zip": "70130"
+            }
+        }, 
+        {
+            "artists": [
                 "3jOstUTkEu2JkjvRdBA5Gu"
             ], 
             "date": "2017-12-09", 
@@ -17,157 +213,182 @@
         }, 
         {
             "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
-            ], 
-            "date": "2017-11-09", 
-            "songkickUrl": "https://www.songkick.com/concerts/30392224-courtney-barnett-at-ryman-auditorium", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23551134", 
-            "venue": {
-                "city": "Nashville", 
-                "name": "Ryman Auditorium", 
-                "state": "TN", 
-                "street": "116 5th Avenue North", 
-                "zip": "37219"
-            }
-        }, 
-        {
-            "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
-            ], 
-            "date": "2017-11-07", 
-            "songkickUrl": "https://www.songkick.com/concerts/30574474-courtney-barnett-at-anthem", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23653404", 
-            "venue": {
-                "city": "Washington", 
-                "name": "The Anthem", 
-                "state": "DC", 
-                "street": "1100 Maine Ave SW", 
-                "zip": "20024"
-            }
-        }, 
-        {
-            "artists": [
-                "2cCUtGK9sDU2EoElnk0GNB"
-            ], 
-            "date": "2017-11-29", 
-            "songkickUrl": "https://www.songkick.com/concerts/29958674-national-at-paramount-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23385399", 
-            "venue": {
-                "city": "Seattle", 
-                "name": "Paramount Theatre", 
-                "state": "WA", 
-                "street": "901 Pine Street", 
-                "zip": "98101"
-            }
-        }, 
-        {
-            "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
-            ], 
-            "date": "2017-11-11", 
-            "songkickUrl": "https://www.songkick.com/concerts/30392239-courtney-barnett-at-austin-city-limits-live-at-the-moody-theater", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23553669", 
-            "venue": {
-                "city": "Austin", 
-                "name": "Austin City Limits Live at The Moody Theater", 
-                "state": "TX", 
-                "street": "310 W. Willie Nelson Blvd.", 
-                "zip": "78701"
-            }
-        }, 
-        {
-            "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
-            ], 
-            "date": "2017-11-01", 
-            "songkickUrl": "https://www.songkick.com/concerts/30391309-courtney-barnett-at-beacon-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23551109", 
-            "venue": {
-                "city": "New York", 
-                "name": "Beacon Theatre", 
-                "state": "NY", 
-                "street": "2124 Broadway", 
-                "zip": "10023"
-            }
-        }, 
-        {
-            "artists": [
                 "3kzwYV3OCB010YfXMF0Avt"
             ], 
-            "date": "2017-11-04", 
-            "songkickUrl": "https://www.songkick.com/concerts/30213279-alvvays-at-magic-stick", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23541519", 
+            "date": "2017-12-09", 
+            "songkickUrl": "https://www.songkick.com/concerts/31736379-spoon-at-express-live", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24306574", 
             "venue": {
-                "city": "Detroit", 
-                "name": "Magic Stick", 
-                "state": "MI", 
-                "street": "4120 Woodward Ave.", 
-                "zip": "48202"
+                "city": "Columbus", 
+                "name": "EXPRESS LIVE!", 
+                "state": "OH", 
+                "street": "405 Neil Avenue", 
+                "zip": "43215"
             }
         }, 
         {
             "artists": [
-                "2cCUtGK9sDU2EoElnk0GNB"
+                "5olDKSsFhhmwh8UCWwKtpq"
             ], 
-            "date": "2017-12-05", 
-            "songkickUrl": "https://www.songkick.com/concerts/29958799-national-at-anthem", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23844709", 
+            "date": "2018-01-13", 
+            "songkickUrl": "https://www.songkick.com/concerts/32032964-chick-corea-at-spc-music-hall", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24462384", 
             "venue": {
-                "city": "Washington", 
-                "name": "The Anthem", 
-                "state": "DC", 
-                "street": "1100 Maine Ave SW", 
-                "zip": "20024"
+                "city": "St Petersburg", 
+                "name": "SPC Music Hall", 
+                "state": "FL", 
+                "street": "6605 Fifth Ave. N.", 
+                "zip": "33710"
             }
         }, 
         {
             "artists": [
-                "3kzwYV3OCB010YfXMF0Avt"
+                "5e4Dhzv426EvQe3aDb64jL"
             ], 
-            "date": "2017-11-03", 
-            "songkickUrl": "https://www.songkick.com/concerts/30213269-alvvays-at-thalia-hall", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23541494", 
+            "date": "2018-06-04", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064744-shania-twain-at-infinite-energy-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23932899", 
             "venue": {
-                "city": "Chicago", 
-                "name": "Thalia Hall", 
-                "state": "IL", 
-                "street": "1807 S Allport St", 
-                "zip": "60608"
+                "city": "Duluth", 
+                "name": "Infinite Energy Arena", 
+                "state": "GA", 
+                "street": "6400 Sugarloaf Pkwy.", 
+                "zip": "30097"
             }
         }, 
         {
             "artists": [
-                "2cCUtGK9sDU2EoElnk0GNB"
+                "4qwGe91Bz9K2T8jXTZ815W"
             ], 
-            "date": "2017-12-13", 
-            "songkickUrl": "https://www.songkick.com/concerts/29958854-national-at-civic-opera-house", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23385439", 
+            "date": "2017-12-04", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029734-janet-jackson-at-rupp-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23300049", 
             "venue": {
-                "city": "Chicago", 
-                "name": "Civic Opera House", 
-                "state": "IL", 
-                "street": "20 North Wacker Drive", 
-                "zip": "60606"
+                "city": "Lexington", 
+                "name": "Rupp Arena", 
+                "state": "KY", 
+                "street": "432 West Vine Street", 
+                "zip": "40507"
             }
         }, 
         {
             "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
+                "1UTPBmNbXNTittyMJrNkvw"
             ], 
-            "date": "2017-11-10", 
-            "songkickUrl": "https://www.songkick.com/concerts/30392229-courtney-barnett-at-mcfarlin-memorial-auditorium-southern-methodist-university", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23551979", 
+            "date": "2018-03-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764069-trace-adkins-at-centurylink-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281644", 
             "venue": {
-                "city": "Dallas", 
-                "name": "McFarlin Memorial Auditorium, Southern Methodist University", 
+                "city": "Bossier City", 
+                "name": "CenturyLink Center", 
+                "state": "LA", 
+                "street": "2000 CenturyTel Center Dr.", 
+                "zip": "71112"
+            }
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-12-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218664-lady-gaga-at-toyota-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22777274", 
+            "venue": {
+                "city": "Houston", 
+                "name": "Toyota Center", 
                 "state": "TX", 
-                "street": "6405 Boaz Ln., Ste. 101", 
-                "zip": "75275"
+                "street": "1510 Polk Street", 
+                "zip": "77002"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-02-15", 
+            "songkickUrl": "https://www.songkick.com/concerts/31763934-trace-adkins-at-bok-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281524", 
+            "venue": {
+                "city": "Tulsa", 
+                "name": "BOK Center", 
+                "state": "OK", 
+                "street": "200 South Denver", 
+                "zip": "74103"
+            }
+        }, 
+        {
+            "artists": [
+                "1oVj9JmPUPg4SQ2uerV2xc"
+            ], 
+            "date": "2017-12-23", 
+            "songkickUrl": "https://www.songkick.com/concerts/31525054-bad-brains-at-funhouse-at-mr-smalls", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24152379", 
+            "venue": {
+                "city": "Millvale", 
+                "name": "The Funhouse at Mr. Small's", 
+                "state": "PA", 
+                "street": "400 Lincoln Ave.", 
+                "zip": "15209"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-03-22", 
+            "songkickUrl": "https://www.songkick.com/concerts/32033339-buddy-guy-at-crest-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24462734", 
+            "venue": {
+                "city": "Sacramento", 
+                "name": "Crest Theatre", 
+                "state": "CA", 
+                "street": "1013 K Street", 
+                "zip": "95814"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2018-06-23", 
+            "songkickUrl": "https://www.songkick.com/concerts/31797819-weezer-at-midflorida-credit-union-amphitheatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24301624", 
+            "venue": {
+                "city": "Tampa", 
+                "name": "Midflorida Credit Union Amphitheatre", 
+                "state": "FL", 
+                "street": "4802 US 301 North", 
+                "zip": "33610"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2018-01-12", 
+            "songkickUrl": "https://www.songkick.com/concerts/31454359-marshmello-at-bill-graham-civic-auditorium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24116854", 
+            "venue": {
+                "city": "San Francisco", 
+                "name": "Bill Graham Civic Auditorium", 
+                "state": "CA", 
+                "street": "99 Grove Street", 
+                "zip": "94102"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-02-08", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822869-tribal-seeds-at-fillmore", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24317319", 
+            "venue": {
+                "city": "San Francisco", 
+                "name": "The Fillmore", 
+                "state": "CA", 
+                "street": "1805 Geary Boulevard", 
+                "zip": "94115"
             }
         }, 
         {
@@ -187,34 +408,32 @@
         }, 
         {
             "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
+                "1HY2Jd0NmPuamShAr6KMms"
             ], 
-            "date": "2017-11-04", 
-            "songkickUrl": "https://www.songkick.com/concerts/30392209-courtney-barnett-at-orpheum-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23551124", 
+            "date": "2017-12-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218649-lady-gaga-at-amalie-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22745624", 
             "venue": {
-                "city": "Boston", 
-                "name": "Orpheum Theatre", 
-                "state": "MA", 
-                "street": "1 Hamilton Place", 
-                "zip": "02108"
+                "city": "Tampa", 
+                "name": "Amalie Arena", 
+                "state": "FL", 
+                "street": "401 Channelside Dr.", 
+                "zip": "33602"
             }
         }, 
         {
             "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
             ], 
-            "date": "2017-11-03", 
-            "songkickUrl": "https://www.songkick.com/concerts/30392199-courtney-barnett-at-tower-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23551114", 
+            "date": "2017-12-10", 
+            "songkickUrl": "https://www.songkick.com/concerts/31590644-charlie-puth-at-td-garden", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24185024", 
             "venue": {
-                "city": "Upper Darby", 
-                "name": "Tower Theatre", 
-                "state": "PA", 
-                "street": "69th & Ludlow Street", 
-                "zip": "19082"
+                "city": "Boston", 
+                "name": "TD Garden", 
+                "state": "MA", 
+                "street": "100 Legends Way", 
+                "zip": "02114"
             }
         }, 
         {
@@ -234,33 +453,913 @@
         }, 
         {
             "artists": [
-                "4OOlG5eBXSkSAAEeKjJb5Y", 
-                "5gspAQIAH8nJUrMYgXjCJ2"
+                "6x2LnllRG5uGarZMsD4iO8"
             ], 
-            "date": "2017-11-06", 
-            "songkickUrl": "https://www.songkick.com/concerts/30574464-courtney-barnett-at-loews-jersey-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23653399", 
+            "date": "2018-04-21", 
+            "songkickUrl": "https://www.songkick.com/concerts/31654314-thomas-rhett-at-raymond-james-stadium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24220374", 
             "venue": {
-                "city": "Jersey City", 
-                "name": "Loew's Jersey Theatre", 
-                "state": "NJ", 
-                "street": "54 Journal Square", 
-                "zip": "07306"
+                "city": "Tampa", 
+                "name": "Raymond James Stadium", 
+                "state": "FL", 
+                "street": "4201 North Dale Mabry Highway", 
+                "zip": "33607"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-05-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064729-shania-twain-at-united-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923674", 
+            "venue": {
+                "city": "Chicago", 
+                "name": "United Center", 
+                "state": "IL", 
+                "street": "1901 West Madison Street", 
+                "zip": "60612"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-02-22", 
+            "songkickUrl": "https://www.songkick.com/concerts/31763984-trace-adkins-at-van-andel-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281559", 
+            "venue": {
+                "city": "Grand Rapids", 
+                "name": "Van Andel Arena", 
+                "state": "MI", 
+                "street": "130 W. Fulton Street, Calvin College", 
+                "zip": "49503"
+            }
+        }, 
+        {
+            "artists": [
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
+            ], 
+            "date": "2017-12-15", 
+            "songkickUrl": "https://www.songkick.com/concerts/31585389-zedd-at-philips-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24185079", 
+            "venue": {
+                "city": "Atlanta", 
+                "name": "Philips Arena", 
+                "state": "GA", 
+                "street": "1 Philips Drive", 
+                "zip": "30303"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822764-tribal-seeds-at-voodoo-lounge-harrahs-north-kansas-city", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24317164", 
+            "venue": {
+                "city": "North Kansas City", 
+                "name": "Voodoo Lounge, Harrah's North Kansas City", 
+                "state": "MO", 
+                "zip": "64116"
             }
         }, 
         {
             "artists": [
                 "2cCUtGK9sDU2EoElnk0GNB"
             ], 
-            "date": "2017-11-27", 
-            "songkickUrl": "https://www.songkick.com/concerts/29958654-national-at-arlene-schnitzer-concert-hall", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23385389", 
+            "date": "2018-01-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31653919-dashboard-confessional-at-forum", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24219909", 
             "venue": {
-                "city": "Portland", 
-                "name": "Arlene Schnitzer Concert Hall", 
-                "state": "OR", 
-                "street": "1037 SW Broadway", 
-                "zip": "97205"
+                "city": "Inglewood", 
+                "name": "The Forum", 
+                "state": "CA", 
+                "street": "3900 W. Manchester Blvd.", 
+                "zip": "90305"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2018-05-26", 
+            "songkickUrl": "https://www.songkick.com/concerts/31654359-thomas-rhett-at-mercedesbenz-stadium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24220414", 
+            "venue": {
+                "city": "Atlanta", 
+                "name": "Mercedes-benz Stadium", 
+                "state": "GA", 
+                "street": "1 New Stadium Drive", 
+                "zip": "30313"
+            }
+        }, 
+        {
+            "artists": [
+                "06HL4z0CvFAxyc27GXpf02"
+            ], 
+            "date": "2017-12-08", 
+            "songkickUrl": "https://www.songkick.com/festivals/2102349-z100s-jingle-ball-presented-by-capital-one/id/31921499-z100s-jingle-ball-presented-by-capital-one-2017", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24184959", 
+            "venue": {
+                "city": "Manhattan", 
+                "name": "Madison Square Garden", 
+                "state": "NY", 
+                "street": "7th Ave & 32nd St", 
+                "zip": "10001"
+            }
+        }, 
+        {
+            "artists": [
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
+            ], 
+            "date": "2017-12-17", 
+            "songkickUrl": "https://www.songkick.com/concerts/31590729-charlie-puth-at-bb-and-t-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24185149", 
+            "venue": {
+                "city": "Sunrise", 
+                "name": "BB&T Center", 
+                "state": "FL", 
+                "street": "1 Panther Parkway", 
+                "zip": "33323"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-02-23", 
+            "songkickUrl": "https://www.songkick.com/concerts/31763989-trace-adkins-at-taxslayer-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281564", 
+            "venue": {
+                "city": "Moline", 
+                "name": "Taxslayer Center", 
+                "state": "IL", 
+                "street": "1201 River Dr", 
+                "zip": "61265"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2017-12-02", 
+            "songkickUrl": "https://www.songkick.com/concerts/30527794-foo-fighters-at-golden-1-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23625304", 
+            "venue": {
+                "city": "Sacramento", 
+                "name": "Golden 1 Center", 
+                "state": "CA", 
+                "zip": "95814"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-12", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822719-tribal-seeds-at-rex-theater", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24317859", 
+            "venue": {
+                "city": "Pittsburgh", 
+                "name": "Rex Theater", 
+                "state": "PA", 
+                "street": "1602 E Carson St", 
+                "zip": "15203"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-03-31", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764229-buddy-guy-at-rialto-square-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281779", 
+            "venue": {
+                "city": "Joliet", 
+                "name": "Rialto Square Theatre", 
+                "state": "IL", 
+                "street": "102 N Chicago St", 
+                "zip": "60432"
+            }
+        }, 
+        {
+            "artists": [
+                "5t28BP42x2axFnqOOMg3CM"
+            ], 
+            "date": "2018-04-27", 
+            "songkickUrl": "https://www.songkick.com/festivals/317198-welcome-to-rockville/id/31890729-welcome-to-rockville-2018", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24407864", 
+            "venue": {
+                "city": "Jacksonville", 
+                "name": "Metropolitan Park", 
+                "state": "FL", 
+                "street": "1410 Gator Bowl Blvd.", 
+                "zip": "32202"
+            }
+        }, 
+        {
+            "artists": [
+                "5y2Xq6xcjJb2jVM54GHK3t"
+            ], 
+            "date": "2018-01-26", 
+            "songkickUrl": "https://www.songkick.com/concerts/31676624-john-legend-at-radio-city-music-hall", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24232694", 
+            "venue": {
+                "city": "New York", 
+                "name": "Radio City Music Hall", 
+                "state": "NY", 
+                "street": "1260 Avenue Of The Americas", 
+                "zip": "10020"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-11-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029709-janet-jackson-at-ppg-paints-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23319139", 
+            "venue": {
+                "city": "Pittsburgh", 
+                "name": "PPG Paints Arena", 
+                "state": "PA", 
+                "street": "1001 Fifth Ave.", 
+                "zip": "15219"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2018-04-18", 
+            "songkickUrl": "https://www.songkick.com/concerts/31698354-foo-fighters-at-austin360-amphitheater", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24244594", 
+            "venue": {
+                "city": "Austin", 
+                "name": "Austin360 Amphitheater", 
+                "state": "TX", 
+                "street": "9201 Circuit of the Americas Blvd.", 
+                "zip": "78617"
+            }
+        }, 
+        {
+            "artists": [
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "date": "2017-12-06", 
+            "songkickUrl": "https://www.songkick.com/concerts/31441969-rise-against-at-joint-hard-rock-hotel-and-casino", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24111049", 
+            "venue": {
+                "city": "Las Vegas", 
+                "name": "The Joint, Hard Rock Hotel & Casino", 
+                "state": "NV", 
+                "street": "4455 Paradise Rd.", 
+                "zip": "89169"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2017-12-30", 
+            "songkickUrl": "https://www.songkick.com/concerts/31613759-buddy-guy-at-mystic-lake-casino-hotel", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24198434", 
+            "venue": {
+                "city": "Prior Lake", 
+                "name": "Mystic Lake Casino Hotel", 
+                "state": "MN", 
+                "street": "2400 Mystic Lake Blvd", 
+                "zip": "55372"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-12-07", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029744-janet-jackson-at-bridgestone-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23300059", 
+            "venue": {
+                "city": "Nashville", 
+                "name": "Bridgestone Arena", 
+                "state": "TN", 
+                "street": "501 Broadway", 
+                "zip": "37203"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-25", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822834-tribal-seeds-at-aggie-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24323044", 
+            "venue": {
+                "city": "Fort Collins", 
+                "name": "Aggie Theatre", 
+                "state": "CO", 
+                "street": "204 S College Ave", 
+                "zip": "80524"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-12-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029714-janet-jackson-at-kfc-yum-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23319149", 
+            "venue": {
+                "city": "Louisville", 
+                "name": "KFC Yum! Center", 
+                "state": "KY", 
+                "street": "1 Arena Plaza", 
+                "zip": "40202"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-11-28", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958664-national-at-paramount-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385394", 
+            "venue": {
+                "city": "Seattle", 
+                "name": "Paramount Theatre", 
+                "state": "WA", 
+                "street": "901 Pine Street", 
+                "zip": "98101"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-02-07", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822864-tribal-seeds-at-senator-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24317309", 
+            "venue": {
+                "city": "Chico", 
+                "name": "Senator Theatre", 
+                "state": "CA", 
+                "street": "517 Main Street", 
+                "zip": "95928"
+            }
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-12-05", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218679-lady-gaga-at-frank-erwin-center-university-of-texas", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22777279", 
+            "venue": {
+                "city": "Austin", 
+                "name": "Frank Erwin Center, University of Texas", 
+                "state": "TX", 
+                "street": "1701 Red River", 
+                "zip": "78701"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2018-05-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31654349-thomas-rhett-at-at-and-t-stadium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24220409", 
+            "venue": {
+                "city": "Arlington", 
+                "name": "AT&T Stadium", 
+                "state": "TX", 
+                "street": "925 N. Collins St.", 
+                "zip": "76011"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2017-12-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/30527784-foo-fighters-at-save-mart-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23625294", 
+            "venue": {
+                "city": "Fresno", 
+                "name": "Save Mart Center", 
+                "state": "CA", 
+                "street": "2650 E. Shaw Ave.", 
+                "zip": "93710"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2017-12-29", 
+            "songkickUrl": "https://www.songkick.com/festivals/560109-lights-all-night/id/31195644-lights-all-night-festival-2017", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24287874", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "Dallas Market Hall", 
+                "state": "TX", 
+                "street": "2200 N Stemmons Fwy", 
+                "zip": "75207"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-04-06", 
+            "songkickUrl": "https://www.songkick.com/concerts/32037139-quinn-sullivan-at-house-of-blues", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24464489", 
+            "venue": {
+                "city": "Lake Buena Vista", 
+                "name": "House of Blues", 
+                "state": "FL", 
+                "street": "1490 E. Buena Vista Dr.", 
+                "zip": "32830"
+            }
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-11-28", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218629-lady-gaga-at-philips-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22745614", 
+            "venue": {
+                "city": "Atlanta", 
+                "name": "Philips Arena", 
+                "state": "GA", 
+                "street": "1 Philips Drive", 
+                "zip": "30303"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2018-06-26", 
+            "songkickUrl": "https://www.songkick.com/concerts/31797834-weezer-at-bold-sphere-music-at-champions-square", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24301629", 
+            "venue": {
+                "city": "New Orleans", 
+                "name": "Bold Sphere Music at Champions Square", 
+                "state": "LA"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-05-15", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064714-shania-twain-at-xcel-energy-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923659", 
+            "venue": {
+                "city": "St. Paul", 
+                "name": "Xcel Energy Center", 
+                "state": "MN", 
+                "street": "175 Kellogg Blvd. W.", 
+                "zip": "55102"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2018-01-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31622984-marshmello-at-masonic-temple", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24203579", 
+            "venue": {
+                "city": "Detroit", 
+                "name": "Masonic Temple", 
+                "state": "MI", 
+                "street": "500 Temple Avenue", 
+                "zip": "48201"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2018-04-19", 
+            "songkickUrl": "https://www.songkick.com/concerts/31698359-foo-fighters-at-cynthia-woods-mitchell-pavilion", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24244599", 
+            "venue": {
+                "city": "The Woodlands", 
+                "name": "Cynthia Woods Mitchell Pavilion", 
+                "state": "TX", 
+                "street": "2005 Lake Robbins Dr.", 
+                "zip": "77380"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-05", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958799-national-at-anthem", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23844709", 
+            "venue": {
+                "city": "Washington", 
+                "name": "The Anthem", 
+                "state": "DC", 
+                "street": "1100 Maine Ave SW", 
+                "zip": "20024"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2017-12-31", 
+            "songkickUrl": "https://www.songkick.com/concerts/31763664-foo-fighters-at-cosmopolitan-of-las-vegas", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281329", 
+            "venue": {
+                "city": "Las Vegas", 
+                "name": "Cosmopolitan of Las Vegas", 
+                "state": "NV", 
+                "street": "3700 S.Las Vegas Blvd.", 
+                "zip": "89109"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2018-06-30", 
+            "songkickUrl": "https://www.songkick.com/concerts/31797869-weezer-at-austin360-amphitheater", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24301644", 
+            "venue": {
+                "city": "Austin", 
+                "name": "Austin360 Amphitheater", 
+                "state": "TX", 
+                "street": "9201 Circuit of the Americas Blvd.", 
+                "zip": "78617"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-11-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958674-national-at-paramount-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385399", 
+            "venue": {
+                "city": "Seattle", 
+                "name": "Paramount Theatre", 
+                "state": "WA", 
+                "street": "901 Pine Street", 
+                "zip": "98101"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-06-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064734-shania-twain-at-bb-and-t-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923679", 
+            "venue": {
+                "city": "Sunrise", 
+                "name": "BB&T Center", 
+                "state": "FL", 
+                "street": "1 Panther Parkway", 
+                "zip": "33323"
+            }
+        }, 
+        {
+            "artists": [
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "date": "2018-05-22", 
+            "songkickUrl": "https://www.songkick.com/concerts/31827209-queens-of-the-stone-age-at-breese-stevens-field", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24316334", 
+            "venue": {
+                "city": "Madison", 
+                "name": "Breese Stevens Field", 
+                "state": "WI", 
+                "street": "917 E Mifflin St.", 
+                "zip": "53703"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-12-06", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029739-janet-jackson-at-fedex-forum", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23300054", 
+            "venue": {
+                "city": "Memphis", 
+                "name": "FedEx Forum", 
+                "state": "TN", 
+                "street": "191 Beale Street", 
+                "zip": "38103"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-03-09", 
+            "songkickUrl": "https://www.songkick.com/concerts/31160534-buddy-guy-at-chandler-center-for-the-arts", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23968894", 
+            "venue": {
+                "city": "Chandler", 
+                "name": "Chandler Center for the Arts", 
+                "state": "AZ", 
+                "street": "250 North Arizona Avenue", 
+                "zip": "85225"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2018-02-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/31625059-marshmello-at-buffalo-riverworks", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24205889", 
+            "venue": {
+                "city": "Buffalo", 
+                "name": "Buffalo Riverworks", 
+                "state": "NY", 
+                "street": "359 Ganson St", 
+                "zip": "14203"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-02-24", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764004-trace-adkins-at-scottrade-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281579", 
+            "venue": {
+                "city": "St Louis", 
+                "name": "Scottrade Center", 
+                "state": "MO", 
+                "street": "1401 Clark", 
+                "zip": "63103"
+            }
+        }, 
+        {
+            "artists": [
+                "2cCUtGK9sDU2EoElnk0GNB"
+            ], 
+            "date": "2017-12-13", 
+            "songkickUrl": "https://www.songkick.com/concerts/29958854-national-at-civic-opera-house", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23385439", 
+            "venue": {
+                "city": "Chicago", 
+                "name": "Civic Opera House", 
+                "state": "IL", 
+                "street": "20 North Wacker Drive", 
+                "zip": "60606"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-26", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822844-tribal-seeds-at-black-sheep", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24329854", 
+            "venue": {
+                "city": "Colorado Springs", 
+                "name": "Black Sheep", 
+                "state": "CO", 
+                "street": "2106 E. Platte Ave.", 
+                "zip": "80909"
+            }
+        }, 
+        {
+            "artists": [
+                "2S5hlvw4CMtMGswFtfdK15"
+            ], 
+            "date": "2018-02-17", 
+            "songkickUrl": "https://www.songkick.com/concerts/31666614-queens-of-the-stone-age-at-forum", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24227284", 
+            "venue": {
+                "city": "Inglewood", 
+                "name": "The Forum", 
+                "state": "CA", 
+                "street": "3900 W. Manchester Blvd.", 
+                "zip": "90305"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-11-28", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029704-janet-jackson-at-value-city-arena-schottenstein-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23319134", 
+            "venue": {
+                "city": "Columbus", 
+                "name": "Value City Arena, Schottenstein Center", 
+                "state": "OH", 
+                "street": "555 Borror Dr.", 
+                "zip": "43210"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2017-12-12", 
+            "songkickUrl": "https://www.songkick.com/concerts/31391719-foo-fighters-at-vivint-smart-home-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24139769", 
+            "venue": {
+                "city": "Salt Lake City", 
+                "name": "Vivint Smart Home Arena", 
+                "state": "UT", 
+                "street": "301 West South Temple", 
+                "zip": "84101"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2018-04-21", 
+            "songkickUrl": "https://www.songkick.com/concerts/31698364-foo-fighters-at-starplex-pavilion", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24244604", 
+            "venue": {
+                "city": "Dallas", 
+                "name": "Starplex Pavilion", 
+                "state": "TX", 
+                "street": "3839 S. Fitzhugh Ave.", 
+                "zip": "75210"
+            }
+        }, 
+        {
+            "artists": [
+                "1HY2Jd0NmPuamShAr6KMms"
+            ], 
+            "date": "2017-12-12", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218724-lady-gaga-at-pepsi-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22777284", 
+            "venue": {
+                "city": "Denver", 
+                "name": "Pepsi Center", 
+                "state": "CO", 
+                "street": "901 Auraria Parkway", 
+                "zip": "80204"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2018-05-05", 
+            "songkickUrl": "https://www.songkick.com/concerts/31654339-thomas-rhett-at-us-bank-stadium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24220399", 
+            "venue": {
+                "city": "Minneapolis", 
+                "name": "U.S. Bank Stadium", 
+                "state": "MN", 
+                "street": "511 11th Ave South, Suite 401", 
+                "zip": "55415"
+            }
+        }, 
+        {
+            "artists": [
+                "2gCsNOpiBaMNh20jQ5prf0"
+            ], 
+            "date": "2018-03-23", 
+            "songkickUrl": "https://www.songkick.com/concerts/32026704-buddy-guy-at-silver-legacy-resort-and-casino", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24458174", 
+            "venue": {
+                "city": "Reno", 
+                "name": "Silver Legacy Resort & Casino", 
+                "state": "NV", 
+                "street": "407 N. Virginia St.", 
+                "zip": "89501"
+            }
+        }, 
+        {
+            "artists": [
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
+            ], 
+            "date": "2017-12-07", 
+            "songkickUrl": "https://www.songkick.com/concerts/31558449-fifth-harmony-at-allstate-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24168844", 
+            "venue": {
+                "city": "Rosemont", 
+                "name": "Allstate Arena", 
+                "state": "IL", 
+                "street": "6920 North Mannheim Road", 
+                "zip": "60018"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-13", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822724-tribal-seeds-at-town-ballroom", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24329799", 
+            "venue": {
+                "city": "Buffalo", 
+                "name": "Town Ballroom", 
+                "state": "NY", 
+                "street": "681 Main Street", 
+                "zip": "14203"
+            }
+        }, 
+        {
+            "artists": [
+                "07YZf4WDAMNwqr4jfgOZ8y"
+            ], 
+            "date": "2018-02-17", 
+            "songkickUrl": "https://www.songkick.com/concerts/31309579-jason-derulo-at-grand-ballroom-talking-stick-resort", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24041219", 
+            "venue": {
+                "city": "Scottsdale", 
+                "name": "Grand Ballroom, Talking Stick Resort", 
+                "state": "AZ", 
+                "street": "9800 E. Indian Bend Rd.", 
+                "zip": "85256"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2017-12-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/30513714-thomas-rhett-at-swiftel-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23617859", 
+            "venue": {
+                "city": "Brookings", 
+                "name": "Swiftel Center", 
+                "state": "SD", 
+                "street": "824 32nd Avenue", 
+                "zip": "57006"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-03-08", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764119-carly-pearce-at-philips-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281689", 
+            "venue": {
+                "city": "Atlanta", 
+                "name": "Philips Arena", 
+                "state": "GA", 
+                "street": "1 Philips Drive", 
+                "zip": "30303"
+            }
+        }, 
+        {
+            "artists": [
+                "64KEffDW9EtZ1y2vBYgq8T"
+            ], 
+            "date": "2018-01-13", 
+            "songkickUrl": "https://www.songkick.com/concerts/31479324-marshmello-at-bill-graham-civic-auditorium", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24130674", 
+            "venue": {
+                "city": "San Francisco", 
+                "name": "Bill Graham Civic Auditorium", 
+                "state": "CA", 
+                "street": "99 Grove Street", 
+                "zip": "94102"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-05-18", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064724-shania-twain-at-centurylink-center-and-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923669", 
+            "venue": {
+                "city": "Omaha", 
+                "name": "CenturyLink Center & Arena", 
+                "state": "NE", 
+                "street": "455 N 10th St", 
+                "zip": "68102"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-06-02", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064739-shania-twain-at-amalie-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923684", 
+            "venue": {
+                "city": "Tampa", 
+                "name": "Amalie Arena", 
+                "state": "FL", 
+                "street": "401 Channelside Dr.", 
+                "zip": "33602"
             }
         }, 
         {
@@ -280,11 +1379,131 @@
         }, 
         {
             "artists": [
-                "3jOstUTkEu2JkjvRdBA5Gu"
+                "1l8Fu6IkuTP0U5QetQJ5Xt"
+            ], 
+            "date": "2017-12-02", 
+            "songkickUrl": "https://www.songkick.com/concerts/31558379-fifth-harmony-at-sap-center-at-san-jose", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24168699", 
+            "venue": {
+                "city": "San Jose", 
+                "name": "SAP Center at San Jose", 
+                "state": "CA", 
+                "street": "525 W. Santa Clara St.", 
+                "zip": "95113"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
             ], 
             "date": "2017-12-09", 
-            "songkickUrl": "https://www.songkick.com/festivals/6351-kroq-almost-acoustic-christmas/id/31636179-kroq-almost-acoustic-christmas-2017", 
-            "ticketingUrl": "https://www.songkick.com/tickets/24211824", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029754-janet-jackson-at-legacy-arena-at-the-bjcc", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23319159", 
+            "venue": {
+                "city": "Birmingham", 
+                "name": "Legacy Arena at the Bjcc", 
+                "state": "AL", 
+                "street": "2100 Richard Arrington Blvd.", 
+                "zip": "35203"
+            }
+        }, 
+        {
+            "artists": [
+                "7jy3rLJdDQY21OgRLCZ9sD"
+            ], 
+            "date": "2017-12-05", 
+            "songkickUrl": "https://www.songkick.com/concerts/30529804-foo-fighters-at-matthew-knight-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23643449", 
+            "venue": {
+                "city": "Eugene", 
+                "name": "Matthew Knight Arena", 
+                "state": "OR", 
+                "street": "1776 E. 13th Ave", 
+                "zip": "97403"
+            }
+        }, 
+        {
+            "artists": [
+                "5e4Dhzv426EvQe3aDb64jL"
+            ], 
+            "date": "2018-05-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/31064704-shania-twain-at-tacoma-dome", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23923654", 
+            "venue": {
+                "city": "Tacoma", 
+                "name": "Tacoma Dome", 
+                "state": "WA", 
+                "street": "2727 East D Street", 
+                "zip": "98421"
+            }
+        }, 
+        {
+            "artists": [
+                "1UTPBmNbXNTittyMJrNkvw"
+            ], 
+            "date": "2018-02-17", 
+            "songkickUrl": "https://www.songkick.com/concerts/31766334-blake-shelton-at-pan-american-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24282724", 
+            "venue": {
+                "city": "Las Cruces", 
+                "name": "Pan American Center", 
+                "state": "NM", 
+                "street": "1810 East University", 
+                "zip": "88003"
+            }
+        }, 
+        {
+            "artists": [
+                "4qwGe91Bz9K2T8jXTZ815W"
+            ], 
+            "date": "2017-12-11", 
+            "songkickUrl": "https://www.songkick.com/concerts/30029764-janet-jackson-at-bb-and-t-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/23319169", 
+            "venue": {
+                "city": "Sunrise", 
+                "name": "BB&T Center", 
+                "state": "FL", 
+                "street": "1 Panther Parkway", 
+                "zip": "33323"
+            }
+        }, 
+        {
+            "artists": [
+                "6x2LnllRG5uGarZMsD4iO8"
+            ], 
+            "date": "2018-05-03", 
+            "songkickUrl": "https://www.songkick.com/concerts/31764314-thomas-rhett-at-alerus-center", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24281844", 
+            "venue": {
+                "city": "Grand Forks", 
+                "name": "Alerus Center", 
+                "state": "ND", 
+                "street": "1200 42nd Street South", 
+                "zip": "58201"
+            }
+        }, 
+        {
+            "artists": [
+                "7jgZFR40bWjwOrRCOZFB02"
+            ], 
+            "date": "2018-01-10", 
+            "songkickUrl": "https://www.songkick.com/concerts/31822614-tribal-seeds-at-gramercy-theatre", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24317119", 
+            "venue": {
+                "city": "New York", 
+                "name": "Gramercy Theatre", 
+                "state": "NY", 
+                "street": "127 E. 23rd St.", 
+                "zip": "10010"
+            }
+        }, 
+        {
+            "artists": [
+                "06HL4z0CvFAxyc27GXpf02"
+            ], 
+            "date": "2017-12-01", 
+            "songkickUrl": "https://www.songkick.com/concerts/31590479-taylor-swift-at-forum", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24184824", 
             "venue": {
                 "city": "Inglewood", 
                 "name": "The Forum", 
@@ -295,17 +1514,32 @@
         }, 
         {
             "artists": [
-                "2cCUtGK9sDU2EoElnk0GNB"
+                "1HY2Jd0NmPuamShAr6KMms"
             ], 
-            "date": "2017-11-28", 
-            "songkickUrl": "https://www.songkick.com/concerts/29958664-national-at-paramount-theatre", 
-            "ticketingUrl": "https://www.songkick.com/tickets/23385394", 
+            "date": "2017-12-09", 
+            "songkickUrl": "https://www.songkick.com/concerts/29218744-lady-gaga-at-chesapeake-energy-arena", 
+            "ticketingUrl": "https://www.songkick.com/tickets/22745654", 
             "venue": {
-                "city": "Seattle", 
-                "name": "Paramount Theatre", 
-                "state": "WA", 
-                "street": "901 Pine Street", 
-                "zip": "98101"
+                "city": "Oklahoma City", 
+                "name": "Chesapeake Energy Arena", 
+                "state": "OK", 
+                "street": "100 W. Reno Ave.", 
+                "zip": "73102"
+            }
+        }, 
+        {
+            "artists": [
+                "3jOstUTkEu2JkjvRdBA5Gu"
+            ], 
+            "date": "2018-06-29", 
+            "songkickUrl": "https://www.songkick.com/concerts/31797859-weezer-at-cynthia-woods-mitchell-pavilion", 
+            "ticketingUrl": "https://www.songkick.com/tickets/24301639", 
+            "venue": {
+                "city": "The Woodlands", 
+                "name": "Cynthia Woods Mitchell Pavilion", 
+                "state": "TX", 
+                "street": "2005 Lake Robbins Dr.", 
+                "zip": "77380"
             }
         }
     ]
