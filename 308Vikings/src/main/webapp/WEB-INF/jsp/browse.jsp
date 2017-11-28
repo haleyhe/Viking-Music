@@ -104,14 +104,24 @@
                 </div>
 
                 <!--Bottom Player Navigation Bar  -->
-                <div class=player-bar>
-                  <div class=player>
-                    <img class="playerimg" id = "shuffle" src="${home}/css/shuffle.png"></img>
+                <div class=player-bar style="display: flex">
+                  <div style="width: 25%">
+                    <ul>
+                    <img src="${home}/css/album/05GcLcffb84BOLzo7BMz9W.jpg" style="width:55px; float:left">
+                    <div style="margin-left: 60px">Artist Name 
+                        <br/>Song Name
+                    </p>
+                    </div>
+                  </div>
+                  <div class=player style="width: 50%">
                     <img class="playerimg" id = "back" src="${home}/css/back.png"></img>
                     <img class="playerimg" id = "play" src="${home}/css/play-button.png"></img>
                     <img class="playerimg" id = "next" src="${home}/css/next.png"></img>
                     <img class="playerimg" id = "repeat" src="${home}/css/repeat.png"></img>
-                    <div style="margin-left: 20%; margin-right: 20%;"><input type="range" id="seek" value="0" max=""/></div>
+                    <img class="playerimg" id = "shuffle" src="${home}/css/shuffle.png"></img>
+                    <div ><input type="range" id="seek" value="0" max=""/></div>
+                  </div>
+                  <div style="width: 25%">
                   </div>
                 </div>
 

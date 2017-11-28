@@ -5,7 +5,7 @@ window.onload = function () {
     }
 };
 
-song = new Audio(home + '/download/AlanWalker-Fade.mp3');
+song = new Audio();
 
 duration = song.duration;
 
@@ -19,9 +19,14 @@ $(document).ready(function() {
 
     $(document).on('click', '#play', function(e) {
                     e.preventDefault();
+                    if(song.src == ""){
+                        
+                    }
+                    else{
                     $("#seek").prop("max", song.duration);
                     song.play();
                     $('#play').replaceWith('<img class="playerimg" id="pause" src=' + home + 'css/pause.png></img>');
+                    }
     });
     $(document).on('click','#pause', function(e) {
                     e.preventDefault();
