@@ -49,8 +49,7 @@
                       templateUrl : "${home}component/profile.jsp"
                   })
                   .when("/playlist", {
-                      templateUrl : "${home}component/playlist.jsp",
-                      controller: "playlistController"
+                      templateUrl : "${home}component/playlist.jsp"
                   })
                   .otherwise({
                       redirectTo: "/"
@@ -88,7 +87,7 @@
                     <ul>
                       <h4>YOUR LIBRARY</h4>
                       <b>
-                        <a href="#!history"> <li class="tab-link" data-tab="menutab">History</li></a>
+                        <a href="#!history"> <li class="tab-link" data-tab="menutab-1">History</li></a>
                         <a href="#!songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
                         <a href="#!album"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
                         <a href="#!artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
@@ -101,8 +100,7 @@
                   <!--Playlist Tab-->
                   <div id=playlistTabs>
                     <ul>
-                      <li>PLAYLISTS</li>
-                      <li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">New Playlist</li>
+                      <li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">Create Playlist</li>
                     </ul>
                   </div>
                 </div>
