@@ -24,23 +24,25 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
         $scope.payment.billingAddress.street = $scope.street1;
     }
     year = 2000 + parseInt($scope.expiration.year);
-    month = parseInt($scope.expiration.month) - 1;
+    month = parseInt($scope.expiration.month);
     $scope.payment.expirationDate = new Date (Date.UTC(year, month, 0, 0, 0, 0, 0));
+  console.log(month + "/" + year);
+    console.log($scope.payment.expirationDate);
     headers =  {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     };
-    $http.post('/308Vikings/UserAccount/upgrade', JSON.stringify($scope.payment), {headers})
-      .then(
-        function successCallback(response) {
-          if (response.status == 200 && response.data.success) {
-            $scope.getUser();
-            $scope.resetForm();
-          } else {
-            //replace to display data module
-            alert(response.data.error);
-          }
-        }, function errorCallback(response) {});
+    // $http.post('/308Vikings/UserAccount/upgrade', JSON.stringify($scope.payment), {headers})
+    //   .then(
+    //     function successCallback(response) {
+    //       if (response.status == 200 && response.data.success) {
+    //         $scope.getUser();
+    //         $scope.resetForm();
+    //       } else {
+    //         //replace to display data module
+    //         alert(response.data.error);
+    //       }
+    //     }, function errorCallback(response) {});
     $("#loading").css("display", "none");
   };
 
