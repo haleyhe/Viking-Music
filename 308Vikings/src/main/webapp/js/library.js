@@ -26,7 +26,6 @@ app.controller("librarySongsController", function($scope, $http) {
         function successCallback(response) {
           if (response.status == 200) {
             $scope.librarySongs = response.data;
-            console.log($scope.librarySongs);
           } else {
             alert(response.statusText);
           }

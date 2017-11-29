@@ -51,6 +51,10 @@
                   .when("/playlist", {
                       templateUrl : "${home}component/playlist.jsp"
                   })
+                  .when("/upgrade", {
+                      templateUrl : "${home}component/upgrade.jsp",
+                      controller: "premiumController"
+                  })
                   .otherwise({
                       redirectTo: "/"
                   });
@@ -60,6 +64,7 @@
         <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/library.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/upgrade.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -141,7 +146,7 @@
                     </div>
                     <div id=user-buttons style="float:right">
                       <ul >
-                        <li style="margin-right: 2%;"><button><b>UPGRADE</b></button></li>
+                        <li style="margin-right: 2%;"><a href="#!upgrade"><b>UPGRADE</b></a></li>
                         <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
                         <li id=user-display-name style="margin-right: 2%;"><a href="#!profile">${user.username}</a></li>
                         <li><button id = dropdownbtn><b>></b></button>
