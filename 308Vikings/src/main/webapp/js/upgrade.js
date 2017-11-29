@@ -24,8 +24,9 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
         $scope.payment.billingAddress.street = $scope.street1;
     }
     year = 2000 + parseInt($scope.expiration.year);
-    month = parseInt($scope.expiration.month) - 1;
+    month = parseInt($scope.expiration.month);
     $scope.payment.expirationDate = new Date (Date.UTC(year, month, 0, 0, 0, 0, 0));
+
     headers =  {
       'Accept': 'application/json',
       'Content-Type': 'application/json'

@@ -34,7 +34,7 @@
                   Credit Card Number: <input type="text" ng-model="payment.cardNumber" required/> <br>
                   CVV: <input type="text" ng-model="payment.cvv" required/> <br>
                   Expiration Date: <input type="number"  min="1" max="12" placeholder="MM"ng-model="expiration.month" required/>
-                  <input type="number"  min="1" max="31" placeholder="YY" ng-model="expiration.year" required/> <br>
+                  <input type="number"  min="1" max="99" placeholder="YY" ng-model="expiration.year" required/> <br>
                 </div>
                 <button type="submit" ng-click="upgrade()" class="pageButton"> Upgrade</button>
                 <button type="submit" ng-click="resetForm()" class="pageButton"> Reset</button>
