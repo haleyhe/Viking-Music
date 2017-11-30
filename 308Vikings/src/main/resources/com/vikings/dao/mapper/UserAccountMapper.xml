@@ -52,7 +52,15 @@
     </select>
 
     <select id="isValidUpdate" parameterType="com.vikings.domain.User" resultType="boolean">
-        
+        SELECT
+            CASE WHEN COUNT(*) > 0 THEN 0 ELSE 1 END
+        FROM
+            Users u
+        WHERE
+            (u.username = #{username} OR
+            u.emailAddress = #{email})
+            AND
+            NOT(u.userId = #{id})
     </select>
     
     <insert id="registerUser" parameterType="com.vikings.domain.User">
