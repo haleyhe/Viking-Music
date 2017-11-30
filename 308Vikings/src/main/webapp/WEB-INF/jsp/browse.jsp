@@ -46,7 +46,8 @@
                       templateUrl : "${home}component/concert.jsp"
                   })
                   .when("/profile", {
-                      templateUrl : "${home}component/profile.jsp"
+                      templateUrl : "${home}component/profile.jsp",
+                      controller: "profileController"
                   })
                   .when("/playlist", {
                       templateUrl : "${home}component/playlist.jsp"
@@ -59,6 +60,10 @@
                       templateUrl : "${home}component/search.jsp",
                       controller: "searchController"
                   })
+                  .when("/billing", {
+                      templateUrl : "${home}component/billing.jsp",
+                      controller: "billingController"
+                  })
                   .otherwise({
                       redirectTo: "/"
                   });
@@ -70,6 +75,8 @@
         <script type="text/javascript" src="<c:url value="/js/library.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/upgrade.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/search.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/billing.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/profile.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -159,8 +166,8 @@
                         <li><button id = dropdownbtn><b>></b></button>
 
                         <div class=user-dropdown-menu>
-                          <a><button>Account Information</button></a>
-                          <a><button>Billing</button></a>
+                          <a href="#!profile"><button>Account</button></a>
+                          <a href="#!billing"><button>Billing</button></a>
                           <c:choose>
                             <c:when test="${user.admin}">
                                 <form id="to-admin-portal-form">

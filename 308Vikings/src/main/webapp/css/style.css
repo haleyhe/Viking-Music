@@ -561,8 +561,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   margin-right: 10px;
 }
 
-.see-all-button {
+.search-button {
   cursor: pointer;
   float: right;
   margin-right: 10%;
+}
+
+#profilePage a {
+  cursor: pointer;
 }
