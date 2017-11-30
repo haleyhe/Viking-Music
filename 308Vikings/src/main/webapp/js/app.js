@@ -87,4 +87,10 @@ $(document).ready(function() {
 
 app.controller("mainAppController", function ($scope, $http) {
 });
-
+app.filter("convertMilSec", function(){
+   return function(input){
+       var minutes = Math.floor(input / 60000);
+       var seconds = ((input % 60000) / 1000).toFixed(0);
+       return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+   }
+ });
