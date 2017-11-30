@@ -18,9 +18,6 @@
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
         <script>var home = '${home}';</script>
-        <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <script>
             var app = angular.module("myApp", ["ngRoute"]);
               app.config(function($routeProvider) {
@@ -37,8 +34,13 @@
                       controller: "librarySongsController"
                   })
                   .when("/album", {
-                      templateUrl : "${home}component/album.jsp"
+                      templateUrl : "${home}component/album.jsp",
+                      controller: "getAllAlbum"
                   })
+                  .when("/album/:id", {
+                      templateUrl : "${home}component/indivAlbum.jsp",
+                      controller: "getDetailAlbum"
+                  })      
                   .when("/artists", {
                       templateUrl : "${home}component/artists.jsp"
                   })
@@ -73,6 +75,9 @@
                   });
               });
         </script>
+        <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
@@ -195,7 +200,9 @@
 
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
+                  <div ng-controller="mainAppController">
                   <div ng-view></div>
+                  </div>
                 </div>
                 </div>
                 <div id='loading' class="error modal">

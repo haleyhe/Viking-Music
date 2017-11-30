@@ -4,23 +4,23 @@ window.onload = function () {
         window.location.reload();
     }
 };
+  song = new Audio();
 
-song = new Audio();
+    duration = song.duration;
 
-duration = song.duration;
-
-function changeSong(element){
-    //alert(element.id);
-    song = new Audio(home + 'mp3/' + element.id);
-    song.play();
-}
+    function changeSong(element){
+        //alert(element.id);
+        song = new Audio(home + 'mp3/' + element.id);
+        song.play();
+        $('#play').replaceWith('<img class="playerimg" id="pause" src=' + home + 'css/pause.png></img>');
+    }
 
 $(document).ready(function() {  
-
+  
     $(document).on('click', '#play', function(e) {
                     e.preventDefault();
                     if(song.src == ""){
-                        
+
                     }
                     else{
                     $("#seek").prop("max", song.duration);

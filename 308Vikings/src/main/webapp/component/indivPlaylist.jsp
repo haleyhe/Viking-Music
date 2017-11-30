@@ -65,7 +65,7 @@
                       </td>
                       <td>{{song.album.name}}</td>
                       <td>{{song.dateAdded | date:'yyyy-MM-dd'}}</td>
-                      <td>{{song.duration  | date:'HH:mm'}}</td>
+                      <td>{{song.duration  | convertMilSec}}</td>
                     </table>
                   </div>
 
