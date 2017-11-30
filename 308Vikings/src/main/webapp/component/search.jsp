@@ -11,8 +11,10 @@
       <h2>
         Search Results
       </h2>
-      <div ng-show="searchSongs.length == 0 && searchAlbums.length == 0 && searchArtists.length == 0 && searchPlaylists.length == 0">
-          <h3> No results were found for '{{query}}' </h3>
+      <div ng-if="searchSongs.length == 0 && searchAlbums.length == 0 && searchArtists.length == 0 && searchPlaylists.length == 0">
+        <h3>
+          No results were found for '{{query}}'
+        </h3>
       </div>
       <!-- Song Results -->
       <div id="songResultsContainer" class="resultsContainer" ng-hide="searchSongs.length == 0">
@@ -20,8 +22,11 @@
           <h3>
             Songs
           </h3>
-          <a class="see-all-button" ng-click="searchSongs()">
+          <a class="see-all-button" ng-click="searchAllSongs()" ng-if="overview">
             See All
+          </a>
+          <a class="see-all-button" ng-click="search()" ng-if="!overview">
+            Back
           </a>
         </div>
         <div class="song-container">
@@ -60,11 +65,14 @@
                 <div class="container">
                   <div class="search-result-heading">
                     <h3>Albums</h3>
-                    <a class="see-all-button" ng-click="searchAlbums()">
+                    <a class="see-all-button" ng-click="searchAllAlbums()">
                       See All
                     </a>
+                    <a class="see-all-button" ng-click="search()" ng-if="!overview">
+                      Back
+                    </a>
                   </div>
-                  <div class="albumitems" ng-controller="getDetailAlbum" >
+                  <div class="albumitems" ng-controller="getDetailAlbum">
                     <div ng-repeat="album in searchAlbums">
                       <a ng-click="getAlbumJson($event)">
                         <img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img>
@@ -83,8 +91,11 @@
                   <div class="container">
                     <div class="search-result-heading">
                       <h3>Artists</h3>
-                      <a class="see-all-button" ng-click="searchArtists()">
+                      <a class="see-all-button" ng-click="searchAllArtists()">
                         See All
+                      </a>
+                      <a class="see-all-button" ng-click="search()" ng-if="!overview">
+                        Back
                       </a>
                     </div>
                     <div class="artistitems" ng-controller="getDetailArtist">
@@ -105,11 +116,14 @@
                     <div class="container">
                       <div class="search-result-heading">
                         <h3>Playlists</h3>
-                        <a class="see-all-button" ng-click="searchPlaylists()">
+                        <a class="see-all-button" ng-click="searchAllPlaylists()">
                           See All
                         </a>
+                        <a class="see-all-button" ng-click="search()" ng-if="!overview">
+                          Back
+                        </a>
                       </div>
-                      <div class="playlistitems"  ng-controller="indivPlaylistController">
+                      <div class="playlistitems" ng-controller="indivPlaylistController">
                         <div ng-repeat="playlist in searchPlaylists">
                           <a ng-click="getPlaylistJson($event)">
                             <!-- need to replace the alt -->

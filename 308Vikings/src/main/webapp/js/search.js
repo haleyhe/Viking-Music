@@ -1,5 +1,6 @@
 app.controller("searchController", function($scope, $routeParams, $http) {
-  $scope.searchAll = function() {
+  $scope.search = function() {
+    $scope.overview = true;
     $scope.query = $routeParams.q;
     $('.pages').css("display","none");
     $('.see-all-button').css("display","block");
@@ -21,8 +22,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
   };
 
 
-  $scope.searchSongs = function() {
-    console.log("in search songs");
+  $scope.searchAllSongs = function() {
+    $scope.overview = false;
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
     $('#albumResultsContainer').hide();
@@ -42,7 +43,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       $("#loading").css("display", "none");
   };
 
-  $scope.searchAlbums = function() {
+  $scope.searchAllAlbums = function() {
+    $scope.overview = false;
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
     $('#songResultsContainer').hide();
@@ -62,7 +64,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       $("#loading").css("display", "none");
   };
 
-  $scope.searchArtists = function() {
+  $scope.searchAllArtists = function() {
+    $scope.overview = false;
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
     $('#songResultsContainer').hide();
@@ -82,7 +85,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       $("#loading").css("display", "none");
   };
 
-  $scope.searchPlaylists = function() {
+  $scope.searchAllPlaylists = function() {
+    $scope.overview = false;
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
     $('#songResultsContainer').hide();
@@ -102,7 +106,7 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       $("#loading").css("display", "none");
   };
 
-  $scope.searchAll();
+  $scope.search();
 });
 
 app.controller("mainController", function($scope, $location, $http) {
