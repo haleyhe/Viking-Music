@@ -51,8 +51,8 @@
            <hr class="style14" style="width:70%">
                <div class=albumitems>
                  <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
-                 <a ng-click="getAlbumJson($event)"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
-                 <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson($event)">{{relatedAlbums.name}}</li>
+                 <a ng-click="getAlbumJson()" href="#!album/{{relatedAlbums.id}}"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
+                 <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson()" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}</li>
                  <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>
                  </div>
              </div>
