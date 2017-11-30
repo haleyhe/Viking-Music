@@ -10,22 +10,21 @@ app.controller('getSession', function($scope, $http) {
     });
 });
 
-app.controller("getDetailAlbum", function ($scope, $http) {
-    $scope.getAlbumJson = function (event) {
+app.controller("getDetailAlbum", function ($scope, $routeParams, $http) {
         $('.pages').css("display","none");
         $("#loading").css("display", "block");
+        
+        $http({
+          method: 'GET',
+          url: '/308Vikings/Album/getAlbumPageDetails',
+          headers: {'Content-Type': 'application/json'},
+          params: {id: $routeParams.id}
 
-    $http({
-      method: 'GET',
-      url: '/308Vikings/Album/getAlbumPageDetails',
-      headers: {'Content-Type': 'application/json'},
-      params: {id: event.target.id}
-    }).then(function successCallback(response) {
-      $scope.albumdata = response.data;
-      $('#indivAlbumPage').show();
-      $("#loading").css("display", "none");
+        }).then(function successCallback(response) {
+            $('#indivAlbumPage').show();
+            $scope.albumdata = response.data;
+            $("#loading").css("display", "none");  
     }, function errorCallback(response) {});
-  }
 });
 
 app.controller("getAllAlbum", function ($scope, $http) {
@@ -48,19 +47,3 @@ app.filter("convertMilSec", function(){
        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
    }
  });
-app.controller("getDetailAlbums", function ($scope, $http, $location) {
-    $scope.getAlbumJsons = function (event) {
-    $location.path("/album");
-    $("#albumpage").css("display", "none");
-    $("#albumpage").css("display", "block");
-
-    $http({
-      method: 'GET',
-      url: '/308Vikings/Album/getAlbumPageDetails',
-      headers: {'Content-Type': 'application/json'},
-      params: {id: event.target.id}
-    }).then(function successCallback(response) {
-      $scope.albumdata = response.data;
-    }, function errorCallback(response) {});
-  }
-});

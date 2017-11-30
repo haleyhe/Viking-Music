@@ -84,3 +84,7 @@ $(document).ready(function() {
   });
 
 });
+
+app.controller("mainAppController", function ($scope, $http) {
+});
+
