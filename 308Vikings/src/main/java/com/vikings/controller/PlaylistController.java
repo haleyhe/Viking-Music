@@ -86,6 +86,7 @@ public class PlaylistController {
         if (fileManager.uploadPlaylistThumbnail(thumbnail, playlistId)) {
             JsonResponse blah = new JsonResponse(true);
             blah.setError(playlistId);
+            return blah;
         } else {
             return new JsonResponse(false, System.getProperty("error.Playlist.thumbnailUploadFail"));
         }
