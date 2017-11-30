@@ -123,14 +123,14 @@
                           Back
                         </a>
                       </div>
-                      <div class="playlistitems" ng-controller="indivPlaylistController">
+                      <div class="playlistitems">
                         <div ng-repeat="playlist in searchPlaylists">
-                          <a ng-click="getPlaylistJson($event)">
+                          <a href="#!playlist/{{playlist.id}}">
                             <!-- need to replace the alt -->
-                            <img class="playlistimg" ng-src="${home}/css/playlist/{{playlist.id}}.jpg" alt="Playlist Image" id="{{playlist.id}}"></img>
+                            <img class="playlistimg" ng-src="${home}/css/playlist/{{playlist.id}}.jpg"  onerror="this.src='${home}css/music-player.png';" id="{{playlist.id}}"></img>
                           </a>
                           <li class="playlistname">
-                            <a id="{{playlist.id}}" ng-click="getPlaylistJson($event)">{{playlist.name}}</a>
+                            <a id="{{playlist.id}}" href="#!playlist/{{playlist.id}}">{{playlist.name}}</a>
                           </li>
                           <li class="playlistfollowers">{{playlist.numFollowers}}
                             Followers</li>

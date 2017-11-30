@@ -1,5 +1,5 @@
 app.controller("playlistController", function($scope, $http) {
-  //$scope.getAllPlaylists = function() {
+  $scope.getAllPlaylists = function() {
     $('.pages').css("display", "none");
     $("#loading").css("display", "block");
     $http({
@@ -10,14 +10,14 @@ app.controller("playlistController", function($scope, $http) {
     }, function errorCallback(response) {});
     $('#playlistPage').show();
     $("#loading").css("display", "none");
-  //};
+  };
 
   $scope.newDate = new Date().getTime();
-  //$scope.getAllPlaylists();
+  $scope.getAllPlaylists();
 });
 
-app.controller("indivPlaylistController", function($scope, $http) {
-  $scope.getPlaylistJson = function(event) {
+app.controller("indivPlaylistController", function($scope, $routeParams, $http) {
+  $scope.getPlaylistJson = function() {
     $('.pages').css("display", "none");
     $("#loading").css("display", "block");
     $http({
@@ -27,7 +27,7 @@ app.controller("indivPlaylistController", function($scope, $http) {
         'Content-Type': 'application/json'
       },
       params: {
-        id: event.target.id
+        id: $routeParams.id
       }
     }).then(function successCallback(response) {
       $scope.playlistdata = response.data;
@@ -53,9 +53,7 @@ app.controller("indivPlaylistController", function($scope, $http) {
   };
 
   $scope.showEditPlaylistForm = function() {
-    $scope.editPlaylist.id = $scope.playlistdata.playlist.id;
-    $scope.editPlaylist.name = $scope.playlistdata.playlist.name;
-    $scope.editPlaylist.description = $scope.playlistdata.playlist.description;
+    $scope.resetEditForm();
     $('.signup.modal').css("display", "block");
   };
 
@@ -84,6 +82,7 @@ app.controller("indivPlaylistController", function($scope, $http) {
         function successCallback(response) {
           if (response.status == 200 && response.data.success) {
             $scope.reloadPlaylist($scope.editPlaylist.id);
+            $scope.resetEditForm();
             $scope.closeEditPlaylistForm();
           } else {
             //replace to display data module
@@ -137,8 +136,15 @@ app.controller("indivPlaylistController", function($scope, $http) {
     $("#loading").css("display", "none");
   };
 
+  $scope.resetEditForm = function() {
+    $scope.editPlaylist.id = $scope.playlistdata.playlist.id;
+    $scope.editPlaylist.name = $scope.playlistdata.playlist.name;
+    $scope.editPlaylist.description = $scope.playlistdata.playlist.description;
+  };
+
     $scope.newDate = new Date().getTime();
     $scope.editPlaylist = {};
+    $scope.getPlaylistJson();
 });
 
 app.directive('fileModel', ['$parse', function($parse) {

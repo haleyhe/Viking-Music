@@ -50,7 +50,12 @@
                       controller: "profileController"
                   })
                   .when("/playlist", {
-                      templateUrl : "${home}component/playlist.jsp"
+                      templateUrl : "${home}component/playlist.jsp",
+                      controller: "playlistController"
+                  })
+                  .when("/playlist/:id", {
+                      templateUrl : "${home}component/indivPlaylist.jsp",
+                      controller: "indivPlaylistController"
                   })
                   .when("/upgrade", {
                       templateUrl : "${home}component/upgrade.jsp",

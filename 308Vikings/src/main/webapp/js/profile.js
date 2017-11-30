@@ -27,6 +27,10 @@ app.controller("profileController", function($scope, $http) {
         function errorCallback(response) {});
   };
 
+  $scope.changePassword = function() {
+      
+  };
+
   $scope.showChangePassword = function() {
     $("#account-overview-container").css("display", "none");
     $("#change-password-container").css("display", "block");
