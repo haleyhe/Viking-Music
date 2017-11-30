@@ -322,7 +322,7 @@ div.menutabs li.current{
   height: 200px;
   border-radius: 50%;
   float: left;
-  cursor:pointer; 
+  cursor:pointer;
 }
 
 .artistimg{
@@ -550,4 +550,19 @@ input[type=range]:focus {
 
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #ccc;
+}
+
+.resultsContainer {
+  margin-left: 50px; margin-top: 20px; margin-bottom:40px;
+}
+
+.search-result-heading h3 {
+  display: inline;
+  margin-right: 10px;
+}
+
+.see-all-button {
+  cursor: pointer;
+  float: right;
+  margin-right: 10%;
 }

@@ -72,6 +72,50 @@ public class BrowseController {
         }
     }
     
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/search/songs")
+    public @ResponseBody SearchResponse searchSongs(@RequestParam("query") String query,
+                                               @RequestParam(value="limit", required=false) Integer limit) {
+        SearchResponse searchResults = new SearchResponse();
+        if (query.replaceAll("\\s","").length() > 0) {
+            List<Song> songs = songManager.search(query, limit);
+            searchResults.setSongs(songs);
+        }
+        return searchResults;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/search/albums")
+    public @ResponseBody SearchResponse searchAlbums(@RequestParam("query") String query,
+                                               @RequestParam(value="limit", required=false) Integer limit) {
+        SearchResponse searchResults = new SearchResponse();
+        if (query.replaceAll("\\s","").length() > 0) {
+            List<AlbumIdentifier> albums = albumManager.search(query, limit);
+            searchResults.setAlbums(albums);
+        }
+        return searchResults;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/search/artists")
+    public @ResponseBody SearchResponse searchArtists(@RequestParam("query") String query,
+                                               @RequestParam(value="limit", required=false) Integer limit) {
+        SearchResponse searchResults = new SearchResponse();
+        if (query.replaceAll("\\s","").length() > 0) {
+            List<ArtistIdentifier> artists = artistManager.search(query, limit);
+            searchResults.setArtists(artists);
+        }
+        return searchResults;
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/search/playlists")
+    public @ResponseBody SearchResponse searchPlaylists(@RequestParam("query") String query,
+                                               @RequestParam(value="limit", required=false) Integer limit) {
+        SearchResponse searchResults = new SearchResponse();
+        if (query.replaceAll("\\s","").length() > 0) {
+           List<PlaylistIdentifier> playlists = playlistManager.search(query, limit);
+            searchResults.setPlaylists(playlists);
+        }
+        return searchResults;
+    }
+    
     /**
      * Returns an ordered list of the most-played songs on the service.
      * @return 

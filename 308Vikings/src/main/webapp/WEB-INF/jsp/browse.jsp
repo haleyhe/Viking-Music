@@ -55,6 +55,10 @@
                       templateUrl : "${home}component/upgrade.jsp",
                       controller: "premiumController"
                   })
+                  .when("/search", {
+                      templateUrl : "${home}component/search.jsp",
+                      controller: "searchController"
+                  })
                   .otherwise({
                       redirectTo: "/"
                   });
@@ -65,6 +69,7 @@
         <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/library.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/upgrade.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/search.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -142,7 +147,9 @@
                   <!--Top Navigation Bar -->
                   <div class=topnav-bar>
                     <div id=search-bar style="float:left">
-                      <input placeholder="Search"></input >
+                      <form ng-submit="search()" ng-controller="mainController">
+                          <input type="text" placeholder="Search" ng-model="query"></input>
+                      </form>
                     </div>
                     <div id=user-buttons style="float:right">
                       <ul >
