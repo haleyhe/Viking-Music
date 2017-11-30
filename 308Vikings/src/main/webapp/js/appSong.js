@@ -14,7 +14,7 @@ window.onload = function () {
         song.play();
         $('#play').replaceWith('<img class="playerimg" id="pause" src=' + home + 'css/pause.png></img>');
     }
-
+    
 $(document).ready(function() {  
   
     $(document).on('click', '#play', function(e) {
