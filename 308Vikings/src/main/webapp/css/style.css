@@ -436,7 +436,7 @@ ul.tabs li.current , ul.musictabs li.current{
 .songtable, .concerttable{
   list-style: none;
   margin-left: 5%;
-  width: 100%;
+  width: 80%;
   text-align: left;
 }
 

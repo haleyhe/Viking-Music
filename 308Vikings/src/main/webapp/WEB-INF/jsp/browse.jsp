@@ -200,7 +200,7 @@
 
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
-                  <div ng-controller="mainAppController">
+                  <div ng-controller="globalController">
                   <div ng-view></div>
                   </div>
                 </div>
