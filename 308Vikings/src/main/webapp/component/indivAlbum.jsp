@@ -13,7 +13,7 @@
                    <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>
                    <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>
                    <div ng-repeat="detailAlbumartist in albumdata.album.artists">
-                       <div>{{detailAlbumartist.name}}</div>
+                       <div><a href="#!artist/{{detailAlbumartist.id}}">{{detailAlbumartist.name}}</a></div>
                    </div>
                    <div><br>Release Date: </div>
                    <div>{{albumdata.album.releaseDate |  date:'d MMMM yyyy'}}</div>
@@ -43,7 +43,7 @@
                </div>
 
                <td>{{song.name}}</td>
-               <td><a ng-repeat="songartists in song.artists">{{songartists.name}} </a></td>
+               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}</a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
              </tr>
            </table>
@@ -51,8 +51,8 @@
            <hr class="style14" style="width:70%">
                <div class=albumitems>
                  <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
-                 <a ng-click="getAlbumJson()" href="#!album/{{relatedAlbums.id}}"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
-                 <li class=albumname><a id="{{relatedAlbums.id}}" ng-click="getAlbumJson()" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}</li>
+                 <a href="#!album/{{relatedAlbums.id}}"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
+                 <li class=albumname><a id="{{relatedAlbums.id}}" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}</li>
                  <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>
                  </div>
              </div>

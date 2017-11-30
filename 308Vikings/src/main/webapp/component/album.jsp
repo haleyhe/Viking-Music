@@ -20,9 +20,9 @@
              <hr class="style14">
                <div class=albumitems>
                  <div ng-repeat="album in data.albums">
-                 <a ng-click="getAlbumJson()" href="#!album/{{album.id}}"><img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
-                 <li class=albumname><a id="{{album.id}}" ng-click="getAlbumJson($event)">{{album.name}}</a></li>
-                 <li class=albumartist>{{album.artists[0].name}}</li>
+                 <a href="#!album/{{album.id}}"><img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
+                 <li class=albumname><a id="{{album.id}}" href="#!album/{{album.id}}"</a></li>
+                 <li class=albumartist><a href="#!artists/{{album.artists[0].id}}">{{album.artists[0].name}}</a></li>
                  </div>
                </div>
 
