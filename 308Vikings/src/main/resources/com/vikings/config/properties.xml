@@ -38,6 +38,7 @@
             <prop key="error.UserAccount.userExists">Username or Email already taken.</prop>
             <prop key="error.UserAccount.invalidLogin">Invalid username and password combination.</prop>
             <prop key="error.UserAccount.sessionExpired">User session expired. Please log in again.</prop>
+            <prop key="error.UserAccount.emailTaken">Email has already been taken. Please try another</prop>
             <prop key="error.UserAccount.profileUpdateFail">Failed to update user profile</prop>
             <prop key="error.UserAccount.upgradeFail">Unable to upgrade your account to premium. Please check your credit card information.</prop>
             

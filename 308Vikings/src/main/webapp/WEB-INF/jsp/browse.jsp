@@ -66,8 +66,7 @@
                       controller: "searchController"
                   })
                   .when("/billing", {
-                      templateUrl : "${home}component/billing.jsp",
-                      controller: "billingController"
+                      templateUrl : "${home}component/billing.jsp"
                   })
                   .otherwise({
                       redirectTo: "/"
@@ -193,6 +192,7 @@
 
                   <!--Advertisment Section-->
                   <div class=ad>
+
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
                   <div ng-view></div>
@@ -201,6 +201,12 @@
                 <div id='loading' class="error modal">
                     <div class="loading-modal-content">
                         <img src=${home}/css/loading.gif></img>
+                    </div>
+                </div>
+                <div id="message-modal"  class="error modal">
+                    <div class="modal-content">
+                        <div id="message"></div>
+                        <button class="close pageButton">Close</button>
                     </div>
                 </div>
     </body>

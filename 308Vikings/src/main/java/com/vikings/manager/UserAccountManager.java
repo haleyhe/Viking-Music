@@ -82,16 +82,23 @@ public class UserAccountManager {
      * through. False otherwise
      */
     public boolean updateUserProfile(User updatedUser) {
+        if (!hasValidUserParameters(updatedUser)){
+            return false;
+        }
+        if (updatedUser.getPassword() != null && !updatedUser.getPassword().equals("")) {
+            String hashedPassword = hashPassword(updatedUser.getPassword());
+            updatedUser.setPassword(hashedPassword);
+        }
+        userAccountDAO.updateUser(updatedUser);
+        return true;
+        
+    }
+    
+    public boolean checkUserAlreadyExist (User updatedUser) {
         if (!userAccountDAO.isValidUpdate(updatedUser)) {
             return false;
-        } else {
-            if (updatedUser.getPassword() != null && !updatedUser.getPassword().equals("")) {
-                String hashedPassword = hashPassword(updatedUser.getPassword());
-                updatedUser.setPassword(hashedPassword);
-            }
-            userAccountDAO.updateUser(updatedUser);
-            return true;
         }
+        return true;
     }
     
     /**

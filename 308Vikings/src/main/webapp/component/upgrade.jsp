@@ -7,7 +7,6 @@
     <c:url var="home" value="/" scope="request"/>
   </head>
   <body>
-    <div class="pages" id="historyPage">
       <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
 
         <div class="pages">

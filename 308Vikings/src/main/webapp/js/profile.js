@@ -16,19 +16,23 @@ app.controller("profileController", function($scope, $http) {
       })
       .then(
         function successCallback(response) {
-          if (response.status == 200 && response.data.success) {
-            $scope.getUser();
+          if (response.status == 200) {
+            $("#message-modal").css("display", "block");
+            if(!response.data.success){
+                $('#message').html(response.data.error);
+            }
+            else{
+                $scope.getUser();
+                $('#message').html("You have successfully updated your profile.");
+            }
             $scope.resetForm();
-          } else {
-            //replace to display data module
-            alert(response.data.error);
           }
         },
         function errorCallback(response) {});
   };
 
   $scope.changePassword = function() {
-      
+
   };
 
   $scope.showChangePassword = function() {

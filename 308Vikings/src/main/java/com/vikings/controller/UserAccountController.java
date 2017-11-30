@@ -107,6 +107,9 @@ public class UserAccountController {
         if (sessionUser == null | !sessionUser.getId().equals(updatedUser.getId())) {
             return new JsonResponse(false, System.getProperty("error.UserAccount.sessionExpired"));
         }
+        if (!userAccountManager.checkUserAlreadyExist(updatedUser)) {
+            return new JsonResponse(false, System.getProperty("error.UserAccount.emailTaken"));
+        }
         if (userAccountManager.updateUserProfile(updatedUser)) {
             if (updatedUser.getUsername() != null)
                 sessionUser.setUsername(updatedUser.getUsername());
