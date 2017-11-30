@@ -85,8 +85,10 @@ $(document).ready(function() {
 
 });
 
-app.controller("mainAppController", function ($scope, $http) {
+app.controller("globalController", function ($scope, $http) {
+    
 });
+
 app.filter("convertMilSec", function(){
    return function(input){
        var minutes = Math.floor(input / 60000);
