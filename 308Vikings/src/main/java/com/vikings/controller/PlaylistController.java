@@ -83,13 +83,14 @@ public class PlaylistController {
         userMusicManager.addPlaylistToLibrarySession(sessionUser, playlistId, creationDate);
 
         // attempt to upload the thumbnail
-        if (fileManager.uploadPlaylistThumbnail(thumbnail, playlistId)) {
-            JsonResponse result = new JsonResponse(true);
-            result.setError(playlistId);
-            return result;
-        } else {
-            return new JsonResponse(false, System.getProperty("error.Playlist.thumbnailUploadFail"));
+        if (thumbnail != null) {
+            if (!fileManager.uploadPlaylistThumbnail(thumbnail, playlistId)) {
+               return new JsonResponse(false, System.getProperty("error.Playlist.thumbnailUploadFail"));
+            }
         }
+        JsonResponse result = new JsonResponse(true);
+        result.setError(playlistId);
+        return result;
     }
 
     @RequestMapping(method=RequestMethod.POST, value="/Playlist/updatePlaylist", consumes = {"multipart/form-data"})

@@ -16,7 +16,7 @@ app.controller("playlistController", function($scope, $http) {
   $scope.getAllPlaylists();
 });
 
-app.controller("createPlaylistController", function($scope, $http) {
+app.controller("createPlaylistController", function($scope, $location, $http) {
       $scope.newPlaylist = {};
 
       $scope.showCreatePlaylistForm = function() {
@@ -33,32 +33,31 @@ app.controller("createPlaylistController", function($scope, $http) {
         var createData = new FormData();
         createData.append('name', $scope.newPlaylist.name);
         createData.append('description', $scope.newPlaylist.description);
+        createData.append('publiclyVisible', true);
         if ($scope.newPlaylist.thumbnail != null && $scope.newPlaylist.thumbnail.size > 0) {
           createData.append('thumbnail', $scope.newPlaylist.thumbnail);
         }
 
-        for (var pair of createData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]);
-        }
+//         for (var pair of createData.entries()) {
+//     console.log(pair[0]+ ', ' + pair[1]);
+// }
 
-        // $http.post('/308Vikings/Playlist/updatePlaylist', createData, {
-        //     transformRequest: angular.identity,
-        //     headers: {
-        //       'Content-Type': undefined
-        //     }
-        //   })
-        //   .then(
-        //     function successCallback(response) {
-        //       if (response.status == 200 && response.data.success) {
-        //         $scope.reloadPlaylist($scope.editPlaylist.id);
-        //         $scope.resetEditForm();
-        //         $scope.closeEditPlaylistForm();
-        //       } else {
-        //         //replace to display data module
-        //         alert(response.data.error);
-        //       }
-        //     }, function errorCallback(response) {});
-        //$("#loading").css("display", "none");
+        $http.post('/308Vikings/Playlist/createPlaylist', createData, {
+            transformRequest: angular.identity,
+            headers: {
+              'Content-Type': undefined
+            }
+          })
+          .then(
+            function successCallback(response) {
+              if (response.status == 200 && response.data.success) {
+                  $("#loading").css("display", "none");
+                  $scope.closeCreatePlaylistForm();
+                  newPath = '/playlist/' + response.data.error;
+                  console.log(newPath);
+                   $location.path(newPath).replace();
+              }
+            }, function errorCallback(response) {});
       };
 });
 

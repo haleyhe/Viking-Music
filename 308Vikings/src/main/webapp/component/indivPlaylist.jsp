@@ -23,7 +23,7 @@
             -
             {{playlistdata.numSongs}}
             Songs - Play time:
-            {{playlistdata.totalDuration | date:'HH:mm'}}
+            {{playlistdata.totalDuration | convertMilSec}}
           </p>
           <p>
             Followers:
