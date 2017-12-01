@@ -1,5 +1,6 @@
 package com.vikings.dao;
 
+import com.vikings.dao.mapper.PaymentMapper;
 import com.vikings.dao.mapper.UserAccountMapper;
 import com.vikings.dao.mapper.UserMusicMapper;
 import com.vikings.domain.User;
@@ -16,6 +17,9 @@ public class UserAccountDAO {
     
     @Autowired
     UserMusicMapper userMusicMapper;
+    
+    @Autowired
+    PaymentMapper paymentMapper;
     
     /**
      * Checks if the given user exists.
@@ -55,6 +59,7 @@ public class UserAccountDAO {
             userMusic.setHistory(userMusicMapper.getHistory(foundUser.getId()));
             userMusic.setRecentlyPlayed(userMusicMapper.getRecentlyPlayed(foundUser.getId()));
             foundUser.setUserMusic(userMusic);
+            foundUser.setPayment(paymentMapper.getPaymentForUser(foundUser.getId()));
         }
         return foundUser;
     }

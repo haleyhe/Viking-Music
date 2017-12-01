@@ -21,6 +21,10 @@ public interface PaymentMapper {
     
     public void linkPaymentToUser(@Param("userId") String userId, @Param("cardNumber") String cardNumber);
     
+    public void unlinkPaymentForUser(String userId);
+    
+    public Payment getPaymentForUser(String userId);
+    
     public void recordMonthlyPayments(Set<PaymentSummary> payments);
     
     public void recordMonthlyRevenue(Set<RevenueSummary> revenues);

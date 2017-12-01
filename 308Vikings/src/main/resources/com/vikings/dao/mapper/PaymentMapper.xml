@@ -14,6 +14,24 @@
         </association>
     </resultMap>
 
+    <resultMap id="paymentMethodMap" type="com.vikings.domain.Payment">
+        <id property="cardNumber" column="payment_card_number"/>
+        <result property="cvv" column="payment_cvv"/>
+        <result property="expirationDate" column="payment_expiration_date"/>
+        <result property="creditCardCompany" column="payment_company"/>
+        <result property="phoneNum" column="payment_phone_number"/>
+        <association property="name" javaType="com.vikings.domain.Name">
+            <id property="firstName" column="payment_first_name"/>
+            <id property="lastName" column="payment_last_name"/>
+        </association>
+        <association property="billingAddress" javaType="com.vikings.domain.Address">
+            <id property="street" column="payment_address_street"/>
+            <id property="zip" column="payment_address_zip"/>
+            <result property="state" column="payment_address_state"/>
+            <result property="city" column="payment_address_city"/>
+        </association>
+    </resultMap>
+
     <resultMap id="paymentMap" type="com.vikings.domain.PaymentSummary">
         <id property="id" column="payment_id"/>
         <result property="name" column="payment_name"/>
@@ -60,6 +78,35 @@
         );
     </insert>
 
+    <select id="getPaymentForUser" parameterType="String" resultMap="paymentMethodMap">
+        SELECT
+            p.cardNumber as 'payment_card_number',
+            p.firstName as 'payment_first_name',
+            p.lastName as 'payment_last_name',
+            p.cvv as 'payment_cvv',
+            p.expirationDate as 'payment_expiration_date',
+            p.company as 'payment_company',
+            p.phoneNumber as 'payment_phone_number',
+            a.street as 'payment_address_street',
+            a.city as 'payment_address_city',
+            a.state as 'payment_address_state',
+            a.zip as 'payment_address_zip'
+        FROM
+            UserPayments up
+        LEFT JOIN
+            Payments p
+        ON
+            up.cardNumber = p.cardNumber
+        LEFT JOIN
+            Addresses a
+        ON
+            a.street = p.street
+            AND
+            a.zip = p.zip
+        WHERE
+            up.userId = #{userId}
+    </select>
+
     <insert id="linkPaymentToUser" parameterType="Map">
         INSERT IGNORE INTO UserPayments (
             userId,
@@ -69,6 +116,14 @@
             #{cardNumber}
         )
     </insert>
+
+    <delete id="unlinkPaymentForUser" parameterType="String">
+        DELETE
+        FROM
+            userPayments up
+        WHERE
+            up.userId = #{userId}
+    </delete>
 
     <insert id="recordMonthlyPayments" parameterType="java.util.Set">
         INSERT IGNORE INTO RevenueSummarySongs (

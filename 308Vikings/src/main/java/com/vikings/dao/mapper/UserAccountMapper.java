@@ -2,6 +2,7 @@ package com.vikings.dao.mapper;
 
 import com.vikings.domain.User;
 import java.util.Set;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Mapper class for UserAccountDAO.
@@ -19,6 +20,8 @@ public interface UserAccountMapper {
     public User getUserByUsername(String username);
     
     public boolean isValidUpdate(User user);
+    
+    public boolean passwordMatches(@Param("userId") String userId, @Param("hashedPassword") String hashedPassword);
     
     public void updateUser(User user);
     

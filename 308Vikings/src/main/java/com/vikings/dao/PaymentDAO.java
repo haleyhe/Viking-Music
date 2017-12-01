@@ -28,6 +28,14 @@ public class PaymentDAO {
         paymentMapper.linkPaymentToUser(userId, payment.getCardNumber());
     }
     
+    public void unlinkPaymentForUser(String userId) {
+        paymentMapper.unlinkPaymentForUser(userId);
+    }
+    
+    public Payment getPaymentForUser(String userId) {
+        return paymentMapper.getPaymentForUser(userId);
+    }
+    
     public void recordMonthlyPayments(Set<PaymentSummary> payments) {
         paymentMapper.recordMonthlyPayments(payments);
     }
