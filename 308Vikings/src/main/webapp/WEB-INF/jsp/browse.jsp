@@ -138,7 +138,7 @@
                                 Playlist Name:<input ng-model="newPlaylist.name" type="text"><br><br>
                                 Playlist Description:<br><textarea ng-model="newPlaylist.description" rows=3 cols=40></textarea><br><br>
                                 Upload thumbnail Image:<br><input id="create-playlist-thumbnail" type="file" file-model="newPlaylist.thumbnail" accept=".jpg"/><br>
-                                <img id="create-thumbnail-preview" onerror="this.src='${home}css/music-player.png';" height="150px"/>  <br>
+                                <img id="create-thumbnail-preview" height="150px"/>  <br>
                                 <div>
                                   <button type="submit" class="pageButton" ng-click="createPlaylist()">Create</button>
                                   <button class="pageButton" ng-click="closeCreatePlaylistForm()">Close</button>

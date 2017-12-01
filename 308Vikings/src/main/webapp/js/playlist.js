@@ -21,10 +21,15 @@ app.controller("createPlaylistController", function($scope, $location, $http) {
 
       $scope.showCreatePlaylistForm = function() {
         $('.create.modal').css("display", "block");
+        $('.pages').css("display", "block");
       };
 
       $scope.closeCreatePlaylistForm = function() {
         $(".create.modal").css("display", "none");
+        $('.pages').css("display", "block");
+        $scope.newPlaylist = {};
+        $("#create-playlist-thumbnail").val('');
+        $('#create-thumbnail-preview').attr('src', '');
       };
 
 
@@ -185,6 +190,7 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $http) 
     $scope.editPlaylist.id = $scope.playlistdata.playlist.id;
     $scope.editPlaylist.name = $scope.playlistdata.playlist.name;
     $scope.editPlaylist.description = $scope.playlistdata.playlist.description;
+    $("#edit-playlist-thumbnail").val('');
   };
 
     $scope.newDate = new Date().getTime();
