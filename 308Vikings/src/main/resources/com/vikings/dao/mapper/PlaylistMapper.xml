@@ -171,13 +171,13 @@
             )
             as 'playlist_num_followers'
         FROM
-            Users u
-        LEFT JOIN
             Playlists p
+        LEFT JOIN
+            Users u
         ON
             p.creatorId = u.userId
         WHERE
-            u.admin = 1
+            p.curated = 1
     </select>
 
     <select id="search" parameterType="Map" resultMap="playlistIdentifierMap">
