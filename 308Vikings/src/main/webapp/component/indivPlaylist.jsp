@@ -39,7 +39,8 @@
               </p>
               <hr class="style14" style="width:70%"></div>
 
-              <table class="songtable">
+              <h3 ng-show="playlistdata.playlist.songs.length == 0"> This playlist has no songs. </h3>
+              <table class="songtable" ng-hide="playlistdata.playlist.songs.length == 0">
                 <tr>
                   <td></td>
                   <td></td>

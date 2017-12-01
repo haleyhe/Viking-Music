@@ -9,10 +9,12 @@
   </head>
   <body>
     <div class="pages" id="librarySongsPage">
+      <div style="margin-top: 20px; margin-bottom: 10px;">
     <h2> Library Songs </h2>
     <hr class="style14" style="width:70%">
 
-    <table class="songtable">
+      <h3 ng-show="librarySongs.songList == 0"> You have no saved songs in your library. Add some now! </h3>
+      <table class="songtable" ng-hide="librarySongs.songList.length == 0">
       <tr>
         <td></td>
         <td></td>
@@ -41,6 +43,6 @@
             <td>{{libSong.song.duration | convertMilSec}}</td>
           </table>
         </div>
-
+      </div>
   </body>
 </html>

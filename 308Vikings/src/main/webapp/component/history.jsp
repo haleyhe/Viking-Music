@@ -11,13 +11,14 @@
     </head>
     <body>
       <div class="pages" id="historyPage">
-        <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
-                <h1> Play History </h1>
+        <div style="margin-top: 20px; margin-bottom: 10px;">
+                <h2> Play History </h2>
 
                 <br>
                 <hr class="style14" style="width:70%">
 
-                <table class="songtable">
+                  <h3 ng-show="history.songList == 0"> You have never played any songs. Play some now! </h3>
+                  <table class="songtable" ng-hide="history.songList.length == 0">
                   <tr>
                     <td></td>
                     <td></td>
