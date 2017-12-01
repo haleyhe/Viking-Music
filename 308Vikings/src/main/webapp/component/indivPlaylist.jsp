@@ -76,51 +76,21 @@
                         <div>Edit Playlist Details</div>
                         <hr class="style15" style="width:70%">
                           <form id="edit-playlist-form">
-                            <div>
-                              Playlist Name:
-                              <input id="edit-playlist-name" ng-model="editPlaylist.name" type="text"></div>
-                              <br>
-                                <div>
-                                  Playlist Description:
-                                  <br>
-                                    <textarea id="edit-playlist-description" ng-model="editPlaylist.description" rows=5 cols=40></textarea>
-                                  </div>
-                                  <br>
-                                    <div>
-                                      Upload thumbnail Image:
-                                      <br>
-                                        <input id="edit-playlist-thumbnail" type="file" file-model="editPlaylist.thumbnail" accept=".jpg"/>
-                                        <br>
-                                          <img id="edit-thumbnail-preview" src="${home}/css/playlist/{{playlistdata.playlist.id}}.jpg?_={{newDate}}" onerror="this.src='${home}css/music-player.png';" height="150px"/>
-                                          <!--<img ng-src="{{editPlaylist.thumbnail}}" height="150px"/> -->
-
-                                        </div>
-                                        <br>
-                                          <div>
-                                            <button type="submit" class="pageButton" ng-click="updatePlaylist()">Edit</button>
-                                            <button class="pageButton" ng-click="closeEditPlaylistForm()">Close</button>
-                                          </div>
-                                        </form>
-                                      </div>
-                                    </div>
-                                  </div>
+                              Playlist Name:<input id="edit-playlist-name" ng-model="editPlaylist.name" type="text"><br><br>
+                              Playlist Description:<br><textarea id="edit-playlist-description" ng-model="editPlaylist.description" rows=3 cols=40></textarea><br><br>
+                              Upload thumbnail Image:<br><input id="edit-playlist-thumbnail" type="file" file-model="editPlaylist.thumbnail" accept=".jpg"/><br>
+                              <img id="edit-thumbnail-preview" src="${home}/css/playlist/{{playlistdata.playlist.id}}.jpg?_={{newDate}}" onerror="this.src='${home}css/music-player.png';" height="150px"/>  <br>
+                              <div>
+                                <button type="submit" class="pageButton" ng-click="updatePlaylist()">Edit</button>
+                                <button class="pageButton" ng-click="closeEditPlaylistForm()">Close</button>
+                              </div>
+                          </form>
+                      </div>
+                      </div>
+                  </div>
 
                                   <script>
-                                    function readURL(input) {
-                                      if (input.files && input.files[0]) {
-                                        var reader = new FileReader();
-
-                                        reader.onload = function (e) {
-                                          $('#edit-thumbnail-preview').attr('src', e.target.result);
-                                        };
-
-                                        reader.readAsDataURL(input.files[0]);
-                                      }
-                                    }
-
-                                    $("#edit-playlist-thumbnail").change(function () {
-                                      readURL(this);
-                                    });
+                                  
                                   </script>
 
                                 </body>

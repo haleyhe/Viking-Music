@@ -83,10 +83,23 @@ $(document).ready(function() {
     window.location.replace("/308Vikings/adminportal");
   });
 
+  function readEditURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#edit-thumbnail-preview').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#edit-playlist-thumbnail").change(function () {
+    readEditURL(this);
+  });
 });
 
 app.controller("globalController", function ($scope, $http) {
-    
+
 });
 
 app.filter("convertMilSec", function(){

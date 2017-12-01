@@ -72,13 +72,13 @@
                       Back
                     </a>
                   </div>
-                  <div class="albumitems" ng-controller="getDetailAlbum">
+                  <div class="albumitems" style="margin-bottom:50px">
                     <div ng-repeat="album in searchAlbums">
-                      <a ng-click="getAlbumJson($event)">
+                      <a  href="#!album/{{album.id}}">
                         <img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img>
                       </a>
                       <li class=albumname>
-                        <a id="{{album.id}}" ng-click="getAlbumJson($event)">{{album.name}}</a>
+                        <a id="{{album.id}}"  href="#!album/{{album.id}}">{{album.name}}</a>
                       </li>
                       <li class=albumartist>{{album.artists[0].name}}</li>
                     </div>
@@ -98,7 +98,7 @@
                         Back
                       </a>
                     </div>
-                    <div class="artistitems" ng-controller="getDetailArtist">
+                    <div class="artistitems"  style="margin-bottom:50px">
                       <div ng-repeat="artist in searchArtists">
                         <a ng-click="getArtistJson($event)">
                           <img class=artistimg id="{{artist.id}}" ng-src="${home}/css/artist/{{artist.id}}.jpg"></img>
@@ -123,7 +123,7 @@
                           Back
                         </a>
                       </div>
-                      <div class="playlistitems">
+                      <div class="playlistitems"  style="margin-bottom:50px">
                         <div ng-repeat="playlist in searchPlaylists">
                           <a href="#!playlist/{{playlist.id}}">
                             <!-- need to replace the alt -->
