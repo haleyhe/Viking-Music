@@ -33,7 +33,7 @@ function signup() {
         async: true,
         timeout: 100000
     }).done(function(data) {
-        $(".error.modal").css("display", "block");
+        $("#startup-error").css("display", "block");
         if(!data.success){
             $('#message').html(data['error']);
         }
@@ -47,6 +47,8 @@ function login() {
     var loginRequest = {};
     loginRequest["username"] = $("#login-username").val();
     loginRequest["password"] = $("#login-password").val();
+    
+    showLoading();
 
     $.ajax({
         type: "POST",
@@ -57,8 +59,9 @@ function login() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if(!data.success) {
-            $(".error.modal").css("display", "block");
+            $("#startup-error").css("display", "block");
             $('#message').html(data['error']);
         } else {
             
@@ -80,4 +83,13 @@ function logout() {
 }
 function displayLoginMessage() {
     $(".error.modal").css("display", "block");
+}
+
+function showLoading() {
+    $("#loading").css("display", "block");
+}
+
+function hideLoading() {
+    $("#loading").css("display", "none");
+    $("#startup-error").css("display", "none");
 }

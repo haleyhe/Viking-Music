@@ -52,12 +52,17 @@
                 </div>
             </div>    
         </div>
-           <div class="error modal">
+           <div id='startup-error' class="error modal">
                <div class="modal-content">
                    <div id="message"></div>
                    <button class="close">CLOSE</button>
                </div>
            </div>
+        <div id='loading' class="error modal">
+            <div class="loading-modal-content">
+                <img src=${home}/css/loading.gif></img>
+            </div>
+        </div>
     </body>
     <script>
        window.onload = function () {
