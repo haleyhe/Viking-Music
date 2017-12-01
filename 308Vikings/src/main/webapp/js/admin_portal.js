@@ -452,7 +452,7 @@ function createMonthlySummaryResultsTableRow(payment) {
     result += "<td>" + payment.name + "</td>";
     result += "<td>" + payment.numPlays + "</td>";
     var date = new Date(payment.datePaid);
-    var dateFormatted = date.getFullYear() + '/' + (date.getMonth() + 1) + "/" + date.getDay();
+    var dateFormatted = date.getFullYear() + '/' + (date.getUTCMonth() + 1) + "/" + date.getUTCDate();
     result += "<td>" + dateFormatted + "</td>";
     result += "<td>" + "$" + parseFloat(payment.amountPaid).toFixed(2) + "</td>";
     result += "</tr>";
@@ -465,7 +465,7 @@ function createMonthlySummaryRevenueResultsTableRow(revenue) {
     result += "<td>" + revenue.user.name + "</td>";
     result += "<td>" + revenue.payment.cardNumber + "</td>";
     var date = new Date(revenue.datePaid);
-    var dateFormatted = date.getFullYear() + '/' + (date.getMonth() + 1) + "/" + date.getDay();
+    var dateFormatted = date.getFullYear() + '/' + (date.getUTCMonth() + 1) + "/" + date.getUTCDate();
     result += "<td>" + dateFormatted + "</td>";
     result += "<td>" + "$" + parseFloat(revenue.amountPaid).toFixed(2) + "</td>";
     result += "</tr>";

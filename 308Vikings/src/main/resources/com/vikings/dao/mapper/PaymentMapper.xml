@@ -169,7 +169,8 @@
         ON
             u.userId = rsu.userId
         WHERE
-            MONTH(rsu.datePaid) = MONTH(#{month})
+            MONTH(rsu.datePaid) = MONTH(#{month}) AND
+            YEAR(rsu.datePaid) = YEAR(#{month})
     </select>
 
     <select id="getPayments" parameterType="java.util.Date" resultMap="paymentMap">
@@ -190,7 +191,8 @@
         ON
             a.artistId = sa.artistId
         WHERE
-            MONTH(rss.datePaid) = MONTH(#{month})
+            MONTH(rss.datePaid) = MONTH(#{month}) AND
+            YEAR(rss.datePaid) = YEAR(#{month})
         GROUP BY
             payment_id
     </select>
@@ -217,7 +219,8 @@
         ON
             s.songId = rss.songId
         WHERE
-            MONTH(rss.datePaid) = MONTH(#{month})
+            MONTH(rss.datePaid) = MONTH(#{month}) AND
+            YEAR(rss.datePaid) = YEAR(#{month})
             AND
             a.artistId = #{artistId}
     </select>
