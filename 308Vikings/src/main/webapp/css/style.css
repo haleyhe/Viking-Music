@@ -432,6 +432,8 @@ ul.tabs li.current , ul.musictabs li.current{
 
 .unfollow-button:hover span {display:none}
 .unfollow-button:hover:after {content:"Unfollow"}
+.unsave-button:hover span {display:none}
+.unsave-button:hover:after {content:"Unsave"}
 
 .songtable, .concerttable{
   list-style: none;

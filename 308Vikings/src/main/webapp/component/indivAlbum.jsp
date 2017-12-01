@@ -20,12 +20,16 @@
 
                    <p style="margin-bottom: 120px;">
                        <button class="pageButton">Play</button>
-                       <button class="pageButton">Save</button>
+                       <button class="pageButton">Queue</button>
+                       <button class="pageButton unsave-button" ng-if="albumdata.saved" ng-click="unsaveAlbum()">
+                         <span>Saved<span></button>
+                           <button class="pageButton" ng-if="!albumdata.saved" ng-click="saveAlbum()">Save</button>
                    </p>
                    <hr class="style14" style="width:70%">
                </div>
 
-           <table class=songtable>
+            <h3 ng-show="albumdata.album.songs.length == 0"> This album has no songs. </h3>
+            <table class="songtable" ng-hide="albumdata.album.songs.length == 0">
              <tr>
                <td></td>
                <td></td>
@@ -49,11 +53,11 @@
            </table>
            <h3>More by {{albumdata.album.artists[0].name}}</h3>
            <hr class="style14" style="width:70%">
-               <div class=albumitems>
+               <div class="albumitems">
                  <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
                  <a href="#!album/{{relatedAlbums.id}}"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
-                 <li class=albumname><a id="{{relatedAlbums.id}}" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}</li>
-                 <li class=albumartist>{{relatedAlbums.artists[0].name}}</li>
+                 <li class="albumname"><a id="{{relatedAlbums.id}}" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}"</li>
+                 <li class="albumartist">{{relatedAlbums.artists[0].name}}</li>
                  </div>
              </div>
          </div>
