@@ -6,6 +6,7 @@ import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.response.ConcertsResponse;
+import com.vikings.domain.response.RecommendationsResponse;
 import com.vikings.domain.response.SearchResponse;
 import com.vikings.domain.response.SongsResponse;
 import com.vikings.manager.AlbumManager;
@@ -14,7 +15,9 @@ import com.vikings.manager.ConcertManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -128,7 +131,7 @@ public class BrowseController {
     
     @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendedConcerts")
     public @ResponseBody ConcertsResponse getRecommendedConcerts() {
-        Set<ArtistIdentifier> favoriteArtists = userMusicManager.getFavoriteArtistsForSessionUser();
+        List<ArtistIdentifier> favoriteArtists = userMusicManager.getFavoriteArtistsForSessionUser();
         if (favoriteArtists != null) {
             if (favoriteArtists.size() > 0) {
                 List<Concert> concerts = concertManager.getConcertsForArtists(favoriteArtists);
@@ -136,5 +139,24 @@ public class BrowseController {
             }
         }
         return new ConcertsResponse();
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendations")
+    public @ResponseBody RecommendationsResponse getRecommendations(@RequestParam("numSets") int numSets) {
+        List<ArtistIdentifier> favoriteArtists = userMusicManager.getFavoriteArtistsForSessionUser();
+        Map<String, List<AlbumIdentifier>> recommendations = new HashMap<>();
+        if (favoriteArtists != null) {
+            if (favoriteArtists.size() > 0) {
+                for (int i = 0; i < numSets && i < favoriteArtists.size(); i++) {
+                    ArtistIdentifier artist = favoriteArtists.get(i);
+                    List<ArtistIdentifier> related = artistManager.getRelatedArtists(artist.getId());
+                    if (related.size() > 0) {
+                        List<AlbumIdentifier> recommendedAlbums = albumManager.getAlbumsForArtist(related.get(0).getId());
+                        recommendations.put(artist.getName(), recommendedAlbums);
+                    }
+                }
+            }
+        }
+        return new RecommendationsResponse(recommendations);
     }
 }

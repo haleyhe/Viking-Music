@@ -96,7 +96,7 @@
             c.concertDate ASC
     </select>
 
-    <select id="getConcertsForArtists" parameterType="java.util.Set" resultMap="concertMap">
+    <select id="getConcertsForArtists" parameterType="java.util.List" resultMap="concertMap">
         SELECT
             c.concertId as 'concert_id',
             c.concertDate as 'concert_date',

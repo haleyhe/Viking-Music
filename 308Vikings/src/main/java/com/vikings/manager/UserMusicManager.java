@@ -13,10 +13,14 @@ import com.vikings.domain.User;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -260,18 +264,64 @@ public class UserMusicManager {
         return savedSongs;
     }
     
-    public Set<ArtistIdentifier> getFavoriteArtistsForSessionUser() {
+    public List<ArtistIdentifier> getFavoriteArtistsForSessionUser() {
+        int ARTIST_FOLLOWED_SCORE = 10;
+        int ARTIST_SAVED_CONTENT_SCORE = 2;
+        int ARTIST_HISTORY_SCORE = 1;
+        
         User user = userAccountManager.getSessionUser();
         if (user == null)
             return null;
         Set<ArtistIdentifier> artists = new HashSet();
+        Map <ArtistIdentifier, Integer> artistRankings = new HashMap();
         for (LibraryArtist artist : user.getUserMusic().getFollowedArtists()) {
-            artists.add(artist.getArtistIdentifier());
+            int count = 0;
+            if (artistRankings.containsKey(artist.getArtistIdentifier())) {
+                count = artistRankings.get(artist.getArtistIdentifier());
+            }
+            artistRankings.put(artist.getArtistIdentifier(), count + ARTIST_FOLLOWED_SCORE);
         }
         for (LibrarySong song : user.getUserMusic().getSavedSongs()) {
-            artists.addAll(song.getSong().getArtists());
+            for (ArtistIdentifier artist : song.getSong().getArtists()) {
+                int count = 0;
+                if (artistRankings.containsKey(artist)) {
+                    count = artistRankings.get(artist);
+                }
+                artistRankings.put(artist, count + ARTIST_SAVED_CONTENT_SCORE);
+            }
         }
-        return artists;
+        for (LibraryAlbum album : user.getUserMusic().getSavedAlbums()) {
+            for (ArtistIdentifier artist : album.getAlbumIdentifier().getArtists()) {
+                int count = 0;
+                if (artistRankings.containsKey(artist)) {
+                    count = artistRankings.get(artist);
+                }
+                artistRankings.put(artist, count + ARTIST_SAVED_CONTENT_SCORE);
+            }
+        }
+        for (Song song : user.getUserMusic().getHistory()) {
+            for (ArtistIdentifier artist : song.getArtists()) {
+                int count = 0;
+                if (artistRankings.containsKey(artist)) {
+                    count = artistRankings.get(artist);
+                }
+                artistRankings.put(artist, count + ARTIST_HISTORY_SCORE);
+            }
+        }
+        List<Map.Entry<ArtistIdentifier,Integer>> sortedArtists = new ArrayList<>(artistRankings.entrySet());
+        Collections.sort(sortedArtists,
+                new Comparator<Map.Entry<ArtistIdentifier,Integer>>() {
+                    @Override
+                    public int compare(Map.Entry<ArtistIdentifier,Integer> a, Map.Entry<ArtistIdentifier,Integer> b) {
+                        return Integer.compare(b.getValue(), a.getValue());
+                    }
+                }
+        );
+        List<ArtistIdentifier> result = new ArrayList<>();
+        for (Map.Entry<ArtistIdentifier,Integer> artist : sortedArtists) {
+            result.add(artist.getKey());
+        }
+        return result;
     }
     
     public HashMap<String,Boolean> findSavedSongList(List<Song> songs) {

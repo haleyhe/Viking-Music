@@ -3,7 +3,6 @@ package com.vikings.dao.mapper;
 import com.vikings.domain.Concert;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import java.util.List;
-import java.util.Set;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -17,7 +16,7 @@ public interface ConcertMapper {
     
     public List<Concert> getConcertsForArtist(String id);
     
-    public List<Concert> getConcertsForArtists(@Param("artists") Set<ArtistIdentifier> artists);
+    public List<Concert> getConcertsForArtists(@Param("artists") List<ArtistIdentifier> artists);
     
 }
 

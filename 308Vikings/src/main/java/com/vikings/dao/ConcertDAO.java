@@ -46,7 +46,7 @@ public class ConcertDAO {
         return concerts;
     }
     
-    public List<Concert> getConcertsForArtists(Set<ArtistIdentifier> artists) {
+    public List<Concert> getConcertsForArtists(List<ArtistIdentifier> artists) {
         return concertMapper.getConcertsForArtists(artists);
     }
     

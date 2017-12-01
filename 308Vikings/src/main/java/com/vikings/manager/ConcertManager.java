@@ -57,7 +57,7 @@ public class ConcertManager {
         return c;
     }
     
-    public List<Concert> getConcertsForArtists(Set<ArtistIdentifier> artists) {
+    public List<Concert> getConcertsForArtists(List<ArtistIdentifier> artists) {
         return concertDAO.getConcertsForArtists(artists);
     }
     
