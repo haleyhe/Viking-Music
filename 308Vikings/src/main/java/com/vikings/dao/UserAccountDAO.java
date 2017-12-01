@@ -68,6 +68,10 @@ public class UserAccountDAO {
         return userAccountMapper.getUserByUsername(username);
     }
     
+    public boolean passwordMatches(String userId, String hashedPassword) {
+        return userAccountMapper.passwordMatches(userId, hashedPassword);
+    }
+    
     public boolean isValidUpdate(User user) {
         return userAccountMapper.isValidUpdate(user);
     }
