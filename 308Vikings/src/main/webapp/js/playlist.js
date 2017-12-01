@@ -54,11 +54,11 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $http) 
 
   $scope.showEditPlaylistForm = function() {
     $scope.resetEditForm();
-    $('.signup.modal').css("display", "block");
+    $('.edit.modal').css("display", "block");
   };
 
   $scope.closeEditPlaylistForm = function() {
-    $(".signup.modal").css("display", "none");
+    $(".edit.modal").css("display", "none");
   };
 
   $scope.updatePlaylist = function() {

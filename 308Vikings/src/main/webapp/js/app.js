@@ -96,6 +96,20 @@ $(document).ready(function() {
   $("#edit-playlist-thumbnail").change(function () {
     readEditURL(this);
   });
+
+  function readCreateURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#create-thumbnail-preview').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#create-playlist-thumbnail").change(function () {
+    readCreateURL(this);
+  });
 });
 
 app.controller("globalController", function ($scope, $http) {

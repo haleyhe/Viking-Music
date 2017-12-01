@@ -69,15 +69,15 @@
                     </table>
                   </div>
 
-                  <!-- Edit Playlist Form -->
+                  <!-- Edit Playlist Modal -->
                   <div id="editPlaylistModal">
-                    <div class="signup modal">
+                    <div class="edit modal">
                       <div class=modal-content>
                         <div>Edit Playlist Details</div>
                         <hr class="style15" style="width:70%">
                           <form id="edit-playlist-form">
-                              Playlist Name:<input id="edit-playlist-name" ng-model="editPlaylist.name" type="text"><br><br>
-                              Playlist Description:<br><textarea id="edit-playlist-description" ng-model="editPlaylist.description" rows=3 cols=40></textarea><br><br>
+                              Playlist Name:<input ng-model="editPlaylist.name" type="text"><br><br>
+                              Playlist Description:<br><textarea ng-model="editPlaylist.description" rows=3 cols=40></textarea><br><br>
                               Upload thumbnail Image:<br><input id="edit-playlist-thumbnail" type="file" file-model="editPlaylist.thumbnail" accept=".jpg"/><br>
                               <img id="edit-thumbnail-preview" src="${home}/css/playlist/{{playlistdata.playlist.id}}.jpg?_={{newDate}}" onerror="this.src='${home}css/music-player.png';" height="150px"/>  <br>
                               <div>
@@ -89,9 +89,5 @@
                       </div>
                   </div>
 
-                                  <script>
-                                  
-                                  </script>
-
-                                </body>
-                              </html>
+</body>
+</html>
