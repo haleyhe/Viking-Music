@@ -12,12 +12,12 @@ app.controller("searchController", function($scope, $routeParams, $http) {
           $scope.searchAlbums = response.data.albums;
           $scope.searchArtists = response.data.artists;
           $scope.searchPlaylists = response.data.playlists;
+          $('#albumResultsContainer').show();
+          $('#artistResultsContainer').show();
+          $('#playlistResultsContainer').show();
+          $('#songResultsContainer').show();
+          $('#searchResultPage').show();
       }, function errorCallback(response) {});
-      $('#searchResultPage').show();
-      $('#albumResultsContainer').show();
-      $('#artistResultsContainer').show();
-      $('#playlistResultsContainer').show();
-      $('#songResultsContainer').show();
       $("#loading").css("display", "none");
   };
 
@@ -34,12 +34,10 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       function successCallback(response) {
         if (response.status == 200) {
           $scope.searchSongs = response.data.songs;
-        } else {
-          //replace to display data module
-          alert(response.data.error);
+          $('#songResultsContainer').show();
         }
       }, function errorCallback(response) {});
-      $('#songResultsContainer').show();
+
       $("#loading").css("display", "none");
   };
 
@@ -55,12 +53,10 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       function successCallback(response) {
         if (response.status == 200) {
           $scope.searchAlbums = response.data.albums;
-        } else {
-          //replace to display data module
-          alert(response.data.error);
+          $('#albumResultsContainer').show();
         }
       }, function errorCallback(response) {});
-      $('#albumResultsContainer').show();
+
       $("#loading").css("display", "none");
   };
 
@@ -76,12 +72,9 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       function successCallback(response) {
         if (response.status == 200) {
           $scope.searchArtists = response.data.artists;
-        } else {
-          //replace to display data module
-          alert(response.data.error);
+          $('#artistResultsContainer').show();
         }
       }, function errorCallback(response) {});
-      $('#artistResultsContainer').show();
       $("#loading").css("display", "none");
   };
 
@@ -97,12 +90,9 @@ app.controller("searchController", function($scope, $routeParams, $http) {
       function successCallback(response) {
         if (response.status == 200) {
           $scope.searchPlaylists = response.data.playlists;
-        } else {
-          //replace to display data module
-          alert(response.data.error);
+          $('#playlistResultsContainer').show();
         }
       }, function errorCallback(response) {});
-      $('#playlistResultsContainer').show();
       $("#loading").css("display", "none");
   };
 

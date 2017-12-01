@@ -40,7 +40,7 @@
                   .when("/album/:id", {
                       templateUrl : "${home}component/indivAlbum.jsp",
                       controller: "getDetailAlbum"
-                  })      
+                  })
                   .when("/artists", {
                       templateUrl : "${home}component/artists.jsp"
                   })
@@ -124,11 +124,31 @@
                   </div>
 
                   <!--Playlist Tab-->
-                  <div id=playlistTabs>
+                  <div id=playlistTabs ng-controller="createPlaylistController">
                     <ul>
-                      <li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">Create Playlist</li>
+                      <a ng-click="showCreatePlaylistForm()"><li class=newPlaylist><img style="width: 20px" src="${home}/css/add-3.png">Create Playlist</li></a>
                     </ul>
+                    <!-- create Playlist Modal -->
+                    <div id="createPlaylistModal">
+                      <div class="create modal">
+                        <div class=modal-content>
+                          <div>Create Playlist</div>
+                          <hr class="style15" style="width:70%">
+                            <form id="create-playlist-form">
+                                Playlist Name:<input ng-model="newPlaylist.name" type="text"><br><br>
+                                Playlist Description:<br><textarea ng-model="newPlaylist.description" rows=3 cols=40></textarea><br><br>
+                                Upload thumbnail Image:<br><input id="create-playlist-thumbnail" type="file" file-model="newPlaylist.thumbnail" accept=".jpg"/><br>
+                                <img id="create-thumbnail-preview" onerror="this.src='${home}css/music-player.png';" height="150px"/>  <br>
+                                <div>
+                                  <button type="submit" class="pageButton" ng-click="createPlaylist()">Create</button>
+                                  <button class="pageButton" ng-click="closeCreatePlaylistForm()">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
                   </div>
+
                 </div>
 
                 <!--Bottom Player Navigation Bar  -->

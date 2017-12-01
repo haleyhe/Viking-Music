@@ -16,6 +16,52 @@ app.controller("playlistController", function($scope, $http) {
   $scope.getAllPlaylists();
 });
 
+app.controller("createPlaylistController", function($scope, $http) {
+      $scope.newPlaylist = {};
+
+      $scope.showCreatePlaylistForm = function() {
+        $('.create.modal').css("display", "block");
+      };
+
+      $scope.closeCreatePlaylistForm = function() {
+        $(".create.modal").css("display", "none");
+      };
+
+
+      $scope.createPlaylist = function() {
+        //$("#loading").css("display", "block");
+        var createData = new FormData();
+        createData.append('name', $scope.newPlaylist.name);
+        createData.append('description', $scope.newPlaylist.description);
+        if ($scope.newPlaylist.thumbnail != null && $scope.newPlaylist.thumbnail.size > 0) {
+          createData.append('thumbnail', $scope.newPlaylist.thumbnail);
+        }
+
+        for (var pair of createData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]);
+        }
+
+        // $http.post('/308Vikings/Playlist/updatePlaylist', createData, {
+        //     transformRequest: angular.identity,
+        //     headers: {
+        //       'Content-Type': undefined
+        //     }
+        //   })
+        //   .then(
+        //     function successCallback(response) {
+        //       if (response.status == 200 && response.data.success) {
+        //         $scope.reloadPlaylist($scope.editPlaylist.id);
+        //         $scope.resetEditForm();
+        //         $scope.closeEditPlaylistForm();
+        //       } else {
+        //         //replace to display data module
+        //         alert(response.data.error);
+        //       }
+        //     }, function errorCallback(response) {});
+        //$("#loading").css("display", "none");
+      };
+});
+
 app.controller("indivPlaylistController", function($scope, $routeParams, $http) {
   $scope.getPlaylistJson = function() {
     $('.pages').css("display", "none");
