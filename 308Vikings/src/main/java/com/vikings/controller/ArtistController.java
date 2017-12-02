@@ -59,11 +59,6 @@ public class ArtistController {
         List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
         List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
         List<Concert> concerts = concertManager.getConcertsForArtist(id);
-        if(concerts.isEmpty()){
-            Concert newConcert = new Concert();
-            newConcert.setId("1");
-            concerts.add(newConcert);
-        }
         return new ArtistPageResponse(id, name, bio, topSongs, relatedArtists, albums, concerts);
     }
     

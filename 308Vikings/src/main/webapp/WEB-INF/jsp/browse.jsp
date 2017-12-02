@@ -42,7 +42,12 @@
                       controller: "getDetailAlbum"
                   })
                   .when("/artists", {
-                      templateUrl : "${home}component/artists.jsp"
+                      templateUrl : "${home}component/artists.jsp",
+                      controller: "getAllArtist"
+                  })
+                  .when("/artists/:id", {
+                      templateUrl : "${home}component/indivArtist.jsp",
+                      controller: "getDetailArtist"
                   })
                   .when("/concert", {
                       templateUrl : "${home}component/concert.jsp"
