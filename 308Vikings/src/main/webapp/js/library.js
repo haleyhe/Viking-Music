@@ -1,5 +1,5 @@
 app.controller("historyController", function($scope, $http) {
-  $scope.gethistory = function () {
+  $scope.getHistory = function () {
     $('.pages').css("display", "none");
     $("#loading").css("display", "block");
     $http.get('/308Vikings/UserMusic/history')
@@ -14,11 +14,11 @@ app.controller("historyController", function($scope, $http) {
             $("#loading").css("display", "none");
         }, function errorCallback(response) {});
   };
-  $scope.gethistory();
+  $scope.getHistory();
 });
 
 app.controller("librarySongsController", function($scope, $http) {
-  $scope.gethistory = function () {
+  $scope.getLibrarySongs = function () {
     $('.pages').css("display", "none");
     $("#loading").css("display", "block");
     $http.get('/308Vikings/UserMusic/library/songs')
@@ -33,5 +33,5 @@ app.controller("librarySongsController", function($scope, $http) {
             $("#loading").css("display", "none");
         }, function errorCallback(response) {});
   };
-  $scope.gethistory();
+  $scope.getLibrarySongs();
 });

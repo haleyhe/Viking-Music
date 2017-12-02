@@ -113,6 +113,41 @@ $(document).ready(function() {
 });
 
 app.controller("globalController", function ($scope, $http) {
+  $scope.saveSong = function(songId, savedSongs) {
+      $("#loading").css("display", "block");
+      $http.post('/308Vikings/UserMusic/saveSong', {id:songId}, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(function successCallback(response) {
+            savedSongs[songId] = true;
+            if(!response.data.success){
+                $("#message-modal").css("display", "block");
+                $('#message').html(response.data.error);
+            }
+        }, function errorCallback(response) {});
+      $("#loading").css("display", "none");
+  };
+
+  $scope.unsaveSong = function(songId, savedSongs) {
+      $("#loading").css("display", "block");
+      $http.post('/308Vikings/UserMusic/unsaveSong', {id:songId}, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        })
+        .then(function successCallback(response) {
+            savedSongs[songId] = false;
+            if(!response.data.success){
+                ("#message-modal").css("display", "block");
+                $('#message').html(response.data.error);
+            }
+        }, function errorCallback(response) {});
+      $("#loading").css("display", "none");
+  };
 
 });
 

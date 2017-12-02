@@ -40,7 +40,6 @@
                         <td>{{song.name}}</td>
                         <td>
                           <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
-                            <!--<a href="#!artists/{{songartists.id}}">{{songartists.name}} </a>-->
                             {{songartists.name}}
                           </a>
                         </td>

@@ -44,8 +44,8 @@
               <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
                <div>
                    <td>
-                       <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
-                       <img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]">
+                       <a ng-click="saveSong(song.id,albumdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" ></a>
+                       <a ng-click="unsaveSong(song.id,albumdata.savedSongs)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
                    </td>
                </div>
 
