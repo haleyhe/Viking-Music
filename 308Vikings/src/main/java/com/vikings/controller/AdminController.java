@@ -1,11 +1,14 @@
 package com.vikings.controller;
 
+import com.vikings.dao.mapper.PaymentMapper;
 import com.vikings.domain.Name;
+import com.vikings.domain.Statistics;
 import com.vikings.domain.User;
 import com.vikings.domain.request.IdRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.manager.ArtistManager;
 import com.vikings.manager.FileManager;
+import com.vikings.manager.PaymentManager;
 import com.vikings.manager.UserAccountManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +30,9 @@ public class AdminController {
     
     @Autowired
     FileManager fileManager;
+    
+    @Autowired
+    PaymentManager paymentManager;
     
     @RequestMapping(method=RequestMethod.GET, value="/Admin/getUserByUsername")
     public @ResponseBody User getUserByUsername(@RequestParam("username") String username) {
@@ -137,5 +143,10 @@ public class AdminController {
         
         artistManager.updateArtist(id, name, bio, newName, genre);
         return new JsonResponse(true); 
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Admin/getStatistics")
+    public @ResponseBody Statistics getStatistics() {
+        return paymentManager.getStatistics();
     }
 }

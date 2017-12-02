@@ -40,6 +40,17 @@
         <result property="amountPaid" column="payment_amount"/>
     </resultMap>
 
+    <resultMap id="statisticsMap" type="com.vikings.domain.Statistics">
+        <result property="numSongs" column="num_songs"/>
+        <result property="numArtists" column="num_artists"/>
+        <result property="numAlbums" column="num_albums"/>
+        <result property="numSongPlays" column="num_song_plays"/>
+        <result property="numUsers" column="num_users"/>
+        <result property="numPremiumUsers" column="num_premium_users"/>
+        <result property="totalPayments" column="total_payments"/>
+        <result property="totalRevenue" column="total_revenue"/>
+    </resultMap>
+
     <insert id="addAddress" parameterType="com.vikings.domain.Address">
         INSERT IGNORE INTO Addresses (
             street,
@@ -223,6 +234,18 @@
             YEAR(rss.datePaid) = YEAR(#{month})
             AND
             a.artistId = #{artistId}
+    </select>
+
+    <select id="getStatistics" resultMap="statisticsMap">
+        SELECT
+            (SELECT COUNT(*) FROM Songs) as 'num_songs',
+            (SELECT COUNT(*) FROM Albums) as 'num_albums',
+            (SELECT COUNT(*) FROM Artists) as 'num_artists',
+            (SELECT COUNT(*) FROM Users) as 'num_users',
+            (SELECT COUNT(*) FROM Users WHERE premium = 1) as 'num_premium_users',
+            (SELECT COUNT(*) FROM UserSongsPlayed) as 'num_song_plays',
+            (SELECT SUM(paymentAmount) FROM RevenueSummarySongs) as 'total_payments',
+            (SELECT SUM(paymentAmount) FROM RevenueSummaryUsers) as 'total_revenue'
     </select>
     
 </mapper>

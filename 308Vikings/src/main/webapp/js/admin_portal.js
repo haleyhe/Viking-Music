@@ -51,7 +51,8 @@
 
         if($(this).attr('data-tab') === 'menutab-1'){
             $('.pages').css("display","none");
-            $('#admin-overview').show();
+            loadStatistics();
+            $('#admin-statistics').show();
         }
         if($(this).attr('data-tab') === 'menutab-2'){
             $('.pages').css("display","none");
@@ -470,4 +471,30 @@ function createMonthlySummaryRevenueResultsTableRow(revenue) {
     result += "<td>" + "$" + parseFloat(revenue.amountPaid).toFixed(2) + "</td>";
     result += "</tr>";
     return result;
+}
+
+function loadStatistics() {
+    showLoading();
+    $.ajax({
+        type: "GET",
+        url: "/308Vikings/Admin/getStatistics",
+        async: true,
+        timeout: 100000
+    }).done(function(data) {
+        hideLoading();
+        displayStatistics(data);
+    });
+}
+
+function displayStatistics(data) {
+    var result = "";
+    result += "<h1>" + data.numSongs + "</h1> Total Songs <br />";
+    result += "<h1>" + data.numAlbums + "</h1> Total Albums <br />";
+    result += "<h1>" + data.numArtists + "</h1> Total Artists <br />";
+    result += "<h1>" + data.numUsers + "</h1> Users <br />";
+    result += "<h1>" + data.numPremiumUsers + "</h1> Premium Users <br />";
+    result += "<h1>" + data.numSongPlays + "</h1> Total Song Plays <br />";
+    result += "<h1>$" + parseFloat(data.totalPayments).toFixed(2) + "</h1> In Payments Made <br />";
+    result += "<h1>$" + parseFloat(data.totalRevenue).toFixed(2) + "</h1> In Revenue Received <br />";
+    $("#admin-statistics-body").html(result);
 }

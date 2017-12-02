@@ -9,6 +9,7 @@ import com.vikings.domain.Payment;
 import com.vikings.domain.PaymentSummary;
 import com.vikings.domain.RevenueSummary;
 import com.vikings.domain.Song;
+import com.vikings.domain.Statistics;
 import com.vikings.domain.User;
 import com.vikings.util.InputChecker;
 import java.util.Calendar;
@@ -173,6 +174,10 @@ public class PaymentManager {
         calendar.set(Calendar.MINUTE, 59);
         calendar.set(Calendar.SECOND, 59);
         return calendar.getTime();
+    }
+    
+    public Statistics getStatistics() {
+        return paymentDAO.getStatistics();
     }
     
 }

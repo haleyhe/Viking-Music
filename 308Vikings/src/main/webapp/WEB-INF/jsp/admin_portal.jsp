@@ -40,7 +40,7 @@
                   <div class=menutabs id=personalTabs>
                     <ul>
                       <b>
-                      <li class="tab-link" data-tab="menutab-1">Overview</li>
+                      <li class="tab-link" data-tab="menutab-1">Statistics</li>
                       <li class="tab-link" data-tab="menutab-2">Create User</li>
                       <li class="tab-link" data-tab="menutab-3">Edit User</li>
                       <li class="tab-link" data-tab="menutab-4">Create Artist</li>
@@ -81,6 +81,16 @@
                   <h1>Welcome, admin!</h1>
                   <br />
                   <p>Select an action from the left menu.</p>
+              </div>
+              </div>
+            </div>
+            
+            <div class="pages" id="admin-statistics">
+              <div class='container' style="padding: 50px;">
+              <div>
+                  <h1>Statistics</h1>
+                  <br />
+                  <div id="admin-statistics-body"></div>
               </div>
               </div>
             </div>

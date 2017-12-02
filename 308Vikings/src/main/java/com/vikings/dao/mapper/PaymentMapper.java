@@ -4,6 +4,7 @@ import com.vikings.domain.Address;
 import com.vikings.domain.Payment;
 import com.vikings.domain.PaymentSummary;
 import com.vikings.domain.RevenueSummary;
+import com.vikings.domain.Statistics;
 import java.util.Date;
 import java.util.Set;
 import org.apache.ibatis.annotations.Param;
@@ -34,6 +35,8 @@ public interface PaymentMapper {
     public Set<PaymentSummary> getPayments(Date month);
     
     public Set<PaymentSummary> getArtistPayments(@Param("artistId") String artistId, @Param("month") Date month);
+    
+    public Statistics getStatistics();
     
 }
 

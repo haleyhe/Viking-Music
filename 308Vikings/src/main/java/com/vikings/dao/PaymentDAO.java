@@ -4,6 +4,7 @@ import com.vikings.dao.mapper.PaymentMapper;
 import com.vikings.domain.Payment;
 import com.vikings.domain.PaymentSummary;
 import com.vikings.domain.RevenueSummary;
+import com.vikings.domain.Statistics;
 import java.util.Date;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,9 @@ public class PaymentDAO {
     
     public Set<PaymentSummary> getArtistPayments(String artistId, Date month) {
         return paymentMapper.getArtistPayments(artistId, month);
+    }
+    
+    public Statistics getStatistics() {
+        return paymentMapper.getStatistics();
     }
 }
