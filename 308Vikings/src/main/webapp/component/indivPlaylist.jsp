@@ -61,10 +61,11 @@
                       </div>
                       <td>{{song.name}}</td>
                       <td>
-                        <a ng-repeat="songartists in song.artists">{{songartists.name}}
+                        <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
+                          {{songartists.name}}
                         </a>
                       </td>
-                      <td>{{song.album.name}}</td>
+                      <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
                       <td>{{song.dateAdded | date:'yyyy-MM-dd'}}</td>
                       <td>{{song.duration  | convertMilSec}}</td>
                     </table>

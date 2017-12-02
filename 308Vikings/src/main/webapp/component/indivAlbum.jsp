@@ -12,11 +12,12 @@
                <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
                    <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/album/{{albumdata.album.id}}.jpg"></img>
                    <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>
-                   <div ng-repeat="detailAlbumartist in albumdata.album.artists">
-                       <div><a href="#!artist/{{detailAlbumartist.id}}">{{detailAlbumartist.name}}</a></div>
+                   <div>
+                       <a href="#!artists/{{albumArtist.id}}" ng-repeat="albumArtist in albumdata.album.artists">
+                         {{albumArtist.name}}
+                       </a>
                    </div>
-                   <div><br>Release Date: </div>
-                   <div>{{albumdata.album.releaseDate |  date:'d MMMM yyyy'}}</div>
+                   <div><br>Release Date: {{albumdata.album.releaseDate |  date:' MMMM d yyyy'}}</div>
 
                    <p style="margin-bottom: 120px;">
                        <button class="pageButton">Play</button>
@@ -31,6 +32,7 @@
             <h3 ng-show="albumdata.album.songs.length == 0"> This album has no songs. </h3>
             <table class="songtable" ng-hide="albumdata.album.songs.length == 0">
              <tr>
+               <td>#<td>
                <td></td>
                <td></td>
                <td>Title</td>
@@ -38,7 +40,8 @@
                <td>Duration</td>
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
-                 <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
+              <td> {{song.trackNumber}} </td>
+              <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
                <div>
                    <td>
                        <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
@@ -56,8 +59,8 @@
                <div class="albumitems">
                  <div ng-repeat="relatedAlbums in albumdata.relatedAlbums">
                  <a href="#!album/{{relatedAlbums.id}}"><img class=albumimg ng-src="${home}/css/album/{{relatedAlbums.id}}.jpg" id="{{relatedAlbums.id}}"></img></a>
-                 <li class="albumname"><a id="{{relatedAlbums.id}}" href="#!album/{{relatedAlbums.id}}>{{relatedAlbums.name}}"</li>
-                 <li class="albumartist">{{relatedAlbums.artists[0].name}}</li>
+                 <li class="albumname"><a id="{{relatedAlbums.id}}" href="#!album/{{relatedAlbums.id}}">{{relatedAlbums.name}}</a></li>
+                 <li class="albumartist"><a href="#!artists/{{relatedAlbums.artists[0].id}}">{{relatedAlbums.artists[0].name}}</a></li>
                  </div>
              </div>
          </div>
