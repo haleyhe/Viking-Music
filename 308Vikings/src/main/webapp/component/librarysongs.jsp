@@ -30,8 +30,8 @@
         </td>
         <div>
           <td>
-              <img class='play-btn' src="${home}css/plus.png" ng-hide="librarySongs.savedSongs[libSong.song.id]">
-              <img class="play-btn" src="${home}css/success.png" ng-show="librarySongs.savedSongs[libSong.song.id]"></td>
+              <a ng-click="saveSong(libSong.song.id,librarySongs.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="librarySongs.savedSongs[libSong.song.id]"></a>
+              <a ng-click="unsaveSong(libSong.song.id,librarySongs.savedSongs, librarySongs.songList)"><img class="play-btn" src="${home}css/success.png" ng-show="librarySongs.savedSongs[libSong.song.id]"></td></a>
             </div>
             <td>{{libSong.song.name}}</td>
             <td>

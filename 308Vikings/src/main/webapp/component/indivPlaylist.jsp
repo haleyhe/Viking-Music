@@ -57,7 +57,7 @@
                   <div>
                     <td>
                         <a ng-click="saveSong(song.id,playlistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="playlistdata.savedSongs[song.id]"></a>
-                        <a ng-click="unsaveSong(song.id,playlistdata.savedSongs)"><img class="play-btn" src="${home}css/success.png" ng-show="playlistdata.savedSongs[song.id]"></td></a>
+                        <a ng-click="unsaveSong(song.id,playlistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="playlistdata.savedSongs[song.id]"></td></a>
                       </div>
                       <td>{{song.name}}</td>
                       <td>
