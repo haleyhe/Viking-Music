@@ -191,4 +191,9 @@ public class PlaylistController {
         String creatorId = playlist.getCreator().getId();
         return creatorId.equals(user.getId());
     }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistsByCreator")
+    public @ResponseBody PlaylistsResponse getPlaylistsByCreator(@RequestParam("id") String id) {
+        return new PlaylistsResponse(playlistManager.getPlaylistsByCreator(id));
+    }
 }

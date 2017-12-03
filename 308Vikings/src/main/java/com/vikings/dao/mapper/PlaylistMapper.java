@@ -29,8 +29,10 @@ public interface PlaylistMapper {
     
     public void updatePlaylistTrackNumbersBeforeInsert(@Param("playlistId") String playlistId, @Param("newTrackNum") int newTrackNum);
     
-    public List<Playlist> getAdminCuratedPlaylists();
+    public List<PlaylistIdentifier> getAdminCuratedPlaylists();
     
     public List<PlaylistIdentifier> search(@Param("query") String query, @Param("limit") Integer limit);
+    
+    public List<PlaylistIdentifier> getPlaylistsByCreator(String creatorId);
 }
 

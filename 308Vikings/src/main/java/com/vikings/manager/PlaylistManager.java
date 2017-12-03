@@ -171,7 +171,7 @@ public class PlaylistManager {
      * @return 
      *  A list of Playlists with IDs, titles, descriptors, etc.
      */
-    public List<Playlist> getAdminCuratedPlaylists() {
+    public List<PlaylistIdentifier> getAdminCuratedPlaylists() {
         return playlistDAO.getAdminCuratedPlaylists();
     }
     
@@ -202,5 +202,9 @@ public class PlaylistManager {
            return false;
        }
        return true;
+   }
+   
+   public List<PlaylistIdentifier> getPlaylistsByCreator(String creatorId) {
+       return playlistDAO.getPlaylistsByCreator(creatorId);
    }
 }

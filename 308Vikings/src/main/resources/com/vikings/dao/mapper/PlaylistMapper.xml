@@ -153,7 +153,7 @@
 
     </update>
 
-    <select id="getAdminCuratedPlaylists" resultMap="playlistMap">
+    <select id="getAdminCuratedPlaylists" resultMap="playlistIdentifierMap">
         SELECT
             p.playlistId as 'playlist_id',
             p.name as 'playlist_name',
@@ -178,6 +178,33 @@
             p.creatorId = u.userId
         WHERE
             p.curated = 1
+    </select>
+
+    <select id="getPlaylistsByCreator" resultMap="playlistIdentifierMap">
+        SELECT
+            p.playlistId as 'playlist_id',
+            p.name as 'playlist_name',
+            u.userId as 'playlist_creator_id',
+            u.username as 'playlist_creator_name',
+            p.dateCreated as 'playlist_creation_date',
+            p.description as 'playlist_description',
+            p.isPublic as 'playlist_public',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserPlaylistsFollowed upf
+            WHERE
+                upf.playlistId = p.playlistId
+            )
+            as 'playlist_num_followers'
+        FROM
+            Playlists p
+        LEFT JOIN
+            Users u
+        ON
+            p.creatorId = u.userId
+        WHERE
+            p.creatorId = #{creatorId}
     </select>
 
     <select id="search" parameterType="Map" resultMap="playlistIdentifierMap">

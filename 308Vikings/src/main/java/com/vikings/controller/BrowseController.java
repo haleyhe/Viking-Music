@@ -6,6 +6,7 @@ import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.response.ConcertsResponse;
+import com.vikings.domain.response.PlaylistsResponse;
 import com.vikings.domain.response.RecommendationsResponse;
 import com.vikings.domain.response.SearchResponse;
 import com.vikings.domain.response.SongsResponse;
@@ -158,5 +159,10 @@ public class BrowseController {
             }
         }
         return new RecommendationsResponse(recommendations);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Browse/getGenrePlaylists")
+    public @ResponseBody PlaylistsResponse getAdminCuratedPlaylists() {
+        return new PlaylistsResponse(playlistManager.getAdminCuratedPlaylists());
     }
 }

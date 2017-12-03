@@ -106,13 +106,17 @@ public class PlaylistDAO {
      * @return 
      *  A list of Playlists with IDs, titles, descriptors, etc.
      */
-    public List<Playlist> getAdminCuratedPlaylists() {
+    public List<PlaylistIdentifier> getAdminCuratedPlaylists() {
         return playlistMapper.getAdminCuratedPlaylists();
     }
     
     public List<PlaylistIdentifier> search(String query, Integer limit) {
         query = "%" + query + "%";
         return playlistMapper.search(query, limit);
+    }
+    
+    public List<PlaylistIdentifier> getPlaylistsByCreator(String creatorId) {
+        return playlistMapper.getPlaylistsByCreator(creatorId);
     }
     
 }
