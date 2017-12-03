@@ -116,6 +116,23 @@
             trackNumber = #{trackNum}
     </delete>
 
+    <delete id="deletePlaylist" parameterType="String">
+        DELETE
+            p, ps, upf
+        FROM
+            Playlists p
+        LEFT JOIN
+            PlaylistSongs ps
+        ON
+            ps.playlistId = p.playlistId
+        LEFT JOIN
+            UserPlaylistsFollowed upf
+        ON
+            upf.playlistId = p.playlistId
+        WHERE
+            p.playlistId = #{playlistId}
+    </delete>
+
     <update id="updatePlaylistTrackNumbersAfterRemove" parameterType="Map">
         UPDATE
             PlaylistSongs

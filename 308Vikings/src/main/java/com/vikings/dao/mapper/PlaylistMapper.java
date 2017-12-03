@@ -34,5 +34,7 @@ public interface PlaylistMapper {
     public List<PlaylistIdentifier> search(@Param("query") String query, @Param("limit") Integer limit);
     
     public List<PlaylistIdentifier> getPlaylistsByCreator(String creatorId);
+    
+    public void deletePlaylist(String playlistId);
 }
 

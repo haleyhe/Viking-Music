@@ -207,4 +207,8 @@ public class PlaylistManager {
    public List<PlaylistIdentifier> getPlaylistsByCreator(String creatorId) {
        return playlistDAO.getPlaylistsByCreator(creatorId);
    }
+   
+   public void deletePlaylist(String playlistId) {
+       playlistDAO.deletePlaylist(playlistId);
+   }
 }

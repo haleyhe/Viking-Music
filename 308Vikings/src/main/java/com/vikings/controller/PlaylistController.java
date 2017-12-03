@@ -4,6 +4,7 @@ import com.vikings.domain.Playlist;
 import com.vikings.domain.User;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import com.vikings.domain.request.AddPlaylistSongRequest;
+import com.vikings.domain.request.IdRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.response.PlaylistPageResponse;
 import com.vikings.domain.request.RemovePlaylistSongRequest;
@@ -195,5 +196,11 @@ public class PlaylistController {
     @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistsByCreator")
     public @ResponseBody PlaylistsResponse getPlaylistsByCreator(@RequestParam("id") String id) {
         return new PlaylistsResponse(playlistManager.getPlaylistsByCreator(id));
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value="/Playlist/deletePlaylist")
+    public @ResponseBody JsonResponse deletePlaylist(@RequestBody IdRequest idReq) {
+        playlistManager.deletePlaylist(idReq.getId());
+        return new JsonResponse(true);
     }
 }

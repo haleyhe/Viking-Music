@@ -119,4 +119,8 @@ public class PlaylistDAO {
         return playlistMapper.getPlaylistsByCreator(creatorId);
     }
     
+    public void deletePlaylist(String playlistId) {
+        playlistMapper.deletePlaylist(playlistId);
+    }
+    
 }
