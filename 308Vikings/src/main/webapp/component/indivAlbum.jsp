@@ -34,7 +34,6 @@
              <tr>
                <td>#<td>
                <td></td>
-               <td></td>
                <td>Title</td>
                <td>Artist</td>
                <td>Duration</td>
