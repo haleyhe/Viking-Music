@@ -37,12 +37,13 @@
                <td>Title</td>
                <td>Artist</td>
                <td>Duration</td>
+               <td></td>
              </tr>
              <tr ng-repeat="song in albumdata.album.songs">
-              <td> {{song.trackNumber}} </td>
-              <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
+              <td id="nohover"> {{song.trackNumber}} </td>
+              <td id="nohover"><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
                <div>
-                   <td>
+                   <td id="nohover">
                        <a ng-click="saveSong(song.id,albumdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" ></a>
                        <a ng-click="unsaveSong(song.id,albumdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
                    </td>
@@ -51,6 +52,7 @@
                <td>{{song.name}}</td>
                <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}</a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
+               <td id="nohover"><img class='play-btn' src="${home}css/more.png"></td>
              </tr>
            </table>
            <h3>More by {{albumdata.album.artists[0].name}}</h3>
