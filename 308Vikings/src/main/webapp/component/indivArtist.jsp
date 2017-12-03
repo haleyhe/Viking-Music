@@ -16,6 +16,7 @@
           <li class="tab-link current" data-tab="artisttab-1">Overview</li>
           <li class="tab-link" data-tab="artisttab-2">Artist Bio</li>
           <li class="tab-link" data-tab="artisttab-3">Artist Concerts</li>
+          <li class="tab-link" data-tab="artisttab-4">Related Artists</li>
          </ul>
         </div>
          
@@ -52,15 +53,6 @@
            </tr>
          </table> 
 
-        <h2> Related Artists </h2>
-         <hr class="style14">
-          <div class=artistitems>
-           <div ng-repeat="artist in artistdata.relatedArtists | limitTo: 8">
-            <a href = "#!/artists/{{artist.id}}"><img class=artistimg id ="{{artist.id}}" ng-src="${home}/css/artist/{{artist.id}}.jpg"></img></a>
-            <li class = "artistname"><a id="{{artist.id}}" href= "#!/artists/{{artist.id}}">{{artist.name}}</a></li>
-           </div>
-          </div>   
-
           <h2> Albums </h2>
            <hr class="style14">
             <div class=albumitems>
@@ -77,6 +69,7 @@
           <li class="tab-link" data-tab="artisttab-1">Overview</li>
           <li class="tab-link current" data-tab="artisttab-2">Artist Bio</li>
           <li class="tab-link" data-tab="artisttab-3">Artist Concerts</li>
+          <li class="tab-link" data-tab="artisttab-4">Related Artists</li>
          </ul>
         </div>
          <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
@@ -99,6 +92,7 @@
           <li class="tab-link" data-tab="artisttab-1">Overview</li>
           <li class="tab-link" data-tab="artisttab-2">Artist Bio</li>
           <li class="tab-link current" data-tab="artisttab-3">Artist Concerts</li>
+          <li class="tab-link" data-tab="artisttab-4">Related Artists</li>
          </ul>
         </div>
          <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
@@ -141,5 +135,35 @@
              </table>
          </div>
       </div>
+      <div class="pages" id="relatedArtists">     
+        <div class ="artisttab">
+         <ul>
+          <li class="tab-link" data-tab="artisttab-1">Overview</li>
+          <li class="tab-link" data-tab="artisttab-2">Artist Bio</li>
+          <li class="tab-link" data-tab="artisttab-3">Artist Concerts</li>
+          <li class="tab-link current" data-tab="artisttab-4">Related Artists</li>
+         </ul>
+        </div>
+         <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
+             <img style="margin: 10px;-top: 10px; margin-right: 30px;" class=artistIndivimg ng-src="${home}/css/artist/{{artistdata.id}}.jpg"></img>
+             <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{artistdata.name}}</h1>
+
+             <p style="margin-bottom: 150px;">
+             </p>
+             <br>
+             <hr class="style14" style="width:70%">
+         </div>
+          <br />
+          <br />
+          
+          <h2> Related Artists </h2>
+          <div class=artistitems>
+           <div ng-repeat="artist in artistdata.relatedArtists | limitTo: 8">
+            <a href = "#!/artists/{{artist.id}}"><img class=artistimg id ="{{artist.id}}" ng-src="${home}/css/artist/{{artist.id}}.jpg"></img></a>
+            <li class = "artistname"><a id="{{artist.id}}" href= "#!/artists/{{artist.id}}">{{artist.name}}</a></li>
+           </div>
+          </div>   
+      </div>
+                 
   </body>
 </html>

@@ -30,7 +30,10 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
     }if($(this).attr('data-tab') === 'artisttab-3'){
        $('.pages').css("display","none");
        $('#artistConcerts').show();
-    }  
+    }if($(this).attr('data-tab') === 'artisttab-4'){
+       $('.pages').css("display","none");
+       $('#relatedArtists').show();
+    }
    });
    
     $scope.reloadArtist = function() {
