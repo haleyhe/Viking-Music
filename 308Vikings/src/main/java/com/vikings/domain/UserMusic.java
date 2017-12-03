@@ -1,5 +1,6 @@
 package com.vikings.domain;
 
+import com.vikings.domain.identifier.UserIdentifier;
 import com.vikings.domain.library.LibrarySong;
 import com.vikings.domain.library.LibraryPlaylist;
 import com.vikings.domain.library.LibraryArtist;
@@ -18,6 +19,7 @@ public class UserMusic implements Serializable {
     Set<LibraryPlaylist> followedPlaylists;
     List<Song> history;
     List<Song> recentlyPlayed;
+    List<UserIdentifier> friends;
     
     public UserMusic() {    
     }
@@ -68,6 +70,14 @@ public class UserMusic implements Serializable {
 
     public void setRecentlyPlayed(List<Song> recentlyPlayed) {
         this.recentlyPlayed = recentlyPlayed;
+    }
+
+    public List<UserIdentifier> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<UserIdentifier> friends) {
+        this.friends = friends;
     }
     
 }

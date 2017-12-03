@@ -126,4 +126,12 @@ public class UserMusicDAO {
         userMusicMapper.unfollowPlaylist(userId, playlistId);
     }
     
+    public void addFriend(String userId, String friendId) {
+        userMusicMapper.addFriend(userId, friendId);
+    }
+    
+    public void removeFriend(String userId, String friendId) {
+        userMusicMapper.removeFriend(userId, friendId);
+    }
+    
 }

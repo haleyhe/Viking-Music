@@ -158,7 +158,7 @@
 
     <delete id="deleteUser" parameterType="String">
         DELETE
-            u, up, uss, uas, uaf, upf, p, ps
+            u, up, uss, uas, uaf, upf, p, ps, uf, uf2
         FROM
             Users u
         LEFT JOIN
@@ -182,6 +182,12 @@
         LEFT JOIN
             PlaylistSongs ps
             ON ps.playlistId = p.playlistId
+        LEFT JOIN
+            UserFriends uf
+            ON uf.userId = u.userId
+        LEFT JOIN
+            UserFriends uf2
+            ON uf2.friendId = u.userId
         WHERE
             u.userId= #{id};    
     </delete>

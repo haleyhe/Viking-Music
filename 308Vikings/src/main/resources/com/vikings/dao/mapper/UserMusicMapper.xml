@@ -97,6 +97,11 @@
             <result property="name" column="playlist_creator_name"/>
         </association>
     </resultMap>
+
+    <resultMap id="userIdentifierMap" type="com.vikings.domain.identifier.UserIdentifier">
+        <id property="id" column="user_id"/>
+        <result property="name" column="user_name"/>
+    </resultMap>
     
     <select id="getSong" parameterType="String" resultMap="songMap">
         SELECT
@@ -432,5 +437,39 @@
         ORDER BY
             usp.datePlayed ASC
     </select>
+
+    <select id="getFriends" parameterType="String" resultMap="userIdentifierMap">
+        SELECT
+            u.userId as 'user_id',
+            u.username as 'user_name'
+        FROM
+            UserFriends uf
+        LEFT JOIN
+            Users u
+        ON
+            u.userId = uf.friendId
+        WHERE
+            uf.userId = #{id}
+    </select>
+
+    <insert id="addFriend" parameterType="Map">
+        INSERT IGNORE INTO
+            UserFriends (
+                userId,
+                friendId
+            )
+        VALUES (
+            #{userId},
+            #{friendId}
+        )
+    </insert>
+
+    <delete id="removeFriend" parameterType="Map">
+        DELETE FROM
+            UserFriends
+        WHERE
+            userId = #{userId} AND
+            friendId = #{friendId}
+    </delete>
     
 </mapper>

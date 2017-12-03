@@ -6,6 +6,7 @@ import com.vikings.domain.library.LibraryPlaylist;
 import com.vikings.domain.library.LibrarySong;
 import com.vikings.domain.Song;
 import com.vikings.domain.User;
+import com.vikings.domain.identifier.UserIdentifier;
 import com.vikings.domain.request.IdRequest;
 import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.MarkSongAsPlayedForUserRequest;
@@ -314,5 +315,51 @@ public class UserMusicController {
             json = new JsonResponse(false, System.getProperty("error.UserMusic.libraryItemMissing")); //probably need better error checking than this
         }
         return json;    
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/UserMusic/library/friends")
+    public @ResponseBody List<UserIdentifier> getFriends() {
+        User user = userAccountManager.getSessionUser();
+        return user.getUserMusic().getFriends();
+    }
+    
+    /**
+     * Adds a user to the User's friends list
+     * @param idReq
+     * json container for the name of the user to add
+     * @return 
+     *  JsonResponse indicating success or error.
+     */
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/addFriend")
+    public @ResponseBody JsonResponse addFriend(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String username = idReq.getId();
+        User friend = userAccountManager.getUserByUsername(username);
+        if (friend == null) {
+            return new JsonResponse(false, System.getProperty("error.UserMusic.friendAccountNotFound"));
+        }
+        UserIdentifier friendId = friend.toUserIdentifier();
+        if (user.getUserMusic().getFriends().contains(friendId)) {
+            return new JsonResponse(false, System.getProperty("error.UserMusic.friendDuplicate"));
+        } else {
+            user.getUserMusic().getFriends().add(friendId);
+            userMusicManager.addFriend(user.getId(), friend.getId());
+            userAccountManager.setSessionUser(user);
+            return new JsonResponse(true);
+        }
+    }
+    
+    @RequestMapping(method=RequestMethod.POST, value="/UserMusic/removeFriend")
+    public @ResponseBody JsonResponse removeFriend(@RequestBody IdRequest idReq) {
+        User user = userAccountManager.getSessionUser();
+        String friendId = idReq.getId();
+        
+        userMusicManager.removeFriend(user.getId(), friendId);
+        
+        UserIdentifier friendIdentifier = new UserIdentifier();
+        friendIdentifier.setId(friendId);
+        user.getUserMusic().getFriends().remove(friendIdentifier);
+        userAccountManager.setSessionUser(user);
+        return new JsonResponse(true);
     }
 }

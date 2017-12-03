@@ -5,6 +5,7 @@ import com.vikings.domain.library.LibraryArtist;
 import com.vikings.domain.library.LibraryPlaylist;
 import com.vikings.domain.library.LibrarySong;
 import com.vikings.domain.Song;
+import com.vikings.domain.identifier.UserIdentifier;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -46,6 +47,12 @@ public interface UserMusicMapper {
     public List<Song> getHistory(String userId);
     
     public List<Song> getRecentlyPlayed(String userId);
+    
+    public List<UserIdentifier> getFriends(String userId);
+    
+    public void addFriend(@Param("userId") String userId, @Param("friendId") String friendId);
+    
+    public void removeFriend(@Param("userId") String userId, @Param("friendId") String friendId);
     
 }
 

@@ -163,6 +163,12 @@ CREATE TABLE IF NOT EXISTS UserPlaylistsFollowed (
     PRIMARY KEY (userId, playlistId)
 );
 
+CREATE TABLE IF NOT EXISTS UserFriends (
+    userId VARCHAR(40),
+    friendId VARCHAR(40),
+    PRIMARY KEY (userId, friendId)
+);
+
 
 ### PAYMENTS ###
 

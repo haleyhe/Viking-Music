@@ -363,4 +363,13 @@ public class UserMusicManager {
         }
         return savedSongs;
     }
+    
+    public void addFriend(String userId, String friendId) {
+        userMusicDAO.addFriend(userId, friendId);
+    }
+    
+    public void removeFriend(String userId, String friendId) {
+        userMusicDAO.removeFriend(userId, friendId);
+    }
+    
 }

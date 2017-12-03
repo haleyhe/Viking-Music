@@ -58,6 +58,7 @@ public class UserAccountDAO {
             userMusic.setFollowedPlaylists(userMusicMapper.getFollowedPlaylists(foundUser.getId()));
             userMusic.setHistory(userMusicMapper.getHistory(foundUser.getId()));
             userMusic.setRecentlyPlayed(userMusicMapper.getRecentlyPlayed(foundUser.getId()));
+            userMusic.setFriends(userMusicMapper.getFriends(foundUser.getId()));
             foundUser.setUserMusic(userMusic);
             foundUser.setPayment(paymentMapper.getPaymentForUser(foundUser.getId()));
         }
