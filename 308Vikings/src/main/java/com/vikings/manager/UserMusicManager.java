@@ -274,6 +274,22 @@ public class UserMusicManager {
         return savedSongs;
     }
     
+        public HashMap<String,Boolean>findSavedSongList(Artist artist) {
+        User user = userAccountManager.getSessionUser();
+        HashMap<String,Boolean> savedSongs = new HashMap<>();
+        List<Song> songList = songManager.getTopSongsForArtist(artist.getId());
+        if (user == null) {
+            return null;
+        } 
+        
+        for (Song s: songList) {
+            LibrarySong librarySong = new LibrarySong(s);
+            Boolean saved = user.getUserMusic().getSavedSongs().contains(librarySong);
+            savedSongs.put(s.getId(), saved);
+        }
+        return savedSongs;
+    }
+    
     public List<ArtistIdentifier> getFavoriteArtistsForSessionUser() {
         int ARTIST_FOLLOWED_SCORE = 10;
         int ARTIST_SAVED_CONTENT_SCORE = 2;

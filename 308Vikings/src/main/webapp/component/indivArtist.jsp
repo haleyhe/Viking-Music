@@ -32,7 +32,7 @@
                <hr class="style14" style="width:70%">
            </div>
          <h2> Top Songs </h2>
-          <table class=songtable>
+          <table class=songtable style="padding-left:50px;">
            <tr>
              <td></td>
              <td></td>
@@ -40,14 +40,13 @@
              <td>Duration</td>
            </tr>
            <tr ng-repeat="song in artistdata.topSongs | limitTo: 5">
-               <td><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
-               <!--<div>
-                   <td>
-                       <img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" >
-                       <img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]">
+               <td style="width: 30px;"><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
+               <div>
+                   <td id="nohover" style="width: 50px;">
+                       <a ng-click="saveSong(song.id,artistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="artistdata.savedSongs[song.id]" ></a>
+                       <a ng-click="unsaveSong(song.id,artistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="artistdata.savedSongs[song.id]"></a>
                    </td>
-               </div>-->
-               <td></td>
+               </div>
              <td>{{song.name}}</td>
              <td>{{song.duration | convertMilSec}}</td>
            </tr>

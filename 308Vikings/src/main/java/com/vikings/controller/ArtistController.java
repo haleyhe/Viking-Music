@@ -13,6 +13,7 @@ import com.vikings.manager.ConcertManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserMusicManager;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,10 +62,11 @@ public class ArtistController {
         String bio = artist.getBio();
         List<Song> topSongs = songManager.getTopSongsForArtist(id);   
         boolean isFollowing = userMusicManager.isFollowingArtist(artist.toArtistIdentifier());
+        HashMap<String,Boolean> savedSongs = userMusicManager.findSavedSongList(artist);
         List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
         List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
         List<Concert> concerts = concertManager.getConcertsForArtist(id);
-        return new ArtistPageResponse(id, name, bio, isFollowing, topSongs, relatedArtists, albums, concerts);
+        return new ArtistPageResponse(id, name, bio, isFollowing, topSongs, savedSongs, relatedArtists, albums, concerts);
     }
     
 }

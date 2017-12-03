@@ -4,6 +4,7 @@ import com.vikings.domain.Concert;
 import com.vikings.domain.Song;
 import com.vikings.domain.identifier.AlbumIdentifier;
 import com.vikings.domain.identifier.ArtistIdentifier;
+import java.util.HashMap;
 import java.util.List;
 
 public class ArtistPageResponse {
@@ -15,17 +16,20 @@ public class ArtistPageResponse {
     List<ArtistIdentifier> relatedArtists;
     List<AlbumIdentifier> albums;
     List<Concert> concerts;
+    HashMap<String,Boolean> savedSongs;
  
     public ArtistPageResponse() {
     }
  
-    public ArtistPageResponse(String id, String name, String bio, boolean isFollowing, List<Song> topSongs,  List<ArtistIdentifier> 
+    public ArtistPageResponse(String id, String name, String bio, boolean isFollowing, 
+            List<Song> topSongs, HashMap<String,Boolean> savedSongs, List<ArtistIdentifier> 
         relatedArtists,List<AlbumIdentifier> albums, List<Concert> concerts) {
         this.id = id;
         this.name = name;
         this.bio = bio;
         this.isFollowing = isFollowing;
         this.topSongs = topSongs;
+        this.savedSongs = savedSongs;
         this.relatedArtists = relatedArtists;
         this.albums = albums;
         this.concerts = concerts;
@@ -62,7 +66,15 @@ public class ArtistPageResponse {
     public void setTopSongs(List<Song> topSongs) {
         this.topSongs = topSongs;
     }
+    
+    public HashMap<String,Boolean> getSavedSongs(){
+        return savedSongs;
+    }
  
+    public void setSavedSongs(HashMap<String,Boolean> savedSongs) {
+        this.savedSongs = savedSongs;
+    }
+    
     public boolean isFollowing(){
         return isFollowing;
     }
