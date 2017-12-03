@@ -11,6 +11,7 @@ public class ArtistPageResponse {
     String name;
     String bio;
     List<Song> topSongs;
+    boolean isFollowing;
     List<ArtistIdentifier> relatedArtists;
     List<AlbumIdentifier> albums;
     List<Concert> concerts;
@@ -18,11 +19,12 @@ public class ArtistPageResponse {
     public ArtistPageResponse() {
     }
  
-    public ArtistPageResponse(String id, String name, String bio, List<Song> topSongs, List<ArtistIdentifier> 
+    public ArtistPageResponse(String id, String name, String bio, boolean isFollowing, List<Song> topSongs,  List<ArtistIdentifier> 
         relatedArtists,List<AlbumIdentifier> albums, List<Concert> concerts) {
         this.id = id;
         this.name = name;
         this.bio = bio;
+        this.isFollowing = isFollowing;
         this.topSongs = topSongs;
         this.relatedArtists = relatedArtists;
         this.albums = albums;
@@ -61,6 +63,14 @@ public class ArtistPageResponse {
         this.topSongs = topSongs;
     }
  
+    public boolean isFollowing(){
+        return isFollowing;
+    }
+    
+    public void setIsFollowing(boolean isFollowing){
+        this.isFollowing = isFollowing;
+    }
+    
     public List<ArtistIdentifier> getRelatedArtists() {
         return relatedArtists;
     }

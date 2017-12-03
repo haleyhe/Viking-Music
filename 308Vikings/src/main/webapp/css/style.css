@@ -429,7 +429,6 @@ ul.tabs li.current , ul.musictabs li.current{
   margin-left: 5%;
 }
 
-
 .unfollow-button:hover span {display:none}
 .unfollow-button:hover:after {content:"Unfollow"}
 .unsave-button:hover span {display:none}

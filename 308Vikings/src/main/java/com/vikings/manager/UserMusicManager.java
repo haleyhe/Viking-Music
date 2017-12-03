@@ -2,6 +2,7 @@ package com.vikings.manager;
 
 import com.vikings.dao.UserMusicDAO;
 import com.vikings.domain.Album;
+import com.vikings.domain.Artist;
 import com.vikings.domain.library.LibraryArtist;
 import com.vikings.domain.library.LibraryAlbum;
 import com.vikings.domain.library.LibraryPlaylist;
@@ -177,6 +178,15 @@ public class UserMusicManager {
      */
     public void unfollowArtist(String userId, String artistId) {
         userMusicDAO.unfollowArtist(userId, artistId);
+    }
+    
+    public boolean isFollowingArtist(ArtistIdentifier artistIdentifier) {
+        User user = userAccountManager.getSessionUser();
+        if (user != null) {
+            LibraryArtist libArtist = new LibraryArtist(artistIdentifier);
+           return user.getUserMusic().getFollowedArtists().contains(libArtist);
+        }
+        return false;
     }
     
     public boolean removeArtistFromLibrarySession(User user, String artistId) {

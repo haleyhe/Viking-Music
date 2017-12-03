@@ -20,11 +20,6 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
     $('#loading').css("display", "block");
     $('div.artisttab li').click(function(){
     var tab_id = $(this).attr('data-tab');
-    $('div.artisttab li').removeClass('current');
-    $('.artisttab-content').removeClass('current');
-
-    $(this).addClass('current');
-    $("#"+tab_id).addClass('current');
 
     if($(this).attr('data-tab') === 'artisttab-1'){
        $('.pages').css("display","none");
@@ -37,6 +32,59 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
        $('#artistConcerts').show();
     }  
    });
+   
+    $scope.reloadArtist = function() {
+      $http({
+        method: 'GET',
+        url: '/308Vikings/Artist/getArtistPageDetails',
+        headers: {'Content-Type': 'application/json'},
+        params: {id: $routeParams.id}
+
+      }).then(function successCallback(response) {
+          $scope.artistdata = response.data;
+      }, function errorCallback(response) {});
+    };
+    
+    $scope.followArtist = function() {
+        console.log("this is happening");
+        $('.pages').css("display", "none");
+        $("#loading").css("display", "block");
+        $http.post('/308Vikings/UserMusic/followArtist', {id:$scope.artistdata.id}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+            if (response.data.success) {
+              $scope.reloadArtist($scope.artistdata.id);
+            }
+          }, function errorCallback(response) {});
+        $('.pages').css("display","none");
+        $('#artistOverview').show();
+        console.log("nothing is showing");
+        $("#loading").css("display", "none");
+    };
+
+    $scope.unfollowArtist = function() {
+        $('.pages').css("display", "none");
+        $("#loading").css("display", "block");
+        $http.post('/308Vikings/UserMusic/unfollowArtist', {id:$scope.artistdata.id}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+            if (response.data.success) {
+              $scope.reloadArtist($scope.artistdata.id);
+            }
+          }, function errorCallback(response) {});
+        $('.pages').css("display","none");
+        $('#artistOverview').show();
+        $("#loading").css("display", "none");
+    };
+   
 });
 
 app.controller("getAllArtist", function ($scope, $http) {
@@ -63,7 +111,21 @@ app.filter("convertMilSec", function(){
         for (var i in object){
             count++;
         }
-        
         return count;
      }
  });
+ 
+ app.filter('lineBreaks', function(){
+     return function(input){
+         var line = input;
+         if(!(typeof line === "undefined") && line.includes("\n") )
+             return input.replace(/\n/g, "<br />");
+         return input;
+     }
+ });
+ 
+ app.filter("sanitize", ['$sce', function($sce) {
+        return function(htmlCode){
+            return $sce.trustAsHtml(htmlCode);
+        }
+}]);

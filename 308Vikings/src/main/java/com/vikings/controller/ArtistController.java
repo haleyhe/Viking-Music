@@ -12,6 +12,7 @@ import com.vikings.manager.AlbumManager;
 import com.vikings.manager.ConcertManager;
 import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
+import com.vikings.manager.UserMusicManager;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,9 @@ public class ArtistController {
     @Autowired
     ConcertManager concertManager;
     
+    @Autowired
+    UserMusicManager userMusicManager;
+    
     @RequestMapping(method=RequestMethod.GET, value="/Artist/getArtist")
     public @ResponseBody Artist getArtist(@RequestParam("id") String id) {
         return artistManager.getArtist(id);
@@ -56,10 +60,11 @@ public class ArtistController {
         String name = artist.getName();
         String bio = artist.getBio();
         List<Song> topSongs = songManager.getTopSongsForArtist(id);   
+        boolean isFollowing = userMusicManager.isFollowingArtist(artist.toArtistIdentifier());
         List<ArtistIdentifier> relatedArtists = artistManager.getRelatedArtists(id);
         List<AlbumIdentifier> albums = albumManager.getAlbumsForArtist(id);
         List<Concert> concerts = concertManager.getConcertsForArtist(id);
-        return new ArtistPageResponse(id, name, bio, topSongs, relatedArtists, albums, concerts);
+        return new ArtistPageResponse(id, name, bio, isFollowing, topSongs, relatedArtists, albums, concerts);
     }
     
 }
