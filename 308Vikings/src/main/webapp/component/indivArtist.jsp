@@ -52,7 +52,8 @@
              <td>{{song.duration | convertMilSec}}</td>
            </tr>
          </table> 
-
+         <br />
+         <br />
           <h2> Albums </h2>
            <hr class="style14">
             <div class=albumitems>
@@ -113,7 +114,7 @@
          <br />
          
          <div ng-hide="(artistdata.concerts | objectLength) === 0">
-             <table style = "padding-left: 30px;">
+             <table style = "padding-left: 30px;" align = "center">
                  <tr class>
                      <td class = "title">Date</td>
                      <td class = "title">Name of Venue</td>

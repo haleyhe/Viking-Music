@@ -39,15 +39,15 @@ li.noBullet{
 }
 
 td.listItems{
-    padding-right: 50px;
-    font-size: 20px;
+    padding-right: 30px;
+    font-size: 18px;
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
 }
 
 td.title{
     font-weight: bold;
-    padding-right: 50px;
+    padding-right: 30px;
     text-align: center;
     font-size: 20px;
     border-bottom: 1px solid transparent;
