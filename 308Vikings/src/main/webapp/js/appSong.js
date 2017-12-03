@@ -13,7 +13,6 @@ function changeSong(element){
    song = new Audio(home + 'mp3/' + element.id + '.mp3');
    song.addEventListener('loadedmetadata', function() {
        $("#seek").prop("max", song.duration);
-       console.log("Playing " + song.src + ", for: " + song.duration + "seconds.");
        song.play();
        $("#seek").bind("change", function() {
            song.currentTime = $(this).val();
@@ -21,7 +20,16 @@ function changeSong(element){
        song.addEventListener('timeupdate',function (){
            $("#seek").prop("value", song.currentTime);
        });
-
+   $(document).on('click','#volumebtn', function(e) {
+                   e.preventDefault();
+                   song.muted = true;
+                   $('#volumebtn').replaceWith('<img class="playerimg" id="mutebtn" src=' + home + 'css/speaker-8.png></img>');
+   });
+   $(document).on('click','#mutebtn', function(e) {
+                   e.preventDefault();
+                   song.muted = false;
+                   $('#mutebtn').replaceWith('<img class="playerimg" id="volumebtn" src=' + home + 'css/speaker-5.png></img>');
+   });
    });
    //song.play();
    
