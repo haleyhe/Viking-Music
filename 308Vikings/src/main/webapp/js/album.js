@@ -96,4 +96,5 @@ app.controller("getAllAlbum", function ($scope, $http) {
       $("#loading").css("display", "none");
       $scope.data = response.data;
     }, function errorCallback(response) {});
+    $scope.pageName = "All Albums";
 });

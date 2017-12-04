@@ -14,6 +14,7 @@ app.controller("playlistController", function($scope, $http) {
 
   $scope.newDate = new Date().getTime();
   $scope.getAllPlaylists();
+  $scope.pageName = "All Playlists";
 });
 
 app.controller("createPlaylistController", function($scope, $location, $http) {

@@ -38,15 +38,15 @@ $(document).ready(function() {
     }
     if ($(this).attr('data-tab') === 'menutab-3') {
       $('.pages').css("display", "none");
-      $('#albumpage').show();
+      $('#libraryAlbumsPage').show();
     }
     if ($(this).attr('data-tab') === 'menutab-4') {
       $('.pages').css("display", "none");
-      $('#artistpage').show();
+      $('#libraryArtistsPage').show();
     }
     if ($(this).attr('data-tab') === 'menutab-5') {
       $('.pages').css("display", "none");
-      $('#playlistPage').show();
+      $('#libraryPlaylistsPage').show();
     }
   });
 

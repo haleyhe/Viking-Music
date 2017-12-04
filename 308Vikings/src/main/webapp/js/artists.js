@@ -103,6 +103,7 @@ app.controller("getAllArtist", function ($scope, $http) {
     }).then(function successCallback(response) {
       $scope.data = response.data;
     }, function errorCallback(response) {});
+    $scope.pageName  = "All Artist";
 });
 
 app.filter("convertMilSec", function(){
