@@ -160,12 +160,13 @@ public class UserAccountController {
         User user = userAccountManager.getSessionUser();
         paymentManager.unlinkPaymentForUser(user.getId());
         userAccountManager.makeUserPremium(user, false);
+        
         return new JsonResponse(true);
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/UserAccount/getPayment")
     public @ResponseBody Payment getPayment() {
-        User user = userAccountManager.getSessionUser();;
+        User user = userAccountManager.getSessionUser();
         Payment payment = paymentManager.getPaymentForUser(user.getId());
         payment.setCvv(null);
         String cardNum = payment.getCardNumber();

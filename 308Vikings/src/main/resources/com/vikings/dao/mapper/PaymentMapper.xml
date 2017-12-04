@@ -128,8 +128,8 @@
         )
     </insert>
 
-    <delete id="unlinkPaymentForUser" parameterType="String">
-        DELETE
+    <delete id="unlinkPaymentForUser" parameterType="Map">
+        DELETE up
         FROM
             userPayments up
         WHERE

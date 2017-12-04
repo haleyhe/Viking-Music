@@ -154,6 +154,7 @@ public class UserAccountManager {
     public void makeUserPremium(User user, boolean isPremium) {
         user.setPremium(isPremium);
         userAccountDAO.updateUser(user);
+        user.setPayment(null);
         setSessionUser(user);
     }
     

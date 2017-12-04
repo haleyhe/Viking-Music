@@ -44,6 +44,8 @@
             
             <prop key="error.UserMusic.libraryItemDuplicate">This item is already in your library.</prop>
             <prop key="error.UserMusic.libraryItemMissing">This item is not in your library.</prop>
+            <prop key="error.UserMusic.friendAccountNotFound">No account with this username exists.</prop>
+            <prop key="error.UserMusic.friendDuplicate">You are already friends with this user.</prop>
 
             <prop key="error.Form.invalidParameters">Invalid parameters.</prop>
 
