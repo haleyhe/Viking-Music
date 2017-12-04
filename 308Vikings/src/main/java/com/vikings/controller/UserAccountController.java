@@ -177,4 +177,13 @@ public class UserAccountController {
         return payment;
     }
     
+    @RequestMapping(method=RequestMethod.POST, value="/UserAccount/deleteAccount")
+    public @ResponseBody JsonResponse deleteUserForAdmin() {
+        User user = userAccountManager.getSessionUser();
+        userAccountManager.deleteUser(user.getId());
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true);
+        session.invalidate();
+        return new JsonResponse(true);
+    }
 }

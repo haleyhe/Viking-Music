@@ -1,4 +1,4 @@
-app.controller("profileController", function($scope, $http) {
+app.controller("profileController", function($scope, $location, $http) {
   $scope.resetForm = function() {
     $scope.editUser.id = $scope.user.id;
     $scope.editUser.username = $scope.user.username;
@@ -53,6 +53,25 @@ app.controller("profileController", function($scope, $http) {
         $scope.user.dateOfBirth = dob;
         $scope.resetForm();
       }, function errorCallback(response) {});
+  };
+
+  $scope.showDeleteConfirmation = function() {
+    $('.delete.modal').css("display", "block");
+  };
+
+  $scope.closeDeleteConfirmation = function() {
+    $(".delete.modal").css("display", "none");
+  };
+
+  $scope.deleteAccount = function() {
+    $http.post('/308Vikings/UserAccount/deleteAccount',{})
+      .then(
+        function successCallback(response) {
+          if (response.status == 200) {
+            window.location.replace("/308Vikings/");
+          }
+        },
+        function errorCallback(response) {});
   };
 
   $("#username-input").attr("disabled", "disabled");
