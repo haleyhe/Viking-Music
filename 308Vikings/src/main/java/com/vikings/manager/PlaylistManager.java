@@ -4,6 +4,7 @@ import com.vikings.dao.PlaylistDAO;
 import com.vikings.domain.Playlist;
 import com.vikings.domain.PlaylistSong;
 import com.vikings.domain.Song;
+import com.vikings.domain.User;
 import com.vikings.domain.identifier.PlaylistIdentifier;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,9 @@ public class PlaylistManager {
     
     @Autowired
     SongManager songManager;
+    
+    @Autowired
+    UserMusicManager userMusicManager;
     
     Map<String, Playlist> playlistCache;
     
@@ -194,8 +198,10 @@ public class PlaylistManager {
    
     public void unfollowPlaylist (String playlistId) {
        Playlist playlist = getPlaylist(playlistId);
-       playlist.setNumFollowers(playlist.getNumFollowers()-1);
-   }
+       if (playlist != null) {
+            playlist.setNumFollowers(playlist.getNumFollowers()-1);
+       }
+       }
     
    private boolean isValidPlaylistUpdate (Playlist playlist) {
        if (playlist.getName().trim().length() == 0) {
@@ -208,7 +214,9 @@ public class PlaylistManager {
        return playlistDAO.getPlaylistsByCreator(creatorId);
    }
    
-   public void deletePlaylist(String playlistId) {
+   public void deletePlaylist(User user, String playlistId) {
        playlistDAO.deletePlaylist(playlistId);
+       playlistCache.remove(playlistId);
+       userMusicManager.removePlaylistFromLibrarySession(user, playlistId);
    }
 }

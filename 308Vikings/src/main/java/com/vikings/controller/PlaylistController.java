@@ -200,7 +200,13 @@ public class PlaylistController {
     
     @RequestMapping(method=RequestMethod.POST, value="/Playlist/deletePlaylist")
     public @ResponseBody JsonResponse deletePlaylist(@RequestBody IdRequest idReq) {
-        playlistManager.deletePlaylist(idReq.getId());
-        return new JsonResponse(true);
+        User user = userAccountManager.getSessionUser();
+        String playlistId = idReq.getId();
+        if (!isUserPlaylistCreator(playlistId)){
+            return new JsonResponse(false,System.getProperty("error.Playlist.notCreator"));
+        } else {
+            playlistManager.deletePlaylist(user, playlistId);
+            return new JsonResponse(true);
+        }
     }
 }

@@ -1,18 +1,22 @@
 jQuery(document).ready(function ($) {
 });
 
-app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
+app.controller("getDetailArtist", function ($scope, $http, $location, $routeParams) {
     $http({
       method: 'GET',
       url: '/308Vikings/Artist/getArtistPageDetails',
       headers: {'Content-Type': 'application/json'},
       params: {id: $routeParams.id}
     }).then(function successCallback(response) {
-      $scope.artistdata = response.data;
+      if (response.data.id != null) {
+        $scope.artistdata = response.data;
+      } else {
+        $location.path('/').replace();
+      }
       $('#artistOverview').show();
       $('#loading').css("display", "none");
     }, function errorCallback(response) {});
-    
+
     $("#artistOverview").css("display", "none");
     $("#artistBio").css("display", "none");
     $("#artistConcerts").css("display", "none");
@@ -35,7 +39,7 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
        $('#relatedArtists').show();
     }
    });
-   
+
     $scope.reloadArtist = function() {
       $http({
         method: 'GET',
@@ -44,10 +48,14 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
         params: {id: $routeParams.id}
 
       }).then(function successCallback(response) {
+        if (response.data.id != null) {
           $scope.artistdata = response.data;
+        } else {
+          $location.path('/').replace();
+        }
       }, function errorCallback(response) {});
     };
-    
+
     $scope.followArtist = function() {
         $('.pages').css("display", "none");
         $("#loading").css("display", "block");
@@ -85,7 +93,7 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
         $('#artistOverview').show();
         $("#loading").css("display", "none");
     };
-   
+
 });
 
 app.controller("getAllArtist", function ($scope, $http) {
@@ -108,14 +116,14 @@ app.filter("convertMilSec", function(){
  app.filter('objectLength', function(){
      return function(object){
          var count = 0;
-        
+
         for (var i in object){
             count++;
         }
         return count;
      }
  });
- 
+
  app.filter('lineBreaks', function(){
      return function(input){
          var line = input;
@@ -124,7 +132,7 @@ app.filter("convertMilSec", function(){
          return input;
      }
  });
- 
+
  app.filter("sanitize", ['$sce', function($sce) {
         return function(htmlCode){
             return $sce.trustAsHtml(htmlCode);
