@@ -49,7 +49,6 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
     };
     
     $scope.followArtist = function() {
-        console.log("this is happening");
         $('.pages').css("display", "none");
         $("#loading").css("display", "block");
         $http.post('/308Vikings/UserMusic/followArtist', {id:$scope.artistdata.id}, {
@@ -65,7 +64,6 @@ app.controller("getDetailArtist", function ($scope, $http, $routeParams) {
           }, function errorCallback(response) {});
         $('.pages').css("display","none");
         $('#artistOverview').show();
-        console.log("nothing is showing");
         $("#loading").css("display", "none");
     };
 
