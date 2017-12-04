@@ -84,6 +84,12 @@
                       templateUrl : "${home}component/search.jsp",
                       controller: "searchController"
                   })
+                  .when("/billing", {
+                      templateUrl : "${home}component/billing.jsp"
+                  })
+                  .when("/friends", {
+                      templateUrl : "${home}component/friends.jsp"
+                  })
                   .otherwise({
                       redirectTo: "/"
                   });
@@ -99,6 +105,7 @@
         <script type="text/javascript" src="<c:url value="/js/upgrade.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/search.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/profile.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/friends.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
@@ -209,6 +216,8 @@
                         <div class=user-dropdown-menu>
                           <a href="#!profile"><button>Account</button></a>
                           <a href="#!billing"><button>Billing</button></a>
+                          <a href="#!friends"><button>Friends</button></a>
+
                           <c:choose>
                             <c:when test="${user.admin}">
                                 <form id="to-admin-portal-form">
