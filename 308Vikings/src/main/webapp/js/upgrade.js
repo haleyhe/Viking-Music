@@ -1,16 +1,25 @@
 app.controller("premiumController", function($scope, $rootScope, $http) {
-  $scope.ccCompanies = ['VISA','MASTERCARD','AMEX','DISCOVER'];
-  $scope.getUser = function () {
+  $scope.getUserPremium = function () {
     $http.get("/308Vikings//UserAccount/getSessionUser")
     .then(function successCallback(response) {
-        $rootScope.user = response.data;
+        $rootScope.premium = response.data.premium;
+        if ($rootScope.premium) {
+          $scope.getPayment();
+        }
     }, function errorCallback(response) {
     });
   };
-  $scope.getUser();
+
+  $scope.getPayment= function () {
+    $http.get("/308Vikings/UserAccount/getPayment")
+    .then(function successCallback(response) {
+        $scope.payment = response.data;
+    }, function errorCallback(response) {
+    });
+  };
 
   $scope.resetForm = function () {
-    $scope.payment = {}
+    $scope.payment = {};
     $scope.expiration = {};
     $scope.street1 = null;
     $scope.street2 = null;
@@ -35,8 +44,8 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
       .then(
         function successCallback(response) {
           if (response.status == 200 && response.data.success) {
-            $scope.getUser();
             $scope.resetForm();
+            $scope.getUserPremium();
           } else {
             //replace to display data module
             alert(response.data.error);
@@ -55,7 +64,7 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
       .then(
         function successCallback(response) {
           if (response.status == 200 && response.data.success) {
-            $scope.getUser();
+            $scope.getUserPremium();
             $scope.resetForm();
           } else {
             //replace to display data module
@@ -65,4 +74,7 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
     $("#loading").css("display", "none");
   };
 
+
+  $scope.ccCompanies = ['VISA','MASTERCARD','AMEX','DISCOVER'];
+  $scope.getUserPremium();
 });

@@ -112,12 +112,13 @@ $(document).ready(function() {
   });
 });
 
-app.controller("globalController", function ($scope, $rootScope, $http) {
+app.controller("globalController", function ($scope, $rootScope, $location, $http) {
   $scope.getUser = function() {
     $http.get('/308Vikings/UserAccount/getSessionUser')
     .then(function mySuccess(response) {
         $rootScope.userId = response.data.id;
         $rootScope.username = response.data.username;
+        $rootScope.premium = response.data.premium;
     }, function myError(response) {
         $scope.name = response.statusText;
     });
@@ -155,7 +156,7 @@ app.controller("globalController", function ($scope, $rootScope, $http) {
             if(!response.data.success){
                 ("#message-modal").css("display", "block");
                 $('#message').html(response.data.error);
-            } else if ($location.path() == "/songs"){
+            } else if ($location.path() == "/library/songs"){
                 delete savedSongs[songId];
                 var songLen = songList.length;
                 for (var i = 0; i < songLen; i++) {

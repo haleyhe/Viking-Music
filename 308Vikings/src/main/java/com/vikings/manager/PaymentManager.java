@@ -180,4 +180,12 @@ public class PaymentManager {
         return paymentDAO.getStatistics();
     }
     
+    public void unlinkPaymentForUser(String userId) {
+        paymentDAO.unlinkPaymentForUser(userId);
+    } 
+    
+    public Payment getPaymentForUser(String userId) {
+        return paymentDAO.getPaymentForUser(userId);
+    }
+    
 }

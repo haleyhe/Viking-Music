@@ -11,8 +11,7 @@
 
         <div class="pages">
           <div class='container' style="padding: 20px;">
-
-            <div id="upgrade-form-container" ng-hide="user.premium">
+            <div id="upgrade-form-container" ng-hide="premium">
               <h1>
                 Upgrade to Premium now
               </h1>
@@ -40,9 +39,23 @@
               </form>
             </div>
 
-            <div id="upgraded-container" ng-show="user.premium">
-                <h1> Congratulations! You are now a premium user! </h1>
+            <div id="upgraded-container" ng-show="premium">
+                <h1> You are a premium user! </h1>
+                <hr class="style14" style="width:70%"></div>
+                <div>
+                    <h2> Payment Information </h2>
+                    <ul class=menutabs>
+                    <li><b>Name:</b> {{payment.name.firstName}} {{payment.name.lastName}}</li>
+                    <li><b>Card Number:</b> {{payment.cardNumber}}</li>
+                    <li><b>Expiration Date:</b> {{payment.expirationDate | date:'MM/yy'}} </li>
+                    <li><b>Address:</b> {{payment.billingAddress.street}} </li>
+                    <li><b>City:</b> {{payment.billingAddress.city}}</li>
+                    <li><b>State:</b> {{payment.billingAddress.state}}</li>
+                    <li><b>Zipcode:</b> {{payment.billingAddress.zip}}</li>
+                    <li><b>Phone Number:</b> {{payment.phoneNum}}</li>
+                  </ul>
 
+                </div>
                 <form id ='downgrade-form'>
                   <button type="submit" ng-click="downgrade()" class="pageButton"> Downgrade</button>
                 </form>

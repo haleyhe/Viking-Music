@@ -30,8 +30,7 @@ function signup() {
         url: "/308Vikings/UserAccount/registerUser",
         data: JSON.stringify(newUser),
         dataType: 'json',
-        async: true,
-        timeout: 100000
+        async: true
     }).done(function(data) {
         $("#startup-error").css("display", "block");
         if(!data.success){
@@ -56,8 +55,7 @@ function login() {
         url: "/308Vikings/UserAccount/processLogin",
         data: JSON.stringify(loginRequest),
         dataType: 'json',
-        async: true,
-        timeout: 100000
+        async: true
     }).done(function(data) {
         hideLoading();
         if(!data.success) {
@@ -75,8 +73,7 @@ function logout() {
     $.ajax({
         type: "GET",
         url: "/308Vikings/UserAccount/logout",
-        async: true,
-        timeout: 100000
+        async: true
     }).done(function(data) {
         window.location.replace("/308Vikings/");
     });

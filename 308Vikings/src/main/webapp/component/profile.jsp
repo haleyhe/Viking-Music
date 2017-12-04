@@ -40,6 +40,33 @@
           <a ng-click="showUpdateAccount()"> Back to overview </a>
         </div>
       </div>
+
+      <br>
+      <br>
+      <div id="delete-account-container">
+        <div class="container">
+          <form id="profile-form">
+                <button type="submit" ng-click="showDeleteConfirmation()" class="pageButton"> Delete Account</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteAccountModal">
+      <div class="delete modal">
+        <div class=modal-content>
+          <div>Delete Account</div>
+          <hr class="style15" style="width:70%">
+            <form id="delete-playlist-form">
+                  <p> Are you sure you want to delete your account? </p>
+                  <button type="submit" class="pageButton" ng-click="deleteAccount()">Yes</button>
+                  <button class="pageButton" ng-click="closeDeleteConfirmation()">No</button>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
   </body>
 </html>

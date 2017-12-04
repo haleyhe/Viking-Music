@@ -51,10 +51,11 @@
                   </div>
                   <td>{{song.name}}</td>
                   <td>
-                    <a ng-repeat="songartists in song.artists">{{songartists.name}}
+                    <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
+                      {{songartists.name}}
                     </a>
                   </td>
-                  <td>{{song.album.name}}</td>
+                  <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
                   <td>{{song.duration  | convertMilSec}}</td>
                 </table>
                 <hr class="style14" style="width:70%"></div>
@@ -80,7 +81,7 @@
                       <li class=albumname>
                         <a id="{{album.id}}"  href="#!album/{{album.id}}">{{album.name}}</a>
                       </li>
-                      <li class=albumartist>{{album.artists[0].name}}</li>
+                      <li class=albumartist><a href="#!artists/{{album.artists[0].id}}">{{album.artists[0].name}}</a></li>
                     </div>
                   </div>
                   <hr class="style14" style="width:70%"></div>
@@ -100,11 +101,11 @@
                     </div>
                     <div class="artistitems"  style="margin-bottom:50px">
                       <div ng-repeat="artist in searchArtists">
-                        <a ng-click="getArtistJson($event)">
+                        <a href="#!artists/{{artist.id}}">
                           <img class=artistimg id="{{artist.id}}" ng-src="${home}/css/artist/{{artist.id}}.jpg"></img>
                         </a>
                         <li class="artistname">
-                          <a id="{{artist.id}}" ng-click="getArtistJson($event)">{{artist.name}}</a>
+                          <a id="{{artist.id}}" href="#!artists/{{artist.id}}">{{artist.name}}</a>
                         </li>
                       </div>
                     </div>

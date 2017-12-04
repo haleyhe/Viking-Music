@@ -22,7 +22,7 @@ public interface PaymentMapper {
     
     public void linkPaymentToUser(@Param("userId") String userId, @Param("cardNumber") String cardNumber);
     
-    public void unlinkPaymentForUser(String userId);
+    public void unlinkPaymentForUser(@Param("userId") String userId);
     
     public Payment getPaymentForUser(String userId);
     
