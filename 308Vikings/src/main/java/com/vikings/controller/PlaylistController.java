@@ -209,4 +209,13 @@ public class PlaylistController {
             return new JsonResponse(true);
         }
     }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Playlist/getPlaylistsBySessionUser")
+    public @ResponseBody PlaylistsResponse getPlaylistsBySessionUser() {
+        User user = userAccountManager.getSessionUser();
+        if (user == null)
+            return new PlaylistsResponse(new ArrayList<PlaylistIdentifier>());
+        else
+            return new PlaylistsResponse(playlistManager.getPlaylistsByCreator(user.getId()));
+    }
 }
