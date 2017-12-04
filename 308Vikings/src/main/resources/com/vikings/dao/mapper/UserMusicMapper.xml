@@ -68,6 +68,7 @@
         <association property="playlistIdentifier" javaType="com.vikings.domain.identifier.PlaylistIdentifier">
             <id property="id" column="playlist_id"/>
             <result property="name" column="playlist_name"/>
+            <result property="numFollowers" column="playlist_num_followers"/>
             <association property="creator" javaType="com.vikings.domain.identifier.UserIdentifier">
                 <id property="id" column="playlist_creator_id"/>
                 <result property="name" column="playlist_creator_name"/>
@@ -112,7 +113,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
@@ -252,7 +259,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
@@ -336,7 +349,14 @@
             p.name as 'playlist_name',
             u.userId as 'playlist_creator_id',
             u.username as 'playlist_creator_name',
-            upf.dateFollowed as 'playlist_date_added'
+            upf.dateFollowed as 'playlist_date_added',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserPlaylistsFollowed upf
+            WHERE
+                upf.playlistId = p.playlistId)
+            as 'playlist_num_followers'
         FROM
             UserPlaylistsFollowed upf
         LEFT JOIN
@@ -362,7 +382,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
@@ -404,7 +430,13 @@
             s.discNumber as 'song_discnumber',
             s.trackNumber as 'song_tracknumber',
             s.lyrics as 'song_lyrics',
-            s.numPlays as 'song_numplays',
+            (SELECT
+                COUNT(*)
+            FROM
+                UserSongsPlayed usp
+            WHERE
+                usp.songId = s.songId)
+            as 'song_numplays',
             a.artistId as 'artist_id',
             a.name as 'artist_name',
             al.albumId as 'album_id',
