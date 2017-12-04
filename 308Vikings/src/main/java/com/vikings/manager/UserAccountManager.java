@@ -17,7 +17,7 @@ public class UserAccountManager {
 
     @Autowired
     UserAccountDAO userAccountDAO;
-
+   
     /**
      * Checks if the given user exists.
      *
@@ -156,5 +156,5 @@ public class UserAccountManager {
         userAccountDAO.updateUser(user);
         setSessionUser(user);
     }
-
+    
 }

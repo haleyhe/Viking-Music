@@ -158,9 +158,23 @@ public class UserAccountController {
     @RequestMapping(method=RequestMethod.POST, value="/UserAccount/downgrade")
     public @ResponseBody JsonResponse upgradeToPremium() {
         User user = userAccountManager.getSessionUser();
+        paymentManager.unlinkPaymentForUser(user.getId());
         userAccountManager.makeUserPremium(user, false);
         return new JsonResponse(true);
     }
     
+    @RequestMapping(method=RequestMethod.GET, value="/UserAccount/getPayment")
+    public @ResponseBody Payment getPayment() {
+        User user = userAccountManager.getSessionUser();;
+        Payment payment = paymentManager.getPaymentForUser(user.getId());
+        payment.setCvv(null);
+        String cardNum = payment.getCardNumber();
+        cardNum = "XXXX-XXXX-XXXX-" + cardNum.substring(12);
+        payment.setCardNumber(cardNum);
+        String phone = payment.getPhoneNum();
+        phone = "(" + phone.substring(0,3) + ") " + phone.substring(3,6) + "-" + phone.substring(6);
+        payment.setPhoneNum(phone);
+        return payment;
+    }
     
 }

@@ -76,16 +76,13 @@
                       templateUrl : "${home}component/indivPlaylist.jsp",
                       controller: "indivPlaylistController"
                   })
-                  .when("/upgrade", {
+                  .when("/billing", {
                       templateUrl : "${home}component/upgrade.jsp",
                       controller: "premiumController"
                   })
                   .when("/search", {
                       templateUrl : "${home}component/search.jsp",
                       controller: "searchController"
-                  })
-                  .when("/billing", {
-                      templateUrl : "${home}component/billing.jsp"
                   })
                   .otherwise({
                       redirectTo: "/"
@@ -101,7 +98,6 @@
         <script type="text/javascript" src="<c:url value="/js/library.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/upgrade.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/search.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/billing.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/profile.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -134,7 +130,6 @@
                         <a href="#!library/songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
                         <a href="#!library/albums"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
                         <a href="#!library/artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
-                        <!--<a href="#!concert"><li class="tab-link" data-tab="menutab-5">Concert</li></a> -->
                         <a href="#!library/playlists"><li class="tab-link" data-tab="menutab-5">Playlist</li></a>
                       </b>
                     </ul>
@@ -206,7 +201,7 @@
                     </div>
                     <div id=user-buttons style="float:right">
                       <ul >
-                        <li style="margin-right: 2%;"><a href="#!upgrade"><b>UPGRADE</b></a></li>
+                        <li style="margin-right: 2%;"><a href="#!billing"><b>UPGRADE</b></a></li>
                         <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
                         <li id=user-display-name style="margin-right: 2%;"><a href="#!profile">${user.username}</a></li>
                         <li><button id = dropdownbtn><b>></b></button>
@@ -233,7 +228,7 @@
 
 
                   <!--Advertisment Section-->
-                  <div class=ad>
+                  <div class="ad">
 
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
