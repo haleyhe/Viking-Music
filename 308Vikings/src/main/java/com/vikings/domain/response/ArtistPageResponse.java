@@ -39,7 +39,7 @@ public class ArtistPageResponse {
         return id;
     }
     
-    public void setId(){
+    public void setId(String id){
         this.id= id;
     }
     
@@ -47,7 +47,7 @@ public class ArtistPageResponse {
         return name;
     }
 
-    public void setName(){
+    public void setName(String name){
         this.name = name;
     }
 
