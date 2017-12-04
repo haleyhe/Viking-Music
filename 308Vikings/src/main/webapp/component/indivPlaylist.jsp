@@ -35,7 +35,8 @@
             <button class="pageButton unfollow-button" ng-if="playlistdata.following" ng-click="unfollowPlaylist()">
               <span>Following<span></button>
                 <button class="pageButton" ng-if="!playlistdata.following" ng-click="followPlaylist()">Follow</button>
-                <button class="pageButton" ng-click="showEditPlaylistForm()">Edit</button>
+                <button class="pageButton" ng-click="showEditPlaylistForm()" ng-if="userId == playlistdata.playlist.creator.id">Edit</button>
+                <button class="pageButton" ng-click="showDeletePlaylistForm()" ng-if="userId == playlistdata.playlist.creator.id">Delete</button>
               </p>
               <hr class="style14" style="width:70%"></div>
 
@@ -85,6 +86,22 @@
                               <div>
                                 <button type="submit" class="pageButton" ng-click="updatePlaylist()">Edit</button>
                                 <button class="pageButton" ng-click="closeEditPlaylistForm()">Close</button>
+                              </div>
+                          </form>
+                      </div>
+                      </div>
+                  </div>
+
+                  <!-- Delete Playlist Modal -->
+                  <div id="deletePlaylistModal">
+                    <div class="delete modal">
+                      <div class=modal-content>
+                        <div>Delete Playlist</div>
+                        <hr class="style15" style="width:70%">
+                          <form id="delete-playlist-form">
+                                <p> Are you sure you want to delete this playlist? </p>
+                                <button type="submit" class="pageButton" ng-click="deletePlaylist()">Yes</button>
+                                <button class="pageButton" ng-click="closeDeletePlaylistForm()">No</button>
                               </div>
                           </form>
                       </div>

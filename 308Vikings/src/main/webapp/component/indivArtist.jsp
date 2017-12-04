@@ -9,7 +9,7 @@
         <link href="<c:url value="/css/indivArtists.css" />" rel="stylesheet">    </head>
     <body>
      <ng-controller = "getDetailArtist">
-      <div class="pages" id="artistOverview">     
+      <div class="pages" id="artistOverview">
 
         <div class ="artisttab">
          <ul>
@@ -19,13 +19,13 @@
           <li class="tab-link" data-tab="artisttab-4">Related Artists</li>
          </ul>
         </div>
-         
+
            <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
                <img style="margin: 10px;-top: 10px; margin-right: 30px;" class=artistIndivimg ng-src="${home}/css/artist/{{artistdata.id}}.jpg"></img>
                <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{artistdata.name}}</h1>
 
                <p style="margin-bottom: 150px;">
-                   <button class="pageButton unfollowbutton-button" ng-if="artistdata.following" ng-click="unfollowArtist()">
+                   <button class="pageButton unfollow-button" ng-if="artistdata.following" ng-click="unfollowArtist()">
                          <span>Following<span></button>
                            <button class="pageButton" ng-if="!artistdata.following" ng-click="followArtist()">Follow</button>
                    </p>
@@ -51,7 +51,7 @@
              <td>{{song.name}}</td>
              <td>{{song.duration | convertMilSec}}</td>
            </tr>
-         </table> 
+         </table>
          <br />
          <br />
           <h2> Albums </h2>
@@ -61,10 +61,10 @@
               <a href = "#!/album/{{album.id}}"><img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img></a>
               <li class=albumname><a id="{{album.id}}" href = "#!/album/{{album.id}}">{{album.name}}</a></li>
              </div>
-            </div>   
+            </div>
        </div>
 
-       <div class="pages" id="artistBio">     
+       <div class="pages" id="artistBio">
          <div class ="artisttab">
          <ul>
           <li class="tab-link" data-tab="artisttab-1">Overview</li>
@@ -84,10 +84,10 @@
          </div>
         <div class ="bio">
          <p ng-bind-html= "artistdata.bio | lineBreaks | sanitize"></p>
-        </div> 
+        </div>
        </div>
 
-       <div class="pages" id="artistConcerts">     
+       <div class="pages" id="artistConcerts">
         <div class ="artisttab">
          <ul>
           <li class="tab-link" data-tab="artisttab-1">Overview</li>
@@ -108,11 +108,11 @@
           <div ng-hide="(artistdata.concerts | objectLength) !== 0">
                <h1 style = "text-align: center;"> This artist has not current concerts </h1>
          </div>
-         
+
          <br />
          <br />
          <br />
-         
+
          <div ng-hide="(artistdata.concerts | objectLength) === 0">
              <table style = "padding-left: 30px;" align = "center">
                  <tr class>
@@ -136,7 +136,7 @@
              </table>
          </div>
       </div>
-      <div class="pages" id="relatedArtists">     
+      <div class="pages" id="relatedArtists">
         <div class ="artisttab">
          <ul>
           <li class="tab-link" data-tab="artisttab-1">Overview</li>
@@ -156,15 +156,15 @@
          </div>
           <br />
           <br />
-          
+
           <h2> Related Artists </h2>
           <div class=artistitems>
            <div ng-repeat="artist in artistdata.relatedArtists | limitTo: 8">
             <a href = "#!/artists/{{artist.id}}"><img class=artistimg id ="{{artist.id}}" ng-src="${home}/css/artist/{{artist.id}}.jpg"></img></a>
             <li class = "artistname"><a id="{{artist.id}}" href= "#!/artists/{{artist.id}}">{{artist.name}}</a></li>
            </div>
-          </div>   
+          </div>
       </div>
-                 
+
   </body>
 </html>

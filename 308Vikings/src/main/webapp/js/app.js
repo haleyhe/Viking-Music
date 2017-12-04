@@ -38,15 +38,15 @@ $(document).ready(function() {
     }
     if ($(this).attr('data-tab') === 'menutab-3') {
       $('.pages').css("display", "none");
-      $('#albumpage').show();
+      $('#libraryAlbumsPage').show();
     }
     if ($(this).attr('data-tab') === 'menutab-4') {
       $('.pages').css("display", "none");
-      $('#artistpage').show();
+      $('#libraryArtistsPage').show();
     }
     if ($(this).attr('data-tab') === 'menutab-5') {
       $('.pages').css("display", "none");
-      $('#playlistPage').show();
+      $('#libraryPlaylistsPage').show();
     }
   });
 
@@ -112,7 +112,18 @@ $(document).ready(function() {
   });
 });
 
-app.controller("globalController", function ($scope, $location, $http) {
+app.controller("globalController", function ($scope, $rootScope, $http) {
+  $scope.getUser = function() {
+    $http.get('/308Vikings/UserAccount/getSessionUser')
+    .then(function mySuccess(response) {
+        $rootScope.userId = response.data.id;
+        $rootScope.username = response.data.username;
+    }, function myError(response) {
+        $scope.name = response.statusText;
+    });
+  };
+  $scope.getUser();
+
   $scope.saveSong = function(songId, savedSongs) {
       $("#loading").css("display", "block");
       $http.post('/308Vikings/UserMusic/saveSong', {id:songId}, {
@@ -132,7 +143,6 @@ app.controller("globalController", function ($scope, $location, $http) {
   };
 
   $scope.unsaveSong = function(songId, savedSongs, songList) {
-      console.log($location.path());
       $("#loading").css("display", "block");
       $http.post('/308Vikings/UserMusic/unsaveSong', {id:songId}, {
           headers: {

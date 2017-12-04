@@ -10,7 +10,7 @@ app.controller('getSession', function($scope, $http) {
     });
 });
 
-app.controller("getDetailAlbum", function ($scope, $routeParams, $http) {
+app.controller("getDetailAlbum", function ($scope, $routeParams, $location, $http) {
         $('.pages').css("display","none");
         $("#loading").css("display", "block");
 
@@ -22,7 +22,11 @@ app.controller("getDetailAlbum", function ($scope, $routeParams, $http) {
 
         }).then(function successCallback(response) {
             $('#indivAlbumPage').show();
-            $scope.albumdata = response.data;
+            if (response.data.album != null) {
+              $scope.albumdata = response.data;
+            } else {
+              $location.path('/').replace();
+            }
             $("#loading").css("display", "none");
     }, function errorCallback(response) {});
 
@@ -34,7 +38,11 @@ app.controller("getDetailAlbum", function ($scope, $routeParams, $http) {
         params: {id: $routeParams.id}
 
       }).then(function successCallback(response) {
+        if (response.data.album != null) {
           $scope.albumdata = response.data;
+        } else {
+          $location.path('/').replace();
+        }
       }, function errorCallback(response) {});
     };
 
@@ -88,4 +96,5 @@ app.controller("getAllAlbum", function ($scope, $http) {
       $("#loading").css("display", "none");
       $scope.data = response.data;
     }, function errorCallback(response) {});
+    $scope.pageName = "All Albums";
 });

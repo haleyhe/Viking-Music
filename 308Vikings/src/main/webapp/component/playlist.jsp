@@ -13,7 +13,7 @@
       <div class="pages" id="playlistPage">
         <div class="container">
           <div id="menutab-5" class="menutab-content">
-            <h2>Playlists</h2>
+            <h2>{{pageName}}</h2>
             <hr class="style14">
               <div class="playlistitems">
                 <div ng-repeat="playlist in data.playlists">

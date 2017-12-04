@@ -28,6 +28,7 @@ public class AlbumIdentifier implements Serializable {
 
     public AlbumIdentifier(Album album) {
         this.id = album.getId();
+        this.name = album.getName();
         this.artists = album.getArtists();
     }
 

@@ -14,6 +14,7 @@ app.controller("playlistController", function($scope, $http) {
 
   $scope.newDate = new Date().getTime();
   $scope.getAllPlaylists();
+  $scope.pageName = "All Playlists";
 });
 
 app.controller("createPlaylistController", function($scope, $location, $http) {
@@ -42,11 +43,6 @@ app.controller("createPlaylistController", function($scope, $location, $http) {
         if ($scope.newPlaylist.thumbnail != null && $scope.newPlaylist.thumbnail.size > 0) {
           createData.append('thumbnail', $scope.newPlaylist.thumbnail);
         }
-
-//         for (var pair of createData.entries()) {
-//     console.log(pair[0]+ ', ' + pair[1]);
-// }
-
         $http.post('/308Vikings/Playlist/createPlaylist', createData, {
             transformRequest: angular.identity,
             headers: {
@@ -59,14 +55,13 @@ app.controller("createPlaylistController", function($scope, $location, $http) {
                   $("#loading").css("display", "none");
                   $scope.closeCreatePlaylistForm();
                   newPath = '/playlist/' + response.data.error;
-                  console.log(newPath);
                    $location.path(newPath).replace();
               }
             }, function errorCallback(response) {});
       };
 });
 
-app.controller("indivPlaylistController", function($scope, $routeParams, $http) {
+app.controller("indivPlaylistController", function($scope, $routeParams, $rootScope, $location, $http) {
   $scope.getPlaylistJson = function() {
     $('.pages').css("display", "none");
     $("#loading").css("display", "block");
@@ -80,7 +75,11 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $http) 
         id: $routeParams.id
       }
     }).then(function successCallback(response) {
-      $scope.playlistdata = response.data;
+       if (response.data.playlist != null) {
+         $scope.playlistdata = response.data;
+       } else {
+         $location.path('/').replace();
+       }
     }, function errorCallback(response) {});
     $('#indivPlaylistPage').show();
     $("#loading").css("display", "none");
@@ -98,7 +97,11 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $http) 
         id: playlistId
       }
     }).then(function successCallback(response) {
-      $scope.playlistdata = response.data;
+      if (response.data.playlist != null) {
+        $scope.playlistdata = response.data;
+      } else {
+        $location.path('/').replace();
+      }
     }, function errorCallback(response) {});
   };
 
@@ -110,6 +113,36 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $http) 
   $scope.closeEditPlaylistForm = function() {
     $(".edit.modal").css("display", "none");
   };
+
+  $scope.showDeletePlaylistForm = function() {
+    $('.delete.modal').css("display", "block");
+  };
+
+  $scope.closeDeletePlaylistForm = function() {
+    $(".delete.modal").css("display", "none");
+  };
+
+  $scope.deletePlaylist = function() {
+    $('.pages').css("display", "none");
+    $("#loading").css("display", "block");
+    $http({
+      method: 'POST',
+      url: '/308Vikings/Playlist/deletePlaylist',
+      data: {
+        id: $scope.playlistdata.playlist.id
+      }
+    }).then(function successCallback(response) {
+      $scope.closeDeletePlaylistForm();
+      if (response.data.success) {
+        $location.path('/').replace();
+      } else {
+        //replace to display data module
+        alert(response.data.error);
+      }
+    }, function errorCallback(response) {});
+    $('#indivPlaylistPage').show();
+    $("#loading").css("display", "none");
+  }
 
   $scope.updatePlaylist = function() {
     $('.pages').css("display", "none");

@@ -29,9 +29,21 @@
                       templateUrl : "${home}component/history.jsp",
                       controller: "historyController"
                   })
-                  .when("/songs", {
-                      templateUrl : "${home}component/librarysongs.jsp",
+                  .when("/library/songs", {
+                      templateUrl : "${home}component/librarySongs.jsp",
                       controller: "librarySongsController"
+                  })
+                  .when("/library/playlists", {
+                      templateUrl : "${home}component/libraryPlaylists.jsp",
+                      controller: "libraryPlaylistsController"
+                  })
+                  .when("/library/albums", {
+                      templateUrl : "${home}component/libraryAlbums.jsp",
+                      controller: "libraryAlbumsController"
+                  })
+                  .when("/library/artists", {
+                      templateUrl : "${home}component/libraryArtists.jsp",
+                      controller: "libraryArtistsController"
                   })
                   .when("/album", {
                       templateUrl : "${home}component/album.jsp",
@@ -119,11 +131,11 @@
                       <h4>YOUR LIBRARY</h4>
                       <b>
                         <a href="#!history"> <li class="tab-link" data-tab="menutab-1">History</li></a>
-                        <a href="#!songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
-                        <a href="#!album"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
-                        <a href="#!artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
+                        <a href="#!library/songs"> <li class="tab-link" data-tab="menutab-2">Songs</li></a>
+                        <a href="#!library/albums"><li class="tab-link" data-tab="menutab-3">Albums</li></a>
+                        <a href="#!library/artists"><li class="tab-link" data-tab="menutab-4">Artists</li></a>
                         <!--<a href="#!concert"><li class="tab-link" data-tab="menutab-5">Concert</li></a> -->
-                        <a href="#!playlist"><li class="tab-link" data-tab="menutab-5">Playlist</li></a>
+                        <a href="#!library/playlists"><li class="tab-link" data-tab="menutab-5">Playlist</li></a>
                       </b>
                     </ul>
                   </div>

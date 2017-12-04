@@ -50,7 +50,7 @@
                </div>
 
                <td>{{song.name}}</td>
-               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}</a></label></td>
+               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}},  </a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
                <td id="nohover"><img class='play-btn' src="${home}css/more.png"></td>
              </tr>
