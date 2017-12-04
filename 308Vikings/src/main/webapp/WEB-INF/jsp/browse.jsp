@@ -23,7 +23,8 @@
               app.config(function($routeProvider) {
                   $routeProvider
                   .when("/", {
-                      templateUrl : "${home}component/overview.jsp"
+                      templateUrl : "${home}component/overview.jsp",
+                      controller: "browseController"
                   })
                   .when("/history", {
                       templateUrl : "${home}component/history.jsp",
@@ -69,8 +70,7 @@
                       controller: "profileController"
                   })
                   .when("/playlist", {
-                      templateUrl : "${home}component/playlist.jsp",
-                      controller: "playlistController"
+                      templateUrl : "${home}component/playlist.jsp"
                   })
                   .when("/playlist/:id", {
                       templateUrl : "${home}component/indivPlaylist.jsp",
@@ -90,6 +90,7 @@
               });
         </script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/browse.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
