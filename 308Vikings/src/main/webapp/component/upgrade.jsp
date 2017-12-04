@@ -41,7 +41,7 @@
 
             <div id="upgraded-container" ng-show="premium">
                 <h1> You are a premium user! </h1>
-                <hr class="style14" style="width:70%"></div>
+                <hr class="style14" style="width:70%">
                 <div>
                     <h2> Payment Information </h2>
                     <ul class=menutabs>
