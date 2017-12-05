@@ -12,6 +12,7 @@ import com.vikings.domain.response.JsonResponse;
 import com.vikings.domain.request.MarkSongAsPlayedForUserRequest;
 import com.vikings.domain.response.HistoryResponse;
 import com.vikings.domain.response.LibrarySongResponse;
+import com.vikings.domain.response.SongResponse;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserAccountManager;
 import com.vikings.manager.UserMusicManager;
@@ -26,6 +27,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -361,5 +363,11 @@ public class UserMusicController {
         user.getUserMusic().getFriends().remove(friendIdentifier);
         userAccountManager.setSessionUser(user);
         return new JsonResponse(true);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET, value="/Song/getSong")
+    public @ResponseBody SongResponse getSong(@RequestParam("id")  String id) {
+        Song song = songManager.getSong(id);
+        return new SongResponse(song);
     }
 }

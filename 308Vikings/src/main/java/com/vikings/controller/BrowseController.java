@@ -149,6 +149,7 @@ public class BrowseController {
     
     @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendations")
     public @ResponseBody RecommendationsResponse getRecommendations(@RequestParam("numSets") int numSets) {
+        int MAX_ALBUMS_PER_REC = 3;
         List<ArtistIdentifier> favoriteArtists = userMusicManager.getFavoriteArtistsForSessionUser();
         Map<String, List<AlbumIdentifier>> recommendations = new HashMap<>();
         if (favoriteArtists != null) {
@@ -158,7 +159,11 @@ public class BrowseController {
                     List<ArtistIdentifier> related = artistManager.getRelatedArtists(artist.getId());
                     if (related.size() > 0) {
                         List<AlbumIdentifier> recommendedAlbums = albumManager.getAlbumsForArtist(related.get(0).getId());
-                        recommendations.put(artist.getName(), recommendedAlbums);
+                        List<AlbumIdentifier> albumsToSend = new ArrayList();
+                        for (int j = 0; j < recommendedAlbums.size() && j < MAX_ALBUMS_PER_REC; j++) {
+                            albumsToSend.add(recommendedAlbums.get(j));
+                        }
+                        recommendations.put(artist.getName(), albumsToSend);
                     }
                 }
             }

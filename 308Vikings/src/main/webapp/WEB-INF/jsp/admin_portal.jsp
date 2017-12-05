@@ -43,10 +43,8 @@
                       <li class="tab-link" data-tab="menutab-1">Statistics</li>
                       <li class="tab-link" data-tab="menutab-2">Create User</li>
                       <li class="tab-link" data-tab="menutab-3">Edit User</li>
-                      <li class="tab-link" data-tab="menutab-4">Create Artist</li>
                       <li class="tab-link" data-tab="menutab-5">Edit Artist</li>
                       <li class="tab-link" data-tab="menutab-6">View Monthly Summary</li>
-                      <li class="tab-link" data-tab="menutab-7">Manage Song Requests</li>
                       </b>
                     </ul>
                   </div>
