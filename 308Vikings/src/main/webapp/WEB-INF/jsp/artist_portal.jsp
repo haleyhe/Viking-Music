@@ -44,8 +44,6 @@
                       <li class="tab-link" data-tab="menutab-1">Overview</li>
                       <li class="tab-link" data-tab="menutab-2">Edit Info</li>
                       <li class="tab-link" data-tab="menutab-3">View Summary</li>
-                      <li class="tab-link" data-tab="menutab-4">Request Song</li>
-                      <li class="tab-link" data-tab="menutab-5">Remove Song</li>
                       </b>
                     </ul>
                   </div>
