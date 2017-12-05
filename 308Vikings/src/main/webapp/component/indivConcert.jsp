@@ -17,10 +17,12 @@
 
                 <hr class = "style14">
                 <br/>
-                <h2> Tickets : <a href="{{concert.concert.ticketingUrl}}">Get Tickets Here </a></h2>
+                <h2> Tickets : </h2>
+                <h3 style = "padding-left: 100px;"><a href="{{concert.concert.ticketingUrl}}" target="_blank">Get Tickets Here </a></h3>
                 
-                <h2 style = "margin-bottom:0px;"> Venue Location </h2>
-                <h3 style = "margin-bottom: 0px; margin-top:0px;padding-left:100px;"> {{concert.concert.venue.address.street}}</h3>
+                <br/>
+                <h2> Venue Address: </h2>
+                <h3 style = "margin-bottom: 0px;padding-left:100px;"> {{concert.concert.venue.address.street}}</h3>
                 <h3 style = "margin-top:0px;padding-left:100px;"> {{concert.concert.venue.address.city}}, {{concert.concert.venue.address.state}} {{concert.concert.venue.address.zip}} </h3>
                 
                 <br/>
