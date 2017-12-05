@@ -7,24 +7,27 @@
     <c:url var="home" value="/" scope="request"/>
   </head>
   <body>
+    <div  style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
     <div class="pages" id="profilePage">
       <div id="account-overview-container">
         <div class="container">
           <h1> Account Overview </h1>
+          <div class="user-form" id="profile">
           <form id="profile-form">
-                Username: <input id="username-input" type="text" ng-model="editUser.username" readonly/> <br>
-                Email: <input type="email" ng-model="editUser.email" placeholder="Email"/> <br>
-                DOB: <input type="date" ng-model="editUser.dateOfBirth"/> <br>
-                Location Zipcode <input type="text" ng-model="editUser.zip"> <br>
+                <label> Username: </label> <input id="username-input" type="text" ng-model="editUser.username" readonly/> <br>
+                <label> Email: </label> <input type="email" ng-model="editUser.email" placeholder="Email"/> <br>
+                <label> DOB: </label> <input type="date" ng-model="editUser.dateOfBirth"/> <br>
+                <label> Zipcode: </label> <input type="text" ng-model="editUser.zip"> <br>
                 <button type="submit" ng-click="updateUser()" class="pageButton"> Update </button>
                 <button type="submit" ng-click="resetForm()" class="pageButton"> Reset</button>
           </form>
         </div>
+        </div>
         <br>
-        <a ng-click="showChangePassword()"> Click Here to Change your Password </a>
+        <%-- <a ng-click="showChangePassword()"> Click Here to Change your Password </a> --%>
       </div>
 
-      <div id="change-password-container">
+      <%-- <div id="change-password-container">
         <div class="container">
           <h1> Change Password </h1>
           <form name="reset-password-form">
@@ -39,7 +42,7 @@
           <br>
           <a ng-click="showUpdateAccount()"> Back to overview </a>
         </div>
-      </div>
+      </div> --%>
 
       <br>
       <br>

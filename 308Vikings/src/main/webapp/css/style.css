@@ -105,24 +105,29 @@ hr.style15 {
 }
 
 .user-form label {
-  width: 125px;
+  width: 160px;
+  display: inline-block;
+}
+
+#profile label {
+  width: 80px;
   display: inline-block;
 }
 
 .user-form input{
     height: 20px;
-    width: 150px;
-    font-size: 1em;
+    width: 200px;
     margin-bottom: 5px;
 }
 .user-form select{
   height: 20px;
-  width: 150px;
-  font-size: 1em;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  width: 200px;
+  margin-bottom: 5px;
 }
 
+.user-form .date {
+  width: 50px;
+}
 
 .user-form button {
   font-family: 'Raleway', sans-serif;

@@ -98,7 +98,7 @@
                   });
               });
         </script>
-        
+
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/browse.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
@@ -198,7 +198,7 @@
                   </div>
                   <div style="width: 25%;">
                       <div style="text-align: right;">
-                          <button id="lyricsbtn">Show Lyrics</button>    
+                          <button id="lyricsbtn">Show Lyrics</button>
                           <button id="queuelistbtn" style="margin-top:5px">Show Queue</button>
                       </div>
                          <div id="lyrics" style="text-align: center; padding-top: 50px;">No Lyrics to show! Play a Music</div>
@@ -256,9 +256,11 @@
                     <div id="adclose" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;"> x</div>
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
+
                   <div ng-controller="globalController">
-                  <div ng-view></div>
+                    <div ng-view></div>
                   </div>
+
                 </div>
                 </div>
                 <div id='loading' class="error modal">
@@ -266,12 +268,16 @@
                         <img src=${home}css/loading.gif></img>
                     </div>
                 </div>
+
                 <div id="message-modal"  class="error modal">
                     <div class="modal-content">
                         <div id="message"></div>
                         <button class="close pageButton">Close</button>
                     </div>
                 </div>
+              </div>
+
+
     </body>
     <script>
         $('#dropdownbtn').click(function(e){

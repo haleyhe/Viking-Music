@@ -29,11 +29,11 @@
                 </div>
 
                 <div id="credit-card-container">
-                  Credit Card Type <select ng-model="payment.creditCardCompany" ng-options="x for x in ccCompanies" form="upgrade-form"></select> <br>
-                  Credit Card Number: <input type="text" ng-model="payment.cardNumber" required/> <br>
-                  CVV: <input type="text" ng-model="payment.cvv" required/> <br>
-                  Expiration Date: <input type="number"  min="1" max="12" placeholder="MM"ng-model="expiration.month" required/>
-                  <input type="number"  min="1" max="99" placeholder="YY" ng-model="expiration.year" required/> <br>
+                  <label> Credit Card Type </label><select ng-model="payment.creditCardCompany" ng-options="x for x in ccCompanies" form="upgrade-form"></select> <br>
+                  <label> Credit Card Number: </label><input type="text" ng-model="payment.cardNumber" required/> <br>
+                  <label> CVV: </label><input type="text" ng-model="payment.cvv" required/> <br>
+                  <label> Expiration Date: </label><input class="date" type="number"  min="1" max="12" placeholder="MM"ng-model="expiration.month" required/>
+                  <input class="date" type="number"  min="1" max="99" placeholder="YY" ng-model="expiration.year" required/> <br>
                 </div>
                 <br/>
                 <br/>
