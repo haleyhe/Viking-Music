@@ -12,50 +12,37 @@
         <div class=pages id=musicpage>
           <div class="container">
             <ul class="musictabs">
-              <li class="tab-link current" data-tab="musictab-1">Discover</li>
+              <li class="tab-link current" data-tab="musictab-1" ng-click="discoverMusic()">Discover</li>
               <li class="tab-link" data-tab="musictab-2" ng-click="getRecentReleases()"> Newly Released</li>
               <li class="tab-link" data-tab="musictab-3" ng-click="getAllGenres()">Genres & Moods</li>
               <li class="tab-link" data-tab="musictab-4">Concerts</li>
-              <li class="tab-link" data-tab="musictab-5">Chart</li>
+              <li class="tab-link" data-tab="musictab-5" ng-click="getCharts()">Chart</li>
             </ul>
 
             <div id="musictab-1" class="musictab-content current">
-              <div class=albumitems>
-                <div>
-                <img class=albumimg src="${home}/css/album/MiGente.jpg"></img>
-                <li class=albumname>Mi Gente Feat. Beyonce</li>
-                <li class=albumartist>J Balvin, Willy William</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/album/TellMeYouLoveMe.png"></img>
-                <li class=albumname>Tell Me You Love Me</li>
-                <li class=albumartist>Demi Lovato</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/album/TheBiggerArtist.jpg"></img>
-                <li class=albumname>The Bigger Artist</li>
-                <li class=albumartist>A Boogie Wit da Hoodie</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/album/NowDeluxe.png"></img>
-                <li class=albumname>Now (Deluxe)</li>
-                <li class=albumartist>Shania Twain</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/album/YoungerNow.png"></img>
-                <li class=albumname>Younger Now</li>
-                <li class=albumartist>Miley Cyrus</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/album/savagethank.jpg"></img>
-                <li class=albumname>Savage</li>
-                <li class=albumartist>Tank</li>
-                </div>
-                <div>
-                <img class=albumimg src="${home}/css/music-player-2.png"></img>
-                <li class=albumname>Seven Days</li>
-                <li class=albumartist>PARTYNEXTDOOR</li>
-                </div>
+              <div class="container">
+              <h2>{{pageName}}</h2>
+              <div>
+                  <div ng-repeat="(key, value) in discover.recommendations">
+                    <hr class="style14">
+                    <div style="margin-left:60px;">
+                    <h4> Beacuse you listened to {{key}}</h4>
+                    <div>
+                      <div class="albumitems">
+                        <div ng-repeat="album in value">
+                          <a href="#!album/{{album.id}}">
+                            <img class=albumimg ng-src="${home}/css/album/{{album.id}}.jpg" id="{{album.id}}"></img>
+                          </a>
+                          <li class=albumname>
+                            <a href="#!album/{{album.id}}">{{album.name}}</a>
+                          </li>
+                          <li class=albumartist>
+                            <a href="#!artists/{{album.artists[0].id}}">{{album.artists[0].name}}</a>
+                          </li>
+                        </div>
+                      </div>
+                  </div>
+              </div>
               </div>
             </div>
 
@@ -108,9 +95,39 @@
             </div>
 
             <div id="musictab-5" class="musictab-content">
-              <ul class=musictabs>
-                <li>Chart</li>
-              </ul>
+              <div style="margin-top: 20px; margin-bottom: 10px;">
+                      <h2> {{pageName}}</h2>
+                      <br>
+                      <hr class="style14" style="width:70%">
+                        <table class="songtable">
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>Title</td>
+                          <td>Artist</td>
+                          <td>Album</td>
+                          <td>Duration</td>
+                        </tr>
+
+                        <tr ng-repeat="song in charts.songs">
+                          <td>
+                            <img class='play-btn' src=${home}css/play-button-1.png  id="{{song.id}}" onclick="changeSong(this)"></img>
+                          </td>
+                          <div>
+                            <td>
+                                <img class='play-btn' src="${home}css/plus.png" ng-hide="charts.savedSongs[song.id]" ng-click="saveSong(song.id,charts.savedSongs)">
+                                <img class="play-btn" src="${home}css/success.png" ng-show="charts.savedSongs[song.id]" ng-click="unsaveSong(song.id,charts.savedSongs)"></td>
+                              </div>
+                              <td>{{song.name}}</td>
+                              <td>
+                                <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
+                                  {{songartists.name}},
+                                </a>
+                              </td>
+                              <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
+                              <td>{{song.duration  | convertMilSec}}</td>
+                            </table>
+                          </div>
             </div>
           </div>
         </div>

@@ -128,7 +128,10 @@ public class BrowseController {
      */
     @RequestMapping(method=RequestMethod.GET, value="/Browse/getTopSongs")
     public @ResponseBody SongsResponse getTopSongs() {
-        return new SongsResponse(songManager.getTopSongs());
+        SongsResponse songResp = new SongsResponse(songManager.getTopSongs());
+        HashMap<String,Boolean> saved = userMusicManager.findSavedSongList(songResp.getSongs());
+        songResp.setSavedSongs(saved);
+        return songResp;
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendedConcerts")

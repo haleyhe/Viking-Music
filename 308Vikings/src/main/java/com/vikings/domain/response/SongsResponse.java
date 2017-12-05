@@ -3,7 +3,7 @@ package com.vikings.domain.response;
 import com.vikings.domain.Song;
 import java.util.List;
 
-public class SongsResponse {
+public class SongsResponse extends PageResponse {
     List<Song> songs;
     
     public SongsResponse() {

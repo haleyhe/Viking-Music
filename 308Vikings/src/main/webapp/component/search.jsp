@@ -33,7 +33,6 @@
           <table class="songtable">
             <tr>
               <td></td>
-              <td></td>
               <td>Title</td>
               <td>Artist</td>
               <td>Album</td>
@@ -44,11 +43,7 @@
               <td>
                 <img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img>
               </td>
-              <div>
-                <td>
-                  <img class='play-btn' src="${home}css/plus.png" ng-hide="history.savedSongs[song.id]">
-                    <img class="play-btn" src="${home}css/success.png" ng-show="history.savedSongs[song.id]"></td>
-                  </div>
+
                   <td>{{song.name}}</td>
                   <td>
                     <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">

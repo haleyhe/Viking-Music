@@ -36,7 +36,7 @@
             <td>{{libSong.song.name}}</td>
             <td>
               <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in libSong.song.artists">
-                {{songartists.name}}
+                {{songartists.name}}, 
               </a>
             </td>
             <td>{{libSong.song.album.name}}</td>

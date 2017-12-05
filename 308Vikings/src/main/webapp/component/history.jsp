@@ -34,13 +34,13 @@
                     </td>
                     <div>
                       <td>
-                          <img class='play-btn' src="${home}css/plus.png" ng-hide="history.savedSongs[song.id]">
-                          <img class="play-btn" src="${home}css/success.png" ng-show="history.savedSongs[song.id]"></td>
+                          <img class='play-btn' src="${home}css/plus.png" ng-hide="history.savedSongs[song.id]" ng-click="saveSong(song.id,history.savedSongs)">
+                          <img class="play-btn" src="${home}css/success.png" ng-show="history.savedSongs[song.id]" ng-click="unsaveSong(song.id,history.savedSongs)"</td>
                         </div>
                         <td>{{song.name}}</td>
                         <td>
                           <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
-                            {{songartists.name}}
+                            {{songartists.name}},
                           </a>
                         </td>
                         <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
