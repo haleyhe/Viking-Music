@@ -168,13 +168,34 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   $scope.populateQueue = function(artistname, songname){      
       $('#queuetable').append("<tr><td width='300px'>"+ songname + "</td><td>"+artistname[0].name+"</td></tr>");
   };
+  
   $scope.albumToQueue = function(albumList){
+      for(var i = 0; i < albumList.album.songs.length; i++){
+         addToQueueId(albumList.album.songs[i].id);
+         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
+      }
+  };
+  $scope.getSongDetail = function(songId){
+        $http({
+          method: 'GET',
+          url: '/308Vikings/Song/getSong',
+          headers: {'Content-Type': 'application/json'},
+          params: {id: songId}
+        })
+        .then(function successCallback(response) {
+            $('#cpImg').replaceWith('<img src="' + home + '/css/album/' + response.data.song.album.id + '.jpg" style="width:55px; float:left" id="cpImg">');
+            $('#cpName').replaceWith('<div id="cpName">' + response.data.song.artists[0].name + '<br/>' + response.data.song.name + '</div>');
+            $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + response.data.song.lyrics + '<pre></div>');   
+        }, function errorCallback(response) {});
+  };
+  $scope.albumToPlay = function(albumList){
       queueList.splice(0,queueList.length);
       $('#queuetable').empty();
       for(var i = 0; i < albumList.album.songs.length; i++){
          addToQueueId(albumList.album.songs[i].id);
          $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
       }
+      playQueue();
   };
   
   $scope.saveSong = function(songId, savedSongs) {

@@ -98,11 +98,10 @@
                   });
               });
         </script>
-
+        <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/browse.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
-        <script type="text/javascript" src="<c:url value="/js/appSong.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/album.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/playlist.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/artists.js" />"></script>
@@ -256,9 +255,8 @@
                     <div id="adclose" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;"> x</div>
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
-
-                  <div ng-controller="globalController">
-                    <div ng-view></div>
+                  <div ng-controller="globalController" id="globalcontroller">
+                  <div ng-view></div>
                   </div>
 
                 </div>
