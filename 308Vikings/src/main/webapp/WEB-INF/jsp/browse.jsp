@@ -288,5 +288,22 @@
                 $(this).addClass('open');
             }
         });
+          $('#lyricsbtn').click(function() {
+        if($('#lyrics').css('display')==="none"){
+            $('#lyrics').css('display', 'block');
+        }
+        else{
+            $('#lyrics').css('display', 'none');
+        }
+        });
+
+        $('#queuelistbtn').click(function() {
+        if($('#queuelist').css('display')==="none"){
+            $('#queuelist').css('display', 'block');
+        }
+        else{
+            $('#queuelist').css('display', 'none');
+        }
+      });
     </script>
 </html>
