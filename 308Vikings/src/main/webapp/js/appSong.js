@@ -45,8 +45,9 @@ function playQueue(){
     song.load();
     song = new Audio(home + 'mp3/'  +Object.keys(queueList[currentSong])[0]  + '.mp3');
     songhandler();
+    var scope = angular.element(document.getElementById('globalcontroller')).scope();
+    scope.getSongDetail(Object.keys(queueList[currentSong])[0]);
 }
-
 function changeSong(element){
    song.load();
    song = new Audio(home + 'mp3/' + element.id + '.mp3');
@@ -70,6 +71,7 @@ function songhandler(){
             $("#seek").prop("value", song.currentTime);
         });
         song.addEventListener('ended', function(){
+            //add code for non queue song ending
             if(queueList.length-1 !== currentSong){
                 currentSong++;
                 playQueue();

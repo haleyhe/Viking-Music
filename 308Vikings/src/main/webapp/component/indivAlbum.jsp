@@ -20,7 +20,7 @@
                    <div><br>Release Date: {{albumdata.album.releaseDate |  date:' MMMM d yyyy'}}</div>
 
                    <p style="margin-bottom: 120px;">
-                       <button class="pageButton">Play</button>
+                       <button class="pageButton" ng-click="albumToPlay(albumdata)">Play</button>
                        <button class="pageButton" ng-click="albumToQueue(albumdata)")>Queue</button>
                        <button class="pageButton unsave-button" ng-if="albumdata.saved" ng-click="unsaveAlbum()">
                          <span>Saved<span></button>
