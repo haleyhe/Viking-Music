@@ -16,7 +16,7 @@
               <li class="tab-link" data-tab="musictab-2" ng-click="getRecentReleases()"> Newly Released</li>
               <li class="tab-link" data-tab="musictab-3" ng-click="getAllGenres()">Genres & Moods</li>
               <li class="tab-link" data-tab="musictab-4" ng-click="getConcertRecommendations()">Concert Recommendations</li>
-              <li class="tab-link" data-tab="musictab-5">Chart</li>
+              <li class="tab-link" data-tab="musictab-5" ng-click="getCharts()">Chart</li>
             </ul>
 
             <div id="musictab-1" class="musictab-content current">
@@ -45,6 +45,8 @@
               </div>
               </div>
             </div>
+          </div>
+        </div>
 
             <div id="musictab-2" class="musictab-content">
               <div class="container">
