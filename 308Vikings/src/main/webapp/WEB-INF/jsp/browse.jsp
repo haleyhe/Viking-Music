@@ -85,9 +85,6 @@
                       templateUrl : "${home}component/search.jsp",
                       controller: "searchController"
                   })
-                  .when("/billing", {
-                      templateUrl : "${home}component/billing.jsp"
-                  })
                   .when("/friends", {
                       templateUrl : "${home}component/friends.jsp"
                   })
