@@ -34,25 +34,26 @@ div.artisttab li.current{
     margin-top: 50px;
 }
 
-li.noBullet{
-    list-style: none;
-}
-
 td.listItems{
-    padding-right: 30px;
+    padding-right: 100px;
     font-size: 18px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px solid transparent;
     border-top: 1px solid transparent;
 }
 
 td.title{
     font-weight: bold;
-    padding-right: 30px;
+    padding-right: 100px;
     text-align: center;
     font-size: 20px;
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px solid transparent;
     border-top: 1px solid transparent;
 }
+li.noBullet{
+    list-style: none;
+    font-weight: none;
+}
+
 
 div.ends{
     pointer-events: none;

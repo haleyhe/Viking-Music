@@ -574,3 +574,23 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 #profilePage a {
   cursor: pointer;
 }
+
+td.listItems{
+    padding-right: 100px;
+    font-size: 18px;
+    border-bottom: 3px solid transparent;
+    border-top: 1px solid transparent;
+}
+
+td.title{
+    font-weight: bold;
+    padding-right: 100px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 3px solid transparent;
+    border-top: 1px solid transparent;
+}
+li.noBullet{
+    list-style: none;
+    font-weight: none;
+}

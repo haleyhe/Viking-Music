@@ -17,6 +17,7 @@ import com.vikings.manager.PlaylistManager;
 import com.vikings.manager.SongManager;
 import com.vikings.manager.UserMusicManager;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -140,7 +141,7 @@ public class BrowseController {
                 return new ConcertsResponse(concerts);
             }
         }
-        return new ConcertsResponse(new ArrayList<Concert>());
+        return new ConcertsResponse();
     }
     
     @RequestMapping(method=RequestMethod.GET, value="/Browse/getRecommendations")

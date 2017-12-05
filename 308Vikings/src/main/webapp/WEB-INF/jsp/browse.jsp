@@ -62,8 +62,9 @@
                       templateUrl : "${home}component/indivArtist.jsp",
                       controller: "getDetailArtist"
                   })
-                  .when("/concert", {
-                      templateUrl : "${home}component/concert.jsp"
+                  .when("/concert/:id", {
+                      templateUrl : "${home}component/indivConcert.jsp",
+                      controller: "getDetailConcert"
                   })
                   .when("/profile", {
                       templateUrl : "${home}component/profile.jsp",
@@ -107,6 +108,7 @@
         <script type="text/javascript" src="<c:url value="/js/search.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/profile.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/friends.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/concert.js" />"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Viking</title>
