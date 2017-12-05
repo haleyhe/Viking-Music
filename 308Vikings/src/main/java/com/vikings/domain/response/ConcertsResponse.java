@@ -9,7 +9,6 @@ public class ConcertsResponse {
     List<Concert> concerts;
     
     public ConcertsResponse() {
-        concerts = new ArrayList();
     }
     
     public ConcertsResponse(List<Concert> concerts) {
