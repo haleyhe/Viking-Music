@@ -289,6 +289,7 @@ div.menutabs li.current{
 .playerimg{
   margin: 15px 10px 0 10px;
   width: 30px;
+  border-radius: 10%
 }
 .browse{
   margin-left: 180px;
@@ -520,7 +521,7 @@ hr.style14 {
 
 input[id=seek]{
     -webkit-appearance: none;
-    width: 700px;
+    width: 90%;
 }
 input[id=volume]{
     -webkit-appearance: none;
@@ -593,4 +594,59 @@ td.title{
 li.noBullet{
     list-style: none;
     font-weight: none;
+}
+
+.moredropdown{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.moredropdown ul{
+    margin : 0;
+    padding : 0;
+}
+.moredropdown a{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+#lyricsbtn, #queuelistbtn{
+    margin-top:15px;
+    margin-right: 40px;
+    overflow: hidden;
+    outline:none;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 20px;
+    background-color: Transparent;
+    text-align: right;
+    color: white
+}
+#lyrics, #queuelist{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 600px;
+    height: 400px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:5%;
+    bottom: 120%;
+    overflow: scroll;
+}
+
+#cpName{
+    color: white;
+    margin-left: 75px;
+}
+#queuetable{
+    text-align: left;
+    padding-left: 30px;
+    padding-bottom: 50px;
 }

@@ -93,6 +93,7 @@
                   });
               });
         </script>
+        
         <script type="text/javascript" src="<c:url value="/js/app.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/browse.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/user.js" />"></script>
@@ -120,7 +121,7 @@
                   <div class=menutabs id=browserTabs>
                     <ul>
                       <li>
-                        <img id=logo src=${home}/css/viking.png></img>
+                        <img id=logo src=${home}css/viking.png></img>
                       </li>
                       <b>
                       <li><a href="#/!">Browse</a></li>
@@ -174,10 +175,8 @@
                 <div class=player-bar style="display: flex">
                   <div style="width: 25%">
                     <ul>
-                    <img src="${home}/css/album/05GcLcffb84BOLzo7BMz9W.jpg" style="width:55px; float:left">
-                    <div style="margin-left: 60px">Artist Name
-                        <br/>Song Name
-                    </p>
+                    <img src="${home}css/music-player.png" style="width:55px; float:left" id="cpImg">
+                    <div style="margin-left: 60px" id="cpName">
                     </div>
                   </div>
                   <div class=player style="width: 50%">
@@ -192,7 +191,18 @@
                     </div>
                     <div ><input type="range" id="seek" value="0" max=""/></div>
                   </div>
-                  <div style="width: 25%">
+                  <div style="width: 25%;">
+                      <div style="text-align: right;">
+                          <button id="lyricsbtn">Show Lyrics</button>    
+                          <button id="queuelistbtn" style="margin-top:5px">Show Queue</button>
+                      </div>
+                         <div id="lyrics" style="text-align: center; padding-top: 50px;">No Lyrics to show! Play a Music</div>
+                         <div id="queuelist" style="text-align: center; padding-top: 50px;">
+                             <table id="queuetable">
+                             </table>
+                             <button onclick="playQueue()" class="pageButton">Play</button>
+                             <button class="pageButton" id="queueLoopbtn">Loop</button>
+                         </div>
                   </div>
                 </div>
 
@@ -209,7 +219,7 @@
                     <div id=user-buttons style="float:right">
                       <ul >
                         <li style="margin-right: 2%;"><a href="#!billing"><b>UPGRADE</b></a></li>
-                        <li id=user-display-img><img src=${home}/css/user-4.png></img></li>
+                        <li id=user-display-img><img src=${home}css/user-4.png></img></li>
                         <li id=user-display-name style="margin-right: 2%;"><a href="#!profile">${user.username}</a></li>
                         <li><button id = dropdownbtn><b>></b></button>
 
@@ -238,7 +248,7 @@
 
                   <!--Advertisment Section-->
                   <div class="ad">
-
+                    <div id="adclose" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;"> x</div>
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
                   <div ng-controller="globalController">
@@ -248,7 +258,7 @@
                 </div>
                 <div id='loading' class="error modal">
                     <div class="loading-modal-content">
-                        <img src=${home}/css/loading.gif></img>
+                        <img src=${home}css/loading.gif></img>
                     </div>
                 </div>
                 <div id="message-modal"  class="error modal">

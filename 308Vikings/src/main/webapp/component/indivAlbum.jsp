@@ -21,7 +21,7 @@
 
                    <p style="margin-bottom: 120px;">
                        <button class="pageButton">Play</button>
-                       <button class="pageButton">Queue</button>
+                       <button class="pageButton" ng-click="albumToQueue(albumdata)")>Queue</button>
                        <button class="pageButton unsave-button" ng-if="albumdata.saved" ng-click="unsaveAlbum()">
                          <span>Saved<span></button>
                            <button class="pageButton" ng-if="!albumdata.saved" ng-click="saveAlbum()">Save</button>
@@ -31,28 +31,35 @@
 
             <h3 ng-show="albumdata.album.songs.length == 0"> This album has no songs. </h3>
             <table class="songtable" ng-hide="albumdata.album.songs.length == 0">
-             <tr>
-               <td>#<td>
-               <td></td>
-               <td>Title</td>
-               <td>Artist</td>
-               <td>Duration</td>
-               <td></td>
-             </tr>
-             <tr ng-repeat="song in albumdata.album.songs">
-              <td id="nohover"> {{song.trackNumber}} </td>
-              <td id="nohover"><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
-               <div>
-                   <td id="nohover">
-                       <a ng-click="saveSong(song.id,albumdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" ></a>
-                       <a ng-click="unsaveSong(song.id,albumdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
-                   </td>
-               </div>
-
-               <td>{{song.name}}</td>
-               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}},  </a></label></td>
+                <tr>
+                  <td>#<td>
+                  <td></td>
+                  <td>Title</td>
+                  <td>Artist</td>
+                  <td>Duration</td>
+                  <td></td>
+                </tr>
+                <tr ng-repeat="song in albumdata.album.songs">
+                 <td id="nohover"> {{song.trackNumber}} </td>
+                 <td id="nohover">
+                     <img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)" ng-click="changePlayer(albumdata.album.id, song.artists, song.name, song.lyrics, song.id)"></img>
+                 </td>
+                <td id="nohover">
+                    <a ng-click="saveSong(song.id,albumdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" ></a>
+                    <a ng-click="unsaveSong(song.id,albumdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
+                </td>
+               <td id="{{song.id}}" onclick="changeSong(this)" ng-click="changePlayer(albumdata.album.id, song.artists, song.name, song.lyrics)">{{song.name}}</td>
+               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}} </a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
-               <td id="nohover"><img class='play-btn' src="${home}css/more.png"></td>
+               <td id="nohover">
+                   <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)">
+                   <div class="moredropdown {{song.id}}" style="display: none">
+                       <ul>
+                           <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>                          
+                           <a class="moremenulist">Add to Playlist</a>
+                       </ul>
+                   </div>
+               </td>
              </tr>
            </table>
            <h3>More by {{albumdata.album.artists[0].name}}</h3>
@@ -66,4 +73,6 @@
              </div>
          </div>
     </body>
+    <script>
+    </script>
 </html>

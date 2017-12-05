@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   $('ul.musictabs li').click(function() {
     var tab_id = $(this).attr('data-tab');
 
@@ -53,6 +53,11 @@ $(document).ready(function() {
   $(".close").click(function() {
     $(".modal").css("display", "none");
   });
+  
+  $('#adclose').click(function(){
+     $('.ad').css('height', '50px');
+     $('#adclose').css('display', 'none');
+  });
 
   $('.newPlaylist').click(function() {
     $('.pages').css("display", "none");
@@ -81,6 +86,24 @@ $(document).ready(function() {
 
   $('#to-admin-portal-form').click(function() {
     window.location.replace("/308Vikings/adminportal");
+  });
+  
+  $('#lyricsbtn').click(function() {
+    if($('#lyrics').css('display')==="none"){
+        $('#lyrics').css('display', 'block');
+    }
+    else{
+        $('#lyrics').css('display', 'none');
+    }
+  });
+  
+  $('#queuelistbtn').click(function() {
+    if($('#queuelist').css('display')==="none"){
+        $('#queuelist').css('display', 'block');
+    }
+    else{
+        $('#queuelist').css('display', 'none');
+    }
   });
 
   function readEditURL(input) {
@@ -112,6 +135,18 @@ $(document).ready(function() {
   });
 });
 
+function openMoreMenu(element){
+    var more = "moredropdown " + element.id;
+    var menuelement = document.getElementsByClassName(more);
+    if(menuelement[0].style.display === "none"){
+        $('.moredropdown').css('display', 'none');
+        menuelement[0].style.display = "block";
+    }
+    else{
+        menuelement[0].style.display = "none";
+    }
+}
+
 app.controller("globalController", function ($scope, $rootScope, $location, $http) {
   $scope.getUser = function() {
     $http.get('/308Vikings/UserAccount/getSessionUser')
@@ -124,7 +159,24 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
     });
   };
   $scope.getUser();
-
+ 
+  $scope.changePlayer = function(albumid, artistname, songname, lyrics, songId){
+      $('#cpImg').replaceWith('<img src="' + home + '/css/album/' + albumid + '.jpg" style="width:55px; float:left" id="cpImg">');
+      $('#cpName').replaceWith('<div id="cpName">' + artistname[0].name + '<br/>' + songname + '</div>');
+      $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + lyrics + '<pre></div>');   
+  };
+  $scope.populateQueue = function(artistname, songname){      
+      $('#queuetable').append("<tr><td width='300px'>"+ songname + "</td><td>"+artistname[0].name+"</td></tr>");
+  };
+  $scope.albumToQueue = function(albumList){
+      queueList.splice(0,queueList.length);
+      $('#queuetable').empty();
+      for(var i = 0; i < albumList.album.songs.length; i++){
+         addToQueueId(albumList.album.songs[i].id);
+         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
+      }
+  };
+  
   $scope.saveSong = function(songId, savedSongs) {
       $("#loading").css("display", "block");
       $http.post('/308Vikings/UserMusic/saveSong', {id:songId}, {
