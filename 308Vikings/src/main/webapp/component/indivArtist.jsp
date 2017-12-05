@@ -118,22 +118,18 @@
                  <tr class>
                      <td class = "title">Date</td>
                      <td class = "title">Name of Venue</td>
-                     <td class = "title">Address of Venue </td>
-                     <td class = "title">Ticketing URL </td>
                      <td class = "title">Artists Performing </td>
                  </tr>
                  <tr ng-repeat="concert in artistdata.concerts" >
                     <td class = "listItems">{{concert.date |   date:'d MMMM yyyy' }}</a></td>
-                    <td class = "listItems">{{concert.venue.name}}</td>
-                    <td class = "listItems">{{concert.venue.address.street}} {{concert.venue.address.city}}, {{concert.venue.address.state}} {{concert.venue.address.zip}}</td>
-                    <td class = "listItems"> <a href = "{{concert.ticketingUrl}}"> Tickets Here </a></td>
+                    <td class = "listItems"><a href="#!concert/{{concert.id}}">{{concert.venue.name}}</a></td>
                     <td class = "listItems" style = "text-align: center">
                         <li ng-repeat ="multipleArtists in concert.artists" class="noBullet">
                             <a id="{{multipleArtists.id}}" href= "#!/artists/{{multipleArtists.id}}">{{multipleArtists.name}}</a>
                         </li>
                     </td>
                  </tr>
-             </table>
+              </table>
          </div>
       </div>
       <div class="pages" id="relatedArtists">

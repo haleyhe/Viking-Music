@@ -33,7 +33,7 @@ public class ConcertController {
         Concert concert = concertManager.getConcert(id);
         
         if(concert == null) {
-            return null;
+            return new ConcertPageResponse();
         }
         return new ConcertPageResponse(concert);
     }

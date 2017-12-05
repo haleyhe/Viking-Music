@@ -15,8 +15,8 @@
               <li class="tab-link current" data-tab="musictab-1" ng-click="discoverMusic()">Discover</li>
               <li class="tab-link" data-tab="musictab-2" ng-click="getRecentReleases()"> Newly Released</li>
               <li class="tab-link" data-tab="musictab-3" ng-click="getAllGenres()">Genres & Moods</li>
-              <li class="tab-link" data-tab="musictab-4">Concerts</li>
-              <li class="tab-link" data-tab="musictab-5" ng-click="getCharts()">Chart</li>
+              <li class="tab-link" data-tab="musictab-4" ng-click="getConcertRecommendations()">Concert Recommendations</li>
+              <li class="tab-link" data-tab="musictab-5">Chart</li>
             </ul>
 
             <div id="musictab-1" class="musictab-content current">
@@ -90,7 +90,33 @@
 
             <div id="musictab-4" class="musictab-content">
               <ul class=musictabs>
-                <li>Concert Recommendations</li>
+                  <h1 style = "padding-left: 30px; padding-top:10px;"> Concert Recommendations </h1>
+                  <div ng-show="concerts.concerts.length === 0" align = "center">
+                      <br/>
+                      <br/>
+
+                      <h2> You do not have any concert recommendations </h2>
+                  </div>
+                  <div ng-show="concerts.concerts.length !== 0">
+                      <br/>
+                      <br/>
+                      <table style = "padding-left: 30px;" align = "center">
+                         <tr class>
+                             <td class = "title">Date</td>
+                             <td class = "title">Name of Venue</td>
+                             <td class = "title">Artists Performing </td>
+                         </tr>
+                         <tr ng-repeat="concert in concerts.concerts" >
+                            <td class = "listItems">{{concert.date |   date:'d MMMM yyyy' }}</a></td>
+                            <td class = "listItems"><a href="#!concert/{{concert.id}}">{{concert.venue.name}}</a></td>
+                            <td class = "listItems" style = "text-align: center">
+                                <li ng-repeat ="multipleArtists in concert.artists" class="noBullet">
+                                    <a id="{{multipleArtists.id}}" href= "#!/artists/{{multipleArtists.id}}">{{multipleArtists.name}}</a>
+                                </li>
+                            </td>
+                         </tr>
+                      </table>
+                  </div>
               </ul>
             </div>
 
