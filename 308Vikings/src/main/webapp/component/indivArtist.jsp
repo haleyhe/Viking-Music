@@ -106,7 +106,7 @@
              <hr class="style14" style="width:70%">
          </div>
           <div ng-hide="(artistdata.concerts | objectLength) !== 0">
-               <h1 style = "text-align: center;"> This artist has not current concerts </h1>
+               <h1 style = "text-align: center;"> This artist has no current concerts </h1>
          </div>
 
          <br />
