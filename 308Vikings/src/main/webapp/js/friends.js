@@ -1,3 +1,5 @@
+$( document ).ready(function() {});
+
 app.controller('getSession', function($scope, $http) {
     $http({
         method : "GET",
@@ -75,4 +77,22 @@ app.controller("friendsController", function($scope, $http) {
         $('#friendspage').show();
         
     };
+});
+
+
+app.controller("friendsPlaylistController", function($scope, $http, $routeParams) {
+    $('#friendspage').css("display","none");
+    $("#loading").css("display", "block");
+    $http({
+        method: 'GET',
+        url: '/308Vikings/Playlist/getPlaylistsByCreator',
+        headers: {'Content-Type': 'application/json'},
+        params: {id: $routeParams.id}
+    }).then(function successCallback(response) {
+        $scope.currentId = $routeParams.id;
+        $scope.friendsplaylist = response.data;
+        $scope.currentName = $routeParams.username;
+        $("#loading").css("display", "none");
+    }, function errorCallback(response) {});
+    $('#indivFriendPage').show();
 });

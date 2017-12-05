@@ -21,7 +21,7 @@
                     <table>
                         <tr ng-repeat="friend in friends">
                             <td style="padding-right: 400px; padding-bottom: 5px;">
-                                {{friend.name}}
+                                <a href="#!friends/{{friend.id}}?username={{friend.name}}"><input type="hidden" value="{{friend.name}}" name="user_id" />{{friend.name}}</a>
                             </td>
                             <td>
                                 <a ng-click="deleteFriend(friend.id)"><img src="${home}css/remove.png" width="15px"></a>
