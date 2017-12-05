@@ -29,11 +29,12 @@
             Followers:
             {{playlistdata.playlist.numFollowers}}
           </p>
-          <p style="margin-bottom: 120px;">
-            <button class="pageButton">Play</button>
-            <button class="pageButton">Queue</button>
-            <button class="pageButton unfollow-button" ng-if="playlistdata.following" ng-click="unfollowPlaylist()">
-              <span>Following<span></button>
+              <p style="margin-bottom: 120px;">
+                <button class="pageButton">Play</button>
+                <button class="pageButton">Queue</button>
+                <button class="pageButton unfollow-button" ng-if="playlistdata.following  && userId != playlistdata.playlist.creator.id" ng-click="unfollowPlaylist()">
+                  <span>Following<span>
+                </button>
                 <button class="pageButton" ng-if="!playlistdata.following" ng-click="followPlaylist()">Follow</button>
                 <button class="pageButton" ng-click="showEditPlaylistForm()" ng-if="userId == playlistdata.playlist.creator.id">Edit</button>
                 <button class="pageButton" ng-click="showDeletePlaylistForm()" ng-if="userId == playlistdata.playlist.creator.id">Delete</button>
@@ -63,7 +64,7 @@
                       <td>{{song.name}}</td>
                       <td>
                         <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
-                          {{songartists.name}}, 
+                          {{songartists.name}}<span ng-hide="$last">, </span>
                         </a>
                       </td>
                       <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>

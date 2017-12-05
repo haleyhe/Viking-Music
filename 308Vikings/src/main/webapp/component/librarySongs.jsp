@@ -35,7 +35,7 @@
             <td id="{{libSong.song.id}}" onclick="changeSong(this)"  ng-click="changePlayer(libSong.song.album.id, libSong.song.artists, libSong.song.name, libSong.song.lyrics)">{{libSong.song.name}}</td>
             <td>
               <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in libSong.song.artists">
-                {{songartists.name}}, 
+                {{songartists.name}}<span ng-hide="$last">, </span>
               </a>
             </td>
             <td>{{libSong.song.album.name}}</td>
@@ -45,7 +45,7 @@
                 <img class='play-btn' src="${home}css/more.png" id="{{libSong.song.id}}" onclick="openMoreMenu(this)">
                 <div class="moredropdown {{libSong.song.id}}" style="display: none">
                     <ul>
-                        <a id="{{libSong.song.id}}" onclick="addToQueue(this)">Add to Queue</a>                          
+                        <a id="{{libSong.song.id}}" onclick="addToQueue(this)">Add to Queue</a>
                         <a>Add to Playlist</a>
                     </ul>
                 </div>

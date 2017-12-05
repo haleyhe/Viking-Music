@@ -15,16 +15,17 @@
               <h1>
                 Upgrade to Premium now
               </h1>
+              <div class="user-form">
               <form id="upgrade-form">
                 <div id="address-container">
-                  First Name: <input type="text" ng-model="payment.name.firstName" required/> <br>
-                  Last Name: <input type="text" ng-model="payment.name.lastName" required/> <br>
-                  Addres Line 1: <input type="text" ng-model="street1" required/> <br>
-                  Addres Line 2 (optional): <input type="text" ng-model="street2"/> <br>
-                  City <input type="text" ng-model="payment.billingAddress.city" required/> <br>
-                  State <input type="text" ng-model="payment.billingAddress.state" required/> <br>
-                  Zipcode <input type="text" ng-model="payment.billingAddress.zip" required/> <br>
-                  Phone Number <input type="text" ng-model="payment.phoneNum" required/> <br><br>
+                  <label> First Name: </label> <input type="text" ng-model="payment.name.firstName" required/> <br>
+                  <label> Last Name: </label> <input type="text" ng-model="payment.name.lastName" required/> <br>
+                  <label> Address Line 1: </label> <input type="text" ng-model="street1" required/> <br>
+                  <label> Address Line 2: </label> <input type="text" ng-model="street2"/> <br>
+                  <label> City </label> <input type="text" ng-model="payment.billingAddress.city" required/> <br>
+                  <label> State </label> <input type="text" ng-model="payment.billingAddress.state" required/> <br>
+                  <label> Zipcode </label> <input type="text" ng-model="payment.billingAddress.zip" required/> <br>
+                  <label> Phone Number </label> <input type="text" ng-model="payment.phoneNum" required/> <br><br>
                 </div>
 
                 <div id="credit-card-container">
@@ -34,9 +35,12 @@
                   Expiration Date: <input type="number"  min="1" max="12" placeholder="MM"ng-model="expiration.month" required/>
                   <input type="number"  min="1" max="99" placeholder="YY" ng-model="expiration.year" required/> <br>
                 </div>
-                <button type="submit" ng-click="upgrade()" class="pageButton"> Upgrade</button>
-                <button type="submit" ng-click="resetForm()" class="pageButton"> Reset</button>
+                <br/>
+                <br/>
+                <button type="submit" ng-click="upgrade()" class="pageButton">Upgrade</button>
+                <button type="submit" ng-click="resetForm()" class="pageButton">Reset</button>
               </form>
+            </div>
             </div>
 
             <div id="upgraded-container" ng-show="premium">

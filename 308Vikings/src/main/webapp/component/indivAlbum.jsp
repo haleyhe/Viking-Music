@@ -14,7 +14,7 @@
                    <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{albumdata.album.name}}</h1>
                    <div>
                        <a href="#!artists/{{albumArtist.id}}" ng-repeat="albumArtist in albumdata.album.artists">
-                         {{albumArtist.name}}
+                         {{albumArtist.name}}<span ng-hide="$last">, </span>
                        </a>
                    </div>
                    <div><br>Release Date: {{albumdata.album.releaseDate |  date:' MMMM d yyyy'}}</div>
@@ -49,13 +49,13 @@
                     <a ng-click="unsaveSong(song.id,albumdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
                 </td>
                <td id="{{song.id}}" onclick="changeSong(this)" ng-click="changePlayer(albumdata.album.id, song.artists, song.name, song.lyrics)">{{song.name}}</td>
-               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}} </a></label></td>
+               <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}<span ng-hide="$last">, </span> </a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
                <td id="nohover">
                    <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)">
                    <div class="moredropdown {{song.id}}" style="display: none">
                        <ul>
-                           <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>                          
+                           <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
                            <a class="moremenulist">Add to Playlist</a>
                        </ul>
                    </div>
