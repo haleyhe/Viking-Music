@@ -86,7 +86,12 @@
                       controller: "searchController"
                   })
                   .when("/friends", {
-                      templateUrl : "${home}component/friends.jsp"
+                      templateUrl : "${home}component/friends.jsp",
+                      controller: "friendsController"
+                  })
+                  .when("/friends/:id", {
+                      templateUrl : "${home}component/indivFriend.jsp",
+                      controller: "friendsPlaylistController"
                   })
                   .otherwise({
                       redirectTo: "/"
