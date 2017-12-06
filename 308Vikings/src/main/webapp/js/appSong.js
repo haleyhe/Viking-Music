@@ -33,14 +33,6 @@ function addToQueueId(id){
     queueList.push(queue);
 }
 
-function removeFromQueue(element){
-    delete queue[element.id];
-}
-
-function peakQueue(element){
-    console.log(queue);
-}
-
 function playQueue(){
     if(currentSong < queueList.length){
         song.load();
