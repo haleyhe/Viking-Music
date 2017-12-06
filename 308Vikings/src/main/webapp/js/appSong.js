@@ -69,6 +69,7 @@ function songhandler(){
         song.addEventListener('ended', function(){
             //add code for non queue song ending
             if(queueList.length-1 !== currentSong){
+                song = new Audio();
                 currentSong++;
                 playQueue();
             }
