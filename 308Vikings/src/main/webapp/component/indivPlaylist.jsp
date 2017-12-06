@@ -44,7 +44,6 @@
               <h3 ng-show="playlistdata.playlist.songs.length == 0"> This playlist has no songs. </h3>
               <table class="songtable" ng-hide="playlistdata.playlist.songs.length == 0">
                 <tr>
-                  <td>#</td>
                   <td></td>
                   <td></td>
                   <td>Title</td>
@@ -54,7 +53,6 @@
                   <td>Duration</td>
                 </tr>
                 <tr ng-repeat="song in playlistdata.playlist.songs">
-                <td id="nohover">{{song.trackNumber}}</td>
                 <td id="nohover">
                   <img class='play-btn' src=${home}css/play-button-1.png></img>
                  </td>
@@ -75,7 +73,7 @@
                     <div class="moredropdown {{song.id}}" style="display: none">
                         <ul>
                             <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
-                            <a class="moremenulist" ng-click="removeFromPlaylist(playlistdata.playlist.id, song.trackNumber)">Remove from Playlist</a>                           
+                            <a class="moremenulist" ng-click="removeFromPlaylist(playlistdata.playlist.id, song.playlistTrackNumber)">Remove from Playlist</a>
                         </ul>
                     </div>
                    </td>

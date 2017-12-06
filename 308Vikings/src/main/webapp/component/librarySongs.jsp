@@ -24,7 +24,7 @@
         <td>Release Date</td>
         <td>Duration</td>
       </tr>
-      <tr ng-repeat="libSong in librarySongs.songList">
+      <tr ng-repeat="libSong in librarySongs.songList | orderBy : null : true">
             <td id="nohover">
               <img class='play-btn' src=${home}css/play-button-1.png  id="{{libSong.song.id}}" onclick="changeSong(this)"  ng-click="changePlayer(libSong.song.album.id, libSong.song.artists, libSong.song.name, libSong.song.lyrics)"></img>
             </td>
@@ -47,7 +47,7 @@
                     <ul>
                         <a class="moremenulist" id="{{libSong.song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(libSong.song.artists, libSong.song.name, libSong.song.duration)">Add to Queue</a>
                         <div ng-repeat="myplaylist in playlistmenudata">
-                        <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, libSong.song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>                           
+                        <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, libSong.song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>
                         </div>
                     </ul>
                 </div>

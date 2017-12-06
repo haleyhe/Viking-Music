@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   $('ul.musictabs li').click(function() {
     var tab_id = $(this).attr('data-tab');
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
   $(".close").click(function() {
     $(".modal").css("display", "none");
   });
-  
+
   $('#adclose').click(function(){
      $('.ad').css('height', '50px');
      $('#adclose').css('display', 'none');
@@ -83,7 +83,7 @@ $(document).ready(function() {
   $('#to-admin-portal-form').click(function() {
     window.location.replace("/308Vikings/adminportal");
   });
-  
+
   function readEditURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -137,13 +137,13 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
     });
   };
   $scope.getUser();
- 
+
   $scope.changePlayer = function(albumid, artistname, songname, lyrics, songId){
       $('#cpImg').replaceWith('<img src="' + home + '/css/album/' + albumid + '.jpg" style="width:55px; float:left" id="cpImg">');
       $('#cpName').replaceWith('<div id="cpName">' + artistname[0].name + '<br/>' + songname + '</div>');
-      $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + lyrics + '<pre></div>');   
+      $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + lyrics + '<pre></div>');
   };
-  $scope.populateQueue = function(artistname, songname){      
+  $scope.populateQueue = function(artistname, songname){
       $('#queuetable').append("<tr><td width='300px'>"+ songname + "</td><td>"+artistname[0].name+"</td></tr>");
   };
   $scope.getSongDetail = function(songId){
@@ -156,7 +156,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
         .then(function successCallback(response) {
             $('#cpImg').replaceWith('<img src="' + home + '/css/album/' + response.data.song.album.id + '.jpg" style="width:55px; float:left" id="cpImg">');
             $('#cpName').replaceWith('<div id="cpName">' + response.data.song.artists[0].name + '<br/>' + response.data.song.name + '</div>');
-            $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + response.data.song.lyrics + '<pre></div>');   
+            $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + response.data.song.lyrics + '<pre></div>');
         }, function errorCallback(response) {});
   };
   $scope.albumToQueue = function(albumList){
@@ -191,8 +191,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       }
       playQueue();
   };
-  
-  
+
+
   $scope.markSongPlayed = function(songId){
         $http.post('/308Vikings/UserMusic/markSongAsPlayedForUser', {songId:songId, clicked:true}, {
             headers: {
@@ -203,7 +203,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           .then(function successCallback(response) {
           }, function errorCallback(response) {});
   };
-  
+
   $scope.addToPlaylist = function(playlistId, songId){
         $http.post('/308Vikings//Playlist/addSong', {playlistId:playlistId ,songId:songId}, {
             headers: {
@@ -213,17 +213,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           })
           .then(function successCallback(response) {
           }, function errorCallback(response) {});
-      
-  };
-  $scope.removeFromPlaylist = function(playlistId, trackNum){
-        $http.post('/308Vikings/Playlist/removeSong', {playlistId:playlistId ,trackNum:trackNum}, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            }
-          })
-          .then(function successCallback(response) {
-          }, function errorCallback(response) {});
+
   };
   $scope.getAllPlaylistforMenu = function(){
         $http({
@@ -232,8 +222,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
         }).then(function successCallback(response) {
           $scope.playlistmenudata = response.data;
         }, function errorCallback(response) {});
-  };        
-  
+  };
+
   $scope.saveSong = function(songId, savedSongs) {
       $("#loading").css("display", "block");
       $http.post('/308Vikings/UserMusic/saveSong', {id:songId}, {

@@ -226,6 +226,18 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
     $("#edit-playlist-thumbnail").val('');
   };
 
+  $scope.removeFromPlaylist = function(playlistId, trackNum){
+        $http.post('/308Vikings/Playlist/removeSong', {playlistId:playlistId ,trackNum:trackNum}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+              $scope.reloadPlaylist(playlistId);
+          }, function errorCallback(response) {});
+  };
+
     $scope.newDate = new Date().getTime();
     $scope.editPlaylist = {};
     $scope.getPlaylistJson();
