@@ -13,11 +13,11 @@
       <div style="margin-left: 50px; margin-top: 20px; margin-bottom: 10px;">
         <img style="margin: 10px;-top: 10px;" class=albumimg ng-src="${home}/css/playlist/{{playlistdata.playlist.id}}.jpg?_={{newDate}}" onerror="this.src='${home}css/music-player.png';"></img>
         <h1 style="margin-top: 30px; margin-bottom: 0px; font-size: 3em">{{playlistdata.playlist.name}}</h1>
-        <p>
+        <p style="margin-bottom: 0px">
           {{playlistdata.playlist.description}}
         </p>
         <br>
-          <p>
+          <p style="margin: 0px">
             Created by:
             {{playlistdata.playlist.creator.name}}
             -
@@ -29,7 +29,7 @@
             Followers:
             {{playlistdata.playlist.numFollowers}}
           </p>
-              <p style="margin-bottom: 120px;">
+              <p style="margin-bottom: 50px;">
                 <button class="pageButton" ng-click="playListToPlay(playlistdata.playlist)">Play</button>
                 <button class="pageButton" ng-click="playListToQueue(playlistdata.playlist)">Queue</button>
                 <button class="pageButton unfollow-button" ng-if="playlistdata.following  && userId != playlistdata.playlist.creator.id" ng-click="unfollowPlaylist()">
