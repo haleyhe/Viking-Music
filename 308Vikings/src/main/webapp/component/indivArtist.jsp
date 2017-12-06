@@ -41,15 +41,23 @@
              <td>Duration</td>
            </tr>
            <tr ng-repeat="song in artistdata.topSongs | limitTo: 5">
-               <td style="width: 30px;"><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
-               <div>
-                   <td id="nohover" style="width: 50px;">
-                       <a ng-click="saveSong(song.id,artistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="artistdata.savedSongs[song.id]" ></a>
-                       <a ng-click="unsaveSong(song.id,artistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="artistdata.savedSongs[song.id]"></a>
-                   </td>
-               </div>
-             <td>{{song.name}}</td>
-             <td>{{song.duration | convertMilSec}}</td>
+            <td id="nohover" style="width: 30px;"><img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)"></img></td>
+            <td id="nohover" style="width: 50px;">
+                <a ng-click="saveSong(song.id,artistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="artistdata.savedSongs[song.id]" ></a>
+                <a ng-click="unsaveSong(song.id,artistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="artistdata.savedSongs[song.id]"></a>
+            </td>
+            <td>{{song.name}}</td>
+            <td>{{song.duration | convertMilSec}}</td>
+            <td id="nohover">
+                <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)">
+                <div class="moredropdown {{song.id}}" style="display: none">
+                    <ul>
+                        <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
+                        <a class="moremenulist">Add to Playlist</a>
+                    </ul>
+                </div>
+            </td>
+
            </tr>
          </table>
          <br />

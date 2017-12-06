@@ -29,11 +29,11 @@
                   </tr>
 
                   <tr ng-repeat="song in history.songList">
-                    <td>
-                      <img class='play-btn' src=${home}css/play-button-1.png  id="{{song.id}}" onclick="changeSong(this)"></img>
+                    <td id="nohover">
+                      <img  class='play-btn' src=${home}css/play-button-1.png  id="{{song.id}}" onclick="changeSong(this)"></img>
                     </td>
                     <div>
-                      <td>
+                      <td id="nohover">
                           <img class='play-btn' src="${home}css/plus.png" ng-hide="history.savedSongs[song.id]" ng-click="saveSong(song.id,history.savedSongs)">
                           <img class="play-btn" src="${home}css/success.png" ng-show="history.savedSongs[song.id]" ng-click="unsaveSong(song.id,history.savedSongs)"</td>
                         </div>
@@ -45,7 +45,17 @@
                         </td>
                         <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
                         <td>{{song.duration  | convertMilSec}}</td>
-                      </table>
+                        <td id="nohover">
+                             <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)">
+                             <div class="moredropdown {{song.id}}" style="display: none">
+                                 <ul>
+                                     <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
+                                     <a class="moremenulist">Add to Playlist</a>
+                                 </ul>
+                             </div>
+                        </td>
+                    </tr>
+                    </table>
                     </div>
     </body>
 </html>

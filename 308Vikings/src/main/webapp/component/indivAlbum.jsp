@@ -48,7 +48,7 @@
                     <a ng-click="saveSong(song.id,albumdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="albumdata.savedSongs[song.id]" ></a>
                     <a ng-click="unsaveSong(song.id,albumdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="albumdata.savedSongs[song.id]"></a>
                 </td>
-               <td id="{{song.id}}" onclick="changeSong(this)" ng-click="changePlayer(albumdata.album.id, song.artists, song.name, song.lyrics)">{{song.name}}</td>
+               <td>{{song.name}}</td>
                <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}<span ng-hide="$last">, </span> </a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
                <td id="nohover">
