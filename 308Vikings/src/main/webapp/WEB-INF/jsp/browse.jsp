@@ -221,8 +221,8 @@
                       </form>
                     </div>
                     <div id=user-buttons style="float:right">
-                      <ul >
-                        <li style="margin-right: 2%;"><a href="#!billing"><b>UPGRADE</b></a></li>
+                      <ul ng-style="premium && {'width': '110px'} || {}">
+                        <li ng-style="premium && {'display' : 'none'} || {}" style="margin-right: 2%;"><a href="#!billing"><b>UPGRADE</b></a></li>
                         <li id=user-display-img><img src=${home}css/user-4.png></img></li>
                         <li id=user-display-name style="margin-right: 2%;"><a href="#!profile">${user.username}</a></li>
                         <li><button id = dropdownbtn><b>></b></button>
@@ -251,8 +251,8 @@
 
 
                   <!--Advertisment Section-->
-                  <div class="ad">
-                    <div id="adclose" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;"> x</div>
+                  <div class="ad" ng-style="premium && {'height' : '50px'} || {}">
+                    <div id="adclose" ng-style="premium && {'display' : 'none'} || {}" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;"> x</div>
                     <div style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
                   </div>
                   <div ng-controller="globalController" id="globalcontroller">

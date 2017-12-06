@@ -79,17 +79,16 @@ $(document).ready(function() {
       $(this).removeClass('open');
       $('.user-dropdown-menu').css("display", "none");
     });
-
-  $('.registerbtn').click(function() {
-    $('.signup.modal').css("display", "block");
-  });
+   
+   $('.moredropdown a').click(function(){
+       console.log("hi");
+       $('.moredropdown').css('display', 'none');
+   });
 
   $('#to-admin-portal-form').click(function() {
     window.location.replace("/308Vikings/adminportal");
   });
   
-
-
   function readEditURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();

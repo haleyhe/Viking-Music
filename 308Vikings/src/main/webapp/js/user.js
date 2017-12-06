@@ -1,4 +1,12 @@
  jQuery(document).ready(function ($) {
+    $('.registerbtn').click(function() {
+        $('.signup.modal').css("display", "block");
+    });
+    
+    $(".close").click(function() {
+    $(".modal").css("display", "none");
+    });
+    
     $("#signup-form").submit(function (event) {
         event.preventDefault();
         signup();
