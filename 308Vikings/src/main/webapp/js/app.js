@@ -206,7 +206,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
 
   $scope.addToPlaylist = function(playlist, song){
         $("#loading").css("display", "block");
-        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlist.playlistIdentifier.id ,songId:song.id}, {
+        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlist.id ,songId:song.id}, {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -214,14 +214,14 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           })
           .then(function successCallback(response) {
             $("#loading").css("display", "none");
-              $('#message').html("'"+ song.name + "' has been added to playlist '" + playlist.playlistIdentifier.name + "'");
+              $('#message').html("'"+ song.name + "' has been added to playlist '" + playlist.name + "'");
               $("#message-modal").css("display", "block");
           }, function errorCallback(response) {});
   };
   $scope.getAllPlaylistforMenu = function(){
         $http({
           method: 'GET',
-          url: '/308Vikings/UserMusic/library/playlists',
+          url: '/308Vikings/Playlist/getPlaylistsBySessionUser',
         }).then(function successCallback(response) {
           $scope.playlistmenudata = response.data;
         }, function errorCallback(response) {});

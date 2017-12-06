@@ -160,8 +160,8 @@
                                   <div class="moredropdown {{song.id}}" style="display: none">
                                       <ul>
                                           <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
-                                          <div ng-repeat="myplaylist in playlistmenudata">
-                                          <a class="moremenulist" ng-click="addToPlaylist(myplaylist, song)">Add to {{myplaylist.playlistIdentifier.name}}</a>
+                                          <div ng-repeat="myplaylist in playlistmenudata.playlists">
+                                          <a class="moremenulist" ng-click="addToPlaylist(myplaylist, song)">Add to {{myplaylist.name}}</a>
                                           </div>
                                       </ul>
                                   </div>
