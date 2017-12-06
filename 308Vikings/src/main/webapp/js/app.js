@@ -214,7 +214,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           })
           .then(function successCallback(response) {
             $("#loading").css("display", "none");
-              $('#message').html(song.name + " has been added to playlist " + playlist.playlistIdentifier.name);
+              $('#message').html("'"+ song.name + "' has been added to playlist '" + playlist.playlistIdentifier.name + "'");
               $("#message-modal").css("display", "block");
           }, function errorCallback(response) {});
   };

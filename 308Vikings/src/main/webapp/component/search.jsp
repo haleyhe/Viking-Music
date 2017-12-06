@@ -37,6 +37,7 @@
               <td>Artist</td>
               <td>Album</td>
               <td>Duration</td>
+              <td></td>
             </tr>
 
             <tr ng-repeat="song in searchSongs">
@@ -52,6 +53,17 @@
                   </td>
                   <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
                   <td>{{song.duration  | convertMilSec}}</td>
+                  <td id="nohover">
+                      <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)" ng-click="getAllPlaylistforMenu()">
+                      <div class="moredropdown {{song.id}}" style="display: none">
+                          <ul>
+                              <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
+                              <div ng-repeat="myplaylist in playlistmenudata">
+                              <a class="moremenulist" ng-click="addToPlaylist(myplaylist, song)">Add to {{myplaylist.playlistIdentifier.name}}</a>
+                              </div>
+                          </ul>
+                      </div>
+                  </td>
                 </table>
                 <hr class="style14" style="width:70%"></div>
               </div>

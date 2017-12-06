@@ -91,35 +91,35 @@
             </div>
 
             <div id="musictab-4" class="musictab-content">
-              <ul class=musictabs>
-                  <h1 style = "padding-left: 30px; padding-top:10px;"> Concert Recommendations </h1>
+              <div class="container">
+                  <h2> Concert Recommendations </h2>
                   <div ng-show="concerts.concerts.length === 0" align = "center">
                       <br/>
                       <br/>
 
-                      <h2> You do not have any concert recommendations </h2>
+                      <h3> You do not have any concert recommendations </h3>
                   </div>
                   <div ng-show="concerts.concerts.length !== 0">
                       <br/>
                       <br/>
-                      <table style = "padding-left: 30px;" align = "center">
+                      <table class="songtable">
                          <tr class>
                              <td class = "title">Date</td>
                              <td class = "title">Name of Venue</td>
                              <td class = "title">Artists Performing </td>
                          </tr>
                          <tr ng-repeat="concert in concerts.concerts" >
-                            <td class = "listItems">{{concert.date |   date:'d MMMM yyyy' }}</a></td>
-                            <td class = "listItems"><a href="#!concert/{{concert.id}}">{{concert.venue.name}}</a></td>
-                            <td class = "listItems" style = "text-align: center">
-                                <li ng-repeat ="multipleArtists in concert.artists" class="noBullet">
-                                    <a id="{{multipleArtists.id}}" href= "#!/artists/{{multipleArtists.id}}">{{multipleArtists.name}}</a>
-                                </li>
+                            <td>{{concert.date |   date:'d MMMM yyyy' }}</a></td>
+                            <td><a href="#!concert/{{concert.id}}">{{concert.venue.name}}</a></td>
+                            <td>
+                                <label ng-repeat ="multipleArtists in concert.artists" class="noBullet">
+                                    <a id="{{multipleArtists.id}}" href= "#!/artists/{{multipleArtists.id}}">{{multipleArtists.name}}<span ng-hide="$last">, </span></a>
+                                </label>
                             </td>
                          </tr>
                       </table>
                   </div>
-              </ul>
+              </div>
             </div>
 
             <div id="musictab-5" class="musictab-content">
@@ -135,6 +135,7 @@
                           <td>Artist</td>
                           <td>Album</td>
                           <td>Duration</td>
+                          <td>
                         </tr>
 
                         <tr ng-repeat="song in charts.songs">
@@ -154,6 +155,17 @@
                               </td>
                               <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
                               <td>{{song.duration  | convertMilSec}}</td>
+                              <td id="nohover">
+                                  <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)" ng-click="getAllPlaylistforMenu()">
+                                  <div class="moredropdown {{song.id}}" style="display: none">
+                                      <ul>
+                                          <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
+                                          <div ng-repeat="myplaylist in playlistmenudata">
+                                          <a class="moremenulist" ng-click="addToPlaylist(myplaylist, song)">Add to {{myplaylist.playlistIdentifier.name}}</a>
+                                          </div>
+                                      </ul>
+                                  </div>
+                              </td>
                             </table>
                           </div>
             </div>
