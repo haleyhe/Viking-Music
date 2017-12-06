@@ -48,12 +48,15 @@ function playQueue(){
         songhandler();
         var scope = angular.element(document.getElementById('globalcontroller')).scope();
         scope.getSongDetail(Object.keys(queueList[currentSong])[0]);
+        scope.markSongPlayed(Object.keys(queueList[currentSong])[0]);
     }
 }
 function changeSong(element){
    song.load();
    song = new Audio(home + 'mp3/' + element.id + '.mp3');
-   songhandler(); 
+   songhandler();
+   var scope = angular.element(document.getElementById('globalcontroller')).scope();
+   scope.markSongPlayed(element.id);
 }
 
 function songhandler(){

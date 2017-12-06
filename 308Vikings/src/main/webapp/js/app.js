@@ -181,6 +181,16 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       }
       playQueue();
   };
+  $scope.markSongPlayed = function(songId){
+        $http.post('/308Vikings/UserMusic/markSongAsPlayedForUser', {songId:songId, clicked:true}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+          }, function errorCallback(response) {});
+  };
   
   $scope.saveSong = function(songId, savedSongs) {
       $("#loading").css("display", "block");
