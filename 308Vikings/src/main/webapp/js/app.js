@@ -151,13 +151,6 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   $scope.populateQueue = function(artistname, songname){      
       $('#queuetable').append("<tr><td width='300px'>"+ songname + "</td><td>"+artistname[0].name+"</td></tr>");
   };
-  
-  $scope.albumToQueue = function(albumList){
-      for(var i = 0; i < albumList.album.songs.length; i++){
-         addToQueueId(albumList.album.songs[i].id);
-         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
-      }
-  };
   $scope.getSongDetail = function(songId){
         $http({
           method: 'GET',
@@ -171,6 +164,13 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
             $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + response.data.song.lyrics + '<pre></div>');   
         }, function errorCallback(response) {});
   };
+  $scope.albumToQueue = function(albumList){
+      for(var i = 0; i < albumList.album.songs.length; i++){
+         addToQueueId(albumList.album.songs[i].id);
+         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
+      }
+  };
+
   $scope.albumToPlay = function(albumList){
       queueList.splice(0,queueList.length);
       $('#queuetable').empty();
@@ -180,6 +180,24 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       }
       playQueue();
   };
+  $scope.playListToQueue = function(playlist){
+      for(var i = 0; i < playlist.songs.length; i++){
+         addToQueueId(playlist.songs[i].id);
+         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td>"+playlist.songs[i].artists[0].name+"</td></tr>");
+      }
+  };
+
+  $scope.playListToPlay = function(playlist){
+      queueList.splice(0,queueList.length);
+      $('#queuetable').empty();
+      for(var i = 0; i < playlist.songs.length; i++){
+         addToQueueId(playlist.songs[i].id);
+         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td>"+playlist.songs[i].artists[0].name+"</td></tr>");
+      }
+      playQueue();
+  };
+  
+  
   $scope.markSongPlayed = function(songId){
         $http.post('/308Vikings/UserMusic/markSongAsPlayedForUser', {songId:songId, clicked:true}, {
             headers: {

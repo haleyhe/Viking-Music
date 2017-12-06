@@ -30,8 +30,8 @@
             {{playlistdata.playlist.numFollowers}}
           </p>
               <p style="margin-bottom: 120px;">
-                <button class="pageButton">Play</button>
-                <button class="pageButton">Queue</button>
+                <button class="pageButton" ng-click="playListToPlay(playlistdata.playlist)">Play</button>
+                <button class="pageButton" ng-click="playListToQueue(playlistdata.playlist)">Queue</button>
                 <button class="pageButton unfollow-button" ng-if="playlistdata.following  && userId != playlistdata.playlist.creator.id" ng-click="unfollowPlaylist()">
                   <span>Following<span>
                 </button>
