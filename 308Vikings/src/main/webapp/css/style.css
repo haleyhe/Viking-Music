@@ -247,7 +247,7 @@ hr.style15 {
 }
 
 .player-bar {
-  background-color: rgba(100, 100, 100, 0.9);
+  background-color: rgba(100, 100, 100, 1);
   height: 80px;
   width: 100%;
   bottom:0px;
@@ -256,7 +256,7 @@ hr.style15 {
 }
 
 .menu {
-  background-color: rgba(240, 240, 240, 0.9);
+  background-color: rgba(240, 240, 240, 1);
   box-shadow: 5px;
   left: 0px;  /* start off behind the scenes */
   height: 100%;
