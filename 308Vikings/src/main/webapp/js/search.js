@@ -17,8 +17,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
           $('#playlistResultsContainer').show();
           $('#songResultsContainer').show();
           $('#searchResultPage').show();
+                $("#loading").css("display", "none");
       }, function errorCallback(response) {});
-      $("#loading").css("display", "none");
   };
 
 
@@ -26,6 +26,7 @@ app.controller("searchController", function($scope, $routeParams, $http) {
     $scope.overview = false;
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
+    $('#songResultsContainer').hide();
     $('#albumResultsContainer').hide();
     $('#artistResultsContainer').hide();
     $('#playlistResultsContainer').hide();
@@ -36,9 +37,9 @@ app.controller("searchController", function($scope, $routeParams, $http) {
           $scope.searchSongs = response.data.songs;
           $('#songResultsContainer').show();
         }
+              $("#loading").css("display", "none");
       }, function errorCallback(response) {});
 
-      $("#loading").css("display", "none");
   };
 
   $scope.searchAllAlbums = function() {
@@ -46,6 +47,7 @@ app.controller("searchController", function($scope, $routeParams, $http) {
     $("#loading").css("display", "block");
     $('.see-all-button').css("display","none");
     $('#songResultsContainer').hide();
+    $('#albumResultsContainer').hide();
     $('#artistResultsContainer').hide();
     $('#playlistResultsContainer').hide();
     $http.get('/308Vikings/Browse/search/albums', {params: {'query' : $routeParams.q, 'limit' : 50}})
@@ -55,9 +57,10 @@ app.controller("searchController", function($scope, $routeParams, $http) {
           $scope.searchAlbums = response.data.albums;
           $('#albumResultsContainer').show();
         }
+          $("#loading").css("display", "none");
       }, function errorCallback(response) {});
 
-      $("#loading").css("display", "none");
+
   };
 
   $scope.searchAllArtists = function() {
@@ -66,6 +69,7 @@ app.controller("searchController", function($scope, $routeParams, $http) {
     $('.see-all-button').css("display","none");
     $('#songResultsContainer').hide();
     $('#albumResultsContainer').hide();
+    $('#artistResultsContainer').hide();
     $('#playlistResultsContainer').hide();
     $http.get('/308Vikings/Browse/search/artists', {params: {'query' : $routeParams.q, 'limit' : 50}})
     .then(
@@ -74,8 +78,8 @@ app.controller("searchController", function($scope, $routeParams, $http) {
           $scope.searchArtists = response.data.artists;
           $('#artistResultsContainer').show();
         }
+              $("#loading").css("display", "none");
       }, function errorCallback(response) {});
-      $("#loading").css("display", "none");
   };
 
   $scope.searchAllPlaylists = function() {
@@ -85,15 +89,16 @@ app.controller("searchController", function($scope, $routeParams, $http) {
     $('#songResultsContainer').hide();
     $('#albumResultsContainer').hide();
     $('#artistResultsContainer').hide();
+    $('#playlistResultsContainer').hide();
     $http.get('/308Vikings/Browse/search/playlists', {params: {'query' : $routeParams.q, 'limit' : 50}})
     .then(
       function successCallback(response) {
         if (response.status == 200) {
           $scope.searchPlaylists = response.data.playlists;
           $('#playlistResultsContainer').show();
+                $("#loading").css("display", "none");
         }
       }, function errorCallback(response) {});
-      $("#loading").css("display", "none");
   };
 
   $scope.search();

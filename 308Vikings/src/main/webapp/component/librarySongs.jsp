@@ -47,7 +47,7 @@
                     <ul>
                         <a class="moremenulist" id="{{libSong.song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(libSong.song.artists, libSong.song.name, libSong.song.duration)">Add to Queue</a>
                         <div ng-repeat="myplaylist in playlistmenudata">
-                        <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, libSong.song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>
+                        <a class="moremenulist" ng-click="addToPlaylist(myplaylist, libSong.song)">Add to {{myplaylist.playlistIdentifier.name}}</a>
                         </div>
                     </ul>
                 </div>

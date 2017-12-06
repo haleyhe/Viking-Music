@@ -204,16 +204,19 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           }, function errorCallback(response) {});
   };
 
-  $scope.addToPlaylist = function(playlistId, songId){
-        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlistId ,songId:songId}, {
+  $scope.addToPlaylist = function(playlist, song){
+        $("#loading").css("display", "block");
+        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlist.playlistIdentifier.id ,songId:song.id}, {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             }
           })
           .then(function successCallback(response) {
+            $("#loading").css("display", "none");
+              $('#message').html(song.name + " has been added to playlist " + playlist.playlistIdentifier.name);
+              $("#message-modal").css("display", "block");
           }, function errorCallback(response) {});
-
   };
   $scope.getAllPlaylistforMenu = function(){
         $http({

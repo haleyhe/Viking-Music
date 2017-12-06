@@ -22,7 +22,7 @@
           <h3>
             Songs
           </h3>
-          <a class="search-button" ng-click="searchAllSongs()" ng-if="overview">
+          <a class="search-button see-all-button" ng-click="searchAllSongs()" ng-if="overview">
             See All
           </a>
           <a class="search-button" ng-click="search()" ng-if="!overview">
@@ -61,7 +61,7 @@
                 <div class="container">
                   <div class="search-result-heading">
                     <h3>Albums</h3>
-                    <a class="search-button" ng-click="searchAllAlbums()">
+                    <a class="search-button see-all-button" ng-click="searchAllAlbums()">
                       See All
                     </a>
                     <a class="search-button" ng-click="search()" ng-if="!overview">
@@ -87,7 +87,7 @@
                   <div class="container">
                     <div class="search-result-heading">
                       <h3>Artists</h3>
-                      <a class="search-button" ng-click="searchAllArtists()">
+                      <a class="search-button see-all-button" ng-click="searchAllArtists()">
                         See All
                       </a>
                       <a class="search-button" ng-click="search()" ng-if="!overview">
@@ -112,7 +112,7 @@
                     <div class="container">
                       <div class="search-result-heading">
                         <h3>Playlists</h3>
-                        <a class="search-button" ng-click="searchAllPlaylists()">
+                        <a class="search-button see-all-button" ng-click="searchAllPlaylists()">
                           See All
                         </a>
                         <a class="search-button" ng-click="search()" ng-if="!overview">

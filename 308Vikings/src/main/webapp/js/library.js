@@ -10,9 +10,9 @@ app.controller("historyController", function($scope, $http) {
           } else {
             alert(response.statusText);
           }
+          $('#historyPage').show();
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-        $('#historyPage').show();
-        $("#loading").css("display", "none");
   };
   $scope.getHistory();
 });
@@ -29,9 +29,9 @@ app.controller("librarySongsController", function($scope, $http) {
           } else {
             alert(response.statusText);
           }
+          $('#librarySongsPage').show();
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-        $('#librarySongsPage').show();
-        $("#loading").css("display", "none");
   };
   $scope.getLibrarySongs();
   $scope.pageName = "Library Songs";
@@ -49,9 +49,9 @@ app.controller("libraryPlaylistsController", function($scope, $http) {
           } else {
             alert(response.statusText);
           }
+          $('#libraryPlaylistsPage').show();
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-        $('#libraryPlaylistsPage').show();
-        $("#loading").css("display", "none");
   };
   $scope.getLibraryPlaylists();
   $scope.pageName = "Library Playlists";
@@ -69,9 +69,9 @@ app.controller("libraryAlbumsController", function($scope, $http) {
           } else {
             alert(response.statusText);
           }
+          $('#libraryAlbumsPage').show();
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-        $('#libraryAlbumsPage').show();
-        $("#loading").css("display", "none");
   };
   $scope.getLibraryAlbums();
   $scope.pageName = "Library Albums";
@@ -89,9 +89,9 @@ app.controller("libraryArtistsController", function($scope, $http) {
           } else {
             alert(response.statusText);
           }
+          $('#libraryArtistsPage').show();
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-        $('#libraryArtistsPage').show();
-        $("#loading").css("display", "none");
   };
   $scope.getLibraryArtists();
   $scope.pageName = "Library Artists";

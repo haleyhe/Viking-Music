@@ -7,8 +7,8 @@ app.controller("browseController", function($scope, $http) {
     }).then(function successCallback(response) {
       $scope.pageName = "Genres & Moods";
       $scope.genres = response.data;
+          $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
   $scope.getRecentReleases = function() {
@@ -19,8 +19,8 @@ app.controller("browseController", function($scope, $http) {
     }).then(function successCallback(response) {
       $scope.pageName = "Newly Released";
       $scope.recent = response.data;
+          $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
   $scope.getCharts = function() {
@@ -31,8 +31,8 @@ app.controller("browseController", function($scope, $http) {
     }).then(function successCallback(response) {
       $scope.pageName = "Top Charts";
       $scope.charts = response.data;
+          $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
   $scope.discoverMusic = function() {
@@ -44,13 +44,13 @@ app.controller("browseController", function($scope, $http) {
     }).then(function successCallback(response) {
       $scope.pageName = "Discover Music";
       $scope.discover = response.data;
+          $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
   $scope.discoverMusic();
   $scope.newDate = new Date().getTime();
-  
+
   $scope.getConcertRecommendations = function(){
     $("#loading").css("display", "block");
 
@@ -60,8 +60,8 @@ app.controller("browseController", function($scope, $http) {
       headers: {'Content-Type': 'application/json'},
     }).then(function successCallback(response) {
         $scope.concerts = response.data;
-    }, function errorCallback(response) {}); 
-    
-    $("#loading").css("display", "none");
+            $("#loading").css("display", "none");
+    }, function errorCallback(response) {});
+
    };
 });

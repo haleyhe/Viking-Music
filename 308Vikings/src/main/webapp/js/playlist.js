@@ -80,9 +80,9 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
        } else {
          $location.path('/').replace();
        }
+       $('#indivPlaylistPage').show();
+       $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $('#indivPlaylistPage').show();
-    $("#loading").css("display", "none");
   };
 
   $scope.reloadPlaylist = function(playlistId) {
@@ -139,9 +139,9 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
         //replace to display data module
         alert(response.data.error);
       }
+      $('#indivPlaylistPage').show();
+      $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $('#indivPlaylistPage').show();
-    $("#loading").css("display", "none");
   }
 
   $scope.updatePlaylist = function() {
@@ -171,10 +171,9 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
             //replace to display data module
             alert(response.data.error);
           }
+                $('#indivPlaylistPage').show();
+                $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-
-      $('#indivPlaylistPage').show();
-      $("#loading").css("display", "none");
   };
 
   $scope.followPlaylist = function() {
@@ -193,9 +192,9 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
         //replace to display data module
         alert(response.data.error);
       }
+      $("#loading").css("display", "none");
+      $('#indivPlaylistPage').show();
     }, function errorCallback(response) {});
-    $('#indivPlaylistPage').show();
-    $("#loading").css("display", "none");
   };
 
   $scope.unfollowPlaylist = function() {
@@ -214,9 +213,9 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
         //replace to display data module
         alert(response.data.error);
       }
+      $('#indivPlaylistPage').show();
+      $("#loading").css("display", "none");
     }, function errorCallback(response) {});
-    $('#indivPlaylistPage').show();
-    $("#loading").css("display", "none");
   };
 
   $scope.resetEditForm = function() {
@@ -227,6 +226,7 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
   };
 
   $scope.removeFromPlaylist = function(playlistId, trackNum){
+        $("#loading").css("display", "block");
         $http.post('/308Vikings/Playlist/removeSong', {playlistId:playlistId ,trackNum:trackNum}, {
             headers: {
               'Content-Type': 'application/json',
@@ -235,6 +235,7 @@ app.controller("indivPlaylistController", function($scope, $routeParams, $rootSc
           })
           .then(function successCallback(response) {
               $scope.reloadPlaylist(playlistId);
+              $("#loading").css("display", "none");
           }, function errorCallback(response) {});
   };
 
