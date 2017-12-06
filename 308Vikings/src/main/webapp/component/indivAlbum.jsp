@@ -52,11 +52,14 @@
                <td><label ng-repeat="songartists in song.artists"><a href="#!artists/{{songartists.id}}">{{songartists.name}}<span ng-hide="$last">, </span> </a></label></td>
                <td>{{song.duration | convertMilSec}}</td>
                <td id="nohover">
-                   <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)">
+                   <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)" ng-click="getAllPlaylistforMenu()">
                    <div class="moredropdown {{song.id}}" style="display: none">
                        <ul>
                            <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
-                           <a class="moremenulist">Add to Playlist</a>
+                           <div ng-repeat="myplaylist in playlistmenudata">
+                           <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>                           
+                           </div>
+                          
                        </ul>
                    </div>
                </td>

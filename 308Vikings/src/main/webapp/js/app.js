@@ -192,6 +192,37 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           }, function errorCallback(response) {});
   };
   
+  $scope.addToPlaylist = function(playlistId, songId){
+        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlistId ,songId:songId}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+          }, function errorCallback(response) {});
+      
+  };
+  $scope.RemoveFromPlaylist = function(playlistId, trackNum){
+        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlistId ,trackNum:trackNum}, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            }
+          })
+          .then(function successCallback(response) {
+          }, function errorCallback(response) {});
+      
+  };
+  $scope.getAllPlaylistforMenu = function(){
+        $http({
+          method: 'GET',
+          url: '/308Vikings/UserMusic/library/playlists',
+        }).then(function successCallback(response) {
+          $scope.playlistmenudata = response.data;
+        }, function errorCallback(response) {});
+  };        
+  
   $scope.saveSong = function(songId, savedSongs) {
       $("#loading").css("display", "block");
       $http.post('/308Vikings/UserMusic/saveSong', {id:songId}, {
