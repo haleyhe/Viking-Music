@@ -137,6 +137,10 @@ $( document ).ready(function() {
                    if(song.loop == true){
                        playQueue();
                    }
+                   else if(queueShuffle == true){
+                       currentSong = Math.floor((Math.random() * queueList.length) + 1);
+                       playQueue();
+                   }
                    else if(queueList.length-1 !== currentSong){
                        currentSong++;
                        playQueue();
