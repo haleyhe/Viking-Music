@@ -42,11 +42,13 @@ function peakQueue(element){
 }
 
 function playQueue(){
-    song.load();
-    song = new Audio(home + 'mp3/'  +Object.keys(queueList[currentSong])[0]  + '.mp3');
-    songhandler();
-    var scope = angular.element(document.getElementById('globalcontroller')).scope();
-    scope.getSongDetail(Object.keys(queueList[currentSong])[0]);
+    if(currentSong < queueList.length){
+        song.load();
+        song = new Audio(home + 'mp3/'  +Object.keys(queueList[currentSong])[0]  + '.mp3');
+        songhandler();
+        var scope = angular.element(document.getElementById('globalcontroller')).scope();
+        scope.getSongDetail(Object.keys(queueList[currentSong])[0]);
+    }
 }
 function changeSong(element){
    song.load();
@@ -60,7 +62,6 @@ function songhandler(){
     song.addEventListener('loadedmetadata', function() {
         $("#seek").prop("max", song.duration);
         song.play();
-        song.loop = false;
         $("#seek").bind("change", function() {
             song.currentTime = $(this).val();
         });
@@ -133,7 +134,10 @@ $( document ).ready(function() {
 
     $(document).on('click','#next', function(e) {
                    e.preventDefault();
-                   if(queueList.length-1 !== currentSong){
+                   if(song.loop == true){
+                       playQueue();
+                   }
+                   else if(queueList.length-1 !== currentSong){
                        currentSong++;
                        playQueue();
                    }

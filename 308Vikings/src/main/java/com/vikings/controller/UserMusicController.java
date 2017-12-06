@@ -105,7 +105,6 @@ public class UserMusicController {
     @RequestMapping(method=RequestMethod.POST, value="/UserMusic/markSongAsPlayedForUser")
     public @ResponseBody JsonResponse markSongAsPlayedForUser(@RequestBody MarkSongAsPlayedForUserRequest request) {
         User user = userAccountManager.getSessionUser();
-        
         if (user != null) {
             Song song = songManager.getSong(request.getSongId());
             if (request.isClicked()) {
