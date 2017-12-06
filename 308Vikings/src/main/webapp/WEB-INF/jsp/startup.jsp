@@ -29,7 +29,6 @@
                 <div><input id='login-username' placeholder="Username"></div>
                 <div><input id= 'login-password' type="password" placeholder="Password"></div>
                 <div><button class=login type="submit"><a>Login</a></button></div>
-                <div><button class=loginfacebook>Login with Facebook</button></div>
                 <div class=registerbtn>Register now</div>
             </div>
            </form>
