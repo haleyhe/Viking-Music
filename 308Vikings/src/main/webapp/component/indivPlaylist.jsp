@@ -44,6 +44,7 @@
               <h3 ng-show="playlistdata.playlist.songs.length == 0"> This playlist has no songs. </h3>
               <table class="songtable" ng-hide="playlistdata.playlist.songs.length == 0">
                 <tr>
+                  <td>#</td>
                   <td></td>
                   <td></td>
                   <td>Title</td>
@@ -53,23 +54,32 @@
                   <td>Duration</td>
                 </tr>
                 <tr ng-repeat="song in playlistdata.playlist.songs">
+                <td id="nohover">{{song.trackNumber}}</td>
+                <td id="nohover">
+                  <img class='play-btn' src=${home}css/play-button-1.png></img>
+                 </td>
+                <td id="nohover">
+                    <a ng-click="saveSong(song.id,playlistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="playlistdata.savedSongs[song.id]"></a>
+                    <a ng-click="unsaveSong(song.id,playlistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="playlistdata.savedSongs[song.id]"></td></a>
+                  <td>{{song.name}}</td>
                   <td>
-                    <img class='play-btn' src=${home}css/play-button-1.png></img>
+                    <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
+                      {{songartists.name}}<span ng-hide="$last">, </span>
+                    </a>
                   </td>
-                  <div>
-                    <td>
-                        <a ng-click="saveSong(song.id,playlistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="playlistdata.savedSongs[song.id]"></a>
-                        <a ng-click="unsaveSong(song.id,playlistdata.savedSongs, null)"><img class="play-btn" src="${home}css/success.png" ng-show="playlistdata.savedSongs[song.id]"></td></a>
-                      </div>
-                      <td>{{song.name}}</td>
-                      <td>
-                        <a href="#!artists/{{songartists.id}}" ng-repeat="songartists in song.artists">
-                          {{songartists.name}}<span ng-hide="$last">, </span>
-                        </a>
-                      </td>
-                      <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
-                      <td>{{song.dateAdded | date:'yyyy-MM-dd'}}</td>
-                      <td>{{song.duration  | convertMilSec}}</td>
+                  <td><a href="#!album/{{song.album.id}}">{{song.album.name}}</a></td>
+                  <td>{{song.dateAdded | date:'yyyy-MM-dd'}}</td>
+                  <td>{{song.duration  | convertMilSec}}</td>
+                  <td id="nohover">
+                    <img class='play-btn' src="${home}css/more.png" id="{{song.id}}" onclick="openMoreMenu(this)" ng-click="getAllPlaylistforMenu()">
+                    <div class="moredropdown {{song.id}}" style="display: none">
+                        <ul>
+                            <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
+                            <a class="moremenulist" ng-click="removeFromPlaylist(playlistdata.playlist.id, song.trackNumber)">Remove from Playlist</a>                           
+                        </ul>
+                    </div>
+                   </td>
+                    </tr>
                     </table>
                   </div>
 

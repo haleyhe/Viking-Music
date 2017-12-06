@@ -42,14 +42,17 @@
             <td>{{libSong.dateAdded | date:'yyyy-MM-dd'}}</td>
             <td>{{libSong.song.duration | convertMilSec}}</td>
             <td id="nohover">
-                <img class='play-btn' src="${home}css/more.png" id="{{libSong.song.id}}" onclick="openMoreMenu(this)">
+                <img class='play-btn' src="${home}css/more.png" id="{{libSong.song.id}}" onclick="openMoreMenu(this)" ng-click="getAllPlaylistforMenu()">
                 <div class="moredropdown {{libSong.song.id}}" style="display: none">
                     <ul>
-                        <a id="{{libSong.song.id}}" onclick="addToQueue(this)">Add to Queue</a>
-                        <a>Add to Playlist</a>
+                        <a class="moremenulist" id="{{libSong.song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(libSong.song.artists, libSong.song.name, libSong.song.duration)">Add to Queue</a>
+                        <div ng-repeat="myplaylist in playlistmenudata">
+                        <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, libSong.song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>                           
+                        </div>
                     </ul>
                 </div>
-             </td>
+            </td>
+          </tr>
           </table>
         </div>
       </div>

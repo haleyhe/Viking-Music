@@ -203,8 +203,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           }, function errorCallback(response) {});
       
   };
-  $scope.RemoveFromPlaylist = function(playlistId, trackNum){
-        $http.post('/308Vikings//Playlist/addSong', {playlistId:playlistId ,trackNum:trackNum}, {
+  $scope.removeFromPlaylist = function(playlistId, trackNum){
+        $http.post('/308Vikings/Playlist/removeSong', {playlistId:playlistId ,trackNum:trackNum}, {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
@@ -212,7 +212,6 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
           })
           .then(function successCallback(response) {
           }, function errorCallback(response) {});
-      
   };
   $scope.getAllPlaylistforMenu = function(){
         $http({

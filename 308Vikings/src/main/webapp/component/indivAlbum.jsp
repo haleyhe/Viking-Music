@@ -59,7 +59,6 @@
                            <div ng-repeat="myplaylist in playlistmenudata">
                            <a class="moremenulist" ng-click="addToPlaylist(myplaylist.playlistIdentifier.id, song.id)">Add to {{myplaylist.playlistIdentifier.name}}</a>                           
                            </div>
-                          
                        </ul>
                    </div>
                </td>
