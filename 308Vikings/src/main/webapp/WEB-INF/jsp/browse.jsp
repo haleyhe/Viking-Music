@@ -6,6 +6,7 @@
     <head>
 
         <c:url var="home" value="/" scope="request" />
+        <link rel="shortcut icon" type="image/png" href="${home}css/favicon.ico"/>
         <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.5, user-scalable=no">

@@ -79,7 +79,6 @@ $(document).ready(function() {
       $(this).removeClass('open');
       $('.user-dropdown-menu').css("display", "none");
     });
-  
 
   $('#to-admin-portal-form').click(function() {
     window.location.replace("/308Vikings/adminportal");
