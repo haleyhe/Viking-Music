@@ -75,6 +75,7 @@ public class PlaylistController {
         playlist.setDescription(description);
         playlist.setPubliclyVisible(publiclyVisible);
         playlist.setCreator(sessionUser.toUserIdentifier());
+        playlist.setNumFollowers(1);
 
         String playlistId = playlistManager.createPlaylist(playlist);
 
