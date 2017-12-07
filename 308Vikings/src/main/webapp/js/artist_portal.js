@@ -91,6 +91,7 @@ function displaySuccessMessage(message) {
 }
 
 function logout() {
+    showLoading();
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -98,6 +99,7 @@ function logout() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if (!data.success) {
             displayErrorMessage(data.error);
         } else {
@@ -137,6 +139,8 @@ function submitNewArtistInfo() {
         formData.append("thumbnail", filesSelected[0]);
     }
     
+    showLoading();
+    
     $.ajax({
         type: "POST",
         url: "/308Vikings/ArtistAccount/updateArtist",
@@ -146,6 +150,7 @@ function submitNewArtistInfo() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         if (!data.success) {
             displayErrorMessage(data.error);
         } else {
@@ -164,6 +169,8 @@ function getMonthlySummary() {
     }
     date = date + '-01';
     
+    showLoading();
+    
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -173,6 +180,7 @@ function getMonthlySummary() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         displayMonthlySummaryResults(date, data);
     });
 }
@@ -208,4 +216,13 @@ function createMonthlySummaryResultsTableRow(payment) {
     result += "<td>" + "$" + parseFloat(payment.amountPaid).toFixed(2) + "</td>";
     result += "</tr>";
     return result;
+}
+
+function showLoading() {
+    $("#loading").css("display", "block");
+}
+
+function hideLoading() {
+    $("#loading").css("display", "none");
+    $("#artist-error").css("display", "none");
 }

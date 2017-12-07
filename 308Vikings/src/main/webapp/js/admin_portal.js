@@ -400,6 +400,7 @@ function getMonthlySummary() {
         return;
     }
     date = date + '-01';
+    showLoading();
     
     $.ajax({
         type: "POST",
@@ -410,6 +411,7 @@ function getMonthlySummary() {
         async: true,
         timeout: 100000
     }).done(function(data) {
+        hideLoading();
         displayMonthlySummaryResults(date, data);
     });
 }
@@ -433,6 +435,9 @@ function displayMonthlySummaryResults(date, data) {
             });
             $("#admin-monthly-summary-result-table tbody").html(tableRows);
             $("#admin-monthly-summary-result-table").show();  
+        } else {
+            $("#admin-monthly-summary-result-table tbody").html("No payments for this month.");
+            $("#admin-monthly-summary-result-table").show(); 
         }
         if (Object.keys(data.revenue).length > 0) {
             var tableRows = "";
@@ -441,6 +446,9 @@ function displayMonthlySummaryResults(date, data) {
             });
             $("#admin-monthly-summary-result-revenue-table tbody").html(tableRows);
             $("#admin-monthly-summary-result-revenue-table").show();  
+        } else {
+            $("#admin-monthly-summary-result-revenue-table tbody").html("No revenue for this month.");
+            $("#admin-monthly-summary-result-revenue-table").show(); 
         }
         $("#admin-monthly-summary-result").show();
         
