@@ -37,6 +37,7 @@ function addToQueueId(id){
 function playQueue(){
     if(currentSong < queueList.length){
         song.load();
+        var url = home + 'mp3/' + Object.keys(queueList[currentSong])[0]  + '.mp3';
         var http = new XMLHttpRequest();
         http.open('HEAD', url, false);
         http.send();
@@ -54,7 +55,7 @@ function playQueue(){
 }
 function changeSong(element){
     song.load();
-    url = home + 'mp3/' + element.id  + '.mp3';
+    var url = home + 'mp3/' + element.id  + '.mp3';
     var http = new XMLHttpRequest();
     http.open('HEAD', url, false);
     http.send();
