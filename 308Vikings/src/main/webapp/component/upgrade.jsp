@@ -16,7 +16,7 @@
                 Upgrade to Premium now
               </h1>
               <div class="user-form">
-              <form id="upgrade-form">
+              <form id="upgrade-form" name="upgrade">
                 <div id="address-container">
                   <label> First Name: </label> <input type="text" ng-model="payment.name.firstName" required/> <br>
                   <label> Last Name: </label> <input type="text" ng-model="payment.name.lastName" required/> <br>
@@ -37,7 +37,7 @@
                 </div>
                 <br/>
                 <br/>
-                <button type="submit" ng-click="upgrade()" class="pageButton">Upgrade</button>
+                <button type="submit" ng-disabled="upgrade.$invalid" ng-click="upgrade()" class="pageButton">Upgrade</button>
                 <button type="submit" ng-click="resetForm()" class="pageButton">Reset</button>
               </form>
             </div>
