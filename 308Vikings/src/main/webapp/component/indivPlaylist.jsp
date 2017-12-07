@@ -54,7 +54,7 @@
                 </tr>
                 <tr ng-repeat="song in playlistdata.playlist.songs">
                 <td id="nohover">
-                  <img class='play-btn' src=${home}css/play-button-1.png></img>
+                  <img class='play-btn' src=${home}css/play-button-1.png id="{{song.id}}" onclick="changeSong(this)" ng-click="changePlayer(song.album.id, song.artists, song.name, song.lyrics, song.id)"></img>
                  </td>
                 <td id="nohover">
                     <a ng-click="saveSong(song.id,playlistdata.savedSongs)"><img class='play-btn' src="${home}css/plus.png" ng-hide="playlistdata.savedSongs[song.id]"></a>
