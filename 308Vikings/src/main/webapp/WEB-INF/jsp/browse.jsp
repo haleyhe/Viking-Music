@@ -213,6 +213,7 @@
                              </table>
                                 <button onclick="playQueue()" class="pageButton">Play</button>
                                 <button class="pageButton" id="queueLoopbtn">Loop</button>
+                                <button onclick="clearQueue()" id="clearbtn" class="pageButton">Clear</button>
                              </div>
                              <div id="queuePanelEmpty">
                                  This Queue is Empty. Add Music!
@@ -299,21 +300,25 @@
                 $(this).addClass('open');
             }
         });
-          $('#lyricsbtn').click(function() {
+        $('#lyricsbtn').click(function() {
         if($('#lyrics').css('display')==="none"){
             $('#lyrics').css('display', 'block');
+            $('#lyricsbtn').html("Hide Lyrics");
         }
         else{
             $('#lyrics').css('display', 'none');
+            $('#lyricsbtn').html("Show Lyrics");
         }
         });
 
         $('#queuelistbtn').click(function() {
         if($('#queuelist').css('display')==="none"){
             $('#queuelist').css('display', 'block');
+            $('#queuelistbtn').html("Hide Queue");
         }
         else{
             $('#queuelist').css('display', 'none');
+            $('#queuelistbtn').html("Show Queue");
         }
       });
     </script>
