@@ -264,7 +264,7 @@
                   <!--Advertisment Section-->
                   <div class="ad" ng-style="premium && {'height' : '50px'} || {}">
                     <div id="adclose" ng-style="premium && {'display' : 'none'} || {}" style="color: white; text-align: right; padding-top: 50px; position:absolute; padding-left: 5px; cursor: pointer;">x</div>
-                    <div ng-hide="premium" style="text-align: center; font-size: 50px; color: white; line-height: 200px;">ADVERTISEMENT HERE</div>
+                    <div ng-hide="premium" style="text-align: center; font-size: 50px; color: white; line-height: 200px;"><b>FAR AND BEYOND</b><sub style="font-size: 16px"><b>STONY BROOK UNIVERSITY</b></sub></div>
                   </div>
                   <div ng-controller="globalController" id="globalcontroller">
                   <div ng-view></div>
