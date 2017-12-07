@@ -142,7 +142,7 @@
                           <td>
                         </tr>
 
-                        <tr ng-repeat="song in charts.songs">
+                        <tr ng-repeat="song in charts.songs | limitTo: 50">
                           <td>
                             <img class='play-btn' src=${home}css/play-button-1.png  id="{{song.id}}" onclick="changeSong(this)"></img>
                           </td>
