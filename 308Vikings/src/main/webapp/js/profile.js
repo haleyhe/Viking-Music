@@ -8,6 +8,7 @@ app.controller("profileController", function($scope, $location, $http) {
   };
 
   $scope.updateUser = function() {
+        $("#loading").css("display", "block");
     $http.post('/308Vikings/UserAccount/updateUserProfile', JSON.stringify($scope.editUser), {
         headers: {
           'Content-Type': 'application/json',
@@ -27,6 +28,7 @@ app.controller("profileController", function($scope, $location, $http) {
             }
             $scope.resetForm();
           }
+              $("#loading").css("display", "none");
         },
         function errorCallback(response) {});
   };

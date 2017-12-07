@@ -85,22 +85,24 @@ public class PaymentManager {
        return checkForLuhn(cardNum);
     }
     
-    private boolean checkForLuhn (String cardNum) {
-        int sum = 0;
-        int numDigits = cardNum.length();
-        boolean parity = false;
-        for (int i = numDigits -1; i >= 0; i--) {
-            int digit = Character.getNumericValue(cardNum.charAt(i));
-            if (parity) {
-                digit *= 2;
-                if (digit > 9) {
-                    digit = (digit % 10) + 1;
-                }
-                sum += digit;
-                parity = !parity;
+    private boolean checkForLuhn (String ccNumber) {
+         int sum = 0;
+            boolean alternate = false;
+            for (int i = ccNumber.length() - 1; i >= 0; i--)
+            {
+                    int n = Integer.parseInt(ccNumber.substring(i, i + 1));
+                    if (alternate)
+                    {
+                            n *= 2;
+                            if (n > 9)
+                            {
+                                    n = (n % 10) + 1;
+                            }
+                    }
+                    sum += n;
+                    alternate = !alternate;
             }
-        }
-        return sum % 10 == 0;
+            return (sum % 10 == 0);
     }
     
     public Set<RevenueSummary> getRevenue(Date month) {

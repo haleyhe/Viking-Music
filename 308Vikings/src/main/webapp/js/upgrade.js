@@ -47,11 +47,11 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
             $scope.resetForm();
             $scope.getUserPremium();
           } else {
-            //replace to display data module
-            alert(response.data.error);
+            $('#message').html(response.data.error);
+            $("#message-modal").css("display", "block");
           }
+          $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
   $scope.downgrade = function() {
@@ -67,11 +67,11 @@ app.controller("premiumController", function($scope, $rootScope, $http) {
             $scope.getUserPremium();
             $scope.resetForm();
           } else {
-            //replace to display data module
-            alert(response.data.error);
+            $('#message').html(response.data.error);
+            $("#message-modal").css("display", "block");
           }
+              $("#loading").css("display", "none");
         }, function errorCallback(response) {});
-    $("#loading").css("display", "none");
   };
 
 
