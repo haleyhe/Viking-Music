@@ -23,6 +23,7 @@ function addToQueue(element){
     var queuesong = new Audio(home + 'mp3/' + element.id + '.mp3');
     queue[element.id] = queuesong;
     queueList.push(queue);
+    $('.moredropdown').css('display', 'none');
     //console.log(Object.keys(queueList[currentSong])[0]);
     //console.log(Object.values(queueList[currentSong])[0]);
 }

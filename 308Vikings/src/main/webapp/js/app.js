@@ -83,7 +83,7 @@ $(document).ready(function() {
   $('#to-admin-portal-form').click(function() {
     window.location.replace("/308Vikings/adminportal");
   });
-
+  
   function readEditURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -236,6 +236,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
             $("#loading").css("display", "none");
               $('#message').html("'"+ song.name + "' has been added to playlist '" + playlist.name + "'");
               $("#message-modal").css("display", "block");
+              $('.moredropdown').css('display', 'none');
           }, function errorCallback(response) {});
   };
   $scope.getAllPlaylistforMenu = function(){
