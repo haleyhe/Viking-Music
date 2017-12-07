@@ -55,10 +55,12 @@
                 <div class=topnav-bar>
                   <div id=user-buttons>
                     <ul>
-                      <li id=user-display-img><img src=${home}/css/artist/${artist.id}.jpg></img></li>
-                      <li id=user-display-name style="margin-right: 2%;"><a>${artist.name}</a></li>
+                        <li>
+                        <form id="artist-signout-form">
+                            <a><button>Logout</button></a>
+                        </form>
+                        </li>
                       <li>
-                      <button class = dropdownbtn><b>></b></button>
                       <div class=user-dropdown-menu>
                         <form id="artist-signout-form">
                             <a><button>Logout</button></a>
