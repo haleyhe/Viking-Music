@@ -33,6 +33,13 @@ function addToQueueId(id){
     queue[id] = queuesong;
     queueList.push(queue);
 }
+function clearQueue(){
+      currentSong = 0;
+      $('#queuePanelEmpty').css('display','block');
+      $('#queuePanelPopulated').css('display', 'none');
+      queueList.splice(0,queueList.length);
+      $('#queuetable').empty();
+}
 
 function playQueue(){
     if(currentSong < queueList.length){
