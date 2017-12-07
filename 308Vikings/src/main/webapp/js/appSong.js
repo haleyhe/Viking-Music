@@ -36,7 +36,15 @@ function addToQueueId(id){
 function playQueue(){
     if(currentSong < queueList.length){
         song.load();
-        song = new Audio(home + 'mp3/'  +Object.keys(queueList[currentSong])[0]  + '.mp3');
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        if (http.status != 404){
+            song = new Audio(home + 'mp3/'  +Object.keys(queueList[currentSong])[0]  + '.mp3');
+        }
+        else{
+            song = new Audio(home + 'mp3/rickroll.mp3')  
+        }
         songhandler();
         var scope = angular.element(document.getElementById('globalcontroller')).scope();
         scope.getSongDetail(Object.keys(queueList[currentSong])[0]);
@@ -44,11 +52,20 @@ function playQueue(){
     }
 }
 function changeSong(element){
-   song.load();
-   song = new Audio(home + 'mp3/' + element.id + '.mp3');
-   songhandler();
-   var scope = angular.element(document.getElementById('globalcontroller')).scope();
-   scope.markSongPlayed(element.id);
+    song.load();
+    url = home + 'mp3/' + element.id  + '.mp3';
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if (http.status != 404){
+        song = new Audio(home + 'mp3/' + element.id + '.mp3');
+    }
+    else{
+        song = new Audio(home + 'mp3/rickroll.mp3')
+    }
+    songhandler();
+    var scope = angular.element(document.getElementById('globalcontroller')).scope();
+    scope.markSongPlayed(element.id);
 }
 
 function songhandler(){
