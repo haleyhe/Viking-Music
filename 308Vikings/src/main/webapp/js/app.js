@@ -167,6 +167,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   };
 
   $scope.albumToPlay = function(albumList){
+      currentSong = 0;
       $('#queuePanelEmpty').css('display','none');
       $('#queuePanelPopulated').css('display', 'block');
       queueList.splice(0,queueList.length);
@@ -187,6 +188,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   };
 
   $scope.playListToPlay = function(playlist){
+      currentSong = 0;
       $('#queuePanelEmpty').css('display','none');
       $('#queuePanelPopulated').css('display', 'block');
       queueList.splice(0,queueList.length);
