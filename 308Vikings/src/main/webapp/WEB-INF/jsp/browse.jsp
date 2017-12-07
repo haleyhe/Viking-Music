@@ -199,15 +199,25 @@
                   <div style="width: 25%;">
                       <div style="text-align: right;">
                           <button id="lyricsbtn">Show Lyrics</button>
-                          <button id="queuelistbtn" style="margin-top:5px">Show Queue</button>
+                          <button id="queuelistbtn" onclick="checkQueueEmpty()" style="margin-top:5px">Show Queue</button>
                       </div>
                          <div id="lyrics" style="text-align: center; padding-top: 50px;">No Lyrics to show! Play a Music</div>
                          <div id="queuelist" style="text-align: center; padding-top: 50px;">
+                             <div id="queuePanelPopulated" style="margin-bottom: 40px;">
+                             <h3 style="text-align: center; margin:0px; margin-bottom: 20px">Song Queue</h3>
                              <table id="queuetable">
+                                 <tr>
+                                     <td><b>Title</b></td>
+                                     <td><b>Artist</b></td>
+                                 </tr>
                              </table>
-                             <button onclick="playQueue()" class="pageButton">Play</button>
-                             <button class="pageButton" id="queueLoopbtn">Loop</button>
-                         </div>
+                                <button onclick="playQueue()" class="pageButton">Play</button>
+                                <button class="pageButton" id="queueLoopbtn">Loop</button>
+                             </div>
+                             <div id="queuePanelEmpty">
+                                 This Queue is Empty. Add Music!
+                             </div>
+                        </div>
                   </div>
                 </div>
 
