@@ -20,6 +20,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -372,4 +373,21 @@ public class UserMusicManager {
         userMusicDAO.removeFriend(userId, friendId);
     }
     
+    public void updateLibraryPlaylist(Playlist playlist) {
+        User user = userAccountManager.getSessionUser();
+        if (user == null) {
+            return;
+        }
+        Set<LibraryPlaylist> followedPlaylists = user.getUserMusic().getFollowedPlaylists();
+        PlaylistIdentifier libPlaylist = null;
+        for (LibraryPlaylist lp: followedPlaylists) {
+            if (lp.getPlaylistIdentifier().getId().equals(playlist.getId())) {
+                libPlaylist = lp.getPlaylistIdentifier();
+                break;
+            }
+        }
+        if (libPlaylist != null) {
+            libPlaylist.setName(playlist.getName());
+        }
+   }
 }

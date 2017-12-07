@@ -73,7 +73,7 @@
                     <div class="moredropdown {{song.id}}" style="display: none">
                         <ul>
                             <a class="moremenulist" id="{{song.id}}" onclick="addToQueue(this)" ng-click="populateQueue(song.artists, song.name, song.duration)">Add to Queue</a>
-                            <a class="moremenulist" ng-click="removeFromPlaylist(playlistdata.playlist.id, song.playlistTrackNumber)">Remove from Playlist</a>
+                            <a class="moremenulist" ng-if="userId == playlistdata.playlist.creator.id" ng-click="removeFromPlaylist(playlistdata.playlist.id, song.playlistTrackNumber)">Remove from Playlist</a>
                         </ul>
                     </div>
                    </td>

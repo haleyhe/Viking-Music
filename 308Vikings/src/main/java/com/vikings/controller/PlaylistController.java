@@ -110,6 +110,8 @@ public class PlaylistController {
         playlist.setPubliclyVisible(true);
         if (!playlistManager.updatePlaylist(playlist)) {
              return new JsonResponse(false, System.getProperty("error.Playlist.badPlaylistUpdate"));
+        } else {
+            userMusicManager.updateLibraryPlaylist(playlist);
         }
         if (thumbnail != null) {
             System.out.println("Detected a new thumbnail");
