@@ -21,12 +21,17 @@
 
             <div id="musictab-1" class="musictab-content current">
               <div class="container">
-              <h2>{{pageName}}</h2>
-              <div>
+              <h2>Discover Recommendations</h2>
+              <div id="discover-container">
+                  <div ng-show="isEmpty(discover.recommendations)">
+                    <br>
+                    <br>
+                    <h3> Play songs and add to your library to get recommendations. </h3>
+                  </div>
                   <div ng-repeat="(key, value) in discover.recommendations">
                     <hr class="style14">
                     <div style="margin-left:60px;">
-                    <h4> Beacuse you listened to {{key}}</h4>
+                    <h4> Because you listened to {{key}}</h4>
                     <div>
                       <div class="albumitems">
                         <div ng-repeat="album in value">
@@ -50,7 +55,7 @@
 
             <div id="musictab-2" class="musictab-content">
               <div class="container">
-                  <h2>{{pageName}}</h2>
+                  <h2>Newly Released</h2>
                   <hr class="style14">
                     <div>
                     <div class=albumitems>
@@ -72,7 +77,7 @@
 
             <div id="musictab-3" class="musictab-content">
               <div class="container">
-                  <h2>{{pageName}}</h2>
+                  <h2>Genres & Moods</h2>
                   <hr class="style14">
                     <div class="playlistitems">
                       <div ng-repeat="playlist in genres.playlists">
@@ -92,11 +97,10 @@
 
             <div id="musictab-4" class="musictab-content">
               <div class="container">
-                  <h2> Concert Recommendations </h2>
+                  <h2>Concert Recommendations </h2>
                   <div ng-show="concerts.concerts.length === 0" align = "center">
                       <br/>
                       <br/>
-
                       <h3> You do not have any concert recommendations </h3>
                   </div>
                   <div ng-show="concerts.concerts.length !== 0">
@@ -124,7 +128,7 @@
 
             <div id="musictab-5" class="musictab-content">
               <div style="margin-top: 20px; margin-bottom: 10px;">
-                      <h2> {{pageName}}</h2>
+                      <h2>Top Charts</h2>
                       <br>
                       <hr class="style14" style="width:70%">
                         <table class="songtable">

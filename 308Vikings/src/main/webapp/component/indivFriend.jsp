@@ -14,13 +14,13 @@
             </div>
             <h1 style = "padding-left: 50px;">
                {{currentName}}'s Playlists
-            </h1>   
+            </h1>
             <br/>
            <hr class="style14">
            <br/>
            <br/>
            <div class = 'container' ng-show="friendsplaylist.playlists.length === 0">
-                <h2 align = "center"> You have no friends. You can add friends above.</h2>
+                <h2 align = "center"> {{currentName}} has no playlists to display.</h2>
            </div>
            <div class = 'container' ng-show="friendsplaylist.playlists.length !== 0">
                <div class="playlistitems">
@@ -37,7 +37,7 @@
                 </div>
               </div>
            </div>
-            
+
         </div>
     </body>
 </html>

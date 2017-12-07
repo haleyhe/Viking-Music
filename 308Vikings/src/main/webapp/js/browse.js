@@ -36,6 +36,7 @@ app.controller("browseController", function($scope, $http) {
   };
 
   $scope.discoverMusic = function() {
+    $('#discover-container').hide();
     $("#loading").css("display", "block");
     $http({
       method: 'GET',
@@ -44,10 +45,21 @@ app.controller("browseController", function($scope, $http) {
     }).then(function successCallback(response) {
       $scope.pageName = "Discover Music";
       $scope.discover = response.data;
+          $('#discover-container').show();
           $("#loading").css("display", "none");
     }, function errorCallback(response) {});
   };
 
+   $scope.isEmpty = function (myObject) {
+      for(var key in myObject) {
+          if (myObject.hasOwnProperty(key)) {
+              return false;
+          }
+      }
+      return true;
+  };
+
+  $scope.discover = {};
   $scope.discoverMusic();
   $scope.newDate = new Date().getTime();
 
