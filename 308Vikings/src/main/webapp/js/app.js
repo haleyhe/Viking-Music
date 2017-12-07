@@ -162,7 +162,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       $('#queuePanelPopulated').css('display', 'block');
       for(var i = 0; i < albumList.album.songs.length; i++){
          addToQueueId(albumList.album.songs[i].id);
-         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
+         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td width='200px'>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
       }
   };
 
@@ -174,7 +174,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       $('#queuetable').empty();
       for(var i = 0; i < albumList.album.songs.length; i++){
          addToQueueId(albumList.album.songs[i].id);
-         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
+         $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td width='200px'>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
       }
       playQueue();
   };
@@ -183,7 +183,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       $('#queuePanelPopulated').css('display', 'block');
       for(var i = 0; i < playlist.songs.length; i++){
          addToQueueId(playlist.songs[i].id);
-         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td>"+playlist.songs[i].artists[0].name+"</td></tr>");
+         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td width='200px'>"+playlist.songs[i].artists[0].name+"</td></tr>");
       }
   };
 
@@ -195,7 +195,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       $('#queuetable').empty();
       for(var i = 0; i < playlist.songs.length; i++){
          addToQueueId(playlist.songs[i].id);
-         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td>"+playlist.songs[i].artists[0].name+"</td></tr>");
+         $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td width='200px'>"+playlist.songs[i].artists[0].name+"</td></tr>");
       }
       playQueue();
   };
