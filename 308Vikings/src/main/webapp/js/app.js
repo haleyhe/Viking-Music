@@ -98,7 +98,17 @@ $(document).ready(function() {
     readCreateURL(this);
   });
 });
+function checkQueueEmpty(){
+    if(queueList.length === 0){
+        $('#queuePanelPopulated').css('display', 'none');
+        $('#queuePanelEmpty').css('display', 'block');
+    }
+    else{
+        $('#queuePanelEmpty').css('display','none');
+        $('#queuePanelPopulated').css('display', 'block');
 
+    }
+}
 function openMoreMenu(element){
     var more = "moredropdown " + element.id;
     var menuelement = document.getElementsByClassName(more);
@@ -130,6 +140,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       $('#lyrics').replaceWith('<div id="lyrics" style="display: none"><pre style="padding: 10px">' + lyrics + '<pre></div>');
   };
   $scope.populateQueue = function(artistname, songname){
+      $('#queuePanelEmpty').css('display','none');
+      $('#queuePanelPopulated').css('display', 'block');
       $('#queuetable').append("<tr><td width='300px'>"+ songname + "</td><td>"+artistname[0].name+"</td></tr>");
   };
   $scope.getSongDetail = function(songId){
@@ -146,6 +158,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
         }, function errorCallback(response) {});
   };
   $scope.albumToQueue = function(albumList){
+      $('#queuePanelEmpty').css('display','none');
+      $('#queuePanelPopulated').css('display', 'block');
       for(var i = 0; i < albumList.album.songs.length; i++){
          addToQueueId(albumList.album.songs[i].id);
          $('#queuetable').append("<tr><td width='300px'>"+ albumList.album.songs[i].name + "</td><td>"+albumList.album.songs[i].artists[0].name+"</td></tr>");
@@ -153,6 +167,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   };
 
   $scope.albumToPlay = function(albumList){
+      $('#queuePanelEmpty').css('display','none');
+      $('#queuePanelPopulated').css('display', 'block');
       queueList.splice(0,queueList.length);
       $('#queuetable').empty();
       for(var i = 0; i < albumList.album.songs.length; i++){
@@ -162,6 +178,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
       playQueue();
   };
   $scope.playListToQueue = function(playlist){
+      $('#queuePanelEmpty').css('display','none');
+      $('#queuePanelPopulated').css('display', 'block');
       for(var i = 0; i < playlist.songs.length; i++){
          addToQueueId(playlist.songs[i].id);
          $('#queuetable').append("<tr><td width='300px'>"+ playlist.songs[i].name + "</td><td>"+playlist.songs[i].artists[0].name+"</td></tr>");
@@ -169,6 +187,8 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
   };
 
   $scope.playListToPlay = function(playlist){
+      $('#queuePanelEmpty').css('display','none');
+      $('#queuePanelPopulated').css('display', 'block');
       queueList.splice(0,queueList.length);
       $('#queuetable').empty();
       for(var i = 0; i < playlist.songs.length; i++){
@@ -202,6 +222,7 @@ app.controller("globalController", function ($scope, $rootScope, $location, $htt
             $("#loading").css("display", "none");
               $('#message').html("'"+ song.name + "' has been added to playlist '" + playlist.name + "'");
               $("#message-modal").css("display", "block");
+              $('.moredropdown').css('display', 'none');
           }, function errorCallback(response) {});
   };
   $scope.getAllPlaylistforMenu = function(){

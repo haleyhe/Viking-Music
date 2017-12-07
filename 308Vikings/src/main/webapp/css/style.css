@@ -203,7 +203,7 @@ hr.style15 {
 
 #user-buttons ul{
   font-family: 'Raleway', sans-serif;
-  width: 230px;
+  width: 200px;
 }
 
 #user-buttons li{
@@ -679,5 +679,5 @@ li.noBullet{
 #queuetable{
     text-align: left;
     padding-left: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
