@@ -247,7 +247,7 @@ function submitUserEdit() {
     }).done(function(data) {
         hideLoading();
         if (!data.success) {
-            displayErrorMessage(data.error);
+            displaySuccessMessage(data.error);
         } else {
             displaySuccessMessage("Account updated.");
         }
